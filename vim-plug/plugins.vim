@@ -109,9 +109,9 @@ call plug#begin('~/.config/nvim/autoload/plugged')
   " Plugin Graveyard
 
   " jsx syntax support
-  " Plug 'maxmellon/vim-jsx-pretty'
+  Plug 'maxmellon/vim-jsx-pretty'
   " Typescript syntax
-  " Plug 'HerringtonDarkholme/yats.vim'
+  Plug 'HerringtonDarkholme/yats.vim'
   " Multiple Cursors
   " Plug 'terryma/vim-multiple-cursors'
   " Plug 'kaicataldo/material.vim'

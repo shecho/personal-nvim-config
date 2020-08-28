@@ -146,12 +146,12 @@ let g:coc_explorer_global_presets = {
 \   'floatingLeftside': {
 \      'position': 'floating',
 \      'floating-position': 'left-center',
-\      'floating-width': 30,
+\      'floating-width': 24,
 \   },
 \   'floatingRightside': {
 \      'position': 'floating',
 \      'floating-position': 'right-center',
-\      'floating-width': 30,
+\      'floating-width': 24,
 \   },
 \   'simplify': {
 \     'file.child.template': '[selection | clip | 1] [indent][icon | 1] [filename omitCenter 1]'
@@ -165,10 +165,8 @@ autocmd BufEnter * if (winnr("$") == 1 && &filetype == 'coc-explorer') | q | end
 " Snippets
 " Use <C-l> for trigger snippet expand.
 imap <C-l> <Plug>(coc-snippets-expand)
-
 " Use <C-j> for select text for visual placeholder of snippet.
-vmap <C-j> <Plug>(coc-snippets-select)
-
+" vmap <C-j> <Plug>(coc-snippets-select)
 " Use <C-j> for jump to next placeholder, it's default of coc.nvim
 let g:coc_snippet_next = '<c-j>'
 
