@@ -30,13 +30,14 @@ autocmd  FileType which_key set laststatus=0 noshowmode noruler
 
 
 " Single mappings
+let g:which_key_map['3'] = [ ':call Comment()'                    , 'comment' ]
 let g:which_key_map['/'] = [ ':call Comment()'                    , 'comment' ]
-let g:which_key_map['.'] = [ ':e $MYVIMRC'                        , 'open init' ]
-let g:which_key_map[';'] = [ ':Commands'                          , 'commands' ]
+let g:which_key_map['0'] = [ ':e $MYVIMRC'                        , 'open init' ]
+let g:which_key_map['9'] = [ ':Commands'                          , 'commands' ]
 let g:which_key_map['='] = [ '<C-W>='                             , 'balance windows' ]
 let g:which_key_map['d'] = [ ':Bdelete'                           , 'delete buffer']
 let g:which_key_map['e'] = [ ':CocCommand explorer'               , 'explorer' ]
-" let g:which_key_map['f'] = [ ':Farr'                              , 'find and replace' ]
+let g:which_key_map['f'] = [ ':Files'                              , 'find and replace' ]
 let g:which_key_map['h'] = [ '<C-W>s'                             , 'split below']
 let g:which_key_map['m'] = [ ':call WindowSwap#EasyWindowSwap()'  , 'move window' ]
 let g:which_key_map['p'] = [ ':Files'                             , 'search files' ]
@@ -82,7 +83,7 @@ let g:which_key_map.b = {
       \ }
 
 " f is for find and replace
-let g:which_key_map.f = {
+let g:which_key_map.F = {
       \ 'name' : '+find & replace' ,
       \ 'b' : [':Farr --source=vimgrep'    , 'buffer'],
       \ 'p' : [':Farr --source=rgnvim'     , 'project'],
