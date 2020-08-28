@@ -57,8 +57,12 @@
     "javascript": "javascriptreact"
   },
 
+  "snippets.extends":{
+    "javascriptreact": ["javascript"],
+    "typescript": ["javascript"]
+  },
   // explorer
-  "explorer.width": 30,
+  "explorer.width": 24,
   "explorer.icon.enableNerdfont": true,
   "explorer.previewAction.onHover": false,
   "explorer.icon.enableVimDevicons": false,
