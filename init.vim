@@ -12,6 +12,7 @@ source $HOME/.config/nvim/general/functions.vim
 source $HOME/.config/nvim/keys/mappings.vim
 source $HOME/.config/nvim/keys/which-key.vim
 
+
 " Themes
 source $HOME/.config/nvim/themes/syntax.vim
 source $HOME/.config/nvim/themes/onedark.vim
