@@ -75,6 +75,7 @@ nnoremap Y y$
 nnoremap n nzzzv
 nnoremap N Nzzzv
 nnoremap J mzJ`z
+cnoremap Q q
 
 " Select all
 nmap <C-a> gg<S-v>G
