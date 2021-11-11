@@ -10,7 +10,6 @@
   "diagnostic.infoSign": "",
   "diagnostic.hintSign": " ",
 
-
   "list.indicator": ">",
   "list.selectedSignText": " ",
 
@@ -35,7 +34,6 @@
 
   "snippets.ultisnips.directories": ["UltiSnips", "~/.config/nvim/snips"],
 
-
   "emmet.includeLanguages": {
     "vue-html": "html",
     "javascript": "javascriptreact",
@@ -54,5 +52,4 @@
   "explorer.icon.enableVimDevicons": false,
 
   "coc.source.emoji.filetypes": ["markdown"]
-
 }
