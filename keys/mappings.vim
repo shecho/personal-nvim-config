@@ -1,5 +1,3 @@
-" Basic Key Mappings
-
 imap <C-h> <C-w>h
 imap <C-j> <C-w>j
 imap <C-k> <C-w>k
@@ -78,4 +76,5 @@ nnoremap J mzJ`z
 cnoremap Q q
 
 " Select all
-nmap <C-a> gg<S-v>G
+" nmap <C-a> :%y<Cr>
+nmap <C-a> gg<S-v>Gy
