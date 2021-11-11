@@ -53,6 +53,7 @@ call plug#begin('~/.config/nvim/autoload/plugged')
     " Themes
     Plug 'christianchiarulli/onedark.vim'
     " Plug 'christianchiarulli/nvcode-color-schemes.vim'
+    " Plug 'christianchiarulli/nvcode-color-schemes.vim'
     " Intellisense
     Plug 'neoclide/coc.nvim', {'branch': 'release'}
     " Status Line

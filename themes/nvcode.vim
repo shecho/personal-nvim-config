@@ -3,7 +3,9 @@ let g:nvcode_termcolors=256
 
 syntax on
 " colorscheme nord
+" colorscheme one
 colorscheme onedark
+" colorscheme nvcode
 " colorscheme TSnazzy
 " colorscheme aurora
 
