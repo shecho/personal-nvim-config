@@ -9,20 +9,19 @@ let g:nvcode_allow_italics = 1
 " let g:onedark_hide_endofbuffer=1
 " let g:onedark_terminal_italics=1
 " let g:onedark_termcolors=256
-
+" let g:one_termcolors=256
+" let g:one_allow_italics = 1 
 syntax on
 " colorscheme nord
 colorscheme one
 " colorscheme edge
 " colorscheme onedark
 " colorscheme onehalflight
-" colorscheme dracula
+" colorscheme dracula       
 " colorscheme nvcode
 " colorscheme TSnazzy
 " colorscheme aurora
 " one
-let g:one_termcolors=256
-let g:one_allow_italics = 1 
 
 " checks if your terminal has 24-bit color support
 if (has("termguicolors"))
