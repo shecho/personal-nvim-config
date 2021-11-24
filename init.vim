@@ -24,6 +24,7 @@ else
   " Themes
   source $HOME/.config/nvim/themes/syntax.vim
   source $HOME/.config/nvim/themes/nvcode.vim
+  " source $HOME/.config/nvim/themes/onedark.vim
 
   " Plugin Configuration
   source $HOME/.config/nvim/plug-config/vim-commentary.vim

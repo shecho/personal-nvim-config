@@ -52,12 +52,17 @@ call plug#begin('~/.config/nvim/autoload/plugged')
     Plug 'alvan/vim-closetag'
     " Themes
     Plug 'christianchiarulli/onedark.vim'
-    " Plug 'christianchiarulli/nvcode-color-schemes.vim'
+    Plug 'christianchiarulli/nvcode-color-schemes.vim'
+    " Plug 'sainnhe/edge'
+    " Plug 'dracula/dracula-theme'
+    Plug 'rakr/vim-one'
+    " Plug 'sonph/onehalf'
+    " Plug 'joshdick/onedark.vim'
     " Plug 'christianchiarulli/nvcode-color-schemes.vim'
     " Intellisense
     Plug 'neoclide/coc.nvim', {'branch': 'release'}
     " Status Line
-    " Plug 'vim-airline/vim-airline'
+    Plug 'vim-airline/vim-airline'
     " Plug 'glepnir/galaxyline.nvim'
     Plug 'kevinhwang91/rnvimr'
     " FZF
