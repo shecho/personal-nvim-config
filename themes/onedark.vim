@@ -21,12 +21,12 @@ syntax on
 colorscheme one
 call one#highlight('Boolean', '', '', 'italic')
 call one#highlight('Conditional', '', '', 'italic')
-call one#highlight('Operator', '', '', 'italic')
 call one#highlight('Type', '', '', 'italic') 
 call one#highlight('SpecialChar', '', '', 'italic')
 call one#highlight('Keyword', 'c678dd', '', 'italic')"reserved words
 call one#highlight('Include', 'c678dd', '', 'italic')"imports/exports
 call one#highlight('Define', '', '', 'italic')
+" call one#highlight('Operator', '', '', 'italic')"not use to evoid the ligatures lost
 " call one#highlight('Identifier', '', '', 'italic')"params abd arguments
 " call one#highlight('Special', 'B243E6', '', 'italic')
 " call one#highlight('Statement', 'B243E6', '', 'italic')
