@@ -48,7 +48,6 @@
 
   "explorer.width": 29,
   "explorer.icon.enableNerdfont": true,
-
-  "explorer.icon.enableNerdFont": true,
+  "explorer.icon.enableVimDevicons": true,
   "coc.source.emoji.filetypes": ["markdown"]
 }
