@@ -13,6 +13,7 @@ vnoremap > >gv
 
 " I hate escape more than anything else
 inoremap jk <Esc>
+inoremap jj <Esc>
 inoremap kj <Esc>
 
 nnoremap <leader>; :
