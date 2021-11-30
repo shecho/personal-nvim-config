@@ -17,6 +17,7 @@ inoremap jj <Esc>
 inoremap kj <Esc>
 
 nnoremap <leader>; :
+nnoremap <leader>ñ :
 
 " Easy CAPS
 " inoremap <c-u> <ESC>viwUi
