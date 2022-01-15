@@ -1,10 +1,11 @@
 {
+  "suggest.enablePreview": true,
   "suggest.completionItemKindLabels": {
     "text": "t",
     "method": "m",
     "function": ""
   },
-
+  "hover.target": "float",
   "diagnostic.errorSign": " ",
   "diagnostic.warningSign": " ",
   "diagnostic.infoSign": "",
@@ -26,8 +27,7 @@
     "json",
     "python"
   ],
-  "coc.preferences.hoverTarget": "float",
-
+  // "coc.preferences.": "float",
   "python.linting.enabled": false,
   "python.linting.pylintEnabled": false,
   "python.formatting.provider": "black",
@@ -46,7 +46,8 @@
     "typescript": ["javascript"]
   },
 
-  "explorer.width": 29,
+  "explorer.width": 35,
+  "explorer.focus": true,
   "explorer.icon.enableNerdfont": true,
   "coc.source.emoji.filetypes": ["markdown"]
 }

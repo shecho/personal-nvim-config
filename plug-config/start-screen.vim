@@ -33,9 +33,8 @@ function! StartifyEntryFormat()
 let g:startify_bookmarks = [
             \ { 'c': '~/.config/i3/config' },
             \ { 'i': '~/.config/nvim/init.vim' },
-            \ { 'z': '~/.zshrc' },
-            \ '~/Blog',
-            \ '~/Code',
+            \ { 'l': '~/.zshrc' },
+            \ { 'z': '/home/shecho/WebstormProjects/LITTERA/littera-core-ui/src' },
             \ '~/Pics',
             \ ]
 

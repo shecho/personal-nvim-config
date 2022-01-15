@@ -7,7 +7,6 @@
 "   augroup END
 " endif
 
-"autocmd ColorScheme * call onedark#set_highlight("Normal", { "fg": s:white }) " `bg` will not be styled since there is no `bg` setting
 
 hi Comment cterm=italic
 " let g:onedark_hide_endofbuffer=1
@@ -19,27 +18,43 @@ let g:one_allow_italics = 1
 syntax on
 " colorscheme onedark
 colorscheme one
-call one#highlight('Boolean', '', '', 'italic')
-call one#highlight('Conditional', '', '', 'italic')
-call one#highlight('Type', '', '', 'italic') 
-call one#highlight('Keyword', 'c678dd', '', 'italic')"reserved words
-call one#highlight('Include', 'c678dd', '', 'italic')"imports/exports
-" call one#highlight('Function', 'B243E6', '000000', 'italic')
-" call one#highlight('Delimiter','', '', 'italic')"brackets
-" call one#highlight('Identifier', '', '', 'italic')"params abd arguments
-" call one#highlight('Define', '', '', 'italic')
+call one#highlight('Boolean', '', '', 'bolditalic')
+call one#highlight('Conditional', '', '', 'bolditalic')
+call one#highlight('Type', '', '', 'bolditalic') 
+call one#highlight('Keyword', 'c678dd', '', 'bolditalic')"reserved words
+call one#highlight('Include', 'c678dd', '', 'bolditalic')"imports/exports
+call one#highlight('Number', '', '', 'bold')
+call one#highlight('Operator', 'c678dd', '', '')"not use italic to evoid the ligatures lost
+call one#highlight('Identifier', '', '', 'bold')"params abd arguments
+call one#highlight('String', '', '', 'bold')"params abd arguments
+
+" call one#highlight('Function', '', '', 'italic')
+" call one#highlight('Delimiter','d19a66', '000000', 'italic')"brackets
+" call one#highlight('Define', '', '000000', 'italic')
 " call one#highlight('SpecialChar', '000000', '000000', 'italic')
 " call one#highlight('Special', '000000', '', 'italic')
-" call one#highlight('Operator', '', '', 'italic')"not use to evoid the ligatures lost
 " call one#highlight('Statement', 'B243E6', '000000', 'italic')
 " call one#highlight('PreCondit', 'B243E6', '000000','italic')"not working 
 " call one#highlight('Structure', 'B243E6', '000000', 'italic')"not working 
 " call one#highlight('Typedef', 'B243E6', '000000', 'italic')"not working 
-" call one#highlight('', '', '', 'italic')
-" call one#highlight('', '', '', 'italic')
-" call one#highlight('', '', '', 'italic')
+" call one#highlight('Keyword', 'd19a66', '000000', 'italic')
+" call one#highlight('Constant', '', '', 'italic')
+" call one#highlight('Character', '', '000000', 'italic')
+" call one#highlight('htmlTagName', '', '000000', 'italic')
+" call one#highlight('htmlTag', '', '000000', 'italic')
 " 
 " checks if your terminal has 24-bit color support
+" --------------------------------------------------------------
+" colorscheme onedark
+" autocmd ColorScheme * call onedark#set_highlight("Normal", { "fg": 'c678dd',  "gui": "italic", "cterm": "italic" }) " `bg` will not be styled since there is no `bg` setting
+" autocmd ColorScheme * call onedark#set_highlight("Type", { "fg": 'c678dd',  "gui": "italic", "cterm": "italic" }) " `bg` will not be styled since there is no `bg` setting
+" call onedark#highlight('Boolean', '', '', 'bolditalic')
+" call onedark#highlight('Conditional', '', '', 'bolditalic')
+" call onedark#highlight('Type', '', '', 'bolditalic') 
+" call onedark#highlight('Keyword', 'c678dd', '', 'bolditalic')"reserved words
+" call onedark#highlight('Include', 'c678dd', '', 'bolditalic')"imports/exports
+" call onedark#highlight('Number', '', '', 'bold')
+
 if (has("termguicolors"))
     set termguicolors
     hi LineNr ctermbg=NONE guibg=NONE
