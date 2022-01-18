@@ -122,7 +122,9 @@ call plug#begin('~/.config/nvim/autoload/plugged')
     " Neovim in Browser
     Plug 'glacambre/firenvim', { 'do': { _ -> firenvim#install(0) } }
     " Rainbow brackets
-    " Plug 'luochen1990/rainbow'
+    Plug 'luochen1990/rainbow'
+    " Multiple Cursors
+    Plug 'terryma/vim-multiple-cursors'
     " Async Linting Engine
     " TODO make sure to add ale config before plugin
     " Plug 'dense-analysis/ale'
@@ -149,8 +151,6 @@ call plug#begin('~/.config/nvim/autoload/plugged')
     " jsx syntax support
     " Typescript syntax
     " Plug 'HerringtonDarkholme/yats.vim'
-    " Multiple Cursors
-    " Plug 'terryma/vim-multiple-cursors'
     " Plug 'kaicataldo/material.vim'
     " Plug 'tomasiser/vim-code-dark'
     " Plug 'mg979/vim-xtabline'

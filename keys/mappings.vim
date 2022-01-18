@@ -73,8 +73,8 @@ inoremap <expr> <c-k> ("\<C-p>")
 
 "Some better remaps
 nnoremap Y y$
-nnoremap n nzzzv
-nnoremap N Nzzzv
+" nnoremap n nzzzv
+" nnoremap N Nzzzv
 nnoremap J mzJ`z
 cnoremap Q q
 
