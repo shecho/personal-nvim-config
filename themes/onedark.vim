@@ -26,21 +26,23 @@ call one#highlight('Include', 'c678dd', '', 'bolditalic')"imports/exports
 call one#highlight('Number', '', '', 'bold')
 call one#highlight('Operator', 'c678dd', '', '')"not use italic to evoid the ligatures lost
 call one#highlight('Identifier', '', '', 'bold')"params abd arguments
-call one#highlight('String', '', '', 'bold')"params abd arguments
-
-" call one#highlight('Function', '', '', 'italic')
-" call one#highlight('Delimiter','d19a66', '000000', 'italic')"brackets
-" call one#highlight('Define', '', '000000', 'italic')
+call one#highlight('String', '', '', 'bold')"string
+call one#highlight('CursorColumn', '', '', 'underline,bold')"underline matches
+" call one#highlight('CursorLine', '', '', 'bolditalic')
+" call one#highlight('Special', '', '', 'bold')//niceone
+" call one#highlight('Delimiter','', '', 'bold')"brackets
+" call one#highlight('Statement', '', '', 'bold')
+" call one#highlight('Keyword', '', '', 'bold')
+" call one#highlight('Define', '', '000000', 'bold')
 " call one#highlight('SpecialChar', '000000', '000000', 'italic')
-" call one#highlight('Special', '000000', '', 'italic')
-" call one#highlight('Statement', 'B243E6', '000000', 'italic')
+" call one#highlight('Character', '', '000000', 'italic')
 " call one#highlight('PreCondit', 'B243E6', '000000','italic')"not working 
 " call one#highlight('Structure', 'B243E6', '000000', 'italic')"not working 
 " call one#highlight('Typedef', 'B243E6', '000000', 'italic')"not working 
-" call one#highlight('Keyword', 'd19a66', '000000', 'italic')
 " call one#highlight('Constant', '', '', 'italic')
-" call one#highlight('Character', '', '000000', 'italic')
-" call one#highlight('htmlTagName', '', '000000', 'italic')
+" call one#highlight('ColorColumn', '', '000000', 'underline bold')
+" call one#highlight('Cursor', '', '000000', '')
+" call one#highlight('', '', '000000', 'italic')
 " call one#highlight('htmlTag', '', '000000', 'italic')
 " 
 " checks if your terminal has 24-bit color support
