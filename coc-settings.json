@@ -1,9 +1,11 @@
 {
+
   "suggest.enablePreview": true,
   "suggest.completionItemKindLabels": {
     "text": "t",
     "method": "m",
-    "function": ""
+    "function": "",
+    "snippet": "S"
   },
   "hover.target": "float",
   "diagnostic.errorSign": " ",
@@ -32,8 +34,10 @@
   "python.linting.pylintEnabled": false,
   "python.formatting.provider": "black",
 
+  "snippets.autoTrigger": true,
+  "snippets.priority": 1,
+  "snippets.shortcut": "S",
   "snippets.ultisnips.directories": ["UltiSnips", "~/.config/nvim/snips"],
-
   "emmet.includeLanguages": {
     "vue-html": "html",
     "javascript": "javascriptreact",
@@ -47,6 +51,7 @@
   },
 
   "explorer.width": 35,
+  "explorer.file.showHiddenFiles": true,
   "explorer.focus": true,
   "explorer.icon.enableNerdfont": true,
   "coc.source.emoji.filetypes": ["markdown"]
