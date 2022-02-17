@@ -178,3 +178,7 @@ let g:coc_snippet_next = '<c-l>'
 " Use <C-j> for both expand and jump (make expand higher priority.)
 imap <C-l> <Plug>(coc-snippets-expand-jump)
 imap <C-j> <Plug>(coc-snippets-expand-jump)
+
+" snippet reState "React useState hook" b
+" const [$1, set${1/\w+/${0:/capitalize}/}] = useState($2);
+" endsnippet
