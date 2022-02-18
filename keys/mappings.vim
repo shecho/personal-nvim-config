@@ -72,8 +72,7 @@ inoremap <expr> <c-j> ("\<C-n>")
 inoremap <expr> <c-k> ("\<C-p>")
 
 "Some better remaps
-nnoremap Y y$
-" nnoremap n nzzzv
+nnoremap Y y$ " nnoremap n nzzzv
 " nnoremap N Nzzzv
 nnoremap J mzJ`z
 cnoremap Q q
@@ -81,3 +80,14 @@ cnoremap Q q
 " Select all
 " nmap <C-a> :%y<Cr>
 nmap <C-a> gg<S-v>Gy
+xnoremap <leader>9 xi()<Esc>P
+nnoremap <leader>9 ciw()<Esc>P
+
+xnoremap <leader>4 xi{}<Esc>P
+nnoremap <leader>4 ciw{}<Esc>P
+
+xnoremap <leader>5 xi[]<Esc>P
+nnoremap <leader>5 ciw[]<Esc>P
+
+xnoremap <leader>6 xi[]<Esc>P
+nnoremap <leader>6 ciw[]<Esc>p

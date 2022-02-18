@@ -69,5 +69,5 @@
   "explorer.width": 35,
   "explorer.file.showHiddenFiles": true,
   "explorer.focus": true,
-  "explorer.icon.enableNerdfont": true
+  "explorer.icon.enableNerdfont": true,
 }
