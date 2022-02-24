@@ -89,5 +89,4 @@ nnoremap <leader>4 ciw{}<Esc>P
 xnoremap <leader>5 xi[]<Esc>P
 nnoremap <leader>5 ciw[]<Esc>P
 
-xnoremap <leader>6 xi[]<Esc>P
-nnoremap <leader>6 ciw[]<Esc>p
+nnoremap <leader>1 <c-^>

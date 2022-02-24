@@ -9,7 +9,11 @@
     "snippet": "S"
   },
 
-  "hover.target": "echo",
+  "hover.target": "float",
+  // "explorer.previewAction.onHover": "content",
+  // "explorer.previewAction.onHover": "labeling",
+  "explorer.openAction.strategy": "select",
+  "hover.autoHide": true,
 
   // "diagnostic.virtualText": true,
   "diagnostic.enable": true,
@@ -41,7 +45,6 @@
 
   "typescript.autoClosingTags": true,
   "javascript.autoClosingTags": true,
-  "tsserver.enableJavascript": true,
 
   "python.linting.enabled": false,
   "python.linting.pylintEnabled": false,
@@ -70,4 +73,28 @@
   "explorer.file.showHiddenFiles": true,
   "explorer.focus": true,
   "explorer.icon.enableNerdfont": true,
+
+  "tsserver.enableJavascript": true,
+  "tsserver.enable": true,
+  "eslint.options": {
+    "extensinons": [".ts", ".js", ".tsx", ".jsx"]
+  },
+  "explorer.keyMappings.global": {
+    "mc": "copyFile",
+    "C": "copyFile",
+    "md": "delete",
+    "D": "delete",
+    "II": "preview:content"
+  }
+  // "languageserver": {
+  //   "flow": {
+  //     "command": "flow",
+  //     "args": ["lsp"],
+  //     "filetypes": ["javascript", "javascriptreact"],
+  //     "initializationOptions": {},
+  //     "requireRootPattern": true,
+  //     "settings": {},
+  //     "rootPatterns": [".flowconfig"]
+  //   }
+  // }
 }
