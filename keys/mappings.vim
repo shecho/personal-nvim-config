@@ -89,4 +89,10 @@ nnoremap <leader>4 ciw{}<Esc>P
 xnoremap <leader>5 xi[]<Esc>P
 nnoremap <leader>5 ciw[]<Esc>P
 
+xnoremap <leader>7 xi''<Esc>P
+nnoremap <leader>7 ciw''<Esc>P
+
+xnoremap <leader>8 xi""<Esc>P
+nnoremap <leader>8 ciw""<Esc>P
+
 nnoremap <leader>1 <c-^>
