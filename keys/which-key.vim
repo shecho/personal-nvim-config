@@ -47,7 +47,7 @@ let g:which_key_map['u'] = [ ':UndotreeToggle'                    , 'undo tree']
 let g:which_key_map['v'] = [ '<C-W>v'                             , 'split right']
 let g:which_key_map['W'] = [ 'w'                                  , 'write' ]
 let g:which_key_map['z'] = [ 'Goyo'                               , 'zen' ]
-let g:which_key_map['k'] = [ 'K'                               , 'zen' ]
+let g:which_key_map['k'] = [ 'K'                               , 'hover' ]
 
 
 " Group mappings
@@ -195,12 +195,12 @@ let g:which_key_map.G = {
 let g:which_key_map.l = {
       \ 'name' : '+lsp' ,
       \ '.' : [':CocConfig'                          , 'config'],
-      \ ';' : ['<Plug>(coc-refactor)'                , 'refactor'],
+      \ 'c' : ['<Plug>(coc-refactor)'                , 'refactor'],
       \ 'a' : ['<Plug>(coc-codeaction)'              , 'line action'],
       \ 'A' : ['<Plug>(coc-codeaction-selected)'     , 'selected action'],
       \ 'b' : [':CocNext'                            , 'next action'],
       \ 'B' : [':CocPrev'                            , 'prev action'],
-      \ 'c' : [':CocList commands'                   , 'commands'],
+      \ 'C' : [':CocList commands'                   , 'commands'],
       \ 'd' : ['<Plug>(coc-definition)'              , 'definition'],
       \ 'D' : ['<Plug>(coc-declaration)'             , 'declaration'],
       \ 'e' : [':CocList extensions'                 , 'extensions'],
@@ -226,8 +226,8 @@ let g:which_key_map.l = {
       \ 'u' : [':CocListResume'                      , 'resume list'],
       \ 'U' : [':CocUpdate'                          , 'update CoC'],
       \ 'v' : [':Vista!!'                            , 'tag viewer'],
-      \ 'z' : [':CocDisable'                         , 'disable CoC'],
-      \ 'Z' : [':CocEnable'                          , 'enable CoC'],
+      \ 'Z' : [':CocDisable'                         , 'disable CoC'],
+      \ 'z' : [':CocEnable'                          , 'enable CoC'],
       \ }
 
 " t is for terminal

@@ -41,12 +41,12 @@ call one#highlight('StorageClass', '', '','bolditalic')" #B243E6
 call one#highlight('CocErrorSign', 'e06c75', '', 'bolditalic')
 call one#highlight('CocWarningSign', 'd19a66', '', 'bolditalic')
 
-" call one#highlight('Identifier', '', '', 'bold')"params abd arguments and variables names
+call one#highlight('Identifier', '', '', 'bold')"params abd arguments and variables names
 " call one#highlight('SpecialChar', '', '', 'standout')
 " call one#highlight('Special', '', '', 'bolditalic')
 
-" call one#highlight('Delimiter','', '', 'bold')"brackets
-" call one#highlight('MatchParen', '', '', 'bolditalic')
+call one#highlight('Delimiter','', '', 'bold')"brackets
+call one#highlight('MatchParen', '', '', 'inverse')
 
 " call one#highlight('Label', '', '000000', 'italic')html and jsx 
 " call one#highlight('Search', '', '', 'standout')
