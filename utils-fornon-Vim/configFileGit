@@ -1,0 +1,14 @@
+[user]
+	name = Sergio
+	email = shechovala@gmail.com
+[credential]
+	helper = cache --timeout=50400
+[init]
+	defaultBranch = main
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
+[core]
+	autocrlf = false
