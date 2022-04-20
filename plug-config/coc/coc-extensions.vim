@@ -15,7 +15,6 @@ let g:coc_global_extensions = [
   \ 'coc-stylelintplus',
   \ 'coc-emoji',
   \ 'coc-yaml',
-  \ 'coc-pyright',
   \ 'coc-explorer',
   \ 'coc-svg',
   \ 'coc-prettier',
