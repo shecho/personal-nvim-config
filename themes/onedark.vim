@@ -57,11 +57,6 @@ call one#highlight('MatchParen', '', '', 'inverse')
 " call one#highlight('Use', '', '', 'standout')
 " call one#highlight('Utility', '', '', 'standout')
 " call one#highlight('Select', '', '', 'standout')
-
-
-
-
-
 call one#highlight('Visual', '', '', 'bolditalic')
 " call one#highlight('IncSearch', '', '', 'standout')
 " call one#highlight('Label', '', '', '')"HTML tags and JSX

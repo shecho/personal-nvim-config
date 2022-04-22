@@ -6,7 +6,7 @@
 
 " General Settings
 if !exists('g:vscode')
-  source $HOME/.config/nvim/plug-config/polyglot.vim
+  "  source $HOME/.config/nvim/plug-config/polyglot.vim
 endif
 source $HOME/.config/nvim/vim-plug/plugins.vim
 source $HOME/.config/nvim/general/settings.vim
@@ -32,6 +32,7 @@ else
   source $HOME/.config/nvim/plug-config/rnvimr.vim
   source $HOME/.config/nvim/plug-config/better-whitespace.vim
   source $HOME/.config/nvim/plug-config/fzf.vim
+  source $HOME/.config/nvim/plug-config/telescope.vim
   source $HOME/.config/nvim/plug-config/codi.vim
   source $HOME/.config/nvim/plug-config/vim-wiki.vim
   " luafile $HOME/.config/nvim/lua/nvcodeline.lua

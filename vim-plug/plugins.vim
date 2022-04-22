@@ -39,7 +39,7 @@ call plug#begin('~/.config/nvim/autoload/plugged')
     " auto set indent settings
     Plug 'tpope/vim-sleuth'
     " Better Syntax Support
-    Plug 'sheerun/vim-polyglot'
+    " Plug 'sheerun/vim-polyglot'
     " Treesitter
     Plug 'nvim-treesitter/nvim-treesitter'
     Plug 'nvim-treesitter/playground'
@@ -51,24 +51,26 @@ call plug#begin('~/.config/nvim/autoload/plugged')
     " Closetags
     Plug 'alvan/vim-closetag'
     " Themes
-    Plug 'christianchiarulli/onedark.vim'
-    Plug 'christianchiarulli/nvcode-color-schemes.vim'
+    " Plug 'christianchiarulli/onedark.vim'
+    " Plug 'christianchiarulli/nvcode-color-schemes.vim'
     " Plug 'sainnhe/edge'
     " Plug 'dracula/dracula-theme'
     Plug 'rakr/vim-one'
     " Plug 'sonph/onehalf'
     " Plug 'joshdick/onedark.vim'
-    " Plug 'christianchiarulli/nvcode-color-schemes.vim'
+    Plug 'christianchiarulli/nvcode-color-schemes.vim'
     " Intellisense
     Plug 'neoclide/coc.nvim', {'branch': 'release'}
     " Status Line
     Plug 'vim-airline/vim-airline'
     " Plug 'glepnir/galaxyline.nvim'
-    Plug 'kevinhwang91/rnvimr'
+    " Plug 'kevinhwang91/rnvimr'
     " FZF
     Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
     Plug 'yuki-ycino/fzf-preview.vim', { 'branch': 'release', 'do': ':UpdateRemotePlugins' }
-    Plug 'junegunn/fzf.vim'
+    " Telescope 
+    Plug 'nvim-lua/plenary.nvim'
+    Plug 'nvim-telescope/telescope.nvim'
     " Git
     Plug 'airblade/vim-gitgutter'
     Plug 'tpope/vim-fugitive'
@@ -143,9 +145,9 @@ call plug#begin('~/.config/nvim/autoload/plugged')
     " Plug 'nvim-dap-virtual-text'
     " Sneak
     " Plug 'justinmk/vim-sneak'
-    " Plug 'nvim-treesitter/nvim-treesitter-refactor'
-    " Plug 'nvim-treesitter/nvim-treesitter-textobjects'
-    " Plug 'romgrk/nvim-treesitter-context'
+    Plug 'nvim-treesitter/nvim-treesitter-refactor'
+    Plug 'nvim-treesitter/nvim-treesitter-textobjects'
+    Plug 'romgrk/nvim-treesitter-context'
     " Minimap
     " Plug 'wfxr/minimap.vim'
     " jsx syntax support
