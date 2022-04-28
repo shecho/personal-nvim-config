@@ -35,7 +35,8 @@ let g:startify_bookmarks = [
             \ { 'i': '~/.config/nvim/init.vim' },
             \ { 'l': '/home/shecho/WebstormProjects/LITTERA/littera-toolkit/src' },
             \ { 'z': '/home/shecho/WebstormProjects/LITTERA/littera-core-ui/src' },
-            \ '~/Pics',
+            \ { 'p': '/home/shecho/WebstormProjects/FLAT/website/' },
+            \ '/home/shecho/WebstormProjects',
             \ ]
 
 let g:startify_enable_special = 0
