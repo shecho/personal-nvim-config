@@ -37,7 +37,7 @@ let g:which_key_map['-'] = [ ':Commands'                          , 'commands' ]
 let g:which_key_map['='] = [ '<C-W>='                             , 'balance windows' ]
 let g:which_key_map['d'] = [ ':Bdelete'                           , 'delete buffer']
 let g:which_key_map['e'] = [ ':CocCommand explorer'               , 'explorer' ]
-let g:which_key_map['f'] = [ ':Files'                              , 'find and replace' ]
+let g:which_key_map['f'] = [ ':Telescope find_files'                              , 'find and replace' ]
 let g:which_key_map['h'] = [ '<C-W>s'                             , 'split below']
 let g:which_key_map['m'] = [ ':call WindowSwap#EasyWindowSwap()'  , 'move window' ]
 let g:which_key_map['p'] = [ ':Files'                             , 'search files' ]
@@ -119,7 +119,7 @@ let g:which_key_map.s = {
       \ 'B' : [':Buffers'               , 'open buffers'],
       \ 'c' : [':Commits'               , 'commits'],
       \ 'C' : [':BCommits'              , 'buffer commits'],
-      \ 'f' : [':Files'                 , 'files'],
+      \ 'f' : [':CocCommand fzf-preview.ProjectFiles'                 , 'files'],
       \ 'g' : [':GFiles'                , 'git files'],
       \ 'G' : [':GFiles?'               , 'modified git files'],
       \ 'h' : [':History'               , 'file history'],
