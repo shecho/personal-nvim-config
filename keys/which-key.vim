@@ -136,8 +136,12 @@ let g:which_key_map.s = {
       \ 'w' : [':Windows'               , 'search windows'],
       \ 'y' : [':Filetypes'             , 'file types'],
       \ 'z' : [':FZF'                   , 'FZF'],
+      \ '=' : [':resize +4<CR>'                   , '+4'],
+      \ '-' : [':resize -4<CR>'                   , '-4'],
       \ }
       " \ 's' : [':Snippets'     , 'snippets'],
+" :resize +2<CR>
+
 
 let g:which_key_map.S = {
       \ 'name' : '+Session' ,

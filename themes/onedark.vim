@@ -46,7 +46,8 @@ call one#highlight('Identifier', '', '', 'bold')"params abd arguments and variab
 " call one#highlight('Special', '', '', 'bolditalic')
 
 call one#highlight('Delimiter','', '', 'bold')"brackets
-call one#highlight('MatchParen', '', '', 'inverse')
+call one#highlight('MatchParen', '', '', 'bolditalic')
+" call one#highlight('MatchBrackets', '', '', 'bolditalic')
 
 " call one#highlight('Label', '', '000000', 'italic')html and jsx 
 " call one#highlight('Search', '', '', 'standout')
@@ -64,7 +65,6 @@ call one#highlight('Visual', '', '', 'bolditalic')
 " call one#highlight('Statement', '', '', 'bold')
 " call one#highlight('Define', '', '000000', 'bolditalic')
 " 
-
 		" bold
 		" underline
 		" undercurl	curly underline
@@ -75,8 +75,6 @@ call one#highlight('Visual', '', '', 'bolditalic')
 		" standout
 		" nocombine	override attributes instead of combining them
 		" NONE		no attributes used (used to reset it)
-
-
 " checks if your terminal has 24-bit color support
 " --------------------------------------------------------------
 " colorscheme onedark
