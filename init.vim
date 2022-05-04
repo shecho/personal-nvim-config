@@ -72,6 +72,12 @@ if !empty(glob("~/.config/nvim/paths.vim"))
 endif
 
 " Better nav for omnicomplete TODO figure out why this is being overridden
-set guifont=Operator\ JetBrains\ Fira\ Code\ Nerd\ Font
+" set guifont=JetBrain\ Operator\ Fira\ Code\ Nerd\ Font
+"  let s:fontsize = 18
+
+" if exists(':GuiFont')
+"     GuiFont! fira code iscript :h12
+"     let g:neovide_transparency=0.90
+" endif
 inoremap <expr> <c-j> ("\<C-n>")
 inoremap <expr> <c-k> ("\<C-p>")
