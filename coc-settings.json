@@ -8,24 +8,22 @@
     "function": "",
     "snippet": "S"
   },
-
-  "hover.target": "float",
+  // "hover.target": "float",
   // "explorer.previewAction.onHover": "content",
   // "explorer.previewAction.onHover": "labeling",
   "explorer.openAction.strategy": "select",
-  "hover.autoHide": true,
-
+  // "hover.autoHide": true,
   // "diagnostic.virtualText": true,
   "diagnostic.enable": true,
   "diagnostic.errorSign": " ",
   "diagnostic.warningSign": " ",
   "diagnostic.infoSign": "",
   "diagnostic.hintSign": " ",
-
   "list.indicator": ">",
   "list.selectedSignText": " ",
-
-  "coc.source.emoji.filetypes": ["markdown"],
+  "coc.source.emoji.filetypes": [
+    "markdown"
+  ],
   "coc.preferences.bracketEnterImprove": true,
   "coc.preferences.formatOnSaveFiletypes": [
     "css",
@@ -40,26 +38,30 @@
     "json",
     "python"
   ],
-
   "pairs.enableBackspace": true,
-
   "typescript.autoClosingTags": true,
   "javascript.autoClosingTags": true,
-
   "python.linting.enabled": false,
   "python.linting.pylintEnabled": false,
-  "python.formatting.provider": "black",
-
+  // "python.formatting.provider": "black",
   "snippets.autoTrigger": true,
   "snippets.priority": 99,
   "snippets.shortcut": "S",
-  "snippets.ultisnips.directories": ["UltiSnips", "~/.config/nvim/snips"],
+  "snippets.ultisnips.directories": [
+    "UltiSnips",
+    "~/.config/nvim/snips"
+  ],
   "snippets.extends": {
-    "javascriptreact": ["javascript"],
-    "typescriptreact": ["javascript"],
-    "typescript": ["javascript"]
+    "javascriptreact": [
+      "javascript"
+    ],
+    "typescriptreact": [
+      "javascript"
+    ],
+    "typescript": [
+      "javascript"
+    ]
   },
-
   "emmet.includeLanguages": {
     "vue-html": "html",
     "javascript": "javascriptreact",
@@ -68,16 +70,19 @@
   "emmet.priority": 10,
   "emmet.showSuggestionsAsSnippets": true,
   "emmet.showExpandedAbbreviation": "always",
-
   "explorer.width": 35,
   "explorer.file.showHiddenFiles": true,
   "explorer.focus": true,
   "explorer.icon.enableNerdfont": true,
-
   "tsserver.enableJavascript": true,
   "tsserver.enable": true,
   "eslint.options": {
-    "extensinons": [".ts", ".js", ".tsx", ".jsx"]
+    "extensinons": [
+      ".ts",
+      ".js",
+      ".tsx",
+      ".jsx"
+    ]
   },
   "explorer.keyMappings.global": {
     "mc": "copyFile",
