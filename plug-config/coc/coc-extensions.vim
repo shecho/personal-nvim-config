@@ -25,6 +25,7 @@ let g:coc_global_extensions = [
   \ 'coc-marketplace',
   \ 'coc-highlight',
   \ 'coc-eslint',
+  \ 'coc-tailwindcss',
   \ ]
   " \ 'coc-tabnine',
 

@@ -7,9 +7,9 @@ if empty(glob('~/.config/nvim/autoload/plug.vim'))
 endif
 
 call plug#begin('~/.config/nvim/autoload/plugged')
+
     " taildwind
     Plug 'iamcco/coc-tailwindcss',  {'do': 'yarn install --frozen-lockfile && yarn run build'}
-
     "  Plug 'ThePrimeagen/git-worktree.nvim'
     " Better Comments
     Plug 'tpope/vim-commentary'
