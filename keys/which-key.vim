@@ -15,9 +15,12 @@ nnoremap <leader>? :CocSearch <C-R>=expand("<cword>")<CR><CR>
 let g:which_key_map['?'] = 'search word'
 
 " Not a fan of floating windows for this
-let g:which_key_use_floating_win = 0
+let g:which_key_use_floating_win = 1
 let g:which_key_flatten = 0
+let g:which_key_floating_opts = { 'row': '-1', 'col':'-1', 'width': '4' ,'height':'4' }
 let g:which_key_max_size = 4
+" let g:which_key_floating_relative_win= 1
+
 " let g:which_key_fallback_to_native_key=1
 " let g:which_key_use_floating_win = 1
 
@@ -118,7 +121,7 @@ let g:which_key_map.s = {
       \ 'name' : '+search' ,
       \ '/' : [':History/'              , 'history'],
       \ ';' : [':Commands'              , 'commands'],
-      \ 'a' : [':Telescope grep_string'                    , 'text Ag'],
+      \ 'a' : [':Rg'                    , 'text Ag'],
       \ 'B' : [':BLines'                , 'current buffer'],
       \ 'b' : [':Buffers'               , 'open buffers'],
       \ 'c' : [':Commits'               , 'commits'],
