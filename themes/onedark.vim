@@ -20,6 +20,7 @@ syntax on
 colorscheme one
 call one#highlight('Boolean', '', '', 'bolditalic')
 call one#highlight('Number', '', '', 'bold')
+call one#highlight('Float', '', '', 'bold')
 call one#highlight('String', '', '', 'bold')"string
 call one#highlight('Function', '', '','bold')" #B243E6
 call one#highlight('Conditional', '', '', 'italic')
@@ -31,6 +32,8 @@ call one#highlight('Asynchronous', '', '', 'italic')
 call one#highlight('Operator', 'c678dd', '', '')"not use italic or bold to evoid the ligatures lost *= - + =>'#c678dd#
 call one#highlight('Exception', '', '', 'italic') " try catch
 call one#highlight('StorageClass', '', '','bolditalic')" #B243E6
+call one#highlight('Constant', '', '', 'bold')
+call one#highlight('Label', '', '', 'bold')"HTML tags and JSX
 
 
 call one#highlight('CursorColumn', '828997', '', 'bolditalic')"current word #4b5263 #5c6370 #828997 #abb2bf
@@ -58,13 +61,12 @@ call one#highlight('Directory', '', '', 'bold')
 " call one#highlight('Use', '', '', 'standout')
 " call one#highlight('Utility', '', '', 'standout')
 " call one#highlight('Select', '', '', 'standout')
+" call one#highlight('Character', '', '', 'standout')
+" call one#highlight('Tag', '', '', 'standout')
 call one#highlight('Visual', '', '', 'bolditalic')
-
 call one#highlight('Search', '', '', 'bolditalic')
 " call one#highlight('IncSearch', '', '', 'bolditalic')
 call one#highlight('Statement', '', '', 'bold')
-
-" call one#highlight('Label', '', '', '')"HTML tags and JSX
 " call one#highlight('CursorLine', '', '', 'bolditalic')" current line
 " call one#highlight('Define', '', '000000', 'bolditalic')
 " 

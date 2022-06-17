@@ -17,7 +17,6 @@ inoremap jj <Esc>
 inoremap kj <Esc>
 
 nnoremap <leader>; :
-nnoremap <leader>ñ :
 nnoremap s <Esc>
 
 " Easy CAPS
@@ -43,7 +42,6 @@ nnoremap <silent> <C-Q> :wq!<CR>
 nnoremap <silent> <C-c> <Esc>
 " <TAB>: completion.
 inoremap <silent> <expr><TAB> pumvisible() ? "\<C-n>" : "\<TAB>"
-
 " Better window navigation
 nnoremap <C-h> <C-w>h
 nnoremap <C-j> <C-w>j
@@ -60,7 +58,6 @@ nnoremap <C-l> <C-w>l
 " inoremap <C-k> <C-\><C-N><C-w>k
 " inoremap <C-l> <C-\><C-N><C-w>l
 " tnoremap <Esc> <C-\><C-n>
-
 " Use alt + hjkl to resize windows
 nnoremap <silent> <leader>j    :resize -5<CR>
 nnoremap <silent> <leader>n    :resize +50<CR>
@@ -74,8 +71,8 @@ inoremap <expr> <c-j> ("\<C-n>")
 inoremap <expr> <c-k> ("\<C-p>")
 
 "Some better remaps
-nnoremap Y y$ " nnoremap n nzzzv
-" nnoremap N Nzzzv
+nnoremap Y y$ " 
+nnoremap N Nzzzv
 nnoremap J mzJ`z
 cnoremap Q q
 
@@ -95,6 +92,6 @@ xnoremap <leader>7 xi''<Esc>P
 nnoremap <leader>7 ciw''<Esc>P
 
 xnoremap <leader>8 xi""<Esc>P
-nnoremap <leader>8 ciw""<Esc>P
+nnoremap <leader>8 ciw""<Esc>P 
 
 nnoremap <leader>1 <c-^>

@@ -46,7 +46,7 @@ let g:which_key_map['h'] = [ '<C-W>s'                             , 'split below
 let g:which_key_map['m'] = [ ':call WindowSwap#EasyWindowSwap()'  , 'move window' ]
 let g:which_key_map['p'] = [ ':Telescope find_files'                             , 'search files' ]
 let g:which_key_map['q'] = [ 'q'                                  , 'quit' ]
-let g:which_key_map['r'] = [ ':RnvimrToggle'                      , 'ranger' ]
+let g:which_key_map['r'] = [ ':Telescope grep_string'                      , 'ranger' ]
 let g:which_key_map['u'] = [ ':UndotreeToggle'                    , 'undo tree']
 let g:which_key_map['v'] = [ '<C-W>v'                             , 'split right']
 let g:which_key_map['W'] = [ 'w'                                  , 'write' ]
@@ -118,12 +118,12 @@ let g:which_key_map.s = {
       \ 'name' : '+search' ,
       \ '/' : [':History/'              , 'history'],
       \ ';' : [':Commands'              , 'commands'],
-      \ 'a' : [':Rg'                    , 'text Ag'],
+      \ 'a' : [':Telescope grep_string'                    , 'text Ag'],
       \ 'B' : [':BLines'                , 'current buffer'],
       \ 'b' : [':Buffers'               , 'open buffers'],
       \ 'c' : [':Commits'               , 'commits'],
       \ 'C' : [':BCommits'              , 'buffer commits'],
-      \ 'f' : [':Files'                 , 'files'],
+      \ 'f' : [':Rg'                    , 'files'],
       \ 'g' : [':GFiles'                , 'git files'],
       \ 'G' : [':GFiles:'               , 'modified git files'],
       \ 'h' : [':History'               , 'file history'],
@@ -135,13 +135,13 @@ let g:which_key_map.s = {
       \ 'P' : [':Tags'                  , 'project tags'],
       \ 's' : [':CocList snippets'      , 'snippets'],
       \ 'S' : [':Colors'                , 'color schemes'],
-      \ 't' : [':Telescope grep_string'  , 'text Rg'],
+      \ 't' : [':Files'                 , 'text Rg'],
       \ 'T' : [':BTags'                 , 'buffer tags'],
       \ 'w' : [':Windows'               , 'search windows'],
       \ 'y' : [':Filetypes'             , 'file types'],
       \ 'z' : [':FZF'                   , 'FZF'],
-      \ '=' : [':resize +4<CR>'                   , '+4'],
-      \ '-' : [':resize -4<CR>'                   , '-4'],
+      \ '=' : [':resize +4<CR>'         , '+4'],
+      \ '-' : [':resize -4<CR>'         , '-4'],
       \ }
       " \ 's' : [':Snippets'     , 'snippets'],
 " :resize +2<CR>
