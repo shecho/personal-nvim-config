@@ -71,7 +71,7 @@ call plug#begin('~/.config/nvim/autoload/plugged')
     " FZF
     Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
     Plug 'junegunn/fzf.vim'
-    Plug 'yuki-ycino/fzf-preview.vim', { 'branch': 'release', 'do': ':UpdateRemotePlugins' }
+    " Plug 'yuki-ycino/fzf-preview.vim', { 'branch': 'release', 'do': ':UpdateRemotePlugins' }
     Plug 'antoinemadec/coc-fzf'
     " Telescope 
     Plug 'nvim-lua/plenary.nvim'
