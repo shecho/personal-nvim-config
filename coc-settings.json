@@ -9,8 +9,8 @@
     "snippet": "S"
   },
   "explorer.openAction.strategy": "select",
-  "diagnostic.virtualText": true,
-  "diagnostic.enable": true,
+  //"diagnostic.virtualText": true,
+  //"diagnostic.enable": true,
   "diagnostic.errorSign": " ",
   "diagnostic.warningSign": " ",
   "diagnostic.infoSign": "",
@@ -18,9 +18,7 @@
   "list.indicator": ">",
   "list.selectedSignText": " ",
   "tailwindCSS.emmetCompletions": true,
-  "coc.source.emoji.filetypes": [
-    "markdown"
-  ],
+  "coc.source.emoji.filetypes": ["markdown"],
   "coc.preferences.bracketEnterImprove": true,
   "coc.preferences.formatOnSaveFiletypes": [
     "css",
@@ -42,20 +40,11 @@
   "snippets.autoTrigger": true,
   "snippets.priority": 99,
   "snippets.shortcut": "S",
-  "snippets.ultisnips.directories": [
-    "UltiSnips",
-    "~/.config/nvim/snips"
-  ],
+  "snippets.ultisnips.directories": ["UltiSnips", "~/.config/nvim/snips"],
   "snippets.extends": {
-    "javascriptreact": [
-      "javascript"
-    ],
-    "typescriptreact": [
-      "javascript"
-    ],
-    "typescript": [
-      "javascript"
-    ]
+    "javascriptreact": ["javascript"],
+    "typescriptreact": ["javascript"],
+    "typescript": ["javascript"]
   },
   "emmet.includeLanguages": {
     "vue-html": "html",
@@ -71,14 +60,9 @@
   "tsserver.enableJavascript": true,
   "tsserver.enable": true,
   "eslint.enable": true,
-  "eslint.run": "onType",
+  "eslint.run": "onSave",
   "eslint.options": {
-    "extensinons": [
-      ".ts",
-      ".js",
-      ".tsx",
-      ".jsx"
-    ]
+    "extensinons": [".ts", ".js", ".tsx", ".jsx"]
   },
   "explorer.keyMappings.global": {
     "mc": "copyFile",

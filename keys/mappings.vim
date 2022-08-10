@@ -59,8 +59,6 @@ nnoremap <C-l> <C-w>l
 " inoremap <C-l> <C-\><C-N><C-w>l
 " tnoremap <Esc> <C-\><C-n>
 " Use alt + hjkl to resize windows
-nnoremap <silent> <leader>j    :resize -5<CR>
-nnoremap <silent> <leader>n    :resize +50<CR>
 nnoremap <silent> <C-j>    :resize -2<CR>
 nnoremap <silent> <C-k>    :resize +2<CR>
 nnoremap <silent> <S-h>    :vertical resize -2<CR>

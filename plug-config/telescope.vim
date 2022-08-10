@@ -28,6 +28,10 @@ telescope.setup{
       vertical = { width = 0.95, height = 95, prompt_position = 'top'},
     },
   },
+  pickers = {
+    find_files = {
+      theme = "dropdown",
+    },
 }
 telescope.load_extension("fzf")
 EOF
