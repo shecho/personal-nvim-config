@@ -37,6 +37,7 @@ else
   source $HOME/.config/nvim/plug-config/vim-wiki.vim
   " luafile $HOME/.config/nvim/lua/nvcodeline.lua
   luafile $HOME/.config/nvim/lua/treesitter.lua
+  source $HOME/.config/nvim/lua/autopairs.vim
   source $HOME/.config/nvim/plug-config/coc/coc.vim
   source $HOME/.config/nvim/plug-config/coc/coc-extensions.vim
   source $HOME/.config/nvim/plug-config/easymotion.vim
@@ -63,6 +64,7 @@ else
   " source $HOME/.config/nvim/plug-config/vista.vim
   " source $HOME/.config/nvim/plug-config/xtabline.vim
   " source $HOME/.config/nvim/plug-config/ale.vim
+  " source $HOME/.config/nvim/plug-config/tailwind.vim
 endif
 source $HOME/.config/nvim/plug-config/quickscope.vim
 
