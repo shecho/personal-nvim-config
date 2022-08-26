@@ -43,7 +43,7 @@ call one#highlight('Identifier', '', '', 'bold')"params abd arguments and variab
 " call one#highlight('SpecialChar', '', '', 'standout')
 " call one#highlight('Special', '', '', 'bolditalic')
 call one#highlight('Delimiter','', '', 'bold')"brackets
-call one#highlight('MatchParen', '', '', 'bolditalic')
+call one#highlight('MatchParen', '', '', 'underline,bolditalic')
 " call one#highlight('MatchBrackets', '', '', 'bolditalic')
 " call one#highlight('Label', '', '000000', 'italic')html and jsx 
 " call one#highlight('WildMenu', '', '', 'reverse')
@@ -55,10 +55,17 @@ call one#highlight('Directory', '', '', 'bold')
 " call one#highlight('Character', '', '', 'standout')
 " call one#highlight('Tag', '', '', 'standout')
 call one#highlight('Visual', '', '', 'bolditalic')
-" call one#highlight('Search', '', '', 'bolditalic')
+call one#highlight('TabLineSel', '', '3e4452', 'bolditalic,underline')
+" call one#highlight('TabLineSel', '', '3e4452', 'bolditalic')
+call one#highlight('TabLineFill', '', '', '')
+call one#highlight('TabLine', '', '', '')
+" call one#highlight('Search', '000000', '000000', 'bolditalic')
 " call one#highlight('IncSearch', '', '', 'bolditalic')
 call one#highlight('Statement', '', '', 'bold')
 " call one#highlight('CursorLine', '', '', 'bolditalic')" current line
+" call one#highlight('CursorIM', '', '', 'bolditalic')" current line
+" call one#highlight('CursorLineNr', '', '', 'bolditalic')" current line
+" call one#highlight('LineNr', '', '', 'bolditalic')" current line
 " call one#highlight('Define', '', '000000', 'bolditalic')
 " 
 		" bold
