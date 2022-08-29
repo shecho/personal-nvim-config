@@ -1,24 +1,13 @@
 {
-  "suggest.noselect": false,
   "suggest.enablePreselect": true,
-  "suggest.selection": "first",
-  "suggest.enablePreview": true,
+  "suggest.selection": "recentlyUsedByPrefix",
+  "suggest.defaultSortMethod": "length",
   "suggest.snippetsSupport": true,
   "suggest.preferCompleteThanJumpPlaceholder": true,
   "suggest.triggerAfterInsertEnter": true,
-  "suggest.acceptSuggestionOnCommitCharacter": true,
-  "suggest.floatEnable": true,
-  "suggest.autoTrigger": "always",
-  "suggest.defaultSortMethod": "length",
-  "suggest.completionItemKindLabels": {
-    "text": "t",
-    "method": "m",
-    "function": "",
-    "snippet": "s"
-  },
-  "explorer.openAction.strategy": "select",
+  //"suggest.acceptSuggestionOnCommitCharacter": true,
   //"diagnostic.virtualText": true,
-  //"diagnostic.enable": true,
+  "diagnostic.enable": true,
   "diagnostic.errorSign": " ",
   "diagnostic.warningSign": " ",
   "diagnostic.infoSign": "",
@@ -29,6 +18,7 @@
   "tailwindCSS.enable": true,
   "tailwindCSS.headwind.removeDuplicates": true,
   "tailwindCSS.validate": true,
+  "lua.enable": true,
   "coc.source.emoji.filetypes": ["markdown"],
   "coc.preferences.bracketEnterImprove": true,
   "coc.preferences.formatOnSaveFiletypes": [
@@ -45,6 +35,7 @@
     "python"
   ],
   "pairs.enableBackspace": true,
+  "pairs.alwaysPairCharacters": [],
   "typescript.autoClosingTags": true,
   "typescript.suggest.enabled": true,
   "typescript.suggest.autoImports": true,
@@ -64,8 +55,8 @@
     "typescript": "typescriptreact"
   },
   "tabnine.priority": 80,
-  "snippets.priority": 90,
-  "emmet.priority": 99,
+  "snippets.priority": 110,
+  "emmet.priority": 200,
   "suggest.languageSourcePriority": 70,
   "floaterm.completion.priority": 60,
   "emmet.showSuggestionsAsSnippets": true,
@@ -76,6 +67,7 @@
   "explorer.icon.enableNerdfont": true,
   "tsserver.enableJavascript": true,
   "tsserver.enable": true,
+  "typescript.suggestionActions.enabled": true,
   "eslint.enable": true,
   "eslint.run": "onSave",
   "eslint.options": {
