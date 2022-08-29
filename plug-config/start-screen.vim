@@ -33,10 +33,9 @@ function! StartifyEntryFormat()
 let g:startify_bookmarks = [
             \ { 'c': '~/.config/i3/config' },
             \ { 'i': '~/.config/nvim/init.vim' },
-            \ { 'l': '/home/shecho/WebstormProjects/LITTERA/littera-toolkit/src' },
-            \ { 'z': '/home/shecho/WebstormProjects/LITTERA/littera-core-ui/src' },
-            \ { 'p': '/home/shecho/WebstormProjects/FLAT/website/' },
-            \ '/home/shecho/WebstormProjects',
+            \ { 'l': '/Users/sergio/Documents/FLAT/website/apps/website' },
+            \ { 'z': '/Users/sergio/Documents/FLAT/website/apps/website' },
+            \ '~/Pics',
             \ ]
 
 let g:startify_enable_special = 0

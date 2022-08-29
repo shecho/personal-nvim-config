@@ -3,7 +3,7 @@
 "   augroup colorset
 "     autocmd!
 "     let s:white = { "gui": "#ABB2BF", "cterm": "145", "cterm16" : "7" }
-"     autocmd ColorScheme * call onedark#set_highlight("Normal", { "fg": s:white }) " `bg` will not be styled since there is no `bg` setting
+    " autocmd ColorScheme * call onedark#set_highlight("Normal", { "fg": s:white }) " `bg` will not be styled since there is no `bg` setting
 "   augroup END
 " endif
 
@@ -20,51 +20,54 @@ syntax on
 colorscheme one
 call one#highlight('Boolean', '', '', 'bolditalic')
 call one#highlight('Number', '', '', 'bold')
+call one#highlight('Float', '', '', 'bold')
 call one#highlight('String', '', '', 'bold')"string
 call one#highlight('Function', '', '','bold')" #B243E6
 call one#highlight('Conditional', '', '', 'italic')
+call one#highlight('Repeat', '', '','italic')" #B243E6
 call one#highlight('Type', '', '', 'bolditalic') 
 call one#highlight('Keyword', 'c678dd', '', 'italic')"reserved words
 call one#highlight('Include', 'c678dd', '', 'italic')"imports/exports
 call one#highlight('Asynchronous', '', '', 'italic')
-call one#highlight('Operator', 'c678dd', '', '')"not use italic to evoid the ligatures lost *= - + =>'#c678dd#
-
-
-call one#highlight('CursorColumn', '828997', '', 'bolditalic')"current word #4b5263 #5c6370 #828997 #abb2bf
-
-call one#highlight('Error', 'be5046', '', 'bolditalic')"#e06c75 #be5046 #c18401 #e5c07b #d19a66
-call one#highlight('ErrorMsg', 'e06c75', '', 'bold')
-
+call one#highlight('Operator', 'c678dd', '', '')"not use italic or bold to evoid the ligatures lost *= - + =>'#c678dd#
 call one#highlight('Exception', '', '', 'italic') " try catch
 call one#highlight('StorageClass', '', '','bolditalic')" #B243E6
-
+call one#highlight('Constant', '', '', 'bold')
+call one#highlight('Label', '', '', 'bold')"HTML tags and JSX
+call one#highlight('CursorColumn', '828997', '', 'bolditalic')"current word #4b5263 #5c6370 #828997 #abb2bf
+call one#highlight('Error', 'be5046', '', 'bolditalic')"#e06c75 #be5046 #c18401 #e5c07b #d19a66
+call one#highlight('ErrorMsg', 'e06c75', '', 'bold')
 call one#highlight('CocErrorSign', 'e06c75', '', 'bolditalic')
 call one#highlight('CocWarningSign', 'd19a66', '', 'bolditalic')
-
 call one#highlight('Identifier', '', '', 'bold')"params abd arguments and variables names
 " call one#highlight('SpecialChar', '', '', 'standout')
 " call one#highlight('Special', '', '', 'bolditalic')
-
 call one#highlight('Delimiter','', '', 'bold')"brackets
-call one#highlight('MatchParen', '', '', 'inverse')
-
+call one#highlight('MatchParen', '', '', 'underline,bolditalic')
+" call one#highlight('MatchBrackets', '', '', 'bolditalic')
 " call one#highlight('Label', '', '000000', 'italic')html and jsx 
-" call one#highlight('Search', '', '', 'standout')
 " call one#highlight('WildMenu', '', '', 'reverse')
-" call one#highlight('Directory', '', '', 'bold')
-" call one#highlight('CursorLine', '000000', '000000', '')
-
+call one#highlight('Directory', '', '', 'bold')
+" call one#highlight('CursorLine', '', '', 'standout')
 " call one#highlight('Use', '', '', 'standout')
 " call one#highlight('Utility', '', '', 'standout')
 " call one#highlight('Select', '', '', 'standout')
+" call one#highlight('Character', '', '', 'standout')
+" call one#highlight('Tag', '', '', 'standout')
 call one#highlight('Visual', '', '', 'bolditalic')
-" call one#highlight('IncSearch', '', '', 'standout')
-" call one#highlight('Label', '', '', '')"HTML tags and JSX
+call one#highlight('TabLineSel', '', '3e4452', 'bolditalic,underline')
+" call one#highlight('TabLineSel', '', '3e4452', 'bolditalic')
+call one#highlight('TabLineFill', '', '', '')
+call one#highlight('TabLine', '', '', '')
+" call one#highlight('Search', '000000', '000000', 'bolditalic')
+" call one#highlight('IncSearch', '', '', 'bolditalic')
+call one#highlight('Statement', '', '', 'bold')
 " call one#highlight('CursorLine', '', '', 'bolditalic')" current line
-" call one#highlight('Statement', '', '', 'bold')
+" call one#highlight('CursorIM', '', '', 'bolditalic')" current line
+" call one#highlight('CursorLineNr', '', '', 'bolditalic')" current line
+" call one#highlight('LineNr', '', '', 'bolditalic')" current line
 " call one#highlight('Define', '', '000000', 'bolditalic')
 " 
-
 		" bold
 		" underline
 		" undercurl	curly underline
@@ -75,8 +78,6 @@ call one#highlight('Visual', '', '', 'bolditalic')
 		" standout
 		" nocombine	override attributes instead of combining them
 		" NONE		no attributes used (used to reset it)
-
-
 " checks if your terminal has 24-bit color support
 " --------------------------------------------------------------
 " colorscheme onedark

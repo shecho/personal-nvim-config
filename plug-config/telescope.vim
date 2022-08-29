@@ -12,6 +12,9 @@ end
 
 local telescope = require('telescope')
 local actions = require('telescope.actions')
+local pickers = require ('telescope.pickers')
+local action_state = require ('telescope.actions.state') 
+local finders = require ('telescope.finders')
 
 telescope.setup{
   defaults = {
@@ -20,6 +23,16 @@ telescope.setup{
         ["q"] = actions.close
       },
     },
-  }
+  layout_config = {
+      horizontal = { width = 0.20, height = 0.95, prompt_position = 'top' },
+      vertical = { width = 0.95, height = 95, prompt_position = 'top'},
+    },
+  },
+  pickers = {
+    find_files = {
+      theme = "dropdown",
+    },
 }
+telescope.load_extension("fzf")
 EOF
+
