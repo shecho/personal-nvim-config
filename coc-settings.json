@@ -1,7 +1,7 @@
 {
   "suggest.enablePreselect": true,
   "suggest.selection": "recentlyUsedByPrefix",
-  "suggest.defaultSortMethod": "length",
+  "suggest.defaultSortMethod": "none",
   "suggest.snippetsSupport": true,
   "suggest.preferCompleteThanJumpPlaceholder": true,
   "suggest.triggerAfterInsertEnter": true,
@@ -16,7 +16,6 @@
   "list.selectedSignText": " ",
   "tailwindCSS.emmetCompletions": true,
   "tailwindCSS.enable": true,
-  "tailwindCSS.headwind.removeDuplicates": true,
   "tailwindCSS.validate": true,
   "lua.enable": true,
   "coc.source.emoji.filetypes": ["markdown"],
@@ -54,7 +53,7 @@
     "javascript": "javascriptreact",
     "typescript": "typescriptreact"
   },
-  "tabnine.priority": 80,
+  "tabnine.priority": 0,
   "snippets.priority": 110,
   "emmet.priority": 200,
   "suggest.languageSourcePriority": 70,
