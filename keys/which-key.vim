@@ -47,14 +47,14 @@ let g:which_key_map['e'] = [ ':CocCommand explorer'               , 'explorer' ]
 let g:which_key_map['f'] = [ ':Telescope find_files theme=dropdown', 'find and replace' ]
 let g:which_key_map['h'] = [ '<C-W>s'                             , 'split below']
 let g:which_key_map['m'] = [ ':call WindowSwap#EasyWindowSwap()'  , 'move window' ]
-let g:which_key_map['p'] = [ ':Telescope find_files prompt_prefix=🔍'              , 'search files' ]
+let g:which_key_map['p'] = [ ':Telescope find_files prompt_prefix=🔍 hidden=true'              , 'search files' ]
 let g:which_key_map['q'] = [ 'q'                                  , 'quit' ]
 let g:which_key_map['r'] = [ ':Telescope grep_string'             , 'search ag' ]
 let g:which_key_map['u'] = [ ':UndotreeToggle'                    , 'undo tree']
 let g:which_key_map['v'] = [ '<C-W>v'                             , 'split right']
 let g:which_key_map['W'] = [ 'w'                                  , 'write' ]
 let g:which_key_map['z'] = [ 'Goyo'                               , 'zen' ]
-let g:which_key_map['k'] = [ 'K'                               , 'hover' ]
+"  let g:which_key_map['k'] = [ 'K'                               , 'hover' ]
 
 
 " Group mappings
@@ -72,7 +72,7 @@ let g:which_key_map.a = {
       \ 'r' : [':set norelativenumber!'  , 'relative line nums'],
       \ 's' : [':let @/ = ""'            , 'remove search highlight'],
       \ 't' : [':FloatermToggle'         , 'terminal'],
-      \ 'v' : [':Codi'                   , 'virtual repl on'],
+      \ 'v' : [':hi DiagnosticUnderlineError gui=bold,underline,italic guisp=#e06c75'                   , 'Change Error Color'],
       \ 'V' : [':Codi!'                  , 'virtual repl off'],
       \ 'w' : [':StripWhitespace'        , 'strip whitespace'],
       \ }
@@ -91,6 +91,14 @@ let g:which_key_map.b = {
       \ '?' : ['Buffers'   , 'fzf-buffer'],
       \ }
 
+" c is for copilot 
+let g:which_key_map.c = {
+      \ 'name' : '+copilot' ,
+      \ 'd' : ['<Plug>(copilot-dismiss)'        , 'copilot-dismiss'],
+      \ 'n' : ['<Plug>(copilot-next)'        , 'copilot-next'],
+      \ 'p' : ['<Plug>(copilot-previous)'  , 'copilot-previous'],
+      \ 's' : [':Copilot panel'    , 'panel'],
+      \ }
 " f is for find and replace
 let g:which_key_map.F = {
       \ 'name' : '+find & replace' ,

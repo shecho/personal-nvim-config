@@ -8,6 +8,9 @@
 " endif
 
 hi Comment cterm=italic
+highlight DiagnosticUnderlineError ctermfg=White guifg=#ffffff gui=bold,underline,italic guisp=#e06c75
+
+
 " let g:onedark_hide_endofbuffer=1
 let g:onedark_terminal_italics=1
 let g:onedark_termcolors=256
@@ -36,8 +39,11 @@ call one#highlight('Label', '', '', 'bold')"HTML tags and JSX
 call one#highlight('CursorColumn', '828997', '', 'bolditalic')"current word #4b5263 #5c6370 #828997 #abb2bf
 call one#highlight('Error', 'be5046', '', 'bolditalic')"#e06c75 #be5046 #c18401 #e5c07b #d19a66
 call one#highlight('ErrorMsg', 'e06c75', '', 'bold')
-call one#highlight('CocErrorSign', 'e06c75', '', 'bolditalic')
-call one#highlight('CocWarningSign', 'd19a66', '', 'bolditalic')
+call one#highlight('DiagnosticVirtualTextError', 'e06c75', '', 'bolditalic')
+call one#highlight('DiagnosticError', 'e06c75', '', 'bolditalic')
+call one#highlight('DiagnosticFloatingError', 'e06c75', '', 'bolditalic')
+call one#highlight('DiagnosticSignError', 'e06c75', '', 'bolditalic')
+call one#highlight('DiagnosticUnderlineError', 'e06c75', '', 'bolditalic,underline')
 call one#highlight('Identifier', '', '', 'bold')"params abd arguments and variables names
 " call one#highlight('SpecialChar', '', '', 'standout')
 " call one#highlight('Special', '', '', 'bolditalic')

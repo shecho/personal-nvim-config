@@ -10,7 +10,7 @@ call plug#begin('~/.config/nvim/autoload/plugged')
 
     Plug 'windwp/nvim-autopairs'
     " taildwind
-    " Plug 'iamcco/coc-tailwindcss',  {'do': 'yarn install --frozen-lockfile && yarn run build'}
+    "  Plug 'iamcco/coc-tailwindcss',  {'do': 'yarn install --frozen-lockfile && yarn run build'}
     Plug 'rodrigore/coc-tailwind-intellisense', {'do': 'npm install'}
     "  Plug 'ThePrimeagen/git-worktree.nvim'
     " Better Comments
