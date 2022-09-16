@@ -26,10 +26,6 @@ function! CheckBackspace() abort
   return !col || getline('.')[col - 1]  =~# '\s'
 endfunction
 
-inoremap <silent><expr> <Tab>
-      \ coc#pum#visible() ? coc#pum#next(1) :
-      \ CheckBackspace() ? "\<Tab>" :
-      \ coc#refresh()
 " use <c-space>for trigger completion
 inoremap <silent><expr> <c-space> coc#refresh()
 " Use <C-@> on vim
@@ -37,6 +33,10 @@ inoremap <silent><expr> <c-@> coc#refresh()
 
 inoremap <expr> <Tab> coc#pum#visible() ? coc#pum#next(1) : "\<Tab>"
 inoremap <expr> <S-Tab> coc#pum#visible() ? coc#pum#prev(1) : "\<S-Tab>"
+inoremap <silent><expr> <Tab>
+      \ coc#pum#visible() ? coc#pum#next(1) :
+      \ CheckBackspace() ? "\<Tab>" :
+      \ coc#refresh()
 
 " nmap <silent> gd <Plug>(coc-definition)
 " nmap <silent> gy <Plug>(coc-type-definition)
@@ -54,10 +54,8 @@ function! s:show_documentation()
 endfunction
 " Highlight the symbol and its references when holding the cursor.
 autocmd CursorHold * silent call CocActionAsync('highlight')
-
 " Symbol renaming.
 nmap <leader>rn <Plug>(coc-rename)
-
 augroup mygroup
   autocmd!
   " Setup formatexpr specified filetype(s).
@@ -147,14 +145,16 @@ autocmd BufEnter * if (winnr("$") == 1 && &filetype == 'coc-explorer') | q | end
 " imap <C-j> <Plug>(coc-snippets-expand-jump)
 " imap <C-l> <Plug>(coc-snippets-expand-jump)
 
-" inoremap <silent><expr> <C-j> coc#pum#visible() ? coc#pum#select_confirm() : "\<C-y>"
 " inoremap <silent><expr> <C-b> coc#pum#visible() ? coc#_select_confirm() : "\<C-g>u\<CR>"
 
-inoremap <silent><expr> <cr> coc#pum#visible() ? coc#_select_confirm() : "\<C-g>u\<CR>"
+
 inoremap <expr> <cr> coc#pum#visible() ? coc#pum#confirm() : "\<CR>"
+inoremap <silent><expr> <cr> coc#pum#visible() ? coc#_select_confirm() : "\<C-g>u\<CR>"
 inoremap <silent><expr> <C-l> coc#pum#visible() ? coc#pum#confirm() : "\<C-y>"
 inoremap <silent><expr> <C-u> coc#pum#visible() ? coc#pum#insert() : "\<C-y>"
+inoremap <silent><expr> <C-j> coc#pum#visible() ? coc#_select_confirm() : "\<C-y>"
+" inoremap <silent><expr> <C-j> coc#pum#visible() ? coc#pum#confirm()
+"                               \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
 inoremap <silent><expr> <C-b> coc#pum#visible() ? coc#pum#confirm()
                               \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
-
 

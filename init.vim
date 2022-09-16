@@ -81,5 +81,5 @@ endif
 "     GuiFont! fira code iscript :h12
 "     let g:neovide_transparency=0.90
 " endif
-inoremap <expr> <c-j> ("\<C-n>")
-inoremap <expr> <c-k> ("\<C-p>")
+" inoremap <expr> <c-j> ("\<C-n>") 
+" inoremap <expr> <c-k> ("\<C-p>")

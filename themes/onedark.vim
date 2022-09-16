@@ -8,8 +8,9 @@
 " endif
 
 hi Comment cterm=italic
-highlight DiagnosticUnderlineError ctermfg=White guifg=#ffffff gui=bold,underline,italic guisp=#e06c75
-
+" cterm=bold,underline,italic ctermfg=168 gui=bold,underline,italic guifg=#e06c75 guisp=#e06c75
+highlight DiagnosticUnderlineError cterm=bold,underline,italic ctermfg=168 gui=bold,underline,italic guifg=#e06c75 guisp=#e06c75
+" highlight CopilotSuggestion guifg=#555555 ctermfg=8
 
 " let g:onedark_hide_endofbuffer=1
 let g:onedark_terminal_italics=1
@@ -43,7 +44,7 @@ call one#highlight('DiagnosticVirtualTextError', 'e06c75', '', 'bolditalic')
 call one#highlight('DiagnosticError', 'e06c75', '', 'bolditalic')
 call one#highlight('DiagnosticFloatingError', 'e06c75', '', 'bolditalic')
 call one#highlight('DiagnosticSignError', 'e06c75', '', 'bolditalic')
-call one#highlight('DiagnosticUnderlineError', 'e06c75', '', 'bolditalic,underline')
+" call one#highlight('DiagnosticUnderlineError', 'e06c75', '', 'bolditalic,underline')
 call one#highlight('Identifier', '', '', 'bold')"params abd arguments and variables names
 " call one#highlight('SpecialChar', '', '', 'standout')
 " call one#highlight('Special', '', '', 'bolditalic')

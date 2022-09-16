@@ -1,7 +1,7 @@
 {
   "suggest.enablePreselect": true,
-  "suggest.selection": "recentlyUsedByPrefix",
-  "suggest.defaultSortMethod": "none",
+  "suggest.selection": "first",
+  "suggest.defaultSortMethod": "length",
   "suggest.snippetsSupport": true,
   "suggest.preferCompleteThanJumpPlaceholder": true,
   "suggest.triggerAfterInsertEnter": true,
@@ -41,7 +41,16 @@
     "python"
   ],
   "pairs.enableBackspace": true,
-  "pairs.alwaysPairCharacters": [],
+  "pairs.alwaysPairCharacters": [
+    ["(", ")"],
+    ["[", "]"],
+    ["{", "}"],
+    ["<", ">"],
+    ["`", "`"],
+    ["'", "'"],
+    ["\"", "\""]
+  ],
+  "pairs.enableCharacters": ["(", "[", "{", "'", "\"", "`"],
   "typescript.autoClosingTags": true,
   "typescript.suggest.enabled": true,
   "typescript.suggest.autoImports": true,
