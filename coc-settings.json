@@ -41,15 +41,6 @@
     "python"
   ],
   "pairs.enableBackspace": true,
-  "pairs.alwaysPairCharacters": [
-    ["(", ")"],
-    ["[", "]"],
-    ["{", "}"],
-    ["<", ">"],
-    ["`", "`"],
-    ["'", "'"],
-    ["\"", "\""]
-  ],
   "pairs.enableCharacters": ["(", "[", "{", "'", "\"", "`"],
   "typescript.autoClosingTags": true,
   "typescript.suggest.enabled": true,

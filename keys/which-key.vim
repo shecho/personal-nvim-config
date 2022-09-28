@@ -98,6 +98,8 @@ let g:which_key_map.c = {
       \ 'n' : ['<Plug>(copilot-next)'        , 'copilot-next'],
       \ 'p' : ['<Plug>(copilot-previous)'  , 'copilot-previous'],
       \ 's' : [':Copilot panel'    , 'panel'],
+      \ 'a' : ['[[<Cmd>lua require("harpoon.ui").add_file()<CR>]]'    , 'Mark file'],
+      \ 'c' : ['[[<Cmd>lua require("harpoon.ui").toggle_quick_menu()<CR>]]'    , 'Mark menu'],
       \ }
 " f is for find and replace
 let g:which_key_map.F = {

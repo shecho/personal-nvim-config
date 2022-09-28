@@ -78,6 +78,7 @@ call plug#begin('~/.config/nvim/autoload/plugged')
     " Telescope 
     Plug 'nvim-lua/plenary.nvim'
     Plug 'nvim-telescope/telescope.nvim'
+    Plug 'ThePrimeagen/harpoon'
     " Git
     Plug 'airblade/vim-gitgutter'
     Plug 'tpope/vim-fugitive'
