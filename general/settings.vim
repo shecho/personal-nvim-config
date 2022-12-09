@@ -32,11 +32,11 @@ set nowritebackup                       " This is recommended by coc
 set shortmess+=c                        " Don't pass messages to |ins-completion-menu|.
 set signcolumn=yes                      " Always show the signcolumn, otherwise it would shift the text each time
 set updatetime=300                      " Faster completion
-set timeoutlen=100                      " By default timeoutlen is 1000 ms
+set timeoutlen=1000                      " By default timeoutlen is 1000 ms
 set clipboard=unnamedplus               " Copy paste between vim and everything else
 set incsearch
 set ignorecase
-"  set guifont=Operator\ JetBrains\ Fira\ Code\ Nerd\ Font
+set guifont=Operator\ JetBrains\ Fira\ Code\ Nerd\ Font
 " let $NVIM_T/UI_ENABLE_TRUE_COLOR=1
 " set mmp=1300
 " set autochdir                           " Your working directory will always be the same as your working directory

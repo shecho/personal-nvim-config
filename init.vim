@@ -22,10 +22,11 @@ if exists('g:vscode')
 else
 
   " Themes
-  source $HOME/.config/nvim/themes/syntax.vim
+  " source $HOME/.config/nvim/themes/syntax.vim
   " source $HOME/.config/nvim/themes/nvcode.vim
   source $HOME/.config/nvim/themes/onedark.vim
   source $HOME/.config/nvim/themes/airline.vim
+  " luafile $HOME/.config/nvim/lua/themes/onedark.vim
 
   " Plugin Configuration
   source $HOME/.config/nvim/plug-config/vim-commentary.vim
@@ -37,6 +38,7 @@ else
   source $HOME/.config/nvim/plug-config/vim-wiki.vim
   " luafile $HOME/.config/nvim/lua/nvcodeline.lua
   luafile $HOME/.config/nvim/lua/treesitter.lua
+  " luafile $HOME/.config/nvim/lua/harpoon.lua
   source $HOME/.config/nvim/lua/autopairs.vim
   source $HOME/.config/nvim/plug-config/coc/coc.vim
   source $HOME/.config/nvim/plug-config/coc/coc-extensions.vim
@@ -68,13 +70,17 @@ else
 endif
 source $HOME/.config/nvim/plug-config/quickscope.vim
 
+lua << EOF
+require "user.harpoon"
+EOF
+
 " Add paths to node and python here
 if !empty(glob("~/.config/nvim/paths.vim"))
   source $HOME/.config/nvim/paths.vim
 endif
 
 " Better nav for omnicomplete TODO figure out why this is being overridden
-" set guifont=JetBrain\ Operator\ Fira\ Code\ Nerd\ Font
+set guifont=JetBrain\ Operator\ Fira\ Code\ Nerd\ Font
 "  let s:fontsize = 18
 
 " if exists(':GuiFont')

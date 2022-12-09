@@ -44,17 +44,16 @@ let g:which_key_map['-'] = [ ':Commands'                          , 'commands' ]
 let g:which_key_map['='] = [ '<C-W>='                             , 'balance windows' ]
 let g:which_key_map['d'] = [ ':Bdelete'                           , 'delete buffer']
 let g:which_key_map['e'] = [ ':CocCommand explorer'               , 'explorer' ]
-let g:which_key_map['f'] = [ ':Telescope find_files theme=dropdown', 'find and replace' ]
+let g:which_key_map['f'] = [ ':Telescope find_files prompt_prefix=🔍 hidden=true winblend=10 layout_config={height=0.85,width=.80,prompt_position="top"}', 'find files' ]
 let g:which_key_map['h'] = [ '<C-W>s'                             , 'split below']
 let g:which_key_map['m'] = [ ':call WindowSwap#EasyWindowSwap()'  , 'move window' ]
-let g:which_key_map['p'] = [ ':Telescope find_files prompt_prefix=🔍 hidden=true'              , 'search files' ]
+let g:which_key_map['p'] = [ ':Telescope find_files theme=dropdown hidden=true winblend=10 layout_config={height=0.80,width=0.70}', 'search files' ]
 let g:which_key_map['q'] = [ 'q'                                  , 'quit' ]
 let g:which_key_map['r'] = [ ':Telescope grep_string'             , 'search ag' ]
 let g:which_key_map['u'] = [ ':UndotreeToggle'                    , 'undo tree']
 let g:which_key_map['v'] = [ '<C-W>v'                             , 'split right']
 let g:which_key_map['W'] = [ 'w'                                  , 'write' ]
 let g:which_key_map['z'] = [ 'Goyo'                               , 'zen' ]
-"  let g:which_key_map['k'] = [ 'K'                               , 'hover' ]
 
 
 " Group mappings
@@ -73,7 +72,7 @@ let g:which_key_map.a = {
       \ 's' : [':let @/ = ""'            , 'remove search highlight'],
       \ 't' : [':FloatermToggle'         , 'terminal'],
       \ 'v' : [':hi DiagnosticUnderlineError gui=bold,underline,italic guisp=#e06c75'                   , 'Change Error Color'],
-      \ 'V' : [':Codi!'                  , 'virtual repl off'],
+      \ 'V' : [':'                  , 'virtual repl off'],
       \ 'w' : [':StripWhitespace'        , 'strip whitespace'],
       \ }
 
@@ -98,9 +97,12 @@ let g:which_key_map.c = {
       \ 'n' : ['<Plug>(copilot-next)'        , 'copilot-next'],
       \ 'p' : ['<Plug>(copilot-previous)'  , 'copilot-previous'],
       \ 's' : [':Copilot panel'    , 'panel'],
-      \ 'a' : ['[[<Cmd>lua require("harpoon.ui").add_file()<CR>]]'    , 'Mark file'],
-      \ 'c' : ['[[<Cmd>lua require("harpoon.ui").toggle_quick_menu()<CR>]]'    , 'Mark menu'],
+      \ 'a' : ['<cmd>lua require("harpoon.mark").add_file()<CR>'    , 'Mark file'],
+      \ 'C' : ['<cmd>:lua require"harpoon.ui".toggle_quick_menu()<CR>'    , 'Mark menu'],
+      \ 'c' : [':Telescope harpoon marks theme=dropdown prompt_prefix=🔍  winblend=10 layout_config={height=0.85,width=.80,prompt_position="top"}'    , 'Mark menu'],
+      \ 'l' : [':so %'    , 'Soruce Vimrc'],
       \ }
+" <cmd>lua require'lspsaga.provider'.lsp_finder()<CR>
 " f is for find and replace
 let g:which_key_map.F = {
       \ 'name' : '+find & replace' ,
@@ -124,7 +126,6 @@ let g:which_key_map.K = {
       \ 'p' : [':AsyncTask project-run'       , 'run project'],
       \ 'x' : [':cclose'                      , 'close task view'],
       \ }
-      " \ 'l' : [':AsyncTaskList'               , 'list tasks'],
 
 " s is for search
 let g:which_key_map.s = {
@@ -133,7 +134,7 @@ let g:which_key_map.s = {
       \ ';' : [':Commands'              , 'commands'],
       \ 'a' : [':Rg'                    , 'text Ag'],
       \ 'B' : [':BLines'                , 'current buffer'],
-      \ 'b' : [':Buffers'               , 'open buffers'],
+      \ 'b' : [':Telescope buffers'               , 'open buffers'],
       \ 'c' : [':Commits'               , 'commits'],
       \ 'C' : [':BCommits'              , 'buffer commits'],
       \ 'f' : [':Rg'                    , 'files'],
@@ -144,7 +145,7 @@ let g:which_key_map.s = {
       \ 'l' : [':Lines'                 , 'lines'] ,
       \ 'm' : [':Marks'                 , 'marks'] ,
       \ 'M' : [':Maps'                  , 'normal maps'] ,
-      \ 'p' : [':Files'                 , 'help tags'] ,
+      \ 'p' : [':Telescope oldfiles'                 , 'help tags'] ,
       \ 'P' : [':Tags'                  , 'project tags'],
       \ 's' : [':CocList snippets'      , 'snippets'],
       \ 'S' : [':Colors'                , 'color schemes'],
@@ -156,10 +157,8 @@ let g:which_key_map.s = {
       \ '=' : [':resize +4<CR>'         , '+4'],
       \ '-' : [':resize -4<CR>'         , '-4'],
       \ }
-      " \ 's' : [':Snippets'     , 'snippets'],
-" :resize +2<CR>
 
-
+" S is for Sessions
 let g:which_key_map.S = {
       \ 'name' : '+Session' ,
       \ 'c' : [':SClose'          , 'Close Session']  ,
@@ -212,7 +211,7 @@ let g:which_key_map.G = {
       \ 'P' : [':Gist -p'                          , 'post private gist '],
       \ }
 
-" l is for language server protocol
+" l is for coc lsp
 let g:which_key_map.l = {
       \ 'name' : '+lsp' ,
       \ '.' : [':CocConfig'                          , 'config'],
@@ -307,31 +306,6 @@ let g:which_key_map.w = {
       \ 'U' : ['<plug>(wiki-list-uniq-local)'                              , 'ncdu'],
       \ }
 
-" Global
-" <Plug>VimwikiIndex
-" <Plug>VimwikiTabIndex
-" <Plug>VimwikiUISelect
-" <Plug>VimwikiDiaryIndex
-" <Plug>VimwikiMakeDiaryNote
-" <Plug>VimwikiTabMakeDiaryNote
-" <Plug>VimwikiMakeYesterdayDiaryNote
-" <Plug>VimwikiMakeTomorrowDiaryNote
-"
-" " Local
-" <Plug>Vimwiki2HTML
-" <Plug>Vimwiki2HTMLBrowse
-" <Plug>VimwikiDiaryGenerateLinks
-" <Plug>VimwikiFollowLink
-" <Plug>VimwikiSplitLink
-" <Plug>VimwikiVSplitLink
-" <Plug>VimwikiTabnewLink
-" <Plug>VimwikiGoBackLink
-" <Plug>VimwikiNextLink
-" <Plug>VimwikiPrevLink
-" <Plug>VimwikiGoto
-" <Plug>VimwikiDeleteLink
-" <Plug>VimwikiRenameLink
-" <Plug>VimwikiAddHeaderLevel
 
 " Register which key map
 call which_key#register('<Space>', "g:which_key_map")

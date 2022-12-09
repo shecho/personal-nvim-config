@@ -63,7 +63,8 @@ call plug#begin('~/.config/nvim/autoload/plugged')
     Plug 'rakr/vim-one'
     " Plug 'sonph/onehalf'
     " Plug 'joshdick/onedark.vim'
-    Plug 'christianchiarulli/nvcode-color-schemes.vim'
+    " Plug 'christianchiarulli/nvcode-color-schemes.vim'
+    Plug 'navarasu/onedark.nvim'
     " Intellisense
     Plug 'neoclide/coc.nvim', {'branch': 'release'}
     " Status Line
@@ -78,7 +79,6 @@ call plug#begin('~/.config/nvim/autoload/plugged')
     " Telescope 
     Plug 'nvim-lua/plenary.nvim'
     Plug 'nvim-telescope/telescope.nvim'
-    Plug 'ThePrimeagen/harpoon'
     " Git
     Plug 'airblade/vim-gitgutter'
     Plug 'tpope/vim-fugitive'
@@ -187,6 +187,8 @@ call plug#begin('~/.config/nvim/autoload/plugged')
     " Plug 'romgrk/lib.kom'
     " Plug 'brooth/far.vim'
     " Debugging
+    Plug 'ThePrimeagen/harpoon'
+    Plug 'prabirshrestha/vim-lsp'
   endif
 
 call plug#end()
