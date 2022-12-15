@@ -1,6 +1,6 @@
 require('onedark').setup  {
     -- Main options --
-    style = 'dark', -- Default theme style. Choose between 'dark', 'darker', 'cool', 'deep', 'warm', 'warmer' and 'light'
+    style = 'darker', -- Default theme style. Choose between 'dark', 'darker', 'cool', 'deep', 'warm', 'warmer' and 'light'
     transparent = false,  -- Show/hide background
     term_colors = true, -- Change terminal color as per the selected theme style
     ending_tildes = false, -- Show the end-of-buffer tildes. By default they are hidden
@@ -14,11 +14,11 @@ require('onedark').setup  {
     -- Options are italic, bold, underline, none
     -- You can configure multiple style with comma seperated, For e.g., keywords = 'italic,bold'
     code_style = {
-        comments = 'italic',
-        keywords = 'none',
-        functions = 'none',
-        strings = 'none',
-        variables = 'none'
+        comments = 'bolditalic',
+        -- keywords = 'italic',
+        functions = 'bold',
+        -- strings = 'bold',
+        -- variables = 'bold',
     },
 
     -- Lualine options --
@@ -29,10 +29,30 @@ require('onedark').setup  {
     -- Custom Highlights --
     colors = {}, -- Override default colors
     highlights = {
-    ["@keyword"] = {fg = '$green'},
-    ["@string"] = {fg = '$bright_orange', bg = '#00ff00', fmt = 'bold'},
-    ["@function"] = {fg = '#0000ff', sp = '$cyan', fmt = 'underline,italic'},
-    ["@function.builtin"] = {fg = '#0059ff'}
+    ["@keyword"] = {fg= "$purple",fmt = 'bolditalic'},
+    ["@string"] = {fmt = 'bold'},
+    ["@function"] = { fmt = 'bold'},
+    ["@function.builtin"] = {fg = '$cyan',fmt = 'bold,underline'},
+    ["@operator"] = {fg= "$purple",fmt = 'bold'},
+    ["@interface"] = {fg= "$orange", fmt = 'bold'},
+    ["@type"] = { fmt = 'bolditalic'},
+    ["@include"] = {fg= "$purple", fmt = 'italic'},
+    ["@constant"] = {fg= "$green", fmt = 'bold'},
+    ["@tags"] = {fg= "$green", fmt = 'bold'},
+    ["@label"] = {fg= "$green", fmt = 'bold'},
+    ["@parameter"] = {fg= "$cyan", fmt = 'bolditalic'},
+    ["@property"] = {fg= "", fmt = 'bold'},
+    ["@punctuation.delimiter"] = {fg= "$purple", fmt = 'bold'},
+    ["@punctuation.bracket"] = {fg= "$purple", fmt = 'bold'},
+    ["@punctuation.specifies"] = {fg= "$purple", fmt = 'bold'},
+    ["@boolean"] = {fg= "$orange", fmt = 'bolditalic'},
+    ["@repeat"] = {fg= "$purple", fmt = 'italic'},
+    ["@tag"] = {fg= "$blue", fmt = 'bold'},
+    ["@tag.delimiter"] = {fg= "$purple", fmt = 'bold'},
+    -- ["@property"] = {fg= "$purple", fmt = 'bold'}
+
+
+
   },
     -- Plugins Config --
     diagnostics = {

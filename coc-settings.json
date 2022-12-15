@@ -1,22 +1,31 @@
 {
   "suggest.enablePreselect": true,
-  //"suggest.selection": "first",
-  "suggest.defaultSortMethod": "length",
+  "suggest.selection": "first",
+  "suggest.defaultSortMethod": "none",
+  "suggest.snippetIndicator": "S",
   "suggest.snippetsSupport": true,
   "suggest.preferCompleteThanJumpPlaceholder": true,
   "suggest.triggerAfterInsertEnter": true,
   "suggest.acceptSuggestionOnCommitCharacter": true,
   "suggest.noselect": false,
   "suggest.virtualText": true,
+  "vimlsp.trace.server": true,
+  "vimlsp.diagnostic.enable": true,
+  "vimlsp.debug": true,
+  "vimlsp.filetypes": [
+    "vim",
+    "vimrc",
+    "javascript",
+    "typescript",
+    "typescriptreact",
+    "javascriptreact"
+  ],
   //"diagnostic.virtualText": true,
-  "diagnostic.checkCurrentLine": true,
-  "diagnostic.virtualTextCurrentLineOnly": true,
   "diagnostic.virtualTextPrefix": "",
   "diagnostic.errorSign": " ",
   "diagnostic.warningSign": " ",
   "diagnostic.infoSign": "",
   "diagnostic.hintSign": " ",
-  "list.indicator": ">",
   "list.selectedSignText": " ",
   "tailwindCSS.trace.server": "messages",
   "tailwindCSS.emmetCompletions": true,
@@ -28,7 +37,9 @@
   "tailwindCSS.headwind.runOnSave": false,
   "lua.enable": true,
   "coc.source.emoji.enable": true,
-  "coc.source.emoji.filetypes": ["markdown"],
+  "coc.source.emoji.filetypes": [
+    "markdown"
+  ],
   "coc.preferences.bracketEnterImprove": true,
   "coc.preferences.formatOnSaveFiletypes": [
     "css",
@@ -44,7 +55,14 @@
     "python"
   ],
   "pairs.enableBackspace": true,
-  "pairs.enableCharacters": ["(", "[", "{", "'", "\"", "`"],
+  "pairs.enableCharacters": [
+    "(",
+    "[",
+    "{",
+    "'",
+    "\"",
+    "`"
+  ],
   "typescript.autoClosingTags": true,
   "typescript.suggest.enabled": true,
   "typescript.suggest.autoImports": true,
@@ -52,22 +70,31 @@
   "javascript.autoClosingTags": true,
   "snippets.autoTrigger": true,
   "snippets.shortcut": "S",
-  "snippets.ultisnips.directories": ["UltiSnips", "~/.config/nvim/snips"],
+  "snippets.ultisnips.directories": [
+    "UltiSnips",
+    "~/.config/nvim/snips"
+  ],
   "snippets.extends": {
-    "javascriptreact": ["javascript"],
-    "typescriptreact": ["javascript"],
-    "typescript": ["javascript"]
+    "javascriptreact": [
+      "javascript"
+    ],
+    "typescriptreact": [
+      "javascript"
+    ],
+    "typescript": [
+      "javascript"
+    ]
   },
   "emmet.includeLanguages": {
     "vue-html": "html",
     "javascript": "javascriptreact",
     "typescript": "typescriptreact"
   },
-  "yank.priority": 10,
-  "tabnine.priority": 1,
+  "yank.priority": 2,
+  "tabnine.priority": 0,
   "snippets.priority": 999,
   "emmet.priority": 200,
-  "floaterm.completion.priority": 5,
+  "floaterm.completion.priority": 3,
   "suggest.languageSourcePriority": 10,
   "emmet.showSuggestionsAsSnippets": true,
   "emmet.showExpandedAbbreviation": "always",
@@ -76,7 +103,6 @@
   "explorer.position": "right",
   "explorer.file.showHiddenFiles": true,
   "explorer.icon.enableNerdfont": true,
-  "explorer.icon.enableDevicons": true,
   "explorer.icon.expanded": "",
   "explorer.icon.collapsed": "",
   "explorer.icon.link": "→",
@@ -90,7 +116,12 @@
     "typescriptreact"
   ],
   "eslint.options": {
-    "extensinons": [".ts", ".js", ".tsx", ".jsx"]
+    "extensinons": [
+      ".ts",
+      ".js",
+      ".tsx",
+      ".jsx"
+    ]
   },
   "explorer.keyMappings.global": {
     "mc": "copyFile",

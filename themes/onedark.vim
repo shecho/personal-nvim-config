@@ -20,7 +20,7 @@ let g:one_allow_italics = 1
 
 syntax on
 " colorscheme onedark
-colorscheme one
+ colorscheme one
 call one#highlight('Boolean', '', '', 'bolditalic')
 " call one#highlight('Number', '', '', 'bold')
 call one#highlight('Number', '', '', '')

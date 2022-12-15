@@ -49,7 +49,7 @@ let g:which_key_map['h'] = [ '<C-W>s'                             , 'split below
 let g:which_key_map['m'] = [ ':call WindowSwap#EasyWindowSwap()'  , 'move window' ]
 let g:which_key_map['p'] = [ ':Telescope find_files theme=dropdown hidden=true winblend=10 layout_config={height=0.80,width=0.70}', 'search files' ]
 let g:which_key_map['q'] = [ 'q'                                  , 'quit' ]
-let g:which_key_map['r'] = [ ':Telescope grep_string'             , 'search ag' ]
+" let g:which_key_map['r'] = [ ':Telescope grep_string'             , 'search ag' ]
 let g:which_key_map['u'] = [ ':UndotreeToggle'                    , 'undo tree']
 let g:which_key_map['v'] = [ '<C-W>v'                             , 'split right']
 let g:which_key_map['W'] = [ 'w'                                  , 'write' ]
@@ -99,7 +99,7 @@ let g:which_key_map.c = {
       \ 's' : [':Copilot panel'    , 'panel'],
       \ 'a' : ['<cmd>lua require("harpoon.mark").add_file()<CR>'    , 'Mark file'],
       \ 'C' : ['<cmd>:lua require"harpoon.ui".toggle_quick_menu()<CR>'    , 'Mark menu'],
-      \ 'c' : [':Telescope harpoon marks theme=dropdown prompt_prefix=🔍  winblend=10 layout_config={height=0.85,width=.80,prompt_position="top"}'    , 'Mark menu'],
+      \ 'c' : [':Telescope harpoon marks theme=dropdown winblend=40 layout_config={height=0.45,width=.50,prompt_position="top"}'    , 'Mark menu'],
       \ 'l' : [':so %'    , 'Soruce Vimrc'],
       \ }
 " <cmd>lua require'lspsaga.provider'.lsp_finder()<CR>

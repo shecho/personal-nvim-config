@@ -49,8 +49,9 @@ call plug#begin('~/.config/nvim/autoload/plugged')
     Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
     Plug 'nvim-treesitter/playground'
     " Cool Icons
-    Plug 'kyazdani42/nvim-web-devicons'
+    " Plug 'kyazdani42/nvim-web-devicons'
     Plug 'ryanoasis/vim-devicons'
+    Plug 'nvim-tree/nvim-web-devicons'
     " Auto pairs for '(' '[' '{'
     Plug 'jiangmiao/auto-pairs'
     " Closetags
@@ -189,6 +190,12 @@ call plug#begin('~/.config/nvim/autoload/plugged')
     " Debugging
     Plug 'ThePrimeagen/harpoon'
     Plug 'prabirshrestha/vim-lsp'
+    Plug 'wbthomason/packer.nvim'
+    " lsp native
+    Plug 'williamboman/mason.nvim'
+    Plug 'williamboman/mason-lspconfig.nvim'
+    Plug 'neovim/nvim-lspconfig'
+    Plug 'kabouzeid/nvim-lspinstall'
   endif
 
 call plug#end()

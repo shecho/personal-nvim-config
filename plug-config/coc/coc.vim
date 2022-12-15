@@ -142,8 +142,8 @@ autocmd BufEnter * if (winnr("$") == 1 && &filetype == 'coc-explorer') | q | end
 " Use <C-k> for jump to previous placeholder, it's default of coc.nvim
 "et g:coc_snippet_prev = '<c-k>'
 "Use <C-j> for both expand and jump (make expand higher priority.)
-" imap <C-j> <Plug>(coc-snippets-expand-jump)
-" imap <C-l> <Plug>(coc-snippets-expand-jump)
+imap <C-j> <Plug>(coc-snippets-expand-jump)
+imap <C-l> <Plug>(coc-snippets-expand-jump)
 
 " inoremap <silent><expr> <C-b> coc#pum#visible() ? coc#_select_confirm() : "\<C-g>u\<CR>"
 
@@ -151,7 +151,6 @@ autocmd BufEnter * if (winnr("$") == 1 && &filetype == 'coc-explorer') | q | end
 inoremap <expr> <cr> coc#pum#visible() ? coc#pum#confirm() : "\<CR>"
 inoremap <silent><expr> <cr> coc#pum#visible() ? coc#_select_confirm() : "\<C-g>u\<CR>"
 inoremap <silent><expr> <C-l> coc#pum#visible() ? coc#pum#confirm() : "\<C-y>"
-inoremap <silent><expr> <C-u> coc#pum#visible() ? coc#pum#insert() : "\<C-y>"
 inoremap <silent><expr> <C-j> coc#pum#visible() ? coc#_select_confirm() : "\<C-y>"
 " inoremap <silent><expr> <C-j> coc#pum#visible() ? coc#pum#confirm()
 "                               \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
