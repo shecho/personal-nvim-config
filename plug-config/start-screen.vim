@@ -35,7 +35,7 @@ let g:startify_bookmarks = [
             \ { 'i': '~/.config/nvim/init.vim' },
             \ { 'l': '/Users/sergio/Documents/FLAT/website/apps/website' },
             \ { 'z': '/Users/sergio/Documents/FLAT/admin/apps/property-catalog' },
-            \ '~/Pics',
+            \ '~/',
             \ ]
 
 let g:startify_enable_special = 0
