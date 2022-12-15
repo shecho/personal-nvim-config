@@ -1,9 +1,3 @@
-"    ____      _ __        _
-"   / // __ \/ / __/ | / / / __ `__ \
-" _/ // / / / / /__| |/ / / / / / / /
-"/___/_/ /_/_/\__(_)___/_/_/ /_/ /_/
-
-
 " General Settings
 source $HOME/.config/nvim/vim-plug/plugins.vim
 source $HOME/.config/nvim/general/settings.vim
@@ -34,8 +28,6 @@ else
   source $HOME/.config/nvim/plug-config/fzf.vim
   source $HOME/.config/nvim/plug-config/telescope.vim
   source $HOME/.config/nvim/plug-config/codi.vim
-  " luafile $HOME/.config/nvim/lua/nvcodeline.lua
-  luafile $HOME/.config/nvim/lua/treesitter.lua
   source $HOME/.config/nvim/lua/autopairs.vim
   source $HOME/.config/nvim/plug-config/coc/coc.vim
   source $HOME/.config/nvim/plug-config/coc/coc-extensions.vim
@@ -52,7 +44,6 @@ else
   source $HOME/.config/nvim/plug-config/window-swap.vim
   source $HOME/.config/nvim/plug-config/markdown-preview.vim
   source $HOME/.config/nvim/plug-config/neovide.vim
-  luafile $HOME/.config/nvim/lua/plug-colorizer.lua
   source $HOME/.config/nvim/plug-config/vimspector.vim
   " source $HOME/.config/nvim/plug-config/sneak.vim
   source $HOME/.config/nvim/plug-config/rainbow.vim
@@ -61,6 +52,9 @@ else
   " source $HOME/.config/nvim/plug-config/xtabline.vim
   " source $HOME/.config/nvim/plug-config/ale.vim
   " source $HOME/.config/nvim/plug-config/tailwind.vim
+  " luafile $HOME/.config/nvim/lua/nvcodeline.lua
+  luafile $HOME/.config/nvim/lua/treesitter.lua
+  luafile $HOME/.config/nvim/lua/plug-colorizer.lua
 endif
 source $HOME/.config/nvim/plug-config/quickscope.vim
 
@@ -73,13 +67,9 @@ if !empty(glob("~/.config/nvim/paths.vim"))
   source $HOME/.config/nvim/paths.vim
 endif
 
-" Better nav for omnicomplete TODO figure out why this is being overridden
+" Better nav for omnicomplete 
 set guifont=JetBrain\ Operator\ Fira\ Code\ Nerd\ Font
 "  let s:fontsize = 18
 
-" if exists(':GuiFont')
-"     GuiFont! fira code iscript :h12
-"     let g:neovide_transparency=0.90
-" endif
 " inoremap <expr> <c-j> ("\<C-n>") 
 " inoremap <expr> <c-k> ("\<C-p>")
