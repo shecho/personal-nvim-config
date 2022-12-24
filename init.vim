@@ -6,7 +6,7 @@ source $HOME/.config/nvim/keys/mappings.vim
 source $HOME/.config/nvim/keys/which-key.vim
 
 if exists('g:vscode')
-  " VS Code extension
+ " VS Code extension
   source $HOME/.config/nvim/vscode/settings.vim
   source $HOME/.config/nvim/plug-config/easymotion.vim
   source $HOME/.config/nvim/plug-config/highlightyank.vim
@@ -20,8 +20,6 @@ else
   " luafile $HOME/.config/nvim/themes/oneDark.lua
 
   " Plugin Configuration
-  "  source $HOME/.config/nvim/plug-config/asynctask.vim
-  "  source $HOME/.config/nvim/plug-config/far.vim
   source $HOME/.config/nvim/plug-config/vim-commentary.vim
   source $HOME/.config/nvim/plug-config/rnvimr.vim
   source $HOME/.config/nvim/plug-config/better-whitespace.vim
@@ -31,7 +29,7 @@ else
   source $HOME/.config/nvim/lua/autopairs.vim
   source $HOME/.config/nvim/plug-config/coc/coc.vim
   source $HOME/.config/nvim/plug-config/coc/coc-extensions.vim
-  source $HOME/.config/nvim/plug-config/easymotion.vim
+  source $HOME/.config/nvim/plug-config/easymotion.vim 
   source $HOME/.config/nvim/plug-config/goyo.vim
   source $HOME/.config/nvim/plug-config/vim-rooter.vim
   source $HOME/.config/nvim/plug-config/start-screen.vim
@@ -45,13 +43,15 @@ else
   source $HOME/.config/nvim/plug-config/markdown-preview.vim
   source $HOME/.config/nvim/plug-config/neovide.vim
   source $HOME/.config/nvim/plug-config/vimspector.vim
-  " source $HOME/.config/nvim/plug-config/sneak.vim
   source $HOME/.config/nvim/plug-config/rainbow.vim
+  " source $HOME/.config/nvim/plug-config/sneak.vim
   " source $HOME/.config/nvim/plug-config/illuminate.vim
   " source $HOME/.config/nvim/plug-config/vista.vim
   " source $HOME/.config/nvim/plug-config/xtabline.vim
   " source $HOME/.config/nvim/plug-config/ale.vim
   " source $HOME/.config/nvim/plug-config/tailwind.vim
+  "  source $HOME/.config/nvim/plug-config/asynctask.vim
+  "  source $HOME/.config/nvim/plug-config/far.vim
   " luafile $HOME/.config/nvim/lua/nvcodeline.lua
   luafile $HOME/.config/nvim/lua/treesitter.lua
   luafile $HOME/.config/nvim/lua/plug-colorizer.lua
@@ -59,7 +59,15 @@ endif
 source $HOME/.config/nvim/plug-config/quickscope.vim
 
 lua << EOF
+require("mason").setup()
+require("mason-lspconfig").setup()
+EOF
+" local lsp = require('lsp-zero')
+" lsp.preset('recommended')
+
+lua << EOF
 require "user.harpoon"
+require("nvim-autopairs").setup {}
 EOF
 
 " Add paths to node and python here

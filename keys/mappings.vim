@@ -96,8 +96,8 @@ nnoremap <leader>1 <c-^>
 
 " TODO: Lo to witch wey 
 " harpoon
-nnoremap <leader>m :lua require("harpoon.mark").add_file()<CR>
+nnoremap <leader>M :lua require("harpoon.mark").add_file()<CR>
 nnoremap <leader>C :lua require("harpoon.mark").clear_all()<CR>
 nnoremap <leader>R :lua require("harpoon.mark").rm_file()<CR>
-nnoremap <leader>M :lua require("harpoon.ui").toggle_quick_menu()<CR>
+nnoremap <leader>m :lua require("harpoon.ui").toggle_quick_menu()<CR>
 

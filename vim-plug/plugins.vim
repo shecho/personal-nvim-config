@@ -15,7 +15,7 @@ call plug#begin('~/.config/nvim/autoload/plugged')
     "  Plug 'ThePrimeagen/git-worktree.nvim'
     " Better Comments
     Plug 'tpope/vim-commentary'
-    " Change dates fast
+    " Change dates fastplugin
     Plug 'tpope/vim-speeddating'
     " Convert binary, hex, etc..
     Plug 'glts/vim-radical'
@@ -86,6 +86,7 @@ call plug#begin('~/.config/nvim/autoload/plugged')
     Plug 'tpope/vim-rhubarb'
     Plug 'junegunn/gv.vim'
     Plug 'rhysd/git-messenger.vim'
+    Plug 'f-person/git-blame.nvim'   
     " Terminal
     Plug 'voldikss/vim-floaterm'
     " Start Screen
@@ -191,11 +192,17 @@ call plug#begin('~/.config/nvim/autoload/plugged')
     Plug 'ThePrimeagen/harpoon'
     Plug 'prabirshrestha/vim-lsp'
     Plug 'wbthomason/packer.nvim'
-    " lsp native
+    "native lsp 
     Plug 'williamboman/mason.nvim'
     Plug 'williamboman/mason-lspconfig.nvim'
+    Plug 'jose-elias-alvarez/null-ls.nvim'
     Plug 'neovim/nvim-lspconfig'
     Plug 'kabouzeid/nvim-lspinstall'
+    "  Snippets
+    Plug 'L3MON4D3/LuaSnip'
+    Plug 'rafamadriz/friendly-snippets'
+    Plug 'VonHeikemen/lsp-zero.nvim'
+
   endif
 
 call plug#end()

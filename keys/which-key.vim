@@ -44,10 +44,10 @@ let g:which_key_map['-'] = [ ':Commands'                          , 'commands' ]
 let g:which_key_map['='] = [ '<C-W>='                             , 'balance windows' ]
 let g:which_key_map['d'] = [ ':Bdelete'                           , 'delete buffer']
 let g:which_key_map['e'] = [ ':CocCommand explorer'               , 'explorer' ]
-let g:which_key_map['f'] = [ ':Telescope find_files prompt_prefix=🔍 hidden=true winblend=10 layout_config={height=0.85,width=.80,prompt_position="top"}', 'find files' ]
+let g:which_key_map['f'] = [ ':Telescope find_files prompt_prefix=🔍 hidden=true winblend=20 layout_config={height=0.95,width=.90,prompt_position="top"}', 'find files' ]
 let g:which_key_map['h'] = [ '<C-W>s'                             , 'split below']
 let g:which_key_map['m'] = [ ':call WindowSwap#EasyWindowSwap()'  , 'move window' ]
-let g:which_key_map['p'] = [ ':Telescope find_files theme=dropdown hidden=true winblend=10 layout_config={height=0.80,width=0.70}', 'search files' ]
+let g:which_key_map['p'] = [ ':Telescope find_files previewer=false theme=dropdown winblend=10 layout_config={height=0.80,width=0.70}', 'search files' ]
 let g:which_key_map['q'] = [ 'q'                                  , 'quit' ]
 " let g:which_key_map['r'] = [ ':Telescope grep_string'             , 'search ag' ]
 let g:which_key_map['u'] = [ ':UndotreeToggle'                    , 'undo tree']
@@ -99,7 +99,7 @@ let g:which_key_map.c = {
       \ 's' : [':Copilot panel'    , 'panel'],
       \ 'a' : ['<cmd>lua require("harpoon.mark").add_file()<CR>'    , 'Mark file'],
       \ 'C' : ['<cmd>:lua require"harpoon.ui".toggle_quick_menu()<CR>'    , 'Mark menu'],
-      \ 'c' : [':Telescope harpoon marks theme=dropdown winblend=40 layout_config={height=0.45,width=.50,prompt_position="top"}'    , 'Mark menu'],
+      \ 'c' : [':Telescope harpoon marks theme=dropdown previewer=false winblend=15 layout_config={height=0.60,width=0.50}'    , 'Mark menu'],
       \ 'l' : [':so %'    , 'Soruce Vimrc'],
       \ }
 " <cmd>lua require'lspsaga.provider'.lsp_finder()<CR>
@@ -172,8 +172,8 @@ let g:which_key_map.S = {
 let g:which_key_map.g = {
       \ 'name' : '+git' ,
       \ 'a' : [':Git add .'                        , 'add all'],
-      \ 'A' : [':Git add %'                        , 'add current'],
-      \ 'b' : [':Git blame'                        , 'blame'],
+      \ 'b' : [':GitBlameEnable'                   , 'blame enable'],
+      \ 'A' : [':GitBlameDisable'                  , 'blame disable'],
       \ 'B' : [':GBrowse'                          , 'browse'],
       \ 'c' : [':Git commit'                       , 'commit'],
       \ 'd' : [':Git diff'                         , 'diff'],
