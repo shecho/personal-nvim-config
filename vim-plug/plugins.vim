@@ -177,6 +177,7 @@ call plug#begin('~/.config/nvim/autoload/plugged')
     " Plug 'hardcoreplayers/spaceline.vim'
     Plug 'vim-airline/vim-airline'
     Plug 'vim-airline/vim-airline-themes'
+    Plug 'lukas-reineke/indent-blankline.nvim'
     " Ranger
     " Plug 'francoiscabrol/ranger.vim'
     " Plug 'rbgrouleff/bclose.vim'

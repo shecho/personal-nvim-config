@@ -1,4 +1,4 @@
-" General Settings
+"Vim Commentary General Settings
 source $HOME/.config/nvim/vim-plug/plugins.vim
 source $HOME/.config/nvim/general/settings.vim
 source $HOME/.config/nvim/general/functions.vim
@@ -62,12 +62,11 @@ lua << EOF
 require("mason").setup()
 require("mason-lspconfig").setup()
 EOF
-" local lsp = require('lsp-zero')
-" lsp.preset('recommended')
 
 lua << EOF
 require "user.harpoon"
 require("nvim-autopairs").setup {}
+require "user.indentline"
 EOF
 
 " Add paths to node and python here

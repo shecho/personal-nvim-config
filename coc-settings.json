@@ -37,9 +37,7 @@
   "tailwindCSS.headwind.runOnSave": false,
   "lua.enable": true,
   "coc.source.emoji.enable": true,
-  "coc.source.emoji.filetypes": [
-    "markdown"
-  ],
+  "coc.source.emoji.filetypes": ["markdown"],
   "coc.preferences.bracketEnterImprove": true,
   "coc.preferences.formatOnSaveFiletypes": [
     "css",
@@ -55,14 +53,7 @@
     "python"
   ],
   "pairs.enableBackspace": true,
-  "pairs.enableCharacters": [
-    "(",
-    "[",
-    "{",
-    "'",
-    "\"",
-    "`"
-  ],
+  "pairs.enableCharacters": ["(", "[", "{", "'", "\"", "`"],
   "typescript.autoClosingTags": true,
   "typescript.suggest.enabled": true,
   "typescript.suggest.autoImports": true,
@@ -70,20 +61,11 @@
   "javascript.autoClosingTags": true,
   "snippets.autoTrigger": true,
   "snippets.shortcut": "S",
-  "snippets.ultisnips.directories": [
-    "UltiSnips",
-    "~/.config/nvim/snips"
-  ],
+  "snippets.ultisnips.directories": ["UltiSnips", "~/.config/nvim/snips"],
   "snippets.extends": {
-    "javascriptreact": [
-      "javascript"
-    ],
-    "typescriptreact": [
-      "javascript"
-    ],
-    "typescript": [
-      "javascript"
-    ]
+    "javascriptreact": ["javascript"],
+    "typescriptreact": ["javascript"],
+    "typescript": ["javascript"]
   },
   "emmet.includeLanguages": {
     "vue-html": "html",
@@ -116,12 +98,7 @@
     "typescriptreact"
   ],
   "eslint.options": {
-    "extensinons": [
-      ".ts",
-      ".js",
-      ".tsx",
-      ".jsx"
-    ]
+    "extensinons": [".ts", ".js", ".tsx", ".jsx"]
   },
   "explorer.keyMappings.global": {
     "mc": "copyFile",
@@ -157,5 +134,7 @@
     "snippet": "\ue60b",
     "typeParameter": "\uf728",
     "default": "\uf29c"
-  }
+  },
+  "sumneko-lua.enableNvimLuaDev": true,
+  "Lua.telemetry.enable": true
 }

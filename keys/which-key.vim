@@ -37,7 +37,7 @@ autocmd  FileType which_key set laststatus=0 noshowmode noruler
 
 
 " Single mappings
-let g:which_key_map['3'] = [ ':call Comment()'                    , 'comment' ]
+let g:which_key_map['3'] = [ 'gcc'                                , 'comment' ]
 let g:which_key_map['/'] = [ ':call Comment()'                    , 'comment' ]
 let g:which_key_map['0'] = [ ':e $MYVIMRC'                        , 'open init' ]
 let g:which_key_map['-'] = [ ':Commands'                          , 'commands' ]
@@ -49,7 +49,7 @@ let g:which_key_map['h'] = [ '<C-W>s'                             , 'split below
 let g:which_key_map['m'] = [ ':call WindowSwap#EasyWindowSwap()'  , 'move window' ]
 let g:which_key_map['p'] = [ ':Telescope find_files previewer=false theme=dropdown winblend=10 layout_config={height=0.80,width=0.70}', 'search files' ]
 let g:which_key_map['q'] = [ 'q'                                  , 'quit' ]
-" let g:which_key_map['r'] = [ ':Telescope grep_string'             , 'search ag' ]
+let g:which_key_map['r'] = [ ':Telescope buffers'                 , 'search ag' ]
 let g:which_key_map['u'] = [ ':UndotreeToggle'                    , 'undo tree']
 let g:which_key_map['v'] = [ '<C-W>v'                             , 'split right']
 let g:which_key_map['W'] = [ 'w'                                  , 'write' ]
@@ -61,18 +61,18 @@ let g:which_key_map['z'] = [ 'Goyo'                               , 'zen' ]
 " a is for actions
 let g:which_key_map.a = {
       \ 'name' : '+actions' ,
-      \ 'c' : [':ColorizerToggle'        , 'colorizer'],
-      \ 'e' : [':CocCommand explorer'    , 'explorer'],
+      \ 'c' : [':ColorizerToggle'                                                                       , 'colorizer'],
+      \ 'e' : [':CocCommand explorer'                                                                   , 'explorer'],
       \ 'l' : [''                 , ''],
       \ 'L' : [''             , ''],
-      \ 'm' : [':MarkdownPreview'        , 'markdown preview'],
-      \ 'M' : [':MarkdownPreviewStop'    , 'markdown preview stop'],
-      \ 'n' : [':set nonumber!'          , 'line-numbers'],
-      \ 'r' : [':set norelativenumber!'  , 'relative line nums'],
-      \ 's' : [':let @/ = ""'            , 'remove search highlight'],
-      \ 't' : [':FloatermToggle'         , 'terminal'],
+      \ 'm' : [':MarkdownPreview'                                                                       , 'markdown preview'],
+      \ 'M' : [':MarkdownPreviewStop'                                                                   , 'markdown preview stop'],
+      \ 'n' : [':set nonumber!'                                                                         , 'line-numbers'],
+      \ 'r' : [':set norelativenumber!'                                                                 , 'relative line nums'],
+      \ 's' : [':let @/ = ""'                                                                           , 'remove search highlight'],
+      \ 't' : [':FloatermToggle'                                                                        , 'terminal'],
       \ 'v' : [':hi DiagnosticUnderlineError gui=bold,underline,italic guisp=#e06c75'                   , 'Change Error Color'],
-      \ 'V' : [':'                  , 'virtual repl off'],
+      \ 'V' : [':'                                                                                      , 'virtual repl off'],
       \ 'w' : [':StripWhitespace'        , 'strip whitespace'],
       \ }
 
@@ -87,20 +87,21 @@ let g:which_key_map.b = {
       \ 'l' : ['blast'     , 'last-buffer'],
       \ 'n' : ['bnext'     , 'next-buffer'],
       \ 'p' : ['bprevious' , 'previous-buffer'],
-      \ '?' : ['Buffers'   , 'fzf-buffer'],
+      \ 'b' : ['Buffers'   , 'fzf-buffer'],
       \ }
 
 " c is for copilot 
 let g:which_key_map.c = {
       \ 'name' : '+copilot' ,
-      \ 'd' : ['<Plug>(copilot-dismiss)'        , 'copilot-dismiss'],
-      \ 'n' : ['<Plug>(copilot-next)'        , 'copilot-next'],
-      \ 'p' : ['<Plug>(copilot-previous)'  , 'copilot-previous'],
-      \ 's' : [':Copilot panel'    , 'panel'],
-      \ 'a' : ['<cmd>lua require("harpoon.mark").add_file()<CR>'    , 'Mark file'],
-      \ 'C' : ['<cmd>:lua require"harpoon.ui".toggle_quick_menu()<CR>'    , 'Mark menu'],
-      \ 'c' : [':Telescope harpoon marks theme=dropdown previewer=false winblend=15 layout_config={height=0.60,width=0.50}'    , 'Mark menu'],
-      \ 'l' : [':so %'    , 'Soruce Vimrc'],
+      \ 'd' : ['<Plug>(copilot-dismiss)'                                                                                      , 'copilot-dismiss'],
+      \ 'n' : ['<Plug>(copilot-next)'                                                                                         , 'copilot-next'],
+      \ 'p' : ['<Plug>(copilot-previous)'                                                                                     , 'copilot-previous'],
+      \ 's' : [':Copilot panel'                                                                                               , 'panel'],
+      \ 'a' : ['<cmd>lua require("harpoon.mark").add_file()<CR>'                                                              , 'Mark file'],
+      \ 'C' : ['<cmd>:lua require"harpoon.ui".toggle_quick_menu()<CR>'                                                        , 'Mark menu'],
+      \ 'c' : [':Telescope harpoon marks theme=dropdown previewer=false winblend=15 layout_config={height=0.60,width=0.50}'   , 'Mark menu'],
+      \ 'l' : [':so %'                                                                                                        , 'Soruce Vimrc'],
+      \ 'o' : [':IndentBlanklineToggle'                                                                                       , 'TogglBlankLine'],
       \ }
 " <cmd>lua require'lspsaga.provider'.lsp_finder()<CR>
 " f is for find and replace
@@ -134,7 +135,7 @@ let g:which_key_map.s = {
       \ ';' : [':Commands'              , 'commands'],
       \ 'a' : [':Rg'                    , 'text Ag'],
       \ 'B' : [':BLines'                , 'current buffer'],
-      \ 'b' : [':Telescope buffers'               , 'open buffers'],
+      \ 'b' : [':Telescope buffers'     , 'open buffers'],
       \ 'c' : [':Commits'               , 'commits'],
       \ 'C' : [':BCommits'              , 'buffer commits'],
       \ 'f' : [':Rg'                    , 'files'],
@@ -145,7 +146,7 @@ let g:which_key_map.s = {
       \ 'l' : [':Lines'                 , 'lines'] ,
       \ 'm' : [':Marks'                 , 'marks'] ,
       \ 'M' : [':Maps'                  , 'normal maps'] ,
-      \ 'p' : [':Telescope oldfiles'                 , 'help tags'] ,
+      \ 'p' : [':Telescope oldfiles'    , 'help tags'] ,
       \ 'P' : [':Tags'                  , 'project tags'],
       \ 's' : [':CocList snippets'      , 'snippets'],
       \ 'S' : [':Colors'                , 'color schemes'],
@@ -172,7 +173,7 @@ let g:which_key_map.S = {
 let g:which_key_map.g = {
       \ 'name' : '+git' ,
       \ 'a' : [':Git add .'                        , 'add all'],
-      \ 'b' : [':GitBlameEnable'                   , 'blame enable'],
+      \ 'b' : [':GitBlameToggle'                   , 'blame enable'],
       \ 'A' : [':GitBlameDisable'                  , 'blame disable'],
       \ 'B' : [':GBrowse'                          , 'browse'],
       \ 'c' : [':Git commit'                       , 'commit'],
