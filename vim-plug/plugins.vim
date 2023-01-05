@@ -80,6 +80,8 @@ call plug#begin('~/.config/nvim/autoload/plugged')
     " Telescope 
     Plug 'nvim-lua/plenary.nvim'
     Plug 'nvim-telescope/telescope.nvim'
+    Plug 'fannheyward/telescope-coc.nvim'
+    Plug 'nvim-lua/popup.nvim'
     " Git
     Plug 'airblade/vim-gitgutter'
     Plug 'tpope/vim-fugitive'
@@ -138,21 +140,10 @@ call plug#begin('~/.config/nvim/autoload/plugged')
     " Multiple Cursors
     Plug 'terryma/vim-multiple-cursors'
     " Async Linting Engine
-    " TODO make sure to add ale config before plugin
-    " Plug 'dense-analysis/ale'
-    " Better Whitespace
     " Plug 'ntpeters/vim-better-whitespace'
     " Multiple Cursors
-    " TODO add this back in change from C-n
     " Plug 'mg979/vim-visual-multi', {'branch': 'master'}
-    " Plug 'yuezk/vim-js'
-    " Plug 'maxmellon/vim-jsx-pretty'
-    " Plug 'jelera/vim-javascript-syntax'
-    " Plugin Graveyard
 
-    " Debug
-    " Plug 'mfussenegger/nvim-dap'
-    " Plug 'nvim-dap-virtual-text'
     " Sneak
     " Plug 'justinmk/vim-sneak'
     Plug 'nvim-treesitter/nvim-treesitter-refactor'
@@ -160,21 +151,10 @@ call plug#begin('~/.config/nvim/autoload/plugged')
     Plug 'romgrk/nvim-treesitter-context'
     " Minimap
     " Plug 'wfxr/minimap.vim'
-    " jsx syntax support
     " Typescript syntax
-    " Plug 'HerringtonDarkholme/yats.vim'
-    " Plug 'kaicataldo/material.vim'
-    " Plug 'tomasiser/vim-code-dark'
-    " Plug 'mg979/vim-xtabline'
     " Files
-    " Plug 'tpope/vim-eunuch'
-    " Vim Wiki
-    " Plug 'https://github.com/vimwiki/vimwiki.git'
     " Better Comments
-    " Plug 'jbgutierrez/vim-better-comments'
-    " Echo doc
-    " Plug 'Shougo/echodoc.vim'
-    " Plug 'hardcoreplayers/spaceline.vim'
+    Plug 'jbgutierrez/vim-better-comments'
     Plug 'vim-airline/vim-airline'
     Plug 'vim-airline/vim-airline-themes'
     Plug 'lukas-reineke/indent-blankline.nvim'
@@ -182,14 +162,6 @@ call plug#begin('~/.config/nvim/autoload/plugged')
     " Plug 'francoiscabrol/ranger.vim'
     " Plug 'rbgrouleff/bclose.vim'
     " Making stuff
-    " Plug 'neomake/neomake'
-    " Plug 'mhinz/vim-signify'
-    " Plug 'preservim/nerdcommenter'
-    " Plug 'brooth/far.vim'
-    " Plug 'atishay/far.vim'
-    " Plug 'romgrk/lib.kom'
-    " Plug 'brooth/far.vim'
-    " Debugging
     Plug 'ThePrimeagen/harpoon'
     Plug 'prabirshrestha/vim-lsp'
     Plug 'wbthomason/packer.nvim'
@@ -199,10 +171,10 @@ call plug#begin('~/.config/nvim/autoload/plugged')
     Plug 'jose-elias-alvarez/null-ls.nvim'
     Plug 'neovim/nvim-lspconfig'
     Plug 'kabouzeid/nvim-lspinstall'
+    Plug 'VonHeikemen/lsp-zero.nvim'
     "  Snippets
     Plug 'L3MON4D3/LuaSnip'
     Plug 'rafamadriz/friendly-snippets'
-    Plug 'VonHeikemen/lsp-zero.nvim'
 
   endif
 

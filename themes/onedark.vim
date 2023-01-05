@@ -23,9 +23,9 @@ syntax on
  colorscheme one
 
 call one#highlight('Special', '', '', 'bold')
-call one#highlight('SpecialChar', '', '', 'standout')
-call one#highlight('Character', '', '', 'standout')
-call one#highlight('Tag', '', '000000', 'standout')
+call one#highlight('SpecialChar', '', '', 'bold')
+call one#highlight('Character', '', '', 'bold')
+call one#highlight('Tag', '', '', 'bold')
 call one#highlight('Boolean', '', '', 'bolditalic')
 call one#highlight('Number', '', '', 'bold')
 call one#highlight('Float', '', '', 'bold')
