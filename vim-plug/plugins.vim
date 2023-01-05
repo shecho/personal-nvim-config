@@ -154,7 +154,6 @@ call plug#begin('~/.config/nvim/autoload/plugged')
     " Typescript syntax
     " Files
     " Better Comments
-    Plug 'jbgutierrez/vim-better-comments'
     Plug 'vim-airline/vim-airline'
     Plug 'vim-airline/vim-airline-themes'
     Plug 'lukas-reineke/indent-blankline.nvim'
