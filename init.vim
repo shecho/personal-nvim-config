@@ -20,11 +20,11 @@ else
   " luafile $HOME/.config/nvim/themes/oneDark.lua
 
   " Plugin Configuration
+  " source $HOME/.config/nvim/plug-config/telescope.vim "Migrated to lua
   source $HOME/.config/nvim/plug-config/vim-commentary.vim
   source $HOME/.config/nvim/plug-config/rnvimr.vim
   source $HOME/.config/nvim/plug-config/better-whitespace.vim
   source $HOME/.config/nvim/plug-config/fzf.vim
-  source $HOME/.config/nvim/plug-config/telescope.vim
   source $HOME/.config/nvim/plug-config/codi.vim
   source $HOME/.config/nvim/lua/autopairs.vim
   source $HOME/.config/nvim/plug-config/coc/coc.vim
@@ -64,8 +64,8 @@ require("mason-lspconfig").setup()
 EOF
 
 lua << EOF
+require "user.telescope"
 require "user.harpoon"
-require("nvim-autopairs").setup {}
 require "user.indentline"
 EOF
 

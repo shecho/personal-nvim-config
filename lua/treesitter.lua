@@ -1,6 +1,11 @@
-require'nvim-treesitter.configs'.setup {
+local status_ok, configs = pcall(require, "nvim-treesitter.configs")
+if not status_ok then
+  return
+end
+configs.setup {
   ignore_install ={ "php","phpdoc","sql",'erlang' },
   ensure_installed = "all", -- one of "all", "maintained" (parsers with maintainers), or a list of languages
+  auto_install = true,
   highlight = {
     enable = true,              -- false will disable the whole extension
   },
@@ -13,24 +18,19 @@ require'nvim-treesitter.configs'.setup {
   autotag = {
     enable = true,
   },
-  auto_install = true,
+  autopairs = {
+    enable = true,
+  },
   indent = {
     enable = true,
-    disable = {},
+    disable = {"python", "css", "rust" },
   },
   refactor = {
     highlight_current_scope = { enable = false },
   },
   rainbow = {
-  enable = true,
-  -- disable = { "jsx", "cpp" }, list of languages you want to disable the plugin for
-  extended_mode = true, -- Also highlight non-bracket delimiters like html tags, boolean or table: lang -> boolean
-  max_file_lines = nil, -- Do not enable for files with more than n lines, int
-  additional_vim_regex_highlighting = true,
-  -- colors = {}, -- table of hex strings
-  rainbow = {
     enable = true,
-    extended_mode = false,
+    extended_mode = true,
     colors = {
       -- "#68a0b0",
       -- "#946EaD",
@@ -43,9 +43,9 @@ require'nvim-treesitter.configs'.setup {
       -- "LawnGreen",
     },
     disable = { "html" },
-  }
+  },
   -- termcolors = {} -- table of colour name strings
-}
+
 }
 
 local parser_config = require "nvim-treesitter.parsers".get_parser_configs()

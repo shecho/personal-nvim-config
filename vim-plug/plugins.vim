@@ -82,6 +82,7 @@ call plug#begin('~/.config/nvim/autoload/plugged')
     Plug 'nvim-telescope/telescope.nvim'
     Plug 'fannheyward/telescope-coc.nvim'
     Plug 'nvim-lua/popup.nvim'
+    Plug 'nvim-telescope/telescope-ui-select.nvim'
     " Git
     Plug 'airblade/vim-gitgutter'
     Plug 'tpope/vim-fugitive'
