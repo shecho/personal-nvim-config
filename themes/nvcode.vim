@@ -13,9 +13,9 @@ let g:nvcode_allow_italics = 1
 " let g:one_allow_italics = 1 
 syntax on
 " colorscheme nord
-colorscheme one
-" colorscheme edge
+" colorscheme one
 " colorscheme onedark
+" colorscheme edge
 " colorscheme onehalflight
 " colorscheme dracula       
 " colorscheme nvcode

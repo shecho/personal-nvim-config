@@ -2,7 +2,6 @@
     \ 'coc-snippets',
     \ 'coc-actions',
     \ 'coc-sh',
-    \ 'coc-java-debug',
     \ 'coc-lists',
     \ 'coc-emmet',
     \ 'coc-tasks',
@@ -14,8 +13,6 @@
     \ 'coc-emoji',
     \ 'coc-cssmodules',
     \ 'coc-yaml',
-    \ 'coc-python',
-    \ 'coc-pyright',
     \ 'coc-explorer',
     \ 'coc-svg',
     \ 'coc-prettier',
@@ -25,6 +22,7 @@
     \ 'coc-json',
     \ 'coc-marketplace',
     \ 'coc-highlight',
+    \ 'coc-lua',
     \ ]
 
 " Use tab for trigger completion with characters ahead and navigate.

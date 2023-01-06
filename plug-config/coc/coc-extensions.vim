@@ -8,14 +8,12 @@ let g:coc_global_extensions = [
   \ 'coc-pairs',
   \ 'coc-tsserver',
   \ 'coc-floaterm',
-  \ 'coc-fzf-preview',
   \ 'coc-html',
   \ 'coc-css',
   \ 'coc-cssmodules',
   \ 'coc-stylelintplus',
   \ 'coc-emoji',
   \ 'coc-yaml',
-  \ 'coc-pyright',
   \ 'coc-explorer',
   \ 'coc-svg',
   \ 'coc-prettier',
@@ -28,4 +26,5 @@ let g:coc_global_extensions = [
   \ 'coc-eslint',
   \ ]
   " \ 'coc-tabnine',
+  "\ 'coc-fzf-preview',
 
