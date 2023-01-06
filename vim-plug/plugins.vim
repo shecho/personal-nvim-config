@@ -50,7 +50,7 @@ call plug#begin('~/.config/nvim/autoload/plugged')
     Plug 'tpope/vim-sleuth'
 
     " Better Syntax Support
-    " Plug 'sheerun/vim-polyglot'
+    Plug 'sheerun/vim-polyglot'
     " Treesitter
     Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
     Plug 'nvim-treesitter/playground'
