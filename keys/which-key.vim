@@ -15,7 +15,7 @@ nnoremap <leader>? :CocSearch <C-R>=expand("<cword>")<CR><CR>
 let g:which_key_map['?'] = 'search word'
 
 " Not a fan of floating windows for this
-let g:which_key_use_floating_win = 0
+let g:which_key_use_floating_win = 1
 
 " Change the colors if you want
 highlight default link WhichKey          Operator
