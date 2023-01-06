@@ -1,6 +1,11 @@
-require'nvim-treesitter.configs'.setup {
-  ignore_install ={ "php","phpdoc" },
+local status_ok, configs = pcall(require, "nvim-treesitter.configs")
+if not status_ok then
+  return
+end
+configs.setup {
+  ignore_install ={ "php","phpdoc","sql",'erlang' },
   ensure_installed = "all", -- one of "all", "maintained" (parsers with maintainers), or a list of languages
+  auto_install = true,
   highlight = {
     enable = true,              -- false will disable the whole extension
   },
@@ -13,14 +18,34 @@ require'nvim-treesitter.configs'.setup {
   autotag = {
     enable = true,
   },
-  auto_install = true,
+  autopairs = {
+    enable = true,
+  },
   indent = {
     enable = true,
-    disable = {},
+    disable = {"python", "css", "rust" },
   },
   refactor = {
     highlight_current_scope = { enable = false },
-  }
+  },
+  rainbow = {
+    enable = true,
+    extended_mode = true,
+    colors = {
+      -- "#68a0b0",
+      -- "#946EaD",
+      -- "#c7aA6D",
+      "Gold",
+      "Orchid",
+      "DodgerBlue",
+      -- "Cornsilk",
+      -- "Salmon",
+      -- "LawnGreen",
+    },
+    disable = { "html" },
+  },
+  -- termcolors = {} -- table of colour name strings
+
 }
 
 local parser_config = require "nvim-treesitter.parsers".get_parser_configs()

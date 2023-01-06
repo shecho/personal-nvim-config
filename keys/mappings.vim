@@ -74,7 +74,7 @@ nnoremap N Nzzzv
 nnoremap J mzJ`z
 cnoremap Q q
 
-" Select all
+" Select all and some surround like keybindings
 " nmap <C-a> :%y<Cr>
 nmap <C-a> gg<S-v>Gy
 xnoremap <leader>9 xi()<Esc>P
@@ -93,3 +93,11 @@ xnoremap <leader>8 xi""<Esc>P
 nnoremap <leader>8 ciw""<Esc>P 
 
 nnoremap <leader>1 <c-^>
+
+" TODO: Lo to witch wey 
+" harpoon
+nnoremap <leader>M :lua require("harpoon.mark").add_file()<CR>
+nnoremap <leader>C :lua require("harpoon.mark").clear_all()<CR>
+nnoremap <leader>R :lua require("harpoon.mark").rm_file()<CR>
+nnoremap <leader>m :lua require("harpoon.ui").toggle_quick_menu()<CR>
+

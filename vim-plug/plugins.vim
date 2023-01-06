@@ -1,4 +1,4 @@
-" auto-install vim-plug
+" auto-install vim-plugplugin
 if empty(glob('~/.config/nvim/autoload/plug.vim'))
   silent !curl -fLo ~/.config/nvim/autoload/plug.vim --create-dirs
     \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
@@ -9,13 +9,14 @@ endif
 call plug#begin('~/.config/nvim/autoload/plugged')
 
     Plug 'windwp/nvim-autopairs'
+    Plug 'windwp/nvim-ts-autotag'
     " taildwind
-    " Plug 'iamcco/coc-tailwindcss',  {'do': 'yarn install --frozen-lockfile && yarn run build'}
+    "  Plug 'iamcco/coc-tailwindcss',  {'do': 'yarn install --frozen-lockfile && yarn run build'}
     Plug 'rodrigore/coc-tailwind-intellisense', {'do': 'npm install'}
     "  Plug 'ThePrimeagen/git-worktree.nvim'
     " Better Comments
     Plug 'tpope/vim-commentary'
-    " Change dates fast
+    " Change dates fastplugin
     Plug 'tpope/vim-speeddating'
     " Convert binary, hex, etc..
     Plug 'glts/vim-radical'
@@ -35,41 +36,54 @@ call plug#begin('~/.config/nvim/autoload/plugged')
     Plug 'machakann/vim-highlightedyank'
   else
 
+    " Projects 
+    Plug 'ahmedkhalf/project.nvim'
     " Easymotion
-    Plug 'easymotion/vim-easymotion'
+    " Plug 'easymotion/vim-easymotion'
     " Surround
     Plug 'tpope/vim-surround'
+
     " Have the file system follow you around
     Plug 'airblade/vim-rooter'
+
     " auto set indent settings
     Plug 'tpope/vim-sleuth'
+
     " Better Syntax Support
     Plug 'sheerun/vim-polyglot'
     " Treesitter
     Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
     Plug 'nvim-treesitter/playground'
+    Plug 'nvim-treesitter/nvim-treesitter-refactor'
+    Plug 'nvim-treesitter/nvim-treesitter-textobjects'
+    Plug 'romgrk/nvim-treesitter-context'
+
     " Cool Icons
-    Plug 'kyazdani42/nvim-web-devicons'
+    " Plug 'kyazdani42/nvim-web-devicons'
+    Plug 'nvim-tree/nvim-web-devicons'
+    Plug 'nvim-tree/nvim-tree.lua'
     Plug 'ryanoasis/vim-devicons'
     " Auto pairs for '(' '[' '{'
     Plug 'jiangmiao/auto-pairs'
     " Closetags
     Plug 'alvan/vim-closetag'
+
     " Themes
     " Plug 'christianchiarulli/onedark.vim'
     " Plug 'christianchiarulli/nvcode-color-schemes.vim'
     " Plug 'sainnhe/edge'
     " Plug 'dracula/dracula-theme'
-    Plug 'rakr/vim-one'
     " Plug 'sonph/onehalf'
     " Plug 'joshdick/onedark.vim'
-    Plug 'christianchiarulli/nvcode-color-schemes.vim'
+    " Plug 'christianchiarulli/nvcode-color-schemes.vim'
+    Plug 'rakr/vim-one'
+    Plug 'navarasu/onedark.nvim'
+
     " Intellisense
     Plug 'neoclide/coc.nvim', {'branch': 'release'}
     " Status Line
     Plug 'vim-airline/vim-airline'
-    " Plug 'glepnir/galaxyline.nvim'
-    " Plug 'kevinhwang91/rnvimr'
+
     " FZF
     Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
     Plug 'junegunn/fzf.vim'
@@ -78,114 +92,141 @@ call plug#begin('~/.config/nvim/autoload/plugged')
     " Telescope 
     Plug 'nvim-lua/plenary.nvim'
     Plug 'nvim-telescope/telescope.nvim'
+    Plug 'fannheyward/telescope-coc.nvim'
+    Plug 'nvim-lua/popup.nvim'
+    Plug 'nvim-telescope/telescope-ui-select.nvim'
+    Plug 'nvim-telescope/telescope-fzf-native.nvim', { 'do': 'make' }
     " Git
     Plug 'airblade/vim-gitgutter'
     Plug 'tpope/vim-fugitive'
     Plug 'tpope/vim-rhubarb'
     Plug 'junegunn/gv.vim'
     Plug 'rhysd/git-messenger.vim'
+    Plug 'f-person/git-blame.nvim'   
+
     " Terminal
     Plug 'voldikss/vim-floaterm'
+
     " Start Screen
     Plug 'mhinz/vim-startify'
+
     " Vista
     Plug 'liuchengxu/vista.vim'
+
     " See what keys do like in emacs
     Plug 'liuchengxu/vim-which-key'
+
     " Zen mode
     Plug 'junegunn/goyo.vim'
+
     " Snippets
     Plug 'honza/vim-snippets'
     Plug 'mattn/emmet-vim'
+
     " Interactive code
     Plug 'metakirby5/codi.vim'
+
     " Better tabline
     Plug 'romgrk/barbar.nvim'
+
     " undo time travel
     Plug 'mbbill/undotree'
+
     " Find and replace
-    Plug 'ChristianChiarulli/far.vim'
+    " Plug 'ChristianChiarulli/far.vim'
+
     " Auto change html tags
     Plug 'AndrewRadev/tagalong.vim'
+
     " live server
     Plug 'turbio/bracey.vim'
+
     " Smooth scroll
     Plug 'psliwka/vim-smoothie'
+
     " " async tasks
     Plug 'skywind3000/asynctasks.vim'
     Plug 'skywind3000/asyncrun.vim'
+
     " Swap windows
-    Plug 'wesQ3/vim-windowswap'
+    " Plug 'wesQ3/vim-windowswap'
+
     " Markdown Preview
     Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app & npm install'  }
+
     " Easily Create Gists
     Plug 'mattn/vim-gist'
     Plug 'mattn/webapi-vim'
+
     " Colorizer
     Plug 'norcalli/nvim-colorizer.lua'
     " Intuitive buffer closing
     Plug 'moll/vim-bbye'
+
     " Debugging
     Plug 'puremourning/vimspector'
     Plug 'szw/vim-maximizer'
+
+
     " Neovim in Browser
     Plug 'glacambre/firenvim', { 'do': { _ -> firenvim#install(0) } }
     " Rainbow brackets
     Plug 'luochen1990/rainbow'
+
     " Multiple Cursors
     Plug 'terryma/vim-multiple-cursors'
-    " Async Linting Engine
-    " TODO make sure to add ale config before plugin
-    " Plug 'dense-analysis/ale'
-    " Better Whitespace
-    " Plug 'ntpeters/vim-better-whitespace'
-    " Multiple Cursors
-    " TODO add this back in change from C-n
     " Plug 'mg979/vim-visual-multi', {'branch': 'master'}
-    " Plug 'yuezk/vim-js'
-    " Plug 'maxmellon/vim-jsx-pretty'
-    " Plug 'jelera/vim-javascript-syntax'
-    " Plugin Graveyard
 
-    " Debug
-    " Plug 'mfussenegger/nvim-dap'
-    " Plug 'nvim-dap-virtual-text'
+    " Async Linting Engine
+    " Plug 'ntpeters/vim-better-whitespace'
+
     " Sneak
     " Plug 'justinmk/vim-sneak'
-    Plug 'nvim-treesitter/nvim-treesitter-refactor'
-    Plug 'nvim-treesitter/nvim-treesitter-textobjects'
-    Plug 'romgrk/nvim-treesitter-context'
+
     " Minimap
     " Plug 'wfxr/minimap.vim'
-    " jsx syntax support
-    " Typescript syntax
-    " Plug 'HerringtonDarkholme/yats.vim'
-    " Plug 'kaicataldo/material.vim'
-    " Plug 'tomasiser/vim-code-dark'
-    " Plug 'mg979/vim-xtabline'
-    " Files
-    " Plug 'tpope/vim-eunuch'
-    " Vim Wiki
-    " Plug 'https://github.com/vimwiki/vimwiki.git'
-    " Better Comments
-    " Plug 'jbgutierrez/vim-better-comments'
-    " Echo doc
-    " Plug 'Shougo/echodoc.vim'
-    " Plug 'hardcoreplayers/spaceline.vim'
+
     Plug 'vim-airline/vim-airline'
     Plug 'vim-airline/vim-airline-themes'
+    Plug 'lukas-reineke/indent-blankline.nvim'
+
     " Ranger
-    " Plug 'francoiscabrol/ranger.vim'
-    " Plug 'rbgrouleff/bclose.vim'
+    "  Plug 'francoiscabrol/ranger.vim'
+    Plug 'kevinhwang91/rnvimr'
+    "  Plug 'rbgrouleff/bclose.vim'
+
     " Making stuff
-    " Plug 'neomake/neomake'
-    " Plug 'mhinz/vim-signify'
-    " Plug 'preservim/nerdcommenter'
-    " Plug 'brooth/far.vim'
-    " Plug 'atishay/far.vim'
-    " Plug 'romgrk/lib.kom'
-    " Plug 'brooth/far.vim'
-    " Debugging
+    Plug 'wbthomason/packer.nvim'
+    Plug 'ThePrimeagen/harpoon'
+    Plug 'prabirshrestha/vim-lsp'
+
+    "native lsp 
+    Plug 'williamboman/mason.nvim'
+    Plug 'williamboman/mason-lspconfig.nvim'
+
+    Plug 'onsails/lspkind.nvim'
+    Plug 'neovim/nvim-lspconfig'
+    Plug 'kabouzeid/nvim-lspinstall'
+    Plug 'VonHeikemen/lsp-zero.nvim'
+    Plug 'jose-elias-alvarez/typescript.nvim'
+
+    " Linting 
+    Plug 'jose-elias-alvarez/null-ls.nvim'
+    Plug 'jayp0521/mason-null-ls.nvim'
+
+    " completions
+    Plug'hrsh7th/cmp-nvim-lsp'
+    Plug'hrsh7th/nvim-cmp'
+    Plug'hrsh7th/cmp-buffer'
+    Plug'hrsh7th/cmp-path'
+
+    "  Snippets
+    Plug 'L3MON4D3/LuaSnip'
+    Plug 'rafamadriz/friendly-snippets'
+    Plug 'L3MON4D3/LuaSnip'
+    Plug 'saadparwaiz1/cmp_luasnip'
+
+
   endif
 
 call plug#end()

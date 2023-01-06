@@ -37,24 +37,24 @@ autocmd  FileType which_key set laststatus=0 noshowmode noruler
 
 
 " Single mappings
-let g:which_key_map['3'] = [ ':call Comment()'                    , 'comment' ]
+let g:which_key_map['3'] = [ 'gcc'                                , 'comment' ]
 let g:which_key_map['/'] = [ ':call Comment()'                    , 'comment' ]
 let g:which_key_map['0'] = [ ':e $MYVIMRC'                        , 'open init' ]
 let g:which_key_map['-'] = [ ':Commands'                          , 'commands' ]
 let g:which_key_map['='] = [ '<C-W>='                             , 'balance windows' ]
 let g:which_key_map['d'] = [ ':Bdelete'                           , 'delete buffer']
 let g:which_key_map['e'] = [ ':CocCommand explorer'               , 'explorer' ]
-let g:which_key_map['f'] = [ ':Telescope find_files theme=dropdown', 'find and replace' ]
+let g:which_key_map['E'] = [ ':NvimTreeToggle'               , 'explorer' ]
+let g:which_key_map['f'] = [ ':Telescope projects theme=dropdown winblend=40 layout_config={prompt_position="top"}', 'Find project' ]
 let g:which_key_map['h'] = [ '<C-W>s'                             , 'split below']
 let g:which_key_map['m'] = [ ':call WindowSwap#EasyWindowSwap()'  , 'move window' ]
-let g:which_key_map['p'] = [ ':Telescope find_files prompt_prefix=🔍'              , 'search files' ]
+let g:which_key_map['p'] = [ ':Telescope find_files previewer=false theme=dropdown winblend=10 layout_config={height=0.80,width=0.70}', 'Find files' ]
 let g:which_key_map['q'] = [ 'q'                                  , 'quit' ]
-let g:which_key_map['r'] = [ ':Telescope grep_string'             , 'search ag' ]
+let g:which_key_map['r'] = [ ':Telescope buffers'                 , 'search ag' ]
 let g:which_key_map['u'] = [ ':UndotreeToggle'                    , 'undo tree']
 let g:which_key_map['v'] = [ '<C-W>v'                             , 'split right']
 let g:which_key_map['W'] = [ 'w'                                  , 'write' ]
-let g:which_key_map['z'] = [ 'Goyo'                               , 'zen' ]
-let g:which_key_map['k'] = [ 'K'                               , 'hover' ]
+let g:which_key_map['Z'] = [ 'Goyo'                               , 'zen' ]
 
 
 " Group mappings
@@ -62,18 +62,19 @@ let g:which_key_map['k'] = [ 'K'                               , 'hover' ]
 " a is for actions
 let g:which_key_map.a = {
       \ 'name' : '+actions' ,
-      \ 'c' : [':ColorizerToggle'        , 'colorizer'],
-      \ 'e' : [':CocCommand explorer'    , 'explorer'],
-      \ 'l' : [':Bracey'                 , 'start live server'],
-      \ 'L' : [':BraceyStop'             , 'stop live server'],
-      \ 'm' : [':MarkdownPreview'        , 'markdown preview'],
-      \ 'M' : [':MarkdownPreviewStop'    , 'markdown preview stop'],
-      \ 'n' : [':set nonumber!'          , 'line-numbers'],
-      \ 'r' : [':set norelativenumber!'  , 'relative line nums'],
-      \ 's' : [':let @/ = ""'            , 'remove search highlight'],
-      \ 't' : [':FloatermToggle'         , 'terminal'],
-      \ 'v' : [':Codi'                   , 'virtual repl on'],
-      \ 'V' : [':Codi!'                  , 'virtual repl off'],
+      \ 'c' : [':ColorizerToggle'                                                                       , 'colorizer'],
+      \ 'e' : [':CocCommand explorer'                                                                   , 'explorer'],
+      \ 'a' : [':NvimTreeToggle'                                                                   , 'explorer'],
+      \ 'l' : [''                 , ''],
+      \ 'L' : [''             , ''],
+      \ 'm' : [':MarkdownPreview'                                                                       , 'markdown preview'],
+      \ 'M' : [':MarkdownPreviewStop'                                                                   , 'markdown preview stop'],
+      \ 'n' : [':set nonumber!'                                                                         , 'line-numbers'],
+      \ 'r' : [':set norelativenumber!'                                                                 , 'relative line nums'],
+      \ 's' : [':let @/ = ""'                                                                           , 'remove search highlight'],
+      \ 't' : [':FloatermToggle'                                                                        , 'terminal'],
+      \ 'v' : [':hi DiagnosticUnderlineError gui=bold,underline,italic guisp=#e06c75'                   , 'Change Error Color'],
+      \ 'V' : [':'                                                                                      , 'virtual repl off'],
       \ 'w' : [':StripWhitespace'        , 'strip whitespace'],
       \ }
 
@@ -88,14 +89,28 @@ let g:which_key_map.b = {
       \ 'l' : ['blast'     , 'last-buffer'],
       \ 'n' : ['bnext'     , 'next-buffer'],
       \ 'p' : ['bprevious' , 'previous-buffer'],
-      \ '?' : ['Buffers'   , 'fzf-buffer'],
+      \ 'b' : ['Buffers'   , 'fzf-buffer'],
       \ }
 
+" c is for copilot 
+let g:which_key_map.c = {
+      \ 'name' : '+copilot' ,
+      \ 'd' : ['<Plug>(copilot-dismiss)'                                                                                      , 'copilot-dismiss'],
+      \ 'n' : ['<Plug>(copilot-next)'                                                                                         , 'copilot-next'],
+      \ 'p' : ['<Plug>(copilot-previous)'                                                                                     , 'copilot-previous'],
+      \ 's' : [':Copilot panel'                                                                                               , 'panel'],
+      \ 'a' : ['<cmd>lua require("harpoon.mark").add_file()<CR>'                                                              , 'Mark file'],
+      \ 'C' : ['<cmd>:lua require"harpoon.ui".toggle_quick_menu()<CR>'                                                        , 'Mark menu'],
+      \ 'c' : [':Telescope harpoon marks theme=dropdown previewer=false winblend=15 layout_config={height=0.60,width=0.50}'   , 'Mark menu'],
+      \ 'l' : [':so %'                                                                                                        , 'Soruce Vimrc'],
+      \ 'o' : [':IndentBlanklineToggle'                                                                                       , 'TogglBlankLine'],
+      \ }
+" <cmd>lua require'lspsaga.provider'.lsp_finder()<CR>
 " f is for find and replace
 let g:which_key_map.F = {
       \ 'name' : '+find & replace' ,
-      \ 'b' : [':Farr --source=vimgrep'    , 'buffer'],
-      \ 'p' : [':Farr --source=rgnvim'     , 'project'],
+      \ 'r' : [':RnvimrToggle'    , 'buffer'],
+      \ 'f' : [':Telescope find_files prompt_prefix=🔍 hidden=true winblend=20 layout_config={height=0.95,width=.90,prompt_position="top"}', 'find files' ],
       \ }
 
 " k is for task
@@ -114,7 +129,6 @@ let g:which_key_map.K = {
       \ 'p' : [':AsyncTask project-run'       , 'run project'],
       \ 'x' : [':cclose'                      , 'close task view'],
       \ }
-      " \ 'l' : [':AsyncTaskList'               , 'list tasks'],
 
 " s is for search
 let g:which_key_map.s = {
@@ -123,21 +137,22 @@ let g:which_key_map.s = {
       \ ';' : [':Commands'              , 'commands'],
       \ 'a' : [':Rg'                    , 'text Ag'],
       \ 'B' : [':BLines'                , 'current buffer'],
-      \ 'b' : [':Buffers'               , 'open buffers'],
+      \ 'b' : [':Telescope buffers'     , 'open buffers'],
       \ 'c' : [':Commits'               , 'commits'],
       \ 'C' : [':BCommits'              , 'buffer commits'],
       \ 'f' : [':Rg'                    , 'files'],
-      \ 'g' : [':GFiles'                , 'git files'],
+      \ 'r' : [':RnvimrToggle'          , 'ranger'],
+      \ 'g' : [':Telescope git_branches', 'git branches'],
       \ 'G' : [':GFiles:'               , 'modified git files'],
       \ 'h' : [':History'               , 'file history'],
       \ 'H' : [':History:'              , 'command history'],
       \ 'l' : [':Lines'                 , 'lines'] ,
       \ 'm' : [':Marks'                 , 'marks'] ,
       \ 'M' : [':Maps'                  , 'normal maps'] ,
-      \ 'p' : [':Files'                 , 'help tags'] ,
-      \ 'P' : [':Tags'                  , 'project tags'],
-      \ 's' : [':CocList snippets'      , 'snippets'],
-      \ 'S' : [':Colors'                , 'color schemes'],
+      \ 'p' : [':Telescope oldfiles'    , 'help tags'] ,
+      \ 'P' : [':Telescope oldfiles'    , 'project tags'],
+      \ 's' : [':Telescope find_files prompt_prefix=🔍 hidden=true winblend=20 layout_config={height=0.95,width=.90,prompt_position="top"}'      , 'snippets'],
+      \ 'S' : [':CocList snippets'                , 'color schemes'],
       \ 't' : [':Files'                 , 'text Rg'],
       \ 'T' : [':BTags'                 , 'buffer tags'],
       \ 'w' : [':Windows'               , 'search windows'],
@@ -146,10 +161,8 @@ let g:which_key_map.s = {
       \ '=' : [':resize +4<CR>'         , '+4'],
       \ '-' : [':resize -4<CR>'         , '-4'],
       \ }
-      " \ 's' : [':Snippets'     , 'snippets'],
-" :resize +2<CR>
 
-
+" S is for Sessions
 let g:which_key_map.S = {
       \ 'name' : '+Session' ,
       \ 'c' : [':SClose'          , 'Close Session']  ,
@@ -163,8 +176,8 @@ let g:which_key_map.S = {
 let g:which_key_map.g = {
       \ 'name' : '+git' ,
       \ 'a' : [':Git add .'                        , 'add all'],
-      \ 'A' : [':Git add %'                        , 'add current'],
-      \ 'b' : [':Git blame'                        , 'blame'],
+      \ 'b' : [':GitBlameToggle'                   , 'blame enable'],
+      \ 'A' : [':GitBlameDisable'                  , 'blame disable'],
       \ 'B' : [':GBrowse'                          , 'browse'],
       \ 'c' : [':Git commit'                       , 'commit'],
       \ 'd' : [':Git diff'                         , 'diff'],
@@ -202,18 +215,18 @@ let g:which_key_map.G = {
       \ 'P' : [':Gist -p'                          , 'post private gist '],
       \ }
 
-" l is for language server protocol
+" l is for coc lsp
 let g:which_key_map.l = {
       \ 'name' : '+lsp' ,
       \ '.' : [':CocConfig'                          , 'config'],
       \ 'c' : ['<Plug>(coc-refactor)'                , 'refactor'],
       \ 'a' : ['<Plug>(coc-codeaction)'              , 'line action'],
-      \ 'A' : ['<Plug>(coc-codeaction-selected)'     , 'selected action'],
+      \ 'A' : [':Telescope coc code_actions theme=dropdown'     , 'selected action'],
       \ 'b' : [':CocNext'                            , 'next action'],
       \ 'B' : [':CocPrev'                            , 'prev action'],
       \ 'C' : [':CocList commands'                   , 'commands'],
       \ 'd' : ['<Plug>(coc-definition)'              , 'definition'],
-      \ 'D' : ['<Plug>(coc-declaration)'             , 'declaration'],
+      \ 'D' : [':Telescope lsp_definitions'             , 'declaration'],
       \ 'e' : [':CocList extensions'                 , 'extensions'],
       \ 'F' : ['<Plug>(coc-format-selected)'         , 'format selected'],
       \ 'f' : ['<Plug>(coc-format)'                  , 'format'],
@@ -230,8 +243,8 @@ let g:which_key_map.l = {
       \ 'P' : ['<Plug>(coc-diagnostic-prev-error)'   , 'prev error'],
       \ 'q' : ['<Plug>(coc-fix-current)'             , 'quickfix'],
       \ 'R' : ['<Plug>(coc-rename)'                  , 'rename'],
-      \ 'r' : ['<Plug>(coc-references)'              , 'references'],
-      \ 's' : [':CocList -I symbols'                 , 'references'],
+      \ 'r' : [':Telescope coc references layout_config={height=0.95,width=.90}'                                      , 'references'],
+      \ 's' : [':Telescope coc lsp_references theme=dropdown layout_config={height=0.75,width=.70,prompt_position="top"}'     , 'Document Symbols'],
       \ 'S' : [':CocList snippets'                   , 'snippets'],
       \ 't' : ['<Plug>(coc-type-definition)'         , 'type definition'],
       \ 'u' : [':CocListResume'                      , 'resume list'],
@@ -249,7 +262,7 @@ let g:which_key_map.t = {
       \ 'g' : [':FloatermNew lazygit'                           , 'git'],
       \ 'd' : [':FloatermNew lazydocker'                        , 'docker'],
       \ 'n' : [':FloatermNew node'                              , 'node'],
-      \ 'N' : [':FloatermNew nnn'                               , 'nnn'],
+      \ 'N' : [':FloatermNew ranger'                               , 'nnn'],
       \ 'p' : [':FloatermNew python'                            , 'python'],
       \ 'm' : [':FloatermNew lazynpm'                           , 'npm'],
       \ 'r' : [':FloatermNew ranger'                            , 'ranger'],
@@ -276,52 +289,17 @@ let g:which_key_map.T = {
       \ 'x' : [':XTabPinBuffer'           , 'pin buffer'],
       \ }
 
-" w is for wiki
-let g:which_key_map.w = {
-      \ 'name' : '+wiki' ,
-      \ 'w' : ['<Plug>VimwikiIndex'                              , 'ncdu'],
-      \ 'n' : ['<plug>(wiki-open)'                              , 'ncdu'],
-      \ 'j' : ['<plug>(wiki-journal)'                              , 'ncdu'],
-      \ 'R' : ['<plug>(wiki-reload)'                              , 'ncdu'],
-      \ 'c' : ['<plug>(wiki-code-run)'                              , 'ncdu'],
-      \ 'b' : ['<plug>(wiki-graph-find-backlinks)'                              , 'ncdu'],
-      \ 'g' : ['<plug>(wiki-graph-in)'                              , 'ncdu'],
-      \ 'G' : ['<plug>(wiki-graph-out)'                              , 'ncdu'],
-      \ 'l' : ['<plug>(wiki-link-toggle)'                              , 'ncdu'],
-      \ 'd' : ['<plug>(wiki-page-delete)'                              , 'ncdu'],
-      \ 'r' : ['<plug>(wiki-page-rename)'                              , 'ncdu'],
-      \ 't' : ['<plug>(wiki-page-toc)'                              , 'ncdu'],
-      \ 'T' : ['<plug>(wiki-page-toc-local)'                              , 'ncdu'],
-      \ 'e' : ['<plug>(wiki-export)'                              , 'ncdu'],
-      \ 'u' : ['<plug>(wiki-list-uniq)'                              , 'ncdu'],
-      \ 'U' : ['<plug>(wiki-list-uniq-local)'                              , 'ncdu'],
+" w  TODO: Add more keys to W
+let g:which_key_map.W = {
+      \ 'name' : '+' ,
+      \ 'w' : ['<Plug>'                              , 'ncdu'],
+      \ 'n' : ['<plug>()'                              , 'ncdu'],
+      \ 'j' : ['<plug>()'                              , 'ncdu'],
+      \ 'R' : ['<plug>()'                              , 'ncdu'],
+      \ 'c' : ['<plug>()'                              , 'ncdu'],
+      \ 'b' : ['<plug>()'                              , 'ncdu'],
       \ }
 
-" Global
-" <Plug>VimwikiIndex
-" <Plug>VimwikiTabIndex
-" <Plug>VimwikiUISelect
-" <Plug>VimwikiDiaryIndex
-" <Plug>VimwikiMakeDiaryNote
-" <Plug>VimwikiTabMakeDiaryNote
-" <Plug>VimwikiMakeYesterdayDiaryNote
-" <Plug>VimwikiMakeTomorrowDiaryNote
-"
-" " Local
-" <Plug>Vimwiki2HTML
-" <Plug>Vimwiki2HTMLBrowse
-" <Plug>VimwikiDiaryGenerateLinks
-" <Plug>VimwikiFollowLink
-" <Plug>VimwikiSplitLink
-" <Plug>VimwikiVSplitLink
-" <Plug>VimwikiTabnewLink
-" <Plug>VimwikiGoBackLink
-" <Plug>VimwikiNextLink
-" <Plug>VimwikiPrevLink
-" <Plug>VimwikiGoto
-" <Plug>VimwikiDeleteLink
-" <Plug>VimwikiRenameLink
-" <Plug>VimwikiAddHeaderLevel
 
 " Register which key map
 call which_key#register('<Space>', "g:which_key_map")
