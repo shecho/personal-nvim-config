@@ -15,7 +15,6 @@ let g:coc_global_extensions = [
   \ 'coc-emoji',
   \ 'coc-yaml',
   \ 'coc-explorer',
-  \ 'coc-svg',
   \ 'coc-prettier',
   \ 'coc-vimlsp',
   \ 'coc-xml',
@@ -25,6 +24,4 @@ let g:coc_global_extensions = [
   \ 'coc-highlight',
   \ 'coc-eslint',
   \ ]
-  " \ 'coc-tabnine',
-  "\ 'coc-fzf-preview',
 

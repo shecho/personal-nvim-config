@@ -1,3 +1,4 @@
+---@diagnostic disable: unused-local, undefined-global
 M = {}
 local opts = { noremap = true, silent = true }
 
@@ -117,16 +118,16 @@ keymap("n", "<c-n>", ":e ~/Notes/<cr>", opts)
 -- keymap("n", "<m-q>", "<cmd>:q<cr>", opts)
 
 M.show_documentation = function()
-  local filetype = vim.bo.filetype
-  if vim.tbl_contains({ "vim", "help" }, filetype) then
-    vim.cmd("h " .. vim.fn.expand "<cword>")
-  elseif vim.tbl_contains({ "man" }, filetype) then
-    vim.cmd("Man " .. vim.fn.expand "<cword>")
-  elseif vim.fn.expand "%:t" == "Cargo.toml" then
-    require("crates").show_popup()
-  else
-    vim.lsp.buf.hover()
-  end
+	local filetype = vim.bo.filetype
+	if vim.tbl_contains({ "vim", "help" }, filetype) then
+		vim.cmd("h " .. vim.fn.expand("<cword>"))
+	elseif vim.tbl_contains({ "man" }, filetype) then
+		vim.cmd("Man " .. vim.fn.expand("<cword>"))
+	elseif vim.fn.expand("%:t") == "Cargo.toml" then
+		require("crates").show_popup()
+	else
+		vim.lsp.buf.hover()
+	end
 end
 vim.api.nvim_set_keymap("n", "K", ":lua require('user.keymaps').show_documentation()<CR>", opts)
 
@@ -156,7 +157,7 @@ keymap("x", "<m-/>", '<ESC><CMD>lua require("Comment.api").toggle_linewise_op(vi
 vim.api.nvim_set_keymap("n", "<m-g>", "<cmd>Telescope git_branches<cr>", opts)
 -- l = { "<cmd>lua require('user.bfs').open()<cr>", "Buffers" },
 
-vim.cmd [[
+vim.cmd([[
   function! QuickFixToggle()
     if empty(filter(getwininfo(), 'v:val.quickfix'))
       copen
@@ -164,7 +165,7 @@ vim.cmd [[
       cclose
     endif
   endfunction
-]]
+]])
 
 keymap("n", "<m-q>", ":call QuickFixToggle()<cr>", opts)
 keymap("n", "<c-l>", "<cmd>lua vim.lsp.codelens.run()<cr>", opts)

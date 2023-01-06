@@ -29,7 +29,6 @@ else
   source $HOME/.config/nvim/plug-config/coc/coc.vim
   source $HOME/.config/nvim/plug-config/coc/coc-extensions.vim
   source $HOME/.config/nvim/plug-config/easymotion.vim 
-  source $HOME/.config/nvim/plug-config/goyo.vim
   source $HOME/.config/nvim/plug-config/start-screen.vim
   source $HOME/.config/nvim/plug-config/gitgutter.vim 
   source $HOME/.config/nvim/plug-config/git-messenger.vim
@@ -54,7 +53,8 @@ else
   " luafile $HOME/.config/nvim/lua/nvcodeline.lua
   " luafile $HOME/.config/nvim/lua/user/treesitter.lua "used on lua
   "  luafile $HOME/.config/nvim/lua/plug-colorizer.lua "used on lua
-  " source $HOME/.config/nvim/lua/autopairs.vim
+  " source $HOME/.config/nvim/lua/autopairs.vim luafiled
+  " source $HOME/.config/nvim/plug-config/goyo.vim
 endif
 source $HOME/.config/nvim/plug-config/quickscope.vim
 
@@ -64,21 +64,26 @@ source $HOME/.config/nvim/plug-config/quickscope.vim
 " EOF
 
 lua << EOF
+
+require "user.impatient"
+require "user.true-zen"
 require "user.plug-colorizer"
 require "user.treesitter"
 require "user.indentline"
 require "user.autopairs"
 
+--Finders
 require "user.nvim-tree"
 require "user.telescope"
 require "user.harpoon"
 require "user.project"
 
 --require "user.cmp"
-require "user.lsp.lspconfig"
-require "user.lsp.mason"
-require "user.lsp.null-ls"
+--require "user.lsp.lspconfig"
+--require "user.lsp.mason"
 
+--require "user.lsp.null-ls"
+--require "user.copilot"
 EOF
 
 " Add paths to node and python here

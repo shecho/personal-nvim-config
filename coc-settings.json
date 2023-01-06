@@ -1,7 +1,6 @@
 {
   "suggest.enablePreselect": true,
   "suggest.selection": "first",
-  "suggest.defaultSortMethod": "none",
   "suggest.snippetIndicator": "S",
   "suggest.snippetsSupport": true,
   "suggest.preferCompleteThanJumpPlaceholder": true,
@@ -9,17 +8,6 @@
   "suggest.acceptSuggestionOnCommitCharacter": true,
   "suggest.noselect": false,
   "suggest.virtualText": true,
-  "vimlsp.trace.server": true,
-  "vimlsp.diagnostic.enable": true,
-  "vimlsp.debug": true,
-  "vimlsp.filetypes": [
-    "vim",
-    "vimrc",
-    "javascript",
-    "typescript",
-    "typescriptreact",
-    "javascriptreact"
-  ],
   //"diagnostic.virtualText": true,
   "diagnostic.virtualTextPrefix": "",
   "diagnostic.errorSign": " ",
@@ -32,7 +20,6 @@
   "tailwindCSS.enable": true,
   "tailwindCSS.validate": true,
   "tailwindCSS.lint.cssConflict": "warning",
-  "suggest.removeDuplicateItems": true,
   "tailwindCSS.headwind.removeDuplicates": true,
   "tailwindCSS.headwind.runOnSave": false,
   "lua.enable": true,
@@ -134,7 +121,5 @@
     "snippet": "\ue60b",
     "typeParameter": "\uf728",
     "default": "\uf29c"
-  },
-  "sumneko-lua.enableNvimLuaDev": true,
-  "Lua.telemetry.enable": true
+  }
 }

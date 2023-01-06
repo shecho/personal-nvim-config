@@ -54,7 +54,7 @@ let g:which_key_map['r'] = [ ':Telescope buffers'                 , 'search ag' 
 let g:which_key_map['u'] = [ ':UndotreeToggle'                    , 'undo tree']
 let g:which_key_map['v'] = [ '<C-W>v'                             , 'split right']
 let g:which_key_map['W'] = [ 'w'                                  , 'write' ]
-let g:which_key_map['Z'] = [ 'Goyo'                               , 'zen' ]
+let g:which_key_map['Z'] = [ ':ZenMode'                           , 'zen' ]
 
 
 " Group mappings
@@ -228,7 +228,7 @@ let g:which_key_map.l = {
       \ 'd' : ['<Plug>(coc-definition)'              , 'definition'],
       \ 'D' : [':Telescope lsp_definitions'             , 'declaration'],
       \ 'e' : [':CocList extensions'                 , 'extensions'],
-      \ 'F' : ['<Plug>(coc-format-selected)'         , 'format selected'],
+      \ 'F' : [':lua vim.lsp.buf.format({async = true})'         , 'format selected'],
       \ 'f' : ['<Plug>(coc-format)'                  , 'format'],
       \ 'h' : ['<Plug>(coc-float-hide)'              , 'hide'],
       \ 'i' : ['<Plug>(coc-implementation)'          , 'implementation'],

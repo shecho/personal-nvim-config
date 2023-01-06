@@ -70,6 +70,7 @@ telescope.setup({
 
 				["<C-j>"] = actions.move_selection_next,
 				["<C-k>"] = actions.move_selection_previous,
+				["<C-l>"] = actions.select_default,
 
 				["<C-b>"] = actions.results_scrolling_up,
 				["<C-f>"] = actions.results_scrolling_down,
@@ -88,13 +89,14 @@ telescope.setup({
 
 				["<Tab>"] = actions.close,
 				["<S-Tab>"] = actions.close,
-				["<C-l>"] = actions.complete_tag,
 				["<C-h>"] = actions.which_key, -- keys from pressing <C-h>
 				["<esc>"] = actions.close,
 			},
 
 			n = {
 				["<esc>"] = actions.close,
+				["<C-j>"] = actions.select_default,
+				["<C-l>"] = actions.select_default,
 				["<CR>"] = actions.select_default,
 				["<C-x>"] = actions.select_horizontal,
 				["<C-v>"] = actions.select_vertical,
