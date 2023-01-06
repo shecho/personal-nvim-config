@@ -53,7 +53,7 @@ function! s:show_documentation()
   endif
 endfunction
 " Highlight the symbol and its references when holding the cursor.
-autocmd CursorHold * silent call CocActionAsync('highlight')
+" autocmd CursorHold * silent call CocActionAsync('highlight')
 " Symbol renaming.
 nmap <leader>rn <Plug>(coc-rename)
 augroup mygroup
@@ -139,7 +139,6 @@ autocmd BufEnter * if (winnr("$") == 1 && &filetype == 'coc-explorer') | q | end
 " let g:coc_snippet_next = '<c-j>'
 " let g:coc_snippet_next = '<c-l>'
 
-" Use <C-k> for jump to previous placeholder, it's default of coc.nvim
 "et g:coc_snippet_prev = '<c-k>'
 "Use <C-j> for both expand and jump (make expand higher priority.)
 " imap <C-j> <Plug>(coc-snippets-expand-jump)
@@ -148,12 +147,12 @@ autocmd BufEnter * if (winnr("$") == 1 && &filetype == 'coc-explorer') | q | end
 " inoremap <silent><expr> <C-b> coc#pum#visible() ? coc#_select_confirm() : "\<C-g>u\<CR>"
 
 
-inoremap <expr> <cr> coc#pum#visible() ? coc#pum#confirm() : "\<CR>"
-inoremap <silent><expr> <cr> coc#pum#visible() ? coc#_select_confirm() : "\<C-g>u\<CR>"
+" inoremap <expr> <cr> coc#pum#visible() ? coc#pum#confirm() : "\<CR>"
+" inoremap <silent><expr> <cr> coc#pum#visible() ? coc#_select_confirm() : "\<C-g>u\<CR>"
+
 inoremap <silent><expr> <C-l> coc#pum#visible() ? coc#pum#confirm() : "\<C-y>"
 inoremap <silent><expr> <C-j> coc#pum#visible() ? coc#_select_confirm() : "\<C-y>"
-" inoremap <silent><expr> <C-j> coc#pum#visible() ? coc#pum#confirm()
-"                               \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
-inoremap <silent><expr> <C-b> coc#pum#visible() ? coc#pum#confirm()
-                              \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
+
+" inoremap <silent><expr> <C-b> coc#pum#visible() ? coc#pum#confirm()
+                              " \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
 

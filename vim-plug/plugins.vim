@@ -190,7 +190,7 @@ call plug#begin('~/.config/nvim/autoload/plugged')
     " Plug 'mg979/vim-visual-multi', {'branch': 'master'}
 
     " Async Linting Engine
-    " Plug 'ntpeters/vim-better-whitespace'
+    Plug 'ntpeters/vim-better-whitespace'
 
     " Sneak
     " Plug 'justinmk/vim-sneak'
@@ -227,12 +227,18 @@ call plug#begin('~/.config/nvim/autoload/plugged')
     Plug'hrsh7th/nvim-cmp'
     Plug'hrsh7th/cmp-buffer'
     Plug'hrsh7th/cmp-path'
+    Plug 'glepnir/lspsaga.nvim' 
+
 
     "  Snippets
     Plug 'L3MON4D3/LuaSnip'
     Plug 'rafamadriz/friendly-snippets'
     Plug 'L3MON4D3/LuaSnip'
     Plug 'saadparwaiz1/cmp_luasnip'
+
+    " Plug 'zbirenbaum/copilot.lua'
+    Plug 'github/copilot.vim'
+    Plug 'zbirenbaum/copilot-cmp'
 
 
   endif

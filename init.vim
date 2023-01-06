@@ -73,17 +73,17 @@ require "user.indentline"
 require "user.autopairs"
 
 --Finders
-require "user.nvim-tree"
+--require "user.nvim-tree"
 require "user.telescope"
 require "user.harpoon"
 require "user.project"
 
 --require "user.cmp"
 --require "user.lsp.lspconfig"
---require "user.lsp.mason"
+require "user.lsp.mason"
 
---require "user.lsp.null-ls"
---require "user.copilot"
+require "user.lsp.null-ls"
+require "user.copilot"
 EOF
 
 " Add paths to node and python here
