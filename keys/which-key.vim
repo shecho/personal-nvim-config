@@ -54,6 +54,7 @@ let g:which_key_map['r'] = [ ':Telescope buffers'                 , 'search ag' 
 let g:which_key_map['u'] = [ ':UndotreeToggle'                    , 'undo tree']
 let g:which_key_map['v'] = [ '<C-W>v'                             , 'split right']
 let g:which_key_map['W'] = [ 'w'                                  , 'write' ]
+let g:which_key_map['k'] = [ 'K'                                  , 'Hover' ]
 let g:which_key_map['Z'] = [ ':ZenMode'                           , 'zen' ]
 
 
