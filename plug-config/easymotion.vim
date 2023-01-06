@@ -15,7 +15,7 @@
 " nmap <Leader>f <Plug>(easymotion-overwin-f)
 
 " s{char}{char} to move to {char}{char}
-nmap q <Plug>(easymotion-overwin-f2)
+" nmap q <Plug>(easymotion-overwin-f2)
 " nmap S <Plug>(easymotion-overwin-t)
 
 " Move to line
@@ -23,8 +23,8 @@ nmap q <Plug>(easymotion-overwin-f2)
 " nmap <Leader>l <Plug>(easymotion-overwin-line)
 
 " Move to word
-map  <Leader>w <Plug>(easymotion-bd-w)
-nmap <Leader>w <Plug>(easymotion-overwin-w)
+" map  <Leader>w <Plug>(easymotion-bd-w)
+" nmap <Leader>w <Plug>(easymotion-overwin-w)
 
 hi link EasyMotionTarget ErrorMsg
 hi link EasyMotionShade  Comment

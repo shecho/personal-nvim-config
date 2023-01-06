@@ -58,18 +58,27 @@ else
 endif
 source $HOME/.config/nvim/plug-config/quickscope.vim
 
-lua << EOF
-require("mason").setup()
-require("mason-lspconfig").setup()
-EOF
+" lua << EOF
+" require("mason").setup()
+" require("mason-lspconfig").setup()
+" EOF
+
 lua << EOF
 require "user.plug-colorizer"
 require "user.treesitter"
-require "user.telescope"
-require "user.harpoon"
 require "user.indentline"
 require "user.autopairs"
+
+require "user.nvim-tree"
+require "user.telescope"
+require "user.harpoon"
+require "user.project"
+
+--require "user.cmp"
+require "user.lsp.lspconfig"
+require "user.lsp.mason"
 require "user.lsp.null-ls"
+
 EOF
 
 " Add paths to node and python here

@@ -1,4 +1,4 @@
-" auto-install vim-plug
+" auto-install vim-plugplugin
 if empty(glob('~/.config/nvim/autoload/plug.vim'))
   silent !curl -fLo ~/.config/nvim/autoload/plug.vim --create-dirs
     \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
@@ -9,6 +9,7 @@ endif
 call plug#begin('~/.config/nvim/autoload/plugged')
 
     Plug 'windwp/nvim-autopairs'
+    Plug 'windwp/nvim-ts-autotag'
     " taildwind
     "  Plug 'iamcco/coc-tailwindcss',  {'do': 'yarn install --frozen-lockfile && yarn run build'}
     Plug 'rodrigore/coc-tailwind-intellisense', {'do': 'npm install'}
@@ -35,8 +36,10 @@ call plug#begin('~/.config/nvim/autoload/plugged')
     Plug 'machakann/vim-highlightedyank'
   else
 
+    " Projects 
+    Plug 'ahmedkhalf/project.nvim'
     " Easymotion
-    Plug 'easymotion/vim-easymotion'
+    " Plug 'easymotion/vim-easymotion'
     " Surround
     Plug 'tpope/vim-surround'
 
@@ -54,10 +57,12 @@ call plug#begin('~/.config/nvim/autoload/plugged')
     Plug 'nvim-treesitter/nvim-treesitter-refactor'
     Plug 'nvim-treesitter/nvim-treesitter-textobjects'
     Plug 'romgrk/nvim-treesitter-context'
+
     " Cool Icons
     " Plug 'kyazdani42/nvim-web-devicons'
-    Plug 'ryanoasis/vim-devicons'
     Plug 'nvim-tree/nvim-web-devicons'
+    Plug 'nvim-tree/nvim-tree.lua'
+    Plug 'ryanoasis/vim-devicons'
     " Auto pairs for '(' '[' '{'
     Plug 'jiangmiao/auto-pairs'
     " Closetags
@@ -186,7 +191,7 @@ call plug#begin('~/.config/nvim/autoload/plugged')
     Plug 'lukas-reineke/indent-blankline.nvim'
 
     " Ranger
-    Plug 'francoiscabrol/ranger.vim'
+    "  Plug 'francoiscabrol/ranger.vim'
     Plug 'kevinhwang91/rnvimr'
     "  Plug 'rbgrouleff/bclose.vim'
 
@@ -198,15 +203,29 @@ call plug#begin('~/.config/nvim/autoload/plugged')
     "native lsp 
     Plug 'williamboman/mason.nvim'
     Plug 'williamboman/mason-lspconfig.nvim'
-    Plug 'jose-elias-alvarez/null-ls.nvim'
+
+    Plug 'onsails/lspkind.nvim'
     Plug 'neovim/nvim-lspconfig'
     Plug 'kabouzeid/nvim-lspinstall'
     Plug 'VonHeikemen/lsp-zero.nvim'
     Plug 'jose-elias-alvarez/typescript.nvim'
 
+    " Linting 
+    Plug 'jose-elias-alvarez/null-ls.nvim'
+    Plug 'jayp0521/mason-null-ls.nvim'
+
+    " completions
+    Plug'hrsh7th/cmp-nvim-lsp'
+    Plug'hrsh7th/nvim-cmp'
+    Plug'hrsh7th/cmp-buffer'
+    Plug'hrsh7th/cmp-path'
+
     "  Snippets
     Plug 'L3MON4D3/LuaSnip'
     Plug 'rafamadriz/friendly-snippets'
+    Plug 'L3MON4D3/LuaSnip'
+    Plug 'saadparwaiz1/cmp_luasnip'
+
 
   endif
 

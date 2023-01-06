@@ -44,16 +44,17 @@ let g:which_key_map['-'] = [ ':Commands'                          , 'commands' ]
 let g:which_key_map['='] = [ '<C-W>='                             , 'balance windows' ]
 let g:which_key_map['d'] = [ ':Bdelete'                           , 'delete buffer']
 let g:which_key_map['e'] = [ ':CocCommand explorer'               , 'explorer' ]
-let g:which_key_map['f'] = [ ':Telescope find_files prompt_prefix=🔍 hidden=true winblend=20 layout_config={height=0.95,width=.90,prompt_position="top"}', 'find files' ]
+let g:which_key_map['E'] = [ ':NvimTreeToggle'               , 'explorer' ]
+let g:which_key_map['f'] = [ ':Telescope projects theme=dropdown winblend=40 layout_config={prompt_position="top"}', 'Find project' ]
 let g:which_key_map['h'] = [ '<C-W>s'                             , 'split below']
 let g:which_key_map['m'] = [ ':call WindowSwap#EasyWindowSwap()'  , 'move window' ]
-let g:which_key_map['p'] = [ ':Telescope find_files previewer=false theme=dropdown winblend=10 layout_config={height=0.80,width=0.70}', 'search files' ]
+let g:which_key_map['p'] = [ ':Telescope find_files previewer=false theme=dropdown winblend=10 layout_config={height=0.80,width=0.70}', 'Find files' ]
 let g:which_key_map['q'] = [ 'q'                                  , 'quit' ]
 let g:which_key_map['r'] = [ ':Telescope buffers'                 , 'search ag' ]
 let g:which_key_map['u'] = [ ':UndotreeToggle'                    , 'undo tree']
 let g:which_key_map['v'] = [ '<C-W>v'                             , 'split right']
 let g:which_key_map['W'] = [ 'w'                                  , 'write' ]
-let g:which_key_map['z'] = [ 'Goyo'                               , 'zen' ]
+let g:which_key_map['Z'] = [ 'Goyo'                               , 'zen' ]
 
 
 " Group mappings
@@ -63,6 +64,7 @@ let g:which_key_map.a = {
       \ 'name' : '+actions' ,
       \ 'c' : [':ColorizerToggle'                                                                       , 'colorizer'],
       \ 'e' : [':CocCommand explorer'                                                                   , 'explorer'],
+      \ 'a' : [':NvimTreeToggle'                                                                   , 'explorer'],
       \ 'l' : [''                 , ''],
       \ 'L' : [''             , ''],
       \ 'm' : [':MarkdownPreview'                                                                       , 'markdown preview'],
@@ -107,8 +109,8 @@ let g:which_key_map.c = {
 " f is for find and replace
 let g:which_key_map.F = {
       \ 'name' : '+find & replace' ,
-      \ 'b' : [':Farr --source=vimgrep'    , 'buffer'],
-      \ 'p' : [':Farr --source=rgnvim'     , 'project'],
+      \ 'r' : [':RnvimrToggle'    , 'buffer'],
+      \ 'f' : [':Telescope find_files prompt_prefix=🔍 hidden=true winblend=20 layout_config={height=0.95,width=.90,prompt_position="top"}', 'find files' ],
       \ }
 
 " k is for task
@@ -139,7 +141,8 @@ let g:which_key_map.s = {
       \ 'c' : [':Commits'               , 'commits'],
       \ 'C' : [':BCommits'              , 'buffer commits'],
       \ 'f' : [':Rg'                    , 'files'],
-      \ 'g' : [':GFiles'                , 'git files'],
+      \ 'r' : [':RnvimrToggle'          , 'ranger'],
+      \ 'g' : [':Telescope git_branches', 'git branches'],
       \ 'G' : [':GFiles:'               , 'modified git files'],
       \ 'h' : [':History'               , 'file history'],
       \ 'H' : [':History:'              , 'command history'],
@@ -147,9 +150,9 @@ let g:which_key_map.s = {
       \ 'm' : [':Marks'                 , 'marks'] ,
       \ 'M' : [':Maps'                  , 'normal maps'] ,
       \ 'p' : [':Telescope oldfiles'    , 'help tags'] ,
-      \ 'P' : [':Tags'                  , 'project tags'],
-      \ 's' : [':CocList snippets'      , 'snippets'],
-      \ 'S' : [':Colors'                , 'color schemes'],
+      \ 'P' : [':Telescope oldfiles'    , 'project tags'],
+      \ 's' : [':Telescope find_files prompt_prefix=🔍 hidden=true winblend=20 layout_config={height=0.95,width=.90,prompt_position="top"}'      , 'snippets'],
+      \ 'S' : [':CocList snippets'                , 'color schemes'],
       \ 't' : [':Files'                 , 'text Rg'],
       \ 'T' : [':BTags'                 , 'buffer tags'],
       \ 'w' : [':Windows'               , 'search windows'],
@@ -223,7 +226,7 @@ let g:which_key_map.l = {
       \ 'B' : [':CocPrev'                            , 'prev action'],
       \ 'C' : [':CocList commands'                   , 'commands'],
       \ 'd' : ['<Plug>(coc-definition)'              , 'definition'],
-      \ 'D' : [':Telescope coc definitions'             , 'declaration'],
+      \ 'D' : [':Telescope lsp_definitions'             , 'declaration'],
       \ 'e' : [':CocList extensions'                 , 'extensions'],
       \ 'F' : ['<Plug>(coc-format-selected)'         , 'format selected'],
       \ 'f' : ['<Plug>(coc-format)'                  , 'format'],
@@ -241,7 +244,7 @@ let g:which_key_map.l = {
       \ 'q' : ['<Plug>(coc-fix-current)'             , 'quickfix'],
       \ 'R' : ['<Plug>(coc-rename)'                  , 'rename'],
       \ 'r' : [':Telescope coc references layout_config={height=0.95,width=.90}'                                      , 'references'],
-      \ 's' : [':Telescope coc document_symbols theme=dropdown layout_config={height=0.75,width=.70,prompt_position="top"}'     , 'Document Symbols'],
+      \ 's' : [':Telescope coc lsp_references theme=dropdown layout_config={height=0.75,width=.70,prompt_position="top"}'     , 'Document Symbols'],
       \ 'S' : [':CocList snippets'                   , 'snippets'],
       \ 't' : ['<Plug>(coc-type-definition)'         , 'type definition'],
       \ 'u' : [':CocListResume'                      , 'resume list'],
@@ -259,7 +262,7 @@ let g:which_key_map.t = {
       \ 'g' : [':FloatermNew lazygit'                           , 'git'],
       \ 'd' : [':FloatermNew lazydocker'                        , 'docker'],
       \ 'n' : [':FloatermNew node'                              , 'node'],
-      \ 'N' : [':FloatermNew nnn'                               , 'nnn'],
+      \ 'N' : [':FloatermNew ranger'                               , 'nnn'],
       \ 'p' : [':FloatermNew python'                            , 'python'],
       \ 'm' : [':FloatermNew lazynpm'                           , 'npm'],
       \ 'r' : [':FloatermNew ranger'                            , 'ranger'],
