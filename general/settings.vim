@@ -34,6 +34,7 @@ set signcolumn=yes                      " Always show the signcolumn, otherwise 
 set updatetime=300                      " Faster completion
 set timeoutlen=1000                      " By default timeoutlen is 1000 ms
 set clipboard=unnamedplus               " Copy paste between vim and everything else
+set smartcase
 set incsearch
 set ignorecase
 set guifont=Operator\ JetBrains\ Fira\ Code\ Nerd\ Font

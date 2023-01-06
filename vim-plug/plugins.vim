@@ -78,7 +78,6 @@ call plug#begin('~/.config/nvim/autoload/plugged')
     Plug 'neoclide/coc.nvim', {'branch': 'release'}
     " Status Line
     Plug 'vim-airline/vim-airline'
-    Plug 'kevinhwang91/rnvimr'
 
     " FZF
     Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
@@ -91,6 +90,7 @@ call plug#begin('~/.config/nvim/autoload/plugged')
     Plug 'fannheyward/telescope-coc.nvim'
     Plug 'nvim-lua/popup.nvim'
     Plug 'nvim-telescope/telescope-ui-select.nvim'
+    Plug 'nvim-telescope/telescope-fzf-native.nvim', { 'do': 'make' }
     " Git
     Plug 'airblade/vim-gitgutter'
     Plug 'tpope/vim-fugitive'
@@ -171,7 +171,7 @@ call plug#begin('~/.config/nvim/autoload/plugged')
     " Multiple Cursors
     Plug 'terryma/vim-multiple-cursors'
     " Plug 'mg979/vim-visual-multi', {'branch': 'master'}
-    
+
     " Async Linting Engine
     " Plug 'ntpeters/vim-better-whitespace'
 
@@ -186,7 +186,8 @@ call plug#begin('~/.config/nvim/autoload/plugged')
     Plug 'lukas-reineke/indent-blankline.nvim'
 
     " Ranger
-    "  Plug 'francoiscabrol/ranger.vim'
+    Plug 'francoiscabrol/ranger.vim'
+    Plug 'kevinhwang91/rnvimr'
     "  Plug 'rbgrouleff/bclose.vim'
 
     " Making stuff
