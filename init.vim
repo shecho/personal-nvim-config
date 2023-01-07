@@ -21,14 +21,14 @@ else
 
   " Plugin Configuration
   " source $HOME/.config/nvim/plug-config/telescope.vim "Migrated to lua
+  " source $HOME/.config/nvim/plug-config/rnvimr.vim
+  " source $HOME/.config/nvim/plug-config/easymotion.vim 
   source $HOME/.config/nvim/plug-config/vim-commentary.vim
-  source $HOME/.config/nvim/plug-config/rnvimr.vim
   source $HOME/.config/nvim/plug-config/better-whitespace.vim
   source $HOME/.config/nvim/plug-config/fzf.vim
   source $HOME/.config/nvim/plug-config/codi.vim
   source $HOME/.config/nvim/plug-config/coc/coc.vim
   source $HOME/.config/nvim/plug-config/coc/coc-extensions.vim
-  source $HOME/.config/nvim/plug-config/easymotion.vim 
   source $HOME/.config/nvim/plug-config/start-screen.vim
   source $HOME/.config/nvim/plug-config/gitgutter.vim 
   source $HOME/.config/nvim/plug-config/git-messenger.vim
@@ -58,10 +58,10 @@ else
 endif
 source $HOME/.config/nvim/plug-config/quickscope.vim
 
-" lua << EOF
-" require("mason").setup()
-" require("mason-lspconfig").setup()
-" EOF
+"  lua << EOF
+"  --require("mason").setup()
+"  --require("mason-lspconfig").setup()
+"  EOF
 
 lua << EOF
 
@@ -73,16 +73,17 @@ require "user.indentline"
 require "user.autopairs"
 
 --Finders
---require "user.nvim-tree"
+require "user.nvim-tree"
 require "user.telescope"
 require "user.harpoon"
 require "user.project"
 
---require "user.cmp"
+require "user.cmp"
 require "user.lsp.lspconfig"
-require "user.lsp.mason"
-
 require "user.lsp.null-ls"
+require "user.lsp.mason"
+require "user.lsp.lspsaga"
+
 require "user.copilot"
 EOF
 

@@ -28,7 +28,7 @@ call plug#begin('~/.config/nvim/autoload/plugged')
     Plug 'tpope/vim-commentary'
 
     " Change dates fastplugin
-    Plug 'tpope/vim-speeddating'
+    " Plug 'tpope/vim-speeddating'
 
     " Convert binary, hex, etc..
     Plug 'glts/vim-radical'
@@ -228,7 +228,20 @@ call plug#begin('~/.config/nvim/autoload/plugged')
     Plug'hrsh7th/cmp-buffer'
     Plug'hrsh7th/cmp-path'
     Plug 'glepnir/lspsaga.nvim' 
+    Plug 'hrsh7th/cmp-nvim-lua'
+    Plug 'hrsh7th/cmp-cmdline'
+    " For vsnip users.
+    Plug 'hrsh7th/cmp-vsnip'
+    Plug 'hrsh7th/vim-vsnip'
 
+
+    " for ultisnips users.
+    Plug 'SirVer/ultisnips'
+    Plug 'quangnguyen30192/cmp-nvim-ultisnips'
+
+    " For snippy users.
+    Plug 'dcampos/nvim-snippy'
+    Plug 'dcampos/cmp-snippy'
 
     "  Snippets
     Plug 'L3MON4D3/LuaSnip'
@@ -236,9 +249,10 @@ call plug#begin('~/.config/nvim/autoload/plugged')
     Plug 'L3MON4D3/LuaSnip'
     Plug 'saadparwaiz1/cmp_luasnip'
 
-    " Plug 'zbirenbaum/copilot.lua'
+
+    Plug 'zbirenbaum/copilot.lua'
     Plug 'github/copilot.vim'
-    Plug 'zbirenbaum/copilot-cmp'
+    " Plug 'zbirenbaum/copilot-cmp'
 
 
   endif
