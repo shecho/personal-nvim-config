@@ -78,11 +78,11 @@ require "user.telescope"
 require "user.harpoon"
 require "user.project"
 
-require "user.cmp"
-require "user.lsp.lspconfig"
-require "user.lsp.null-ls"
-require "user.lsp.mason"
-require "user.lsp.lspsaga"
+--require "user.cmp"
+--require "user.lsp.lspconfig"
+--require "user.lsp.null-ls"
+--require "user.lsp.mason"
+--require "user.lsp.lspsaga"
 
 require "user.copilot"
 EOF

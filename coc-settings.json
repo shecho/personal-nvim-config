@@ -1,7 +1,7 @@
 {
   "suggest.enablePreselect": true,
   "suggest.selection": "first",
-  "suggest.snippetIndicator": "S",
+  "suggest.snippetIndicator": " S",
   "suggest.snippetsSupport": true,
   "suggest.preferCompleteThanJumpPlaceholder": true,
   "suggest.triggerAfterInsertEnter": true,

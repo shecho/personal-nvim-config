@@ -66,57 +66,57 @@ for type, icon in pairs(signs) do
 end
 
 -- configure html server
--- lspconfig["html"].setup({
--- 	capabilities = capabilities,
--- 	on_attach = on_attach,
--- })
+lspconfig["html"].setup({
+	capabilities = capabilities,
+	on_attach = on_attach,
+})
 
 -- configure typescript server with plugin
--- typescript.setup({
--- 	server = {
--- 		capabilities = capabilities,
--- 		on_attach = on_attach,
--- 	},
--- })
+typescript.setup({
+	server = {
+		capabilities = capabilities,
+		on_attach = on_attach,
+	},
+})
 
 -- configure css server
--- lspconfig["cssls"].setup({
--- 	capabilities = capabilities,
--- 	on_attach = on_attach,
--- })
+lspconfig["cssls"].setup({
+	capabilities = capabilities,
+	on_attach = on_attach,
+})
 
 -- configure tailwindcss server
--- lspconfig["tailwindcss"].setup({
--- 	capabilities = capabilities,
--- 	on_attach = on_attach,
--- })
+lspconfig["tailwindcss"].setup({
+	capabilities = capabilities,
+	on_attach = on_attach,
+})
 
 -- configure emmet language server
--- lspconfig["emmet_ls"].setup({
--- 	capabilities = capabilities,
--- 	on_attach = on_attach,
--- 	filetypes = { "html", "typescriptreact", "javascriptreact", "css", "sass", "scss", "less", "svelte" },
--- })
+lspconfig["emmet_ls"].setup({
+	capabilities = capabilities,
+	on_attach = on_attach,
+	filetypes = { "html", "typescriptreact", "javascriptreact", "css", "sass", "scss", "less", "svelte" },
+})
 
 -- configure lua server (with special settings)
--- lspconfig["sumneko_lua"].setup({
--- 	capabilities = capabilities,
--- 	on_attach = on_attach,
--- 	settings = { -- custom settings for lua
--- 		Lua = {
--- 			-- make the language server recognize "vim" global
--- 			diagnostics = {
--- 				globals = { "vim" },
--- 			},
--- 			workspace = {
--- 				-- make language server aware of runtime files
--- 				library = {
--- 					[vim.fn.expand("$VIMRUNTIME/lua")] = true,
--- 					[vim.fn.stdpath("config") .. "/lua"] = true,
--- 				},
--- 			},
--- 		},
--- 	},
--- })
+lspconfig["sumneko_lua"].setup({
+	capabilities = capabilities,
+	on_attach = on_attach,
+	settings = { -- custom settings for lua
+		Lua = {
+			-- make the language server recognize "vim" global
+			diagnostics = {
+				globals = { "vim" },
+			},
+			workspace = {
+				-- make language server aware of runtime files
+				library = {
+					[vim.fn.expand("$VIMRUNTIME/lua")] = true,
+					[vim.fn.stdpath("config") .. "/lua"] = true,
+				},
+			},
+		},
+	},
+})
 -- lspzero.preset("recommended")
 -- lspzero.setup()

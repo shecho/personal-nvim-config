@@ -12,7 +12,9 @@ local status_ok, copilot = pcall(require, "copilot")
 if not status_ok then
 	return
 end
-
+-- vim.g.copilot_no_tab_map = true
+-- vim.g.copilot_assume_mapped = true
+-- vim.api.nvim_set_keymap("i", "<C-J>", 'copilot#Accept("<CR>")', { silent = true, expr = true })
 copilot.setup({
 	cmp = {
 		enabled = true,
@@ -21,8 +23,22 @@ copilot.setup({
 	panel = { -- no config options yet
 		enabled = true,
 	},
+	suggestion = {
+		enabled = true,
+		auto_trigger = true,
+		debounce = 75,
+		keymap = {
+			accept = "<c-j>",
+			accept_word = false,
+			accept_line = false,
+			-- accept_word = true,
+			-- accept_line = true,
+			next = "<M-]>",
+			prev = "<M-[>",
+			dismiss = "<C-]>",
+		},
+	},
 	ft_disable = { "markdown" },
-	-- plugin_manager_path = vim.fn.stdpath "data" .. "/site/pack/packer",
 	server_opts_overrides = {
 		-- trace = "verbose",
 		settings = {

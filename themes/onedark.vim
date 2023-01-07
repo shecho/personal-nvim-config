@@ -9,7 +9,7 @@
 
 hi Comment cterm=italic
 " cterm=bold,underline,italic ctermfg=168 gui=bold,underline,italic guifg=#e06c75 guisp=#e06c75
-highlight DiagnosticUnderlineError cterm=bold,underline,italic ctermfg=168 gui=bold,underline,italic guifg=#e06c75 guisp=#e06c75
+" highlight DiagnosticUnderlineError cterm=bold,underline,italic ctermfg=168 gui=bold,underline,italic guifg=#e06c75 guisp=#e06c75
 " highlight CopilotSuggestion guifg=#555555 ctermfg=8
 
 " let g:onedark_hide_endofbuffer=1
