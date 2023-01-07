@@ -103,7 +103,7 @@ let g:which_key_map.c = {
       \ 'a' : ['<cmd>lua require("harpoon.mark").add_file()<CR>'                                                              , 'Mark file'],
       \ 'C' : ['<cmd>:lua require"harpoon.ui".toggle_quick_menu()<CR>'                                                        , 'Mark menu'],
       \ 'c' : [':Telescope harpoon marks theme=dropdown previewer=false winblend=15 layout_config={height=0.60,width=0.50}'   , 'Mark menu'],
-      \ 'l' : [':so %'                                                                                                        , 'Soruce Vimrc'],
+      \ 'l' : [':so %'                                                                                                        , 'Source Vimrc'],
       \ 'o' : [':IndentBlanklineToggle'                                                                                       , 'TogglBlankLine'],
       \ }
 " <cmd>lua require'lspsaga.provider'.lsp_finder()<CR>

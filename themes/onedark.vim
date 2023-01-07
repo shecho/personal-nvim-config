@@ -39,7 +39,7 @@ call one#highlight('Asynchronous', '', '', 'italic')
 call one#highlight('Operator', 'c678dd', '', '')" *= - + =>'#c678dd#
 call one#highlight('Exception', '', '', 'italic') " try catch
 call one#highlight('StorageClass', '', '','bolditalic')" #B243E6
-call one#highlight('Constant', '', '', 'bold')
+call one#highlight('Constant', '', '', 'bolditalic')
 call one#highlight('CursorColumn', '828997', '', 'bolditalic')"current word #4b5263 #5c6370 #828997 #abb2bf
 call one#highlight('Error', 'be5046', '', 'bolditalic')"#e06c75 #be5046 #c18401 #e5c07b #d19a66
 call one#highlight('ErrorMsg', 'e06c75', '', 'bold')
@@ -48,7 +48,7 @@ call one#highlight('DiagnosticError', 'e06c75', '', 'bolditalic')
 call one#highlight('DiagnosticFloatingError', 'e06c75', '', 'bolditalic')
 call one#highlight('DiagnosticSignError', 'e06c75', '', 'bolditalic')
 call one#highlight('DiagnosticUnderlineError', 'e06c75', '', 'bolditalic,underline')
-call one#highlight('Identifier', '', '', 'bolditalic')"params abd arguments and variables names
+call one#highlight('Identifier', '', '', 'bold')"params abd arguments and variables names
 call one#highlight('Keyword', 'c678dd', '', 'italic')"reserved words
 call one#highlight('Delimiter','', '', 'bold')"brackets
 call one#highlight('MatchParen', '', '', 'underline,bolditalic')
