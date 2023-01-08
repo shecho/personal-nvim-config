@@ -20,8 +20,8 @@ call plug#begin('~/.config/nvim/autoload/plugged')
     Plug 'windwp/nvim-autopairs'
     Plug 'windwp/nvim-ts-autotag'
     " taildwind
-    Plug 'rodrigore/coc-tailwind-intellisense', {'do': 'npm install'}
-    Plug 'iamcco/coc-tailwindcss',  {'do': 'yarn install --frozen-lockfile && yarn run build'}
+    " Plug 'rodrigore/coc-tailwind-intellisense', {'do': 'npm install'}
+    " Plug 'iamcco/coc-tailwindcss',  {'do': 'yarn install --frozen-lockfile && yarn run build'}
     "  Plug 'ThePrimeagen/git-worktree.nvim'
 
     " Better Comments
@@ -92,7 +92,7 @@ call plug#begin('~/.config/nvim/autoload/plugged')
     Plug 'navarasu/onedark.nvim'
 
     " Intellisense
-    Plug 'neoclide/coc.nvim', {'branch': 'release'}
+    " Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
     " Status Line
     Plug 'vim-airline/vim-airline'
@@ -101,12 +101,11 @@ call plug#begin('~/.config/nvim/autoload/plugged')
     Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
     Plug 'junegunn/fzf.vim'
     " Plug 'yuki-ycino/fzf-preview.vim', { 'branch': 'release', 'do': ':UpdateRemotePlugins' }
-    " Plug 'antoinemadec/coc-fzf'
 
     " Telescope 
     Plug 'nvim-lua/plenary.nvim'
     Plug 'nvim-telescope/telescope.nvim'
-    Plug 'fannheyward/telescope-coc.nvim'
+    " Plug 'fannheyward/telescope-coc.nvim'
     Plug 'nvim-lua/popup.nvim'
     Plug 'nvim-telescope/telescope-ui-select.nvim'
     Plug 'nvim-telescope/telescope-fzf-native.nvim', { 'do': 'make' }
@@ -252,7 +251,7 @@ call plug#begin('~/.config/nvim/autoload/plugged')
 
     Plug 'zbirenbaum/copilot.lua'
     Plug 'github/copilot.vim'
-    " Plug 'zbirenbaum/copilot-cmp'
+    Plug 'zbirenbaum/copilot-cmp'
 
 
   endif

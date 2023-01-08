@@ -32,11 +32,8 @@ nvim_tree.setup({
 	hijack_directories = {
 		enable = false,
 	},
-	-- update_to_buf_dir = {
-	--   enable = false,
-	-- },
-	-- disable_netrw = true,
-	-- hijack_netrw = true,
+	disable_netrw = true,
+	hijack_netrw = true,
 	-- open_on_setup = false,
 	ignore_ft_on_setup = {
 		"startify",
@@ -44,7 +41,7 @@ nvim_tree.setup({
 		"alpha",
 	},
 	filters = {
-		custom = { ".git" },
+		-- custom = { ".git" },
 		exclude = { ".gitignore" },
 	},
 	-- auto_close = true,
@@ -141,7 +138,7 @@ nvim_tree.setup({
 		width = 40,
 		-- height = 30,
 		hide_root_folder = false,
-		side = "left",
+		side = "right",
 		-- auto_resize = true,
 		mappings = {
 			custom_only = false,
@@ -153,5 +150,6 @@ nvim_tree.setup({
 		},
 		number = false,
 		relativenumber = false,
+		adaptive_size = true,
 	},
 })

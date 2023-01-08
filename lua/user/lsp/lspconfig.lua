@@ -8,10 +8,10 @@ if not lspconfig_status then
 	return
 end
 
--- local lsp_status, lspzero = pcall(require, "lsp-zero")
--- if not lsp_status then
--- 	return
--- end
+local lsp_status, lspzero = pcall(require, "lsp-zero")
+if not lsp_status then
+	return
+end
 
 -- import cmp-nvim-lsp plugin safely
 local cmp_nvim_lsp_status, cmp_nvim_lsp = pcall(require, "cmp_nvim_lsp")
@@ -52,6 +52,13 @@ local on_attach = function(client, bufnr)
 		keymap.set("n", "<leader>oi", ":TypescriptOrganizeImports<CR>") -- organize imports (not in youtube nvim video)
 		keymap.set("n", "<leader>ru", ":TypescriptRemoveUnused<CR>") -- remove unused variables (not in youtube nvim video)
 	end
+	vim.api.nvim_create_autocmd("BufWritePre", {
+		group = vim.api.nvim_create_augroup("LspFormatting", { clear = true }),
+		buffer = bufnr,
+		callback = function()
+			vim.lsp.buf.format()
+		end,
+	})
 end
 
 -- used to enable autocompletion (assign to every lsp server config)
@@ -66,57 +73,96 @@ for type, icon in pairs(signs) do
 end
 
 -- configure html server
-lspconfig["html"].setup({
-	capabilities = capabilities,
-	on_attach = on_attach,
-})
+-- lspconfig["html"].setup({
+-- 	capabilities = capabilities,
+-- 	on_attach = on_attach,
+-- })
 
 -- configure typescript server with plugin
-typescript.setup({
-	server = {
-		capabilities = capabilities,
-		on_attach = on_attach,
-	},
-})
+-- typescript.setup({
+-- 	server = {
+-- 		capabilities = capabilities,
+-- 		on_attach = on_attach,
+-- 	},
+-- })
 
 -- configure css server
-lspconfig["cssls"].setup({
-	capabilities = capabilities,
-	on_attach = on_attach,
-})
+-- lspconfig["cssls"].setup({
+-- capabilities = capabilities,
+-- on_attach = on_attach,
+-- })
 
 -- configure tailwindcss server
-lspconfig["tailwindcss"].setup({
-	capabilities = capabilities,
-	on_attach = on_attach,
-})
+-- lspconfig["tailwindcss"].setup({
+-- 	capabilities = capabilities,
+-- 	on_attach = on_attach,
+-- })
 
 -- configure emmet language server
-lspconfig["emmet_ls"].setup({
-	capabilities = capabilities,
-	on_attach = on_attach,
-	filetypes = { "html", "typescriptreact", "javascriptreact", "css", "sass", "scss", "less", "svelte" },
-})
+-- lspconfig["emmet_ls"].setup({
+-- 	capabilities = capabilities,
+-- 	on_attach = on_attach,
+-- 	filetypes = { "html", "typescriptreact", "javascriptreact", "css", "sass", "scss", "less", "svelte" },
+-- })
 
 -- configure lua server (with special settings)
-lspconfig["sumneko_lua"].setup({
+-- lspconfig["sumneko_lua"].setup({
+-- 	capabilities = capabilities,
+-- 	on_attach = on_attach,
+-- 	settings = { -- custom settings for lua
+-- 		Lua = {
+-- 			-- make the language server recognize "vim" global
+-- 			diagnostics = {
+-- 				globals = { "vim" },
+-- 			},
+-- 			workspace = {
+-- 				-- make language server aware of runtime files
+-- 				library = {
+-- 					[vim.fn.expand("$VIMRUNTIME/lua")] = true,
+-- 					[vim.fn.stdpath("config") .. "/lua"] = true,
+-- 				},
+-- 			},
+-- 		},
+-- 	},
+-- })
+-- some test
+local lsp_config = {
 	capabilities = capabilities,
-	on_attach = on_attach,
-	settings = { -- custom settings for lua
-		Lua = {
-			-- make the language server recognize "vim" global
-			diagnostics = {
-				globals = { "vim" },
-			},
-			workspace = {
-				-- make language server aware of runtime files
-				library = {
-					[vim.fn.expand("$VIMRUNTIME/lua")] = true,
-					[vim.fn.stdpath("config") .. "/lua"] = true,
+	on_attach = function(_, bufnr)
+		on_attach(_, bufnr)
+	end,
+}
+
+require("mason-lspconfig").setup_handlers({
+	function(server_name)
+		require("lspconfig")[server_name].setup(lsp_config)
+	end,
+	sumneko_lua = function()
+		require("lspconfig").sumneko_lua.setup(vim.tbl_extend("force", lsp_config, {
+			settings = {
+				Lua = {
+					diagnostics = {
+						globals = { "vim" },
+					},
 				},
 			},
-		},
-	},
+		}))
+	end,
+	tsserver = function()
+		require("typescript").setup({
+			server = vim.tbl_extend("force", lsp_config, {
+				on_attach = function(_, bufnr)
+					on_attach(_, bufnr)
+				end,
+				init_options = {
+					preferences = {
+						importModuleSpecifierPreference = "project=relative",
+						jsxAttributeCompletionStylr = "none",
+					},
+				},
+			}),
+		})
+	end,
 })
--- lspzero.preset("recommended")
--- lspzero.setup()
+lspzero.preset("recommended")
+lspzero.setup()

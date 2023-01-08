@@ -18,6 +18,8 @@ inoremap kj <Esc>
 
 nnoremap <leader>; :
 nnoremap s <Esc>
+xnoremap s <Esc>
+vnoremap s <Esc>
 
 " Easy CAPS
 " inoremap <c-u> <ESC>viwUi
@@ -36,14 +38,16 @@ xnoremap J :move '>+1<CR>gv-gv
 
 " Alternate way to save
 nnoremap <silent> <C-s> :w<CR>
+
 " Alternate way to quit
 nnoremap <silent> <C-Q> :wq!<CR>
+
 " Use control-c instead of escape
 nnoremap <silent> <C-c> <Esc>
 
 " <TAB>: completion.
-" inoremap <silent> <expr><TAB> pumvisible() ? "\<C-n>" : "\<TAB>"
-" inoremap <silent> <expr><C-j> pumvisible() ? "\<C-n>" : "\<TAB>"
+ inoremap <silent> <expr><TAB> pumvisible() ? "\<C-n>" : "\<TAB>"
+ " inoremap <silent> <expr><C-j> pumvisible() ? "\<C-n>" : "\<TAB>"
 " Better window navigation
 nnoremap <C-h> <C-w>h
 nnoremap <C-j> <C-w>j
@@ -67,8 +71,8 @@ nnoremap <silent> <S-h>    :vertical resize -2<CR>
 nnoremap <silent> <S-l>    :vertical resize +2<CR>
 
 " Better nav for omnicomplete
-inoremap <expr> <c-j> ("\<C-n>")
-inoremap <expr> <c-k> ("\<C-p>")
+" inoremap <expr> <c-j> ("\<C-n>")
+" inoremap <expr> <c-k> ("\<C-p>")
 
 "Some better remaps
 nnoremap Y y$ " 
@@ -98,9 +102,9 @@ nnoremap <leader>1 <c-^>
 
 
 " TODO: Lo to witch wey " harpoon
+" nnoremap <leader>R :lua require("harpoon.mark").rm_file()<CR>
+" nnoremap <leader>C :lua require("harpoon.mark").clear_all()<CR>
 nnoremap <leader>M :lua require("harpoon.mark").add_file()<CR>
-nnoremap <leader>C :lua require("harpoon.mark").clear_all()<CR>
-nnoremap <leader>R :lua require("harpoon.mark").rm_file()<CR>
 nnoremap <leader>m :lua require("harpoon.ui").toggle_quick_menu()<CR>
 nnoremap <leader>n1 :lua require("harpoon.ui").nav_file(1)<CR>
 nnoremap <leader>n2 :lua require("harpoon.ui").nav_file(2)<CR>

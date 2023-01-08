@@ -27,8 +27,8 @@ else
   source $HOME/.config/nvim/plug-config/better-whitespace.vim
   source $HOME/.config/nvim/plug-config/fzf.vim
   source $HOME/.config/nvim/plug-config/codi.vim
-  source $HOME/.config/nvim/plug-config/coc/coc.vim
-  source $HOME/.config/nvim/plug-config/coc/coc-extensions.vim
+  " source $HOME/.config/nvim/plug-config/coc/coc.vim
+  " source $HOME/.config/nvim/plug-config/coc/coc-extensions.vim
   source $HOME/.config/nvim/plug-config/start-screen.vim
   source $HOME/.config/nvim/plug-config/gitgutter.vim 
   source $HOME/.config/nvim/plug-config/git-messenger.vim
@@ -78,13 +78,14 @@ require "user.telescope"
 require "user.harpoon"
 require "user.project"
 
---require "user.cmp"
+require "user.cmp"
 require "user.lsp.lspconfig"
 require "user.lsp.null-ls"
 require "user.lsp.mason"
---require "user.lsp.lspsaga"
-
+require "user.lsp.lspsaga"
+require "user.lsp.lspkind"
 require "user.copilot"
+
 EOF
 
 " Add paths to node and python here
@@ -95,5 +96,5 @@ endif
 " Better nav for omnicomplete 
 set guifont=JetBrain\ Operator\ Fira\ Code\ Nerd\ Font
 
-" inoremap <expr> <c-j> ("\<C-n>") 
-" inoremap <expr> <c-k> ("\<C-p>")
+"  inoremap <expr> <c-j> ("\<C-n>") 
+"  inoremap <expr> <c-k> ("\<C-p>")

@@ -22,7 +22,7 @@ telescope.setup({
 			"%.sqlite3",
 			"%.ipynb",
 			"node_modules/*",
-			"%.svg",
+			-- "%.svg",
 			"%.otf",
 			"%.ttf",
 			"%.webp",
@@ -34,7 +34,7 @@ telescope.setup({
 			".vscode/",
 			"__pycache__/",
 			"build/",
-			"env/",
+			-- "env/",
 			"gradle/",
 			"node_modules/",
 			"%.pdb",
@@ -166,5 +166,5 @@ telescope.setup({
 	},
 })
 telescope.load_extension("fzf")
-telescope.load_extension("coc")
 telescope.load_extension("ui-select")
+-- telescope.load_extension("coc")

@@ -15,20 +15,19 @@ end
 -- vim.g.copilot_no_tab_map = true
 -- vim.g.copilot_assume_mapped = true
 -- vim.api.nvim_set_keymap("i", "<C-J>", 'copilot#Accept("<CR>")', { silent = true, expr = true })
+
 copilot.setup({
+	panel = { enabled = false },
 	cmp = {
 		enabled = true,
 		method = "getCompletionsCycling",
-	},
-	panel = { -- no config options yet
-		enabled = true,
 	},
 	suggestion = {
 		enabled = true,
 		auto_trigger = true,
 		debounce = 75,
 		keymap = {
-			accept = "<c-j>",
+			-- accept = "<c-j>",
 			accept_word = false,
 			accept_line = false,
 			-- accept_word = true,
