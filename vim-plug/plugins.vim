@@ -20,7 +20,7 @@ call plug#begin('~/.config/nvim/autoload/plugged')
     Plug 'windwp/nvim-ts-autotag'
     " taildwind
     " Plug 'rodrigore/coc-tailwind-intellisense', {'do': 'npm install'}
-    " Plug 'iamcco/coc-tailwindcss',  {'do': 'yarn install --frozen-lockfile && yarn run build'}
+    "  Plug 'iamcco/coc-tailwindcss',  {'do': 'yarn install --frozen-lockfile && yarn run build'}
     "  Plug 'steelsojka/headwind.nvim'
     "  Plug 'ThePrimeagen/git-worktree.nvim'
 
@@ -139,7 +139,7 @@ call plug#begin('~/.config/nvim/autoload/plugged')
     Plug 'folke/zen-mode.nvim'
 
     " Snippets
-    Plug 'honza/vim-snippets'
+    " Plug 'honza/vim-snippets'
     Plug 'mattn/emmet-vim'
 
     " Interactive code

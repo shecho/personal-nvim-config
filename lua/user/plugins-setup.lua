@@ -1,3 +1,4 @@
+---@diagnostic disable: undefined-global
 local status, packer = pcall(require, "packer")
 if not status then
 	return

@@ -54,7 +54,6 @@ else
   " luafile $HOME/.config/nvim/lua/user/treesitter.lua "used on lua
   "  luafile $HOME/.config/nvim/lua/plug-colorizer.lua "used on lua
   " source $HOME/.config/nvim/lua/autopairs.vim luafiled
-  " source $HOME/.config/nvim/plug-config/goyo.vim
 endif
 source $HOME/.config/nvim/plug-config/quickscope.vim
 
@@ -77,12 +76,12 @@ require "user.telescope"
 require "user.harpoon"
 require "user.project"
 
-require "user.cmp"
 require "user.lsp.mason"
 require "user.lsp.null-ls"
 require "user.lsp.lspconfig"
 require "user.lsp.lspsaga"
 require "user.lsp.lspkind"
+require "user.cmp"
 require "user.copilot"
 
 EOF
