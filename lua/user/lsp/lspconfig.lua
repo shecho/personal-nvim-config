@@ -11,7 +11,7 @@ if not lspconfig_status then
 	return
 end
 
--- import cmp-nvim-lsp plugin safely
+-- import cmp-nvim-lsp plugin safelylspcon
 local cmp_nvim_lsp_status, cmp_nvim_lsp = pcall(require, "cmp_nvim_lsp")
 if not cmp_nvim_lsp_status then
 	return
@@ -50,13 +50,13 @@ local on_attach = function(client, bufnr)
 		keymap.set("n", "<leader>oi", ":TypescriptOrganizeImports<CR>") -- organize imports (not in youtube nvim video)
 		keymap.set("n", "<leader>ru", ":TypescriptRemoveUnused<CR>") -- remove unused variables (not in youtube nvim video)
 	end
-	vim.api.nvim_create_autocmd("BufWritePre", {
-		group = vim.api.nvim_create_augroup("LspFormatting", { clear = true }),
-		buffer = bufnr,
-		callback = function()
-			vim.lsp.buf.format({ async = true })
-		end,
-	})
+	-- vim.api.nvim_create_autocmd("BufWritePre", {
+	-- 	group = vim.api.nvim_create_augroup("LspFormatting", { clear = true }),
+	-- 	buffer = bufnr,
+	-- 	callback = function()
+	-- 		vim.lsp.buf.format()
+	-- 	end,
+	-- })
 end
 
 -- used to enable autocompletion (assign to every lsp server config)

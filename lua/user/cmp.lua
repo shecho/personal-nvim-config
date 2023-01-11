@@ -129,32 +129,30 @@ cmp.setup({
 	}),
 	-- configure lspkind for vs-code like icons
 	formatting = {
-		-- fields = { "kind", "abbr", "menu" },
-		format = function(entry, vim_item)
-			if vim.tbl_contains({ "path" }, entry.source.name) then
-				local icon, hl_group = icons.get_icon(entry:get_completion_item().label)
-				if icon then
-					vim_item.kind = icon
-					vim_item.kind_hl_group = hl_group
-					return vim_item
-				end
-			end
-			vim_item.menu = ({
-				nvim_lua = "",
-				nvim_lsp = "",
-				luasnip = "",
-				buffer = "",
-				path = "",
-				emoji = "",
-			})[entry.source.name]
-			return lspkind.cmp_format({ with_text = true })(entry, vim_item)
-		end,
-
-		-- format = lspkind.cmp_format({
-		-- 	mode = "symbol", -- show only symbol annotations
-		-- 	maxwidth = 50,
-		-- 	ellipsis_char = "...",
-		-- }),
+		-- fields = { "abbr", "kind", "menu" },
+		fields = {
+			cmp.ItemField.Abbr,
+			cmp.ItemField.Kind,
+			cmp.ItemField.Menu,
+		},
+		format = lspkind.cmp_format({
+			mode = "symbol_text",
+			maxwidth = 60,
+			before = function(entry, vim_item)
+				vim_item.menu = ({
+					nvim_lsp = "",
+					luasnip = "",
+					nvim_lua = "ﲳ",
+					treesitter = "",
+					buffer = "﬘",
+					path = "ﱮ",
+					zsh = "",
+					vsnip = "",
+					spell = "暈",
+				})[entry.source.name]
+				return vim_item
+			end,
+		}),
 	},
 	experimental = {
 		ghost_text = true,
