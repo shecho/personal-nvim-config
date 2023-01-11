@@ -1,15 +1,15 @@
 " onedark.vim override: Don't set a background color when running in a terminal;
-" if (has("autocmd") && !has("gui_running"))
-"   augroup colorset
-"     autocmd!
-"     let s:white = { "gui": "#ABB2BF", "cterm": "145", "cterm16" : "7" }
-    " autocmd ColorScheme * call onedark#set_highlight("Normal", { "fg": s:white }) " `bg` will not be styled since there is no `bg` setting
-"   augroup END
-" endif
+if (has("autocmd") && !has("gui_running"))
+    augroup highlightYankedText
+	autocmd!
+	autocmd TextYankPost *  silent! lua require'vim.highlight'.on_yank()
+    augroup END
+endif
 
 hi Comment cterm=italic
 " cterm=bold,underline,italic ctermfg=168 gui=bold,underline,italic guifg=#e06c75 guisp=#e06c75
 " highlight DiagnosticUnderlineError cterm=bold,underline,italic ctermfg=168 gui=bold,underline,italic guifg=#e06c75 guisp=#e06c75
+" highlight link LspSagaFinderSelection guifg='#ff0000' guibg='#00ff00' gui='bold'
 " highlight CopilotSuggestion guifg=#555555 ctermfg=8
 
 " let g:onedark_hide_endofbuffer=1

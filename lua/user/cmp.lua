@@ -56,15 +56,15 @@ cmp.setup({
 		-- 	i = cmp.mapping.confirm({ select = true }),
 		-- }),
 		["<C-k>"] = cmp.mapping.select_prev_item(), -- previous suggestion
-		["<C-c>"] = cmp.mapping({
-			i = cmp.mapping.abort(),
-			c = cmp.mapping.close(),
-		}),
+		-- ["<C-c>"] = cmp.mapping({
+		-- 	i = cmp.mapping.abort(),
+		-- 	c = cmp.mapping.close(),
+		-- }),
 		["<C-j>"] = cmp.mapping.confirm({ select = false }), -- next suggestion
-		["<C-l>"] = cmp.mapping.confirm({ select = false }),
+		-- ["<C-l>"] = cmp.mapping.confirm({ select = false }),
 		["<C-b>"] = cmp.mapping.scroll_docs(-4),
 		["<C-f>"] = cmp.mapping.scroll_docs(4),
-		["<C-Space>"] = cmp.mapping(cmp.mapping.complete(), { "i", "c" }),
+		["<C-Space>"] = cmp.mapping(cmp.mapping.complete(), { "i", "c", "n" }),
 		["<C-e>"] = cmp.mapping({
 			i = cmp.mapping.abort(),
 			c = cmp.mapping.close(),
@@ -129,7 +129,7 @@ cmp.setup({
 		-- }),
 	},
 	experimental = {
-		ghost_text = false,
+		ghost_text = true,
 	},
 	window = {
 		documentation = cmp.config.window.bordered(),
@@ -140,7 +140,6 @@ cmp.setup({
 		comparators = {
 			require("copilot_cmp.comparators").prioritize,
 			require("copilot_cmp.comparators").score,
-
 			-- Below is the default comparitor list and order for nvim-cmp
 			cmp.config.compare.offset,
 			-- cmp.config.compare.scopes, --this is commented in nvim-cmp too
