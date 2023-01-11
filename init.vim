@@ -59,7 +59,6 @@ endif
 source $HOME/.config/nvim/plug-config/quickscope.vim
 
 "  lua << EOF
-"  --require("mason").setup()
 "  --require("mason-lspconfig").setup()
 "  EOF
 

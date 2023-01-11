@@ -43,7 +43,7 @@ let g:which_key_map['0'] = [ ':e $MYVIMRC'                        , 'open init' 
 let g:which_key_map['-'] = [ ':Commands'                          , 'commands' ]
 let g:which_key_map['='] = [ '<C-W>='                             , 'balance windows' ]
 let g:which_key_map['d'] = [ ':Bdelete'                           , 'delete buffer']
-let g:which_key_map['e'] = [ ':CocCommand explorer'               , 'explorer' ]
+let g:which_key_map['e'] = [ ':NvimTreeToggle'               , 'explorer' ]
 let g:which_key_map['E'] = [ ':NvimTreeToggle'               , 'explorer' ]
 let g:which_key_map['f'] = [ ':Telescope projects theme=dropdown winblend=40 layout_config={prompt_position="top"}', 'Find project' ]
 let g:which_key_map['h'] = [ '<C-W>s'                             , 'split below']
@@ -123,7 +123,7 @@ let g:which_key_map.K = {
       \ 'f' : [':AsyncTaskFzf'                , 'find task'],
       \ 'g' : [':AsyncTaskEdit!'              , 'edit global tasks'],
       \ 'h' : [':AsyncTaskList!'              , 'list hidden tasks'],
-      \ 'l' : [':CocList tasks'               , 'list tasks'],
+      \ 'l' : [''               , 'list tasks'],
       \ 'm' : [':AsyncTaskMacro'              , 'macro help'],
       \ 'o' : [':copen'                       , 'open task view'],
       \ 'r' : [':AsyncTask file-run'          , 'run file'],
@@ -153,7 +153,7 @@ let g:which_key_map.s = {
       \ 'p' : [':Telescope oldfiles'    , 'help tags'] ,
       \ 'P' : [':Telescope oldfiles'    , 'project tags'],
       \ 's' : [':Telescope find_files prompt_prefix=🔍 hidden=true winblend=20 layout_config={height=0.95,width=.90,prompt_position="top"}'      , 'snippets'],
-      \ 'S' : [':CocList snippets'                , 'color schemes'],
+      \ 'S' : [''                , 'color schemes'],
       \ 't' : [':Files'                 , 'text Rg'],
       \ 'T' : [':BTags'                 , 'buffer tags'],
       \ 'w' : [':Windows'               , 'search windows'],
@@ -216,21 +216,21 @@ let g:which_key_map.G = {
       \ 'P' : [':Gist -p'                          , 'post private gist '],
       \ }
 
-" l is for coc lsp
+" l is for lsp
 let g:which_key_map.l = {
       \ 'name' : '+lsp' ,
       \ '.' : [''                          , 'config'],
       \ 'c' : [''                , 'refactor'],
       \ 'a' : [':Lspsaga code_action'              , 'code action'],
       \ 'A' : [''     , 'selected action'],
-      \ 'b' : [''                            , 'next action'],
+      \ 'b' : [':Lspsaga show_cursor_diagnostics'                            , 'next action'],
       \ 'B' : [''                            , 'prev action'],
       \ 'C' : [''                   , 'commands'],
       \ 'd' : [':Telescope lsp_definitions'              , 'definition'],
       \ 'D' : [':Telescope lsp_definitions'             , 'declaration'],
       \ 'e' : [''                 , 'extensions'],
       \ 'F' : [':lua vim.lsp.buf.format({async = true})'         , 'format selected'],
-      \ 'f' : [':lua vim.lsp.buf.format({async = true})'                  , 'format'],
+      \ 'f' : [':lua vim.lsp.buf.format'                  , 'format'],
       \ 'h' : [''              , 'hide'],
       \ 'i' : [':lua vim.lsp.buf.implementations'          , 'implementation'],
       \ 'I' : [''                , 'diagnostics'],
@@ -242,7 +242,7 @@ let g:which_key_map.l = {
       \ 'O' : [''                    , 'outline'],
       \ 'p' : [''         , 'prev diagnostic'],
       \ 'P' : [''   , 'prev error'],
-      \ 'q' : [''             , 'quickfix'],
+      \ 'q' : [':Lspsaga peek_definition'             , 'quickfix'],
       \ 'r' : [':Telescope lsp_references layout_config={height=0.85,width=.80,prompt_position="top"}'                  , 'references'],
       \ 'R' : [':Lspsaga rename'                                      , 'rename'],
       \ 's' : [':Lspsaga hover_doc'     , 'Hover'],
@@ -252,8 +252,8 @@ let g:which_key_map.l = {
       \ 'u' : [''                      , 'resume list'],
       \ 'U' : [''                          , 'update CoC'],
       \ 'v' : [''                            , 'tag viewer'],
-      \ 'Z' : [''                         , 'disable CoC'],
-      \ 'z' : [''                          , 'enable CoC'],
+      \ 'Z' : [''                         , 'disable'],
+      \ 'z' : [''                          , 'enable'],
       \ }
 
 " t is for terminal

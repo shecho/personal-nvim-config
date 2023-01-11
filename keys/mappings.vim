@@ -47,7 +47,7 @@ nnoremap <silent> <C-c> <Esc>
 
 " <TAB>: completion.
  inoremap <silent> <expr><TAB> pumvisible() ? "\<C-n>" : "\<TAB>"
- " inoremap <silent> <expr><C-j> pumvisible() ? "\<C-n>" : "\<TAB>"
+ inoremap <silent> <expr><C-j> pumvisible() ? "\<C-n>" : "\<TAB>"
 " Better window navigation
 nnoremap <C-h> <C-w>h
 nnoremap <C-j> <C-w>j
@@ -108,4 +108,5 @@ nnoremap <leader>M :lua require("harpoon.mark").add_file()<CR>
 nnoremap <leader>m :lua require("harpoon.ui").toggle_quick_menu()<CR>
 nnoremap <leader>n1 :lua require("harpoon.ui").nav_file(1)<CR>
 nnoremap <leader>n2 :lua require("harpoon.ui").nav_file(2)<CR>
+nnoremap <leader>lf :lua vim.lsp.buf.format({async = true})<CR>
 

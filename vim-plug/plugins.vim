@@ -15,13 +15,13 @@ call plug#begin('~/.config/nvim/autoload/plugged')
   else
     " Loaderc
     Plug 'lewis6991/impatient.nvim'
-    " Plug 'machakann/vim-highlightedyank'
     
     Plug 'windwp/nvim-autopairs'
     Plug 'windwp/nvim-ts-autotag'
     " taildwind
     " Plug 'rodrigore/coc-tailwind-intellisense', {'do': 'npm install'}
-    Plug 'iamcco/coc-tailwindcss',  {'do': 'yarn install --frozen-lockfile && yarn run build'}
+    " Plug 'iamcco/coc-tailwindcss',  {'do': 'yarn install --frozen-lockfile && yarn run build'}
+    "  Plug 'steelsojka/headwind.nvim'
     "  Plug 'ThePrimeagen/git-worktree.nvim'
 
     " Better Comments
