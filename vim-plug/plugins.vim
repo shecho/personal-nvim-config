@@ -132,6 +132,7 @@ call plug#begin('~/.config/nvim/autoload/plugged')
 
     " See what keys do like in emacs
     Plug 'liuchengxu/vim-which-key'
+    " Plug 'folke/which-key.nvim'
 
     " Zen mode
     Plug 'Pocco81/true-zen.nvim'

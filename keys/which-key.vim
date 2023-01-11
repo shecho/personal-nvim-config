@@ -54,7 +54,7 @@ let g:which_key_map['r'] = [ ':Telescope buffers'                 , 'search ag' 
 let g:which_key_map['u'] = [ ':UndotreeToggle'                    , 'undo tree']
 let g:which_key_map['v'] = [ '<C-W>v'                             , 'split right']
 let g:which_key_map['W'] = [ 'w'                                  , 'write' ]
-" let g:which_key_map['k'] = [ 'lua vim.lsp.buf.hover'                                  , 'Hover' ]
+let g:which_key_map['k'] = [ ':Lspsaga hover_doc'                                  , 'Hover' ]
 let g:which_key_map['Z'] = [ ':ZenMode'                           , 'zen' ]
 
 
@@ -245,7 +245,7 @@ let g:which_key_map.l = {
       \ 'q' : [':Lspsaga peek_definition'             , 'quickfix'],
       \ 'r' : [':Telescope lsp_references layout_config={height=0.85,width=.80,prompt_position="top"}'                  , 'references'],
       \ 'R' : [':Lspsaga rename'                                      , 'rename'],
-      \ 's' : [':Lspsaga hover_doc'     , 'Hover'],
+      \ 's' : [''     , 'Hover'],
       \ 'k' : [':Lspsaga hover_doc'     , 'Hover'],
       \ 'S' : [''                   , 'snippets'],
       \ 't' : [''         , 'type definition'],
