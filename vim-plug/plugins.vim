@@ -11,7 +11,7 @@ call plug#begin('~/.config/nvim/autoload/plugged')
   if exists('g:vscode')
     " Easy motion for VSCode
     " Plug 'asvetliakov/vim-easymotion'
-    "  Plug 'ChristianChiarulli/vscode-easymotion'
+    "  Plug 'ChristianChiarulli/vscode-easymotion'plugis
   else
     " Loaderc
     Plug 'lewis6991/impatient.nvim'
@@ -64,9 +64,9 @@ call plug#begin('~/.config/nvim/autoload/plugged')
 
     " Treesitter
     Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+    Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
     Plug 'nvim-treesitter/playground'
     Plug 'nvim-treesitter/nvim-treesitter-refactor'
-    Plug 'nvim-treesitter/nvim-treesitter-textobjects'
     Plug 'romgrk/nvim-treesitter-context'
 
     " Cool Icons

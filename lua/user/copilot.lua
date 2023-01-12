@@ -33,7 +33,7 @@ copilot.setup({
 			accept_line = false,
 			-- accept_word = true,
 			-- accept_line = true,
-			next = "<M-]>",
+			next = "<c-p>",
 			prev = "<M-[>",
 			dismiss = "<C-]>",
 		},

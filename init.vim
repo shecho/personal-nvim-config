@@ -47,9 +47,6 @@ else
   " source $HOME/.config/nvim/plug-config/vista.vim
   " source $HOME/.config/nvim/plug-config/xtabline.vim
   " source $HOME/.config/nvim/plug-config/ale.vim
-  " source $HOME/.config/nvim/plug-config/tailwind.vim
-  "  source $HOME/.config/nvim/plug-config/asynctask.vim
-  "  source $HOME/.config/nvim/plug-config/far.vim
   " luafile $HOME/.config/nvim/lua/nvcodeline.lua
   " luafile $HOME/.config/nvim/lua/user/treesitter.lua "used on lua
   "  luafile $HOME/.config/nvim/lua/plug-colorizer.lua "used on lua
@@ -70,12 +67,13 @@ require "user.treesitter"
 require "user.indentline"
 require "user.autopairs"
 
---Finders
+-- Finders
 require "user.nvim-tree"
 require "user.telescope"
 require "user.harpoon"
 require "user.project"
 
+-- Lsp
 require "user.lsp.mason"
 require "user.lsp.null-ls"
 require "user.lsp.lspconfig"
