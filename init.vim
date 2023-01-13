@@ -53,12 +53,12 @@ else
 endif
 source $HOME/.config/nvim/plug-config/quickscope.vim
 
-"  lua << EOF
-"  --require("mason-lspconfig").setup()
-"  EOF
+ " lua << EOF
+" --require("mason-lspconfig").setup()
+" --require("headwind").setup({ remove_duplicates:true})
+ " EOF
 
 lua << EOF
-
 require "user.impatient"
 require "user.true-zen"
 require "user.plug-colorizer"

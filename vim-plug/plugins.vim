@@ -16,7 +16,7 @@ call plug#begin('~/.config/nvim/autoload/plugged')
     Plug 'windwp/nvim-autopairs'
     Plug 'windwp/nvim-ts-autotag'
     " taildwind
-    "  Plug 'steelsojka/headwind.nvim'
+     " Plug 'steelsojka/headwind.nvim'
     "  Plug 'ThePrimeagen/git-worktree.nvim'
 
     " Better Comments

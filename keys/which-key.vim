@@ -234,6 +234,7 @@ let g:which_key_map.l = {
       \ 'q' : [':Lspsaga peek_definition'             , 'quickfix'],
       \ 'r' : [':Telescope lsp_references layout_config={height=0.85,width=.80,prompt_position="top"}'                  , 'references'],
       \ 'R' : [':Lspsaga rename'                                      , 'rename'],
+      \ 's' : [':Lspsaga lsp_finder'                                      , 'rename'],
       \ 'k' : [':Lspsaga hover_doc'     , 'Hover'],
       \ 't' : [''         , 'type definition'],
       \ 'Z' : [''                         , 'disable'],
