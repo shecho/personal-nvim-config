@@ -9,26 +9,18 @@ endif
 call plug#begin('~/.config/nvim/autoload/plugged')
 
   if exists('g:vscode')
-    " Easy motion for VSCode
-    " Plug 'asvetliakov/vim-easymotion'
-    "  Plug 'ChristianChiarulli/vscode-easymotion'plugis
   else
-    " Loaderc
+    " Loader
     Plug 'lewis6991/impatient.nvim'
     
     Plug 'windwp/nvim-autopairs'
     Plug 'windwp/nvim-ts-autotag'
     " taildwind
-    " Plug 'rodrigore/coc-tailwind-intellisense', {'do': 'npm install'}
-    "  Plug 'iamcco/coc-tailwindcss',  {'do': 'yarn install --frozen-lockfile && yarn run build'}
     "  Plug 'steelsojka/headwind.nvim'
     "  Plug 'ThePrimeagen/git-worktree.nvim'
 
     " Better Comments
     Plug 'tpope/vim-commentary'
-
-    " Change dates fastplugin
-    " Plug 'tpope/vim-speeddating'
 
     " Convert binary, hex, etc..
     Plug 'glts/vim-radical'
@@ -59,11 +51,7 @@ call plug#begin('~/.config/nvim/autoload/plugged')
     " auto set indent settings
     Plug 'tpope/vim-sleuth'
 
-    " Better Syntax Support
-    " Plug 'sheerun/vim-polyglot'
-
     " Treesitter
-    Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
     Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
     Plug 'nvim-treesitter/playground'
     Plug 'nvim-treesitter/nvim-treesitter-refactor'
@@ -83,9 +71,7 @@ call plug#begin('~/.config/nvim/autoload/plugged')
     " Themes
     " Plug 'christianchiarulli/onedark.vim'
     " Plug 'christianchiarulli/nvcode-color-schemes.vim'
-    " Plug 'sainnhe/edge'
     " Plug 'dracula/dracula-theme'
-    " Plug 'sonph/onehalf'
     " Plug 'joshdick/onedark.vim'
     " Plug 'christianchiarulli/nvcode-color-schemes.vim'
     Plug 'rakr/vim-one'
@@ -100,7 +86,6 @@ call plug#begin('~/.config/nvim/autoload/plugged')
     " FZF
     Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
     Plug 'junegunn/fzf.vim'
-    " Plug 'yuki-ycino/fzf-preview.vim', { 'branch': 'release', 'do': ':UpdateRemotePlugins' }
 
     " Telescope 
     Plug 'nvim-lua/plenary.nvim'
@@ -154,20 +139,8 @@ call plug#begin('~/.config/nvim/autoload/plugged')
     " Auto change html tags
     Plug 'AndrewRadev/tagalong.vim'
 
-    " live server
-
     " Smooth scroll
     Plug 'psliwka/vim-smoothie'
-
-    " Swap windows
-    " Plug 'wesQ3/vim-windowswap'
-
-    " Markdown Preview
-    Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app & npm install'  }
-
-    " Easily Create Gists
-    " Plug 'mattn/vim-gist'
-    " Plug 'mattn/webapi-vim'
 
     " Colorizer
     Plug 'norcalli/nvim-colorizer.lua'

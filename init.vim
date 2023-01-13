@@ -20,7 +20,6 @@ else
   " luafile $HOME/.config/nvim/themes/oneDark.lua
 
   " Plugin Configuration
-  " source $HOME/.config/nvim/plug-config/telescope.vim "Migrated to lua
   " source $HOME/.config/nvim/plug-config/rnvimr.vim
   " source $HOME/.config/nvim/plug-config/easymotion.vim 
   source $HOME/.config/nvim/plug-config/vim-commentary.vim
@@ -38,9 +37,9 @@ else
   source $HOME/.config/nvim/plug-config/tagalong.vim
   source $HOME/.config/nvim/plug-config/markdown-preview.vim
   source $HOME/.config/nvim/plug-config/rainbow.vim
+  " source $HOME/.config/nvim/plug-config/minimap.vim
   "  source $HOME/.config/nvim/plug-config/window-swap.vim
   " source $HOME/.config/nvim/plug-config/vim-rooter.vim
-  " source $HOME/.config/nvim/plug-config/neovide.vim
   " source $HOME/.config/nvim/plug-config/vimspector.vim
   " source $HOME/.config/nvim/plug-config/sneak.vim
   " source $HOME/.config/nvim/plug-config/illuminate.vim

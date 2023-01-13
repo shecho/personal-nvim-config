@@ -15,10 +15,10 @@ if not luasnip_status then
 	return
 end
 -- icnos
-local icons_status, icons = pcall(require, "nvim-web-devicons")
-if not icons_status then
-	return
-end
+-- local icons_status, icons = pcall(require, "nvim-web-devicons")
+-- if not icons_status then
+-- 	return
+-- end
 
 -- import lspkind plugin safely
 local lspkind_status, lspkind = pcall(require, "lspkind")

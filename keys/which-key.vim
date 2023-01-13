@@ -66,8 +66,6 @@ let g:which_key_map.a = {
       \ 'c' : [':ColorizerToggle'                                                                       , 'colorizer'],
       \ 'e' : [':CocCommand explorer'                                                                   , 'explorer'],
       \ 'a' : [':NvimTreeToggle'                                                                   , 'explorer'],
-      \ 'l' : [''                 , ''],
-      \ 'L' : [''             , ''],
       \ 'm' : [':MarkdownPreview'                                                                       , 'markdown preview'],
       \ 'M' : [':MarkdownPreviewStop'                                                                   , 'markdown preview stop'],
       \ 'n' : [':set nonumber!'                                                                         , 'line-numbers'],
@@ -134,7 +132,6 @@ let g:which_key_map.K = {
 " s is for search
 let g:which_key_map.s = {
       \ 'name' : '+search' ,
-      \ '/' : [':History/'              , 'history'],
       \ ';' : [':Commands'              , 'commands'],
       \ 'a' : [':Rg'                    , 'text Ag'],
       \ 'B' : [':BLines'                , 'current buffer'],
@@ -146,21 +143,15 @@ let g:which_key_map.s = {
       \ 'g' : [':Telescope git_branches', 'git branches'],
       \ 'G' : [':GFiles:'               , 'modified git files'],
       \ 'h' : [':History'               , 'file history'],
-      \ 'H' : [':History:'              , 'command history'],
       \ 'l' : [':Lines'                 , 'lines'] ,
       \ 'm' : [':Marks'                 , 'marks'] ,
       \ 'M' : [':Maps'                  , 'normal maps'] ,
       \ 'p' : [':Telescope oldfiles'    , 'help tags'] ,
-      \ 'P' : [':Telescope oldfiles'    , 'project tags'],
       \ 's' : [':Telescope find_files prompt_prefix=🔍 hidden=true winblend=20 layout_config={height=0.95,width=.90,prompt_position="top"}'      , 'snippets'],
-      \ 'S' : [''                , 'color schemes'],
       \ 't' : [':Files'                 , 'text Rg'],
       \ 'T' : [':BTags'                 , 'buffer tags'],
       \ 'w' : [':Windows'               , 'search windows'],
       \ 'y' : [':Filetypes'             , 'file types'],
-      \ 'z' : [':FZF'                   , 'FZF'],
-      \ '=' : [':resize +4<CR>'         , '+4'],
-      \ '-' : [':resize -4<CR>'         , '-4'],
       \ }
 
 " S is for Sessions
@@ -195,8 +186,7 @@ let g:which_key_map.g = {
       \ 'p' : [':Git push'                         , 'push'],
       \ 'P' : [':Git pull'                         , 'pull'],
       \ 'r' : [':GRemove'                          , 'remove'],
-      \ 'S' : ['<Plug>(GitGutterStageHunk)'        , 'stage hunk'],
-      \ 's' : [':!git status'                      , 'status'],
+      \ 's' : [':git status'                      , 'status'],
       \ 't' : [':GitGutterSignsToggle'             , 'toggle signs'],
       \ 'u' : ['<Plug>(GitGutterUndoHunk)'         , 'undo hunk'],
       \ 'v' : [':GV'                               , 'view commits'],
@@ -225,7 +215,6 @@ let g:which_key_map.l = {
       \ 'A' : [''     , 'selected action'],
       \ 'b' : [':Lspsaga show_cursor_diagnostics'                            , 'next action'],
       \ 'B' : [''                            , 'prev action'],
-      \ 'C' : [''                   , 'commands'],
       \ 'd' : [':Telescope lsp_definitions'              , 'definition'],
       \ 'D' : [':Telescope lsp_definitions'             , 'declaration'],
       \ 'e' : [''                 , 'extensions'],
@@ -245,13 +234,8 @@ let g:which_key_map.l = {
       \ 'q' : [':Lspsaga peek_definition'             , 'quickfix'],
       \ 'r' : [':Telescope lsp_references layout_config={height=0.85,width=.80,prompt_position="top"}'                  , 'references'],
       \ 'R' : [':Lspsaga rename'                                      , 'rename'],
-      \ 's' : [''     , 'Hover'],
       \ 'k' : [':Lspsaga hover_doc'     , 'Hover'],
-      \ 'S' : [''                   , 'snippets'],
       \ 't' : [''         , 'type definition'],
-      \ 'u' : [''                      , 'resume list'],
-      \ 'U' : [''                          , 'update CoC'],
-      \ 'v' : [''                            , 'tag viewer'],
       \ 'Z' : [''                         , 'disable'],
       \ 'z' : [''                          , 'enable'],
       \ }
@@ -290,18 +274,6 @@ let g:which_key_map.T = {
       \ 'P' : [':XTabMoveBufferPrev'      , '<-buffer'],
       \ 'x' : [':XTabPinBuffer'           , 'pin buffer'],
       \ }
-
-" w  TODO: Add more keys to W
-let g:which_key_map.W = {
-      \ 'name' : '+' ,
-      \ 'w' : ['<Plug>'                              , 'ncdu'],
-      \ 'n' : ['<plug>()'                              , 'ncdu'],
-      \ 'j' : ['<plug>()'                              , 'ncdu'],
-      \ 'R' : ['<plug>()'                              , 'ncdu'],
-      \ 'c' : ['<plug>()'                              , 'ncdu'],
-      \ 'b' : ['<plug>()'                              , 'ncdu'],
-      \ }
-
 
 " Register which key map
 call which_key#register('<Space>', "g:which_key_map")
