@@ -12,6 +12,7 @@ call plug#begin('~/.config/nvim/autoload/plugged')
   else
     " Loader
     Plug 'lewis6991/impatient.nvim'
+    Plug 'eandrju/cellular-automaton.nvim'
     
     Plug 'windwp/nvim-autopairs'
     Plug 'windwp/nvim-ts-autotag'
