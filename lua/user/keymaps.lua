@@ -1,8 +1,115 @@
 ---@diagnostic disable: unused-local, undefined-global
-M = {}
+local M = {}
 local opts = { noremap = true, silent = true }
+local generic_opts_any = { noremap = true, silent = true }
 
 local term_opts = { silent = true }
+local generic_opts = {
+	insert_mode = generic_opts_any,
+	normal_mode = generic_opts_any,
+	visual_mode = generic_opts_any,
+	visual_block_mode = generic_opts_any,
+	command_mode = generic_opts_any,
+	operator_pending_mode = generic_opts_any,
+	term_mode = term_opts,
+}
+local mode_adapters = {
+	insert_mode = "i",
+	normal_mode = "n",
+	term_mode = "t",
+	visual_mode = "v",
+	visual_block_mode = "x",
+	command_mode = "c",
+	operator_pending_mode = "o",
+}
+local defaults = {
+	normal_mode = {
+		-- Better window movement
+		["<C-h>"] = "<C-w>h",
+		["<C-j>"] = "<C-w>j",
+		["<C-k>"] = "<C-w>k",
+		["<C-l>"] = "<C-w>l",
+
+		-- Resize with arrows
+		["<C-Up>"] = ":resize -2<CR>",
+		["<C-Down>"] = ":resize +2<CR>",
+		["<C-Left>"] = ":vertical resize -2<CR>",
+		["<C-Right>"] = ":vertical resize +2<CR>",
+
+		-- Move current line / block with Alt-j/k a la vscode.
+		["<A-j>"] = ":m .+1<CR>==",
+		["<A-k>"] = ":m .-2<CR>==",
+
+		-- QuickFix
+		["]q"] = ":cnext<CR>",
+		["[q"] = ":cprev<CR>",
+		["<C-q>"] = ":call QuickFixToggle()<CR>",
+	},
+}
+if vim.fn.has("mac") == 1 then
+	defaults.normal_mode["<A-Up>"] = defaults.normal_mode["<C-Up>"]
+	defaults.normal_mode["<A-Down>"] = defaults.normal_mode["<C-Down>"]
+	defaults.normal_mode["<A-Left>"] = defaults.normal_mode["<C-Left>"]
+	defaults.normal_mode["<A-Right>"] = defaults.normal_mode["<C-Right>"]
+	Log:debug("Activated mac keymappings")
+end
+function M.clear(keymaps)
+	local default = M.get_defaults()
+	for mode, mappings in pairs(keymaps) do
+		local translated_mode = mode_adapters[mode] and mode_adapters[mode] or mode
+		for key, _ in pairs(mappings) do
+			-- some plugins may override default bindings that the user hasn't manually overriden
+			if
+				default[mode][key] ~= nil or (default[translated_mode] ~= nil and default[translated_mode][key] ~= nil)
+			then
+				pcall(vim.api.nvim_del_keymap, translated_mode, key)
+			end
+		end
+	end
+end
+function M.set_keymaps(mode, key, val)
+	local opt = generic_opts[mode] or generic_opts_any
+	if type(val) == "table" then
+		opt = val[2]
+		val = val[1]
+	end
+	if val then
+		vim.keymap.set(mode, key, val, opt)
+	else
+		pcall(vim.api.nvim_del_keymap, mode, key)
+	end
+end
+function M.load_mode(mode, keymaps)
+	mode = mode_adapters[mode] or mode
+	for k, v in pairs(keymaps) do
+		M.set_keymaps(mode, k, v)
+	end
+end
+
+-- Load key mappings for all provided modes
+-- @param keymaps A list of key mappings for each mode
+function M.load(keymaps)
+	keymaps = keymaps or {}
+	for mode, mapping in pairs(keymaps) do
+		M.load_mode(mode, mapping)
+	end
+end
+
+-- Load the default keymappings
+function M.load_defaults()
+	M.load(M.get_defaults())
+	lvim.keys = lvim.keys or {}
+	for idx, _ in pairs(defaults) do
+		if not lvim.keys[idx] then
+			lvim.keys[idx] = {}
+		end
+	end
+end
+
+-- Get the default keymappings
+function M.get_defaults()
+	return defaults
+end
 
 -- Shorten function name
 local keymap = vim.api.nvim_set_keymap
@@ -51,8 +158,8 @@ keymap("x", "L", "$", opts)
 keymap("o", "H", "^", opts)
 keymap("o", "L", "$", opts)
 
-keymap("n", "n", "nzzzv", opts)
-keymap("n", "N", "Nzzzv", opts)
+-- keymap("n", "n", "nzzzv", opts)
+-- keymap("n", "N", "Nzzzv", opts)
 
 -- Naviagate buffers
 keymap("n", "<S-l>", ":bnext<CR>", opts)

@@ -1,4 +1,4 @@
-" ; ; ; Leader Key Maps
+" Leader Key Maps
 
 " Map leader to which_key
 nnoremap <silent> <leader> :silent <c-u> :silent WhichKey '<Space>'<CR>
@@ -48,7 +48,7 @@ let g:which_key_map['E'] = [ ':NvimTreeToggle'               , 'explorer' ]
 let g:which_key_map['f'] = [ ':Telescope projects theme=dropdown winblend=40 layout_config={prompt_position="top"}', 'Find project' ]
 let g:which_key_map['h'] = [ '<C-W>s'                             , 'split below']
 let g:which_key_map['m'] = [ ':call WindowSwap#EasyWindowSwap()'  , 'move window' ]
-let g:which_key_map['p'] = [ ':Telescope find_files previewer=false theme=dropdown winblend=10 layout_config={height=0.80,width=0.70}', 'Find files' ]
+let g:which_key_map['p'] = [ ':Telescope find_files prompt_prefix=🔍 hidden=true winblend=20 layout_config={height=0.95,width=.90,prompt_position="top"}', 'Find files' ]
 let g:which_key_map['q'] = [ 'q'                                  , 'quit' ]
 let g:which_key_map['r'] = [ ':Telescope buffers'                 , 'search ag' ]
 let g:which_key_map['u'] = [ ':UndotreeToggle'                    , 'undo tree']
@@ -146,7 +146,7 @@ let g:which_key_map.s = {
       \ 'l' : [':Lines'                 , 'lines'] ,
       \ 'm' : [':Marks'                 , 'marks'] ,
       \ 'M' : [':Maps'                  , 'normal maps'] ,
-      \ 'p' : [':Telescope oldfiles'    , 'help tags'] ,
+      \ 'o' : [':Telescope oldfiles'    , 'recent files'] ,
       \ 's' : [':Telescope find_files prompt_prefix=🔍 hidden=true winblend=20 layout_config={height=0.95,width=.90,prompt_position="top"}'      , 'snippets'],
       \ 't' : [':Files'                 , 'text Rg'],
       \ 'T' : [':BTags'                 , 'buffer tags'],
@@ -195,43 +195,30 @@ let g:which_key_map.g = {
 
 let g:which_key_map.G = {
       \ 'name' : '+gist' ,
-      \ 'a' : [':Gist -a'                          , 'post gist anon'],
-      \ 'b' : [':Gist -b'                          , 'post gist browser'],
-      \ 'd' : [':Gist -d'                          , 'delete gist'],
-      \ 'e' : [':Gist -e'                          , 'edit gist'],
-      \ 'l' : [':Gist -l'                          , 'list public gists'],
-      \ 's' : [':Gist -ls'                         , 'list starred gists'],
-      \ 'm' : [':Gist -m'                          , 'post gist all buffers'],
-      \ 'p' : [':Gist -P'                          , 'post public gist '],
-      \ 'P' : [':Gist -p'                          , 'post private gist '],
+      \ 'a' : [''                          , 'post gist anon'],
+      \ 'P' : [''                          , 'post private gist '],
       \ }
 
 " l is for lsp
 let g:which_key_map.l = {
       \ 'name' : '+lsp' ,
       \ '.' : [''                          , 'config'],
-      \ 'c' : [''                , 'refactor'],
+      \ 'c' : [':Lspsaga show_buf_diagnostics'                , 'refactor'],
       \ 'a' : [':Lspsaga code_action'              , 'code action'],
       \ 'A' : [''     , 'selected action'],
-      \ 'b' : [':Lspsaga show_cursor_diagnostics'                            , 'next action'],
-      \ 'B' : [''                            , 'prev action'],
+      \ 'b' : [''                            , 'next action'],
       \ 'd' : [':Telescope lsp_definitions'              , 'definition'],
       \ 'D' : [':Telescope lsp_definitions'             , 'declaration'],
-      \ 'e' : [''                 , 'extensions'],
       \ 'F' : [':lua vim.lsp.buf.format({async = true})'         , 'format selected'],
       \ 'f' : [':lua vim.lsp.buf.format'                  , 'format'],
       \ 'h' : [''              , 'hide'],
       \ 'i' : [':lua vim.lsp.buf.implementations'          , 'implementation'],
-      \ 'I' : [''                , 'diagnostics'],
-      \ 'j' : [''              , 'float jump'],
+      \ 'j' : [':Lspsaga diagnostics_jump_next'              , 'next diagnostic'],
       \ 'l' : [''         , 'code lens'],
       \ 'n' : [''         , 'next diagnostic'],
-      \ 'N' : [''   , 'next error'],
-      \ 'o' : [''                , 'open link'],
-      \ 'O' : [''                    , 'outline'],
+      \ 'o' : [''                , ''],
       \ 'p' : [''         , 'prev diagnostic'],
       \ 'P' : [''   , 'prev error'],
-      \ 'q' : [':Lspsaga peek_definition'             , 'quickfix'],
       \ 'r' : [':Telescope lsp_references layout_config={height=0.85,width=.80,prompt_position="top"}'                  , 'references'],
       \ 'R' : [':Lspsaga rename'                                      , 'rename'],
       \ 's' : [':Lspsaga lsp_finder'                                      , 'rename'],
@@ -247,15 +234,10 @@ let g:which_key_map.t = {
       \ ';' : [':FloatermNew --wintype=popup --height=6'        , 'terminal'],
       \ 'f' : [':FloatermNew fzf'                               , 'fzf'],
       \ 'g' : [':FloatermNew lazygit'                           , 'git'],
-      \ 'd' : [':FloatermNew lazydocker'                        , 'docker'],
       \ 'n' : [':FloatermNew node'                              , 'node'],
-      \ 'N' : [':FloatermNew ranger'                               , 'nnn'],
-      \ 'p' : [':FloatermNew python'                            , 'python'],
-      \ 'm' : [':FloatermNew lazynpm'                           , 'npm'],
       \ 'r' : [':FloatermNew ranger'                            , 'ranger'],
       \ 't' : [':FloatermToggle'                                , 'toggle'],
-      \ 'y' : [':FloatermNew ytop'                              , 'ytop'],
-      \ 's' : [':FloatermNew ncdu'                              , 'ncdu'],
+      \ 'y' : [':FloatermNew htop'                              , 'ytop'],
       \ }
 
 " T is for terminal
