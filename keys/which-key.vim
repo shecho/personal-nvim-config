@@ -43,18 +43,18 @@ let g:which_key_map['0'] = [ ':e $MYVIMRC'                        , 'open init' 
 let g:which_key_map['-'] = [ ':Commands'                          , 'commands' ]
 let g:which_key_map['='] = [ '<C-W>='                             , 'balance windows' ]
 let g:which_key_map['d'] = [ ':Bdelete'                           , 'delete buffer']
-let g:which_key_map['e'] = [ ':NvimTreeToggle'               , 'explorer' ]
-let g:which_key_map['E'] = [ ':NvimTreeToggle'               , 'explorer' ]
-let g:which_key_map['f'] = [ ':Telescope projects theme=dropdown winblend=40 layout_config={prompt_position="top"}', 'Find project' ]
-let g:which_key_map['h'] = [ '<C-W>s'                             , 'split below']
+let g:which_key_map['e'] = [ ':NvimTreeToggle'                    , 'explorer' ]
+let g:which_key_map['E'] = [ ':NvimTreeToggle'                    , 'explorer' ]
+let g:which_key_map['f'] = [ '', 'Find project' ]
+" let g:which_key_map['h'] = [ ''                             , 'split below']
 let g:which_key_map['m'] = [ ':call WindowSwap#EasyWindowSwap()'  , 'move window' ]
-let g:which_key_map['p'] = [ ':Telescope find_files prompt_prefix=🔍 hidden=true winblend=20 layout_config={height=0.95,width=.90,prompt_position="top"}', 'Find files' ]
+let g:which_key_map['p'] = [ ':Telescope find_files hidden=true winblend=20 layout_config={height=0.95,width=.90,prompt_position="top"}', 'Find files' ]
 let g:which_key_map['q'] = [ 'q'                                  , 'quit' ]
 let g:which_key_map['r'] = [ ':Telescope buffers'                 , 'search ag' ]
 let g:which_key_map['u'] = [ ':UndotreeToggle'                    , 'undo tree']
 let g:which_key_map['v'] = [ '<C-W>v'                             , 'split right']
 let g:which_key_map['W'] = [ 'w'                                  , 'write' ]
-let g:which_key_map['k'] = [ ':Lspsaga hover_doc'                                  , 'Hover' ]
+let g:which_key_map['k'] = [ ':Lspsaga hover_doc'                 , 'Hover' ]
 let g:which_key_map['Z'] = [ ':ZenMode'                           , 'zen' ]
 
 
@@ -63,17 +63,18 @@ let g:which_key_map['Z'] = [ ':ZenMode'                           , 'zen' ]
 " a is for actions
 let g:which_key_map.a = {
       \ 'name' : '+actions' ,
+      \ 'a' : [':NvimTreeToggle'                                                                        , 'explorer'],
       \ 'c' : [':ColorizerToggle'                                                                       , 'colorizer'],
-      \ 'e' : [':CocCommand explorer'                                                                   , 'explorer'],
-      \ 'a' : [':NvimTreeToggle'                                                                   , 'explorer'],
-      \ 'm' : [':MarkdownPreview'                                                                       , 'markdown preview'],
-      \ 'M' : [':MarkdownPreviewStop'                                                                   , 'markdown preview stop'],
+      \ 'e' : ['viwU<Esc>'                                                                              , 'Capitalize word'],
+      \ 'h' : ['<C-W>s'                                                                        , 'explorer'],
+      \ 'm' : [''                                                                       , 'markdown preview'],
+      \ 'M' : [''                                                                   , ''],
       \ 'n' : [':set nonumber!'                                                                         , 'line-numbers'],
       \ 'r' : [':set norelativenumber!'                                                                 , 'relative line nums'],
       \ 's' : [':let @/ = ""'                                                                           , 'remove search highlight'],
       \ 't' : [':FloatermToggle'                                                                        , 'terminal'],
-      \ 'v' : [':hi DiagnosticUnderlineError gui=bold,underline,italic guisp=#e06c75'                   , 'Change Error Color'],
-      \ 'V' : [':'                                                                                      , 'virtual repl off'],
+      \ 'v' : [''                   , ''],
+      \ 'V' : [':'                                                                                      , ''],
       \ 'w' : [':StripWhitespace'        , 'strip whitespace'],
       \ }
 
@@ -98,8 +99,8 @@ let g:which_key_map.c = {
       \ 'n' : ['<Plug>(copilot-next)'                                                                                         , 'copilot-next'],
       \ 'p' : ['<Plug>(copilot-previous)'                                                                                     , 'copilot-previous'],
       \ 's' : [':Copilot panel'                                                                                               , 'panel'],
-      \ 'a' : ['<cmd>lua require("harpoon.mark").add_file()<CR>'                                                              , 'Mark file'],
-      \ 'C' : ['<cmd>:lua require"harpoon.ui".toggle_quick_menu()<CR>'                                                        , 'Mark menu'],
+      \ 'a' : [''                                                              , ''],
+      \ 'C' : [''                                                        , ''],
       \ 'c' : [':Telescope harpoon marks theme=dropdown previewer=false winblend=15 layout_config={height=0.60,width=0.50}'   , 'Mark menu'],
       \ 'l' : [':so %'                                                                                                        , 'Source Vimrc'],
       \ 'o' : [':IndentBlanklineToggle'                                                                                       , 'TogglBlankLine'],
@@ -115,18 +116,6 @@ let g:which_key_map.F = {
 " k is for task
 let g:which_key_map.K = {
       \ 'name' : '+task' ,
-      \ 'c' : [':AsyncTask file-compile'      , 'compile file'],
-      \ 'b' : [':AsyncTask project-build'     , 'build project'],
-      \ 'e' : [':AsyncTaskEdit'               , 'edit local tasks'],
-      \ 'f' : [':AsyncTaskFzf'                , 'find task'],
-      \ 'g' : [':AsyncTaskEdit!'              , 'edit global tasks'],
-      \ 'h' : [':AsyncTaskList!'              , 'list hidden tasks'],
-      \ 'l' : [''               , 'list tasks'],
-      \ 'm' : [':AsyncTaskMacro'              , 'macro help'],
-      \ 'o' : [':copen'                       , 'open task view'],
-      \ 'r' : [':AsyncTask file-run'          , 'run file'],
-      \ 'p' : [':AsyncTask project-run'       , 'run project'],
-      \ 'x' : [':cclose'                      , 'close task view'],
       \ }
 
 " s is for search
@@ -147,6 +136,7 @@ let g:which_key_map.s = {
       \ 'm' : [':Marks'                 , 'marks'] ,
       \ 'M' : [':Maps'                  , 'normal maps'] ,
       \ 'o' : [':Telescope oldfiles'    , 'recent files'] ,
+      \ 'p' : [':Telescope projects theme=dropdown winblend=40 layout_config={prompt_position="top"}'    , 'recent files'] ,
       \ 's' : [':Telescope find_files prompt_prefix=🔍 hidden=true winblend=20 layout_config={height=0.95,width=.90,prompt_position="top"}'      , 'snippets'],
       \ 't' : [':Files'                 , 'text Rg'],
       \ 'T' : [':BTags'                 , 'buffer tags'],

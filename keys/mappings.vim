@@ -22,8 +22,9 @@ xnoremap s <Esc>
 vnoremap s <Esc>
 
 " Easy CAPS
-" inoremap <c-u> <ESC>viwUi
-" nnoremap <c-u> viwU<Esc>
+inoremap <c-u> <ESC>viwUi
+nnoremap <c-u> viwU<Esc>
+vnoremap <c-u> viwU<Esc>
 
 " TAB in general mode will move to text buffer
 nnoremap <silent> <TAB> :bnext<CR>

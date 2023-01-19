@@ -5,8 +5,9 @@ let g:closetag_xhtml_filetypes = 'xhtml,jsx,js,jsx,ts,tsx'
 let g:closetag_emptyTags_caseSensitive = 1
 let g:closetag_shortcut = '>'
 let g:closetag_close_shortcut = '<leader>>'
+let g:closetag_enable_react_fragment = 1
 let g:closetag_regions =  {
-	\ 'typescript.tsx': 'jsxRegion,tsxRegion',
+    \ 'typescript.tsx': 'jsxRegion,tsxRegion',
     \ 'javascript.jsx': 'jsxRegion',
     \ 'typescriptreact': 'jsxRegion,tsxRegion',
     \ 'javascriptreact': 'jsxRegion',

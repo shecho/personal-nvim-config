@@ -13,7 +13,10 @@ call plug#begin('~/.config/nvim/autoload/plugged')
     " Loader
     Plug 'lewis6991/impatient.nvim'
     Plug 'eandrju/cellular-automaton.nvim'
-    
+    " Plug 'jiangmiao/auto-pairs'
+    " Closetags
+
+    Plug 'alvan/vim-closetag'
     Plug 'windwp/nvim-autopairs'
     Plug 'windwp/nvim-ts-autotag'
     " taildwind
@@ -64,10 +67,6 @@ call plug#begin('~/.config/nvim/autoload/plugged')
     Plug 'nvim-tree/nvim-tree.lua'
     Plug 'ryanoasis/vim-devicons'
 
-    " Auto pairs for '(' '[' '{'
-    Plug 'jiangmiao/auto-pairs'
-    " Closetags
-    Plug 'alvan/vim-closetag'
 
     " Themes
     " Plug 'christianchiarulli/onedark.vim'
