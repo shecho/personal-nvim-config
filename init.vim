@@ -2,21 +2,49 @@
 source $HOME/.config/nvim/vim-plug/plugins.vim
 source $HOME/.config/nvim/general/settings.vim
 source $HOME/.config/nvim/general/functions.vim
+source $HOME/.config/nvim/themes/onedark.vim
+source $HOME/.config/nvim/themes/airline.vim
+
+
+lua << EOF
+require "user.keymaps"
+require "user.impatient"
+require "user.true-zen"
+require "user.plug-colorizer"
+require "user.treesitter"
+require "user.indentline"
+require "user.autopairs"
+
+-- Finders
+require "user.nvim-tree"
+require "user.telescope"
+require "user.harpoon"
+require "user.project"
+
+-- Lsp
+require "user.lsp.mason"
+require "user.lsp.null-ls"
+require "user.lsp.lspconfig"
+require "user.lsp.lspsaga"
+require "user.lsp.lspkind"
+require "user.cmp"
+require "user.copilot"
+
+EOF
+
 source $HOME/.config/nvim/keys/mappings.vim
 source $HOME/.config/nvim/keys/which-key.vim
 
 if exists('g:vscode')
  " VS Code extension
-  source $HOME/.config/nvim/vscode/settings.vim
-  source $HOME/.config/nvim/plug-config/easymotion.vim
-  source $HOME/.config/nvim/plug-config/highlightyank.vim
+  " source $HOME/.config/nvim/vscode/settings.vim
+  " source $HOME/.config/nvim/plug-config/easymotion.vim
+  " source $HOME/.config/nvim/plug-config/highlightyank.vim
 else
 
   " Themes
   " source $HOME/.config/nvim/themes/syntax.vim
   " source $HOME/.config/nvim/themes/nvcode.vim
-  source $HOME/.config/nvim/themes/onedark.vim
-  source $HOME/.config/nvim/themes/airline.vim
   " luafile $HOME/.config/nvim/themes/oneDark.lua
 
   " Plugin Configuration
@@ -59,6 +87,7 @@ source $HOME/.config/nvim/plug-config/quickscope.vim
  " EOF
 
 lua << EOF
+--require "user.keymaps"
 require "user.impatient"
 require "user.true-zen"
 require "user.plug-colorizer"
