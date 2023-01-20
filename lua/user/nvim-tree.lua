@@ -41,8 +41,9 @@ nvim_tree.setup({
 		"alpha",
 	},
 	filters = {
+		-- dotfiles = false,
 		-- custom = { ".git" },
-		exclude = { ".gitignore" },
+		exclude = { ".env" },
 	},
 	-- auto_close = true,
 	open_on_tab = true,

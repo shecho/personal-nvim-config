@@ -105,7 +105,6 @@ let g:which_key_map.c = {
       \ 'l' : [':so %'                                                                                                        , 'Source Vimrc'],
       \ 'o' : [':IndentBlanklineToggle'                                                                                       , 'TogglBlankLine'],
       \ }
-" <cmd>lua require'lspsaga.provider'.lsp_finder()<CR>
 " f is for find and replace
 let g:which_key_map.F = {
       \ 'name' : '+find & replace' ,
@@ -136,7 +135,7 @@ let g:which_key_map.s = {
       \ 'm' : [':Marks'                 , 'marks'] ,
       \ 'M' : [':Maps'                  , 'normal maps'] ,
       \ 'o' : [':Telescope oldfiles'    , 'recent files'] ,
-      \ 'p' : [':Telescope projects theme=dropdown winblend=40 layout_config={prompt_position="top"}'    , 'recent files'] ,
+      \ 'p' : [':Telescope projects theme=dropdown no_ignore=true  winblend=40 layout_config={prompt_position="top"}'    , 'Projects'] ,
       \ 's' : [':Telescope find_files prompt_prefix=🔍 hidden=true winblend=20 layout_config={height=0.95,width=.90,prompt_position="top"}'      , 'snippets'],
       \ 't' : [':Files'                 , 'text Rg'],
       \ 'T' : [':BTags'                 , 'buffer tags'],
