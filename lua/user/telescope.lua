@@ -13,7 +13,7 @@ telescope.setup({
 		selection_caret = " ",
 		path_display = { "smart" },
 		file_ignore_patterns = {
-			-- ".git/",
+			".git/",
 			"target/",
 			"docs/",
 			"vendor/*",
@@ -74,8 +74,7 @@ telescope.setup({
 
 				["<C-b>"] = actions.results_scrolling_up,
 				["<C-f>"] = actions.results_scrolling_down,
-
-				["<C-c>"] = actions.close,
+				["q"] = actions.close,
 
 				["<Down>"] = actions.move_selection_next,
 				["<Up>"] = actions.move_selection_previous,
@@ -87,8 +86,8 @@ telescope.setup({
 
 				["<c-d>"] = require("telescope.actions").delete_buffer,
 
-				["<Tab>"] = actions.close,
-				["<S-Tab>"] = actions.close,
+				["<Tab>"] = actions.move_selection_next,
+				["<S-Tab>"] = actions.move_selection_previous,
 				["<C-h>"] = actions.which_key, -- keys from pressing <C-h>
 				["<esc>"] = actions.close,
 			},
@@ -104,8 +103,8 @@ telescope.setup({
 				["<C-b>"] = actions.results_scrolling_up,
 				["<C-f>"] = actions.results_scrolling_down,
 
-				["<Tab>"] = actions.close,
-				["<S-Tab>"] = actions.close,
+				-- ["<Tab>"] = actions.close,
+				-- ["<S-Tab>"] = actions.close,
 				-- ["<Tab>"] = actions.toggle_selection + actions.move_selection_worse,
 				-- ["<S-Tab>"] = actions.toggle_selection + actions.move_selection_better,
 				["<C-q>"] = actions.send_to_qflist + actions.open_qflist,
@@ -145,9 +144,6 @@ telescope.setup({
 			filetypes = { "png", "webp", "jpg", "jpeg" },
 			find_cmd = "rg", -- find command (defaults to `fd`)
 		},
-		coc = {
-			prefer_locations = true, -- always use Telescope locations to preview definitions/declarations/implementations etc
-		},
 		["ui-select"] = {
 			layout_config = { width = 0.4, height = 0.3 },
 			on_complete = {
@@ -167,4 +163,3 @@ telescope.setup({
 })
 telescope.load_extension("fzf")
 telescope.load_extension("ui-select")
--- telescope.load_extension("coc")
