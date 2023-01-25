@@ -22,7 +22,7 @@ telescope.setup({
 			"%.sqlite3",
 			"%.ipynb",
 			"node_modules/*",
-			"%.svg",
+			-- "%.svg",
 			"%.otf",
 			"%.ttf",
 			"%.webp",
@@ -34,7 +34,7 @@ telescope.setup({
 			".vscode/",
 			"__pycache__/",
 			"build/",
-			"env/",
+			-- "env/",
 			"gradle/",
 			"node_modules/",
 			"%.pdb",
@@ -43,10 +43,10 @@ telescope.setup({
 			"%.exe",
 			"%.cache",
 			"%.ico",
-			"%.pdf",
+			-- "%.pdf",
 			"%.dylib",
 			"%.jar",
-			"%.docx",
+			-- "%.docx",
 			"%.met",
 			"smalljre_*/*",
 			".vale/",
@@ -70,11 +70,11 @@ telescope.setup({
 
 				["<C-j>"] = actions.move_selection_next,
 				["<C-k>"] = actions.move_selection_previous,
+				["<C-l>"] = actions.select_default,
 
 				["<C-b>"] = actions.results_scrolling_up,
 				["<C-f>"] = actions.results_scrolling_down,
-
-				["<C-c>"] = actions.close,
+				["q"] = actions.close,
 
 				["<Down>"] = actions.move_selection_next,
 				["<Up>"] = actions.move_selection_previous,
@@ -86,15 +86,16 @@ telescope.setup({
 
 				["<c-d>"] = require("telescope.actions").delete_buffer,
 
-				["<Tab>"] = actions.close,
-				["<S-Tab>"] = actions.close,
-				["<C-l>"] = actions.complete_tag,
+				["<Tab>"] = actions.move_selection_next,
+				["<S-Tab>"] = actions.move_selection_previous,
 				["<C-h>"] = actions.which_key, -- keys from pressing <C-h>
 				["<esc>"] = actions.close,
 			},
 
 			n = {
 				["<esc>"] = actions.close,
+				["<C-j>"] = actions.select_default,
+				["<C-l>"] = actions.select_default,
 				["<CR>"] = actions.select_default,
 				["<C-x>"] = actions.select_horizontal,
 				["<C-v>"] = actions.select_vertical,
@@ -102,8 +103,8 @@ telescope.setup({
 				["<C-b>"] = actions.results_scrolling_up,
 				["<C-f>"] = actions.results_scrolling_down,
 
-				["<Tab>"] = actions.close,
-				["<S-Tab>"] = actions.close,
+				-- ["<Tab>"] = actions.close,
+				-- ["<S-Tab>"] = actions.close,
 				-- ["<Tab>"] = actions.toggle_selection + actions.move_selection_worse,
 				-- ["<S-Tab>"] = actions.toggle_selection + actions.move_selection_better,
 				["<C-q>"] = actions.send_to_qflist + actions.open_qflist,
@@ -143,9 +144,6 @@ telescope.setup({
 			filetypes = { "png", "webp", "jpg", "jpeg" },
 			find_cmd = "rg", -- find command (defaults to `fd`)
 		},
-		coc = {
-			prefer_locations = true, -- always use Telescope locations to preview definitions/declarations/implementations etc
-		},
 		["ui-select"] = {
 			layout_config = { width = 0.4, height = 0.3 },
 			on_complete = {
@@ -164,5 +162,4 @@ telescope.setup({
 	},
 })
 telescope.load_extension("fzf")
-telescope.load_extension("coc")
 telescope.load_extension("ui-select")

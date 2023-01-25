@@ -1,4 +1,4 @@
-" ; ; ; Leader Key Maps
+" Leader Key Maps
 
 " Map leader to which_key
 nnoremap <silent> <leader> :silent <c-u> :silent WhichKey '<Space>'<CR>
@@ -43,18 +43,19 @@ let g:which_key_map['0'] = [ ':e $MYVIMRC'                        , 'open init' 
 let g:which_key_map['-'] = [ ':Commands'                          , 'commands' ]
 let g:which_key_map['='] = [ '<C-W>='                             , 'balance windows' ]
 let g:which_key_map['d'] = [ ':Bdelete'                           , 'delete buffer']
-let g:which_key_map['e'] = [ ':CocCommand explorer'               , 'explorer' ]
-let g:which_key_map['E'] = [ ':NvimTreeToggle'               , 'explorer' ]
-let g:which_key_map['f'] = [ ':Telescope projects theme=dropdown winblend=40 layout_config={prompt_position="top"}', 'Find project' ]
-let g:which_key_map['h'] = [ '<C-W>s'                             , 'split below']
+let g:which_key_map['e'] = [ ':NvimTreeToggle'                    , 'explorer' ]
+let g:which_key_map['E'] = [ ':NvimTreeToggle'                    , 'explorer' ]
+let g:which_key_map['f'] = [ '', 'Find project' ]
+" let g:which_key_map['h'] = [ ''                             , 'split below']
 let g:which_key_map['m'] = [ ':call WindowSwap#EasyWindowSwap()'  , 'move window' ]
-let g:which_key_map['p'] = [ ':Telescope find_files previewer=false theme=dropdown winblend=10 layout_config={height=0.80,width=0.70}', 'Find files' ]
+let g:which_key_map['p'] = [ ':Telescope find_files hidden=true winblend=20 layout_config={height=0.95,width=.90,prompt_position="top"}', 'Find files' ]
 let g:which_key_map['q'] = [ 'q'                                  , 'quit' ]
 let g:which_key_map['r'] = [ ':Telescope buffers'                 , 'search ag' ]
 let g:which_key_map['u'] = [ ':UndotreeToggle'                    , 'undo tree']
 let g:which_key_map['v'] = [ '<C-W>v'                             , 'split right']
 let g:which_key_map['W'] = [ 'w'                                  , 'write' ]
-let g:which_key_map['Z'] = [ 'Goyo'                               , 'zen' ]
+let g:which_key_map['k'] = [ ':Lspsaga hover_doc'                 , 'Hover' ]
+let g:which_key_map['Z'] = [ ':ZenMode'                           , 'zen' ]
 
 
 " Group mappings
@@ -62,19 +63,18 @@ let g:which_key_map['Z'] = [ 'Goyo'                               , 'zen' ]
 " a is for actions
 let g:which_key_map.a = {
       \ 'name' : '+actions' ,
+      \ 'a' : [':NvimTreeToggle'                                                                        , 'explorer'],
       \ 'c' : [':ColorizerToggle'                                                                       , 'colorizer'],
-      \ 'e' : [':CocCommand explorer'                                                                   , 'explorer'],
-      \ 'a' : [':NvimTreeToggle'                                                                   , 'explorer'],
-      \ 'l' : [''                 , ''],
-      \ 'L' : [''             , ''],
-      \ 'm' : [':MarkdownPreview'                                                                       , 'markdown preview'],
-      \ 'M' : [':MarkdownPreviewStop'                                                                   , 'markdown preview stop'],
+      \ 'e' : ['viwU<Esc>'                                                                              , 'Capitalize word'],
+      \ 'h' : ['<C-W>s'                                                                        , 'explorer'],
+      \ 'm' : [''                                                                       , 'markdown preview'],
+      \ 'M' : [''                                                                   , ''],
       \ 'n' : [':set nonumber!'                                                                         , 'line-numbers'],
       \ 'r' : [':set norelativenumber!'                                                                 , 'relative line nums'],
       \ 's' : [':let @/ = ""'                                                                           , 'remove search highlight'],
       \ 't' : [':FloatermToggle'                                                                        , 'terminal'],
-      \ 'v' : [':hi DiagnosticUnderlineError gui=bold,underline,italic guisp=#e06c75'                   , 'Change Error Color'],
-      \ 'V' : [':'                                                                                      , 'virtual repl off'],
+      \ 'v' : [''                   , ''],
+      \ 'V' : [':'                                                                                      , ''],
       \ 'w' : [':StripWhitespace'        , 'strip whitespace'],
       \ }
 
@@ -99,13 +99,12 @@ let g:which_key_map.c = {
       \ 'n' : ['<Plug>(copilot-next)'                                                                                         , 'copilot-next'],
       \ 'p' : ['<Plug>(copilot-previous)'                                                                                     , 'copilot-previous'],
       \ 's' : [':Copilot panel'                                                                                               , 'panel'],
-      \ 'a' : ['<cmd>lua require("harpoon.mark").add_file()<CR>'                                                              , 'Mark file'],
-      \ 'C' : ['<cmd>:lua require"harpoon.ui".toggle_quick_menu()<CR>'                                                        , 'Mark menu'],
+      \ 'a' : [''                                                              , ''],
+      \ 'C' : [''                                                        , ''],
       \ 'c' : [':Telescope harpoon marks theme=dropdown previewer=false winblend=15 layout_config={height=0.60,width=0.50}'   , 'Mark menu'],
-      \ 'l' : [':so %'                                                                                                        , 'Soruce Vimrc'],
+      \ 'l' : [':so %'                                                                                                        , 'Source Vimrc'],
       \ 'o' : [':IndentBlanklineToggle'                                                                                       , 'TogglBlankLine'],
       \ }
-" <cmd>lua require'lspsaga.provider'.lsp_finder()<CR>
 " f is for find and replace
 let g:which_key_map.F = {
       \ 'name' : '+find & replace' ,
@@ -116,26 +115,14 @@ let g:which_key_map.F = {
 " k is for task
 let g:which_key_map.K = {
       \ 'name' : '+task' ,
-      \ 'c' : [':AsyncTask file-compile'      , 'compile file'],
-      \ 'b' : [':AsyncTask project-build'     , 'build project'],
-      \ 'e' : [':AsyncTaskEdit'               , 'edit local tasks'],
-      \ 'f' : [':AsyncTaskFzf'                , 'find task'],
-      \ 'g' : [':AsyncTaskEdit!'              , 'edit global tasks'],
-      \ 'h' : [':AsyncTaskList!'              , 'list hidden tasks'],
-      \ 'l' : [':CocList tasks'               , 'list tasks'],
-      \ 'm' : [':AsyncTaskMacro'              , 'macro help'],
-      \ 'o' : [':copen'                       , 'open task view'],
-      \ 'r' : [':AsyncTask file-run'          , 'run file'],
-      \ 'p' : [':AsyncTask project-run'       , 'run project'],
-      \ 'x' : [':cclose'                      , 'close task view'],
       \ }
 
 " s is for search
 let g:which_key_map.s = {
       \ 'name' : '+search' ,
-      \ '/' : [':History/'              , 'history'],
       \ ';' : [':Commands'              , 'commands'],
       \ 'a' : [':Rg'                    , 'text Ag'],
+      \ 'q' : [':Telescope grep_string hidden=true winblend=20 layout_config={height=0.95,width=.90,prompt_position="top"}'                    , 'text Ag'],
       \ 'B' : [':BLines'                , 'current buffer'],
       \ 'b' : [':Telescope buffers'     , 'open buffers'],
       \ 'c' : [':Commits'               , 'commits'],
@@ -145,21 +132,16 @@ let g:which_key_map.s = {
       \ 'g' : [':Telescope git_branches', 'git branches'],
       \ 'G' : [':GFiles:'               , 'modified git files'],
       \ 'h' : [':History'               , 'file history'],
-      \ 'H' : [':History:'              , 'command history'],
       \ 'l' : [':Lines'                 , 'lines'] ,
-      \ 'm' : [':Marks'                 , 'marks'] ,
+      \ 'm' : [':Telescope marks'                 , 'marks'] ,
       \ 'M' : [':Maps'                  , 'normal maps'] ,
-      \ 'p' : [':Telescope oldfiles'    , 'help tags'] ,
-      \ 'P' : [':Telescope oldfiles'    , 'project tags'],
-      \ 's' : [':Telescope find_files prompt_prefix=🔍 hidden=true winblend=20 layout_config={height=0.95,width=.90,prompt_position="top"}'      , 'snippets'],
-      \ 'S' : [':CocList snippets'                , 'color schemes'],
+      \ 'o' : [':Telescope oldfiles'    , 'recent files'] ,
+      \ 'p' : [':Telescope projects theme=dropdown no_ignore=true  winblend=40 layout_config={prompt_position="top"}'    , 'Projects'] ,
+      \ 's' : [':Telescope find_files hidden=true winblend=20 layout_config={height=0.95,width=.90,prompt_position="top"}'      , 'snippets'],
       \ 't' : [':Files'                 , 'text Rg'],
       \ 'T' : [':BTags'                 , 'buffer tags'],
       \ 'w' : [':Windows'               , 'search windows'],
       \ 'y' : [':Filetypes'             , 'file types'],
-      \ 'z' : [':FZF'                   , 'FZF'],
-      \ '=' : [':resize +4<CR>'         , '+4'],
-      \ '-' : [':resize -4<CR>'         , '-4'],
       \ }
 
 " S is for Sessions
@@ -194,8 +176,7 @@ let g:which_key_map.g = {
       \ 'p' : [':Git push'                         , 'push'],
       \ 'P' : [':Git pull'                         , 'pull'],
       \ 'r' : [':GRemove'                          , 'remove'],
-      \ 'S' : ['<Plug>(GitGutterStageHunk)'        , 'stage hunk'],
-      \ 's' : [':!git status'                      , 'status'],
+      \ 's' : [':git status'                      , 'status'],
       \ 't' : [':GitGutterSignsToggle'             , 'toggle signs'],
       \ 'u' : ['<Plug>(GitGutterUndoHunk)'         , 'undo hunk'],
       \ 'v' : [':GV'                               , 'view commits'],
@@ -204,54 +185,37 @@ let g:which_key_map.g = {
 
 let g:which_key_map.G = {
       \ 'name' : '+gist' ,
-      \ 'a' : [':Gist -a'                          , 'post gist anon'],
-      \ 'b' : [':Gist -b'                          , 'post gist browser'],
-      \ 'd' : [':Gist -d'                          , 'delete gist'],
-      \ 'e' : [':Gist -e'                          , 'edit gist'],
-      \ 'l' : [':Gist -l'                          , 'list public gists'],
-      \ 's' : [':Gist -ls'                         , 'list starred gists'],
-      \ 'm' : [':Gist -m'                          , 'post gist all buffers'],
-      \ 'p' : [':Gist -P'                          , 'post public gist '],
-      \ 'P' : [':Gist -p'                          , 'post private gist '],
+      \ 'a' : [''                          , 'post gist anon'],
+      \ 'P' : [''                          , 'post private gist '],
       \ }
 
-" l is for coc lsp
+" l is for lsp
 let g:which_key_map.l = {
       \ 'name' : '+lsp' ,
-      \ '.' : [':CocConfig'                          , 'config'],
-      \ 'c' : ['<Plug>(coc-refactor)'                , 'refactor'],
-      \ 'a' : ['<Plug>(coc-codeaction)'              , 'line action'],
-      \ 'A' : [':Telescope coc code_actions theme=dropdown'     , 'selected action'],
-      \ 'b' : [':CocNext'                            , 'next action'],
-      \ 'B' : [':CocPrev'                            , 'prev action'],
-      \ 'C' : [':CocList commands'                   , 'commands'],
-      \ 'd' : ['<Plug>(coc-definition)'              , 'definition'],
+      \ '.' : [''                          , 'config'],
+      \ 'c' : [':Lspsaga show_buf_diagnostics'                , 'refactor'],
+      \ 'a' : [':Lspsaga code_action'              , 'code action'],
+      \ 'A' : [''     , 'selected action'],
+      \ 'b' : [''                            , 'next action'],
+      \ 'd' : [':Telescope lsp_definitions'              , 'definition'],
       \ 'D' : [':Telescope lsp_definitions'             , 'declaration'],
-      \ 'e' : [':CocList extensions'                 , 'extensions'],
-      \ 'F' : ['<Plug>(coc-format-selected)'         , 'format selected'],
-      \ 'f' : ['<Plug>(coc-format)'                  , 'format'],
-      \ 'h' : ['<Plug>(coc-float-hide)'              , 'hide'],
-      \ 'i' : ['<Plug>(coc-implementation)'          , 'implementation'],
-      \ 'I' : [':CocList diagnostics'                , 'diagnostics'],
-      \ 'j' : ['<Plug>(coc-float-jump)'              , 'float jump'],
-      \ 'l' : ['<Plug>(coc-codelens-action)'         , 'code lens'],
-      \ 'n' : ['<Plug>(coc-diagnostic-next)'         , 'next diagnostic'],
-      \ 'N' : ['<Plug>(coc-diagnostic-next-error)'   , 'next error'],
-      \ 'o' : ['<Plug>(coc-openlink)'                , 'open link'],
-      \ 'O' : [':CocList outline'                    , 'outline'],
-      \ 'p' : ['<Plug>(coc-diagnostic-prev)'         , 'prev diagnostic'],
-      \ 'P' : ['<Plug>(coc-diagnostic-prev-error)'   , 'prev error'],
-      \ 'q' : ['<Plug>(coc-fix-current)'             , 'quickfix'],
-      \ 'R' : ['<Plug>(coc-rename)'                  , 'rename'],
-      \ 'r' : [':Telescope coc references layout_config={height=0.95,width=.90}'                                      , 'references'],
-      \ 's' : [':Telescope coc lsp_references theme=dropdown layout_config={height=0.75,width=.70,prompt_position="top"}'     , 'Document Symbols'],
-      \ 'S' : [':CocList snippets'                   , 'snippets'],
-      \ 't' : ['<Plug>(coc-type-definition)'         , 'type definition'],
-      \ 'u' : [':CocListResume'                      , 'resume list'],
-      \ 'U' : [':CocUpdate'                          , 'update CoC'],
-      \ 'v' : [':Vista!!'                            , 'tag viewer'],
-      \ 'Z' : [':CocDisable'                         , 'disable CoC'],
-      \ 'z' : [':CocEnable'                          , 'enable CoC'],
+      \ 'F' : [':lua vim.lsp.buf.format({async = true})'         , 'format selected'],
+      \ 'f' : [':lua vim.lsp.buf.format'                  , 'format'],
+      \ 'h' : [''              , 'hide'],
+      \ 'i' : [':lua vim.lsp.buf.implementations'          , 'implementation'],
+      \ 'j' : [':Lspsaga diagnostics_jump_next'              , 'next diagnostic'],
+      \ 'l' : [''         , 'code lens'],
+      \ 'n' : [''         , 'next diagnostic'],
+      \ 'o' : [''                , ''],
+      \ 'p' : [''         , 'prev diagnostic'],
+      \ 'P' : [''   , 'prev error'],
+      \ 'r' : [':Telescope lsp_references layout_config={height=0.85,width=.80,prompt_position="top"}'                  , 'references'],
+      \ 'R' : [':Lspsaga rename'                                      , 'rename'],
+      \ 's' : [':Lspsaga lsp_finder'                                      , 'rename'],
+      \ 'k' : [':Lspsaga hover_doc'     , 'Hover'],
+      \ 't' : [''         , 'type definition'],
+      \ 'Z' : [''                         , 'disable'],
+      \ 'z' : [''                          , 'enable'],
       \ }
 
 " t is for terminal
@@ -260,15 +224,10 @@ let g:which_key_map.t = {
       \ ';' : [':FloatermNew --wintype=popup --height=6'        , 'terminal'],
       \ 'f' : [':FloatermNew fzf'                               , 'fzf'],
       \ 'g' : [':FloatermNew lazygit'                           , 'git'],
-      \ 'd' : [':FloatermNew lazydocker'                        , 'docker'],
       \ 'n' : [':FloatermNew node'                              , 'node'],
-      \ 'N' : [':FloatermNew ranger'                               , 'nnn'],
-      \ 'p' : [':FloatermNew python'                            , 'python'],
-      \ 'm' : [':FloatermNew lazynpm'                           , 'npm'],
       \ 'r' : [':FloatermNew ranger'                            , 'ranger'],
       \ 't' : [':FloatermToggle'                                , 'toggle'],
-      \ 'y' : [':FloatermNew ytop'                              , 'ytop'],
-      \ 's' : [':FloatermNew ncdu'                              , 'ncdu'],
+      \ 'y' : [':FloatermNew htop'                              , 'ytop'],
       \ }
 
 " T is for terminal
@@ -288,18 +247,6 @@ let g:which_key_map.T = {
       \ 'P' : [':XTabMoveBufferPrev'      , '<-buffer'],
       \ 'x' : [':XTabPinBuffer'           , 'pin buffer'],
       \ }
-
-" w  TODO: Add more keys to W
-let g:which_key_map.W = {
-      \ 'name' : '+' ,
-      \ 'w' : ['<Plug>'                              , 'ncdu'],
-      \ 'n' : ['<plug>()'                              , 'ncdu'],
-      \ 'j' : ['<plug>()'                              , 'ncdu'],
-      \ 'R' : ['<plug>()'                              , 'ncdu'],
-      \ 'c' : ['<plug>()'                              , 'ncdu'],
-      \ 'b' : ['<plug>()'                              , 'ncdu'],
-      \ }
-
 
 " Register which key map
 call which_key#register('<Space>', "g:which_key_map")

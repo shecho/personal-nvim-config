@@ -12,12 +12,9 @@ let g:coc_global_extensions = [
   \ 'coc-css',
   \ 'coc-cssmodules',
   \ 'coc-stylelintplus',
-  \ 'coc-emoji',
   \ 'coc-yaml',
   \ 'coc-explorer',
-  \ 'coc-svg',
   \ 'coc-prettier',
-  \ 'coc-vimlsp',
   \ 'coc-xml',
   \ 'coc-yank',
   \ 'coc-json',
@@ -25,6 +22,4 @@ let g:coc_global_extensions = [
   \ 'coc-highlight',
   \ 'coc-eslint',
   \ ]
-  " \ 'coc-tabnine',
-  "\ 'coc-fzf-preview',
 
