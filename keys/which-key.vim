@@ -48,7 +48,7 @@ let g:which_key_map['E'] = [ ':NvimTreeToggle'                    , 'explorer' ]
 let g:which_key_map['f'] = [ '', 'Find project' ]
 " let g:which_key_map['h'] = [ ''                             , 'split below']
 let g:which_key_map['m'] = [ ':call WindowSwap#EasyWindowSwap()'  , 'move window' ]
-let g:which_key_map['p'] = [ ':Telescope find_files hidden=true winblend=20 layout_config={height=0.95,width=.90,prompt_position="top"}', 'Find files' ]
+let g:which_key_map['p'] = [ ':Telescope find_files hidden=true winblend=10 layout_config={height=0.95,width=.90,prompt_position="top"}', 'Find files' ]
 let g:which_key_map['q'] = [ 'q'                                  , 'quit' ]
 let g:which_key_map['r'] = [ ':Telescope buffers'                 , 'search ag' ]
 let g:which_key_map['u'] = [ ':UndotreeToggle'                    , 'undo tree']
@@ -195,27 +195,22 @@ let g:which_key_map.l = {
       \ '.' : [''                          , 'config'],
       \ 'c' : [':Lspsaga show_buf_diagnostics'                , 'refactor'],
       \ 'a' : [':Lspsaga code_action'              , 'code action'],
-      \ 'A' : [''     , 'selected action'],
-      \ 'b' : [''                            , 'next action'],
       \ 'd' : [':Telescope lsp_definitions'              , 'definition'],
-      \ 'D' : [':Telescope lsp_definitions'             , 'declaration'],
+      \ 'D' : [':Lspsaga goto_definition'             , 'declaration'],
       \ 'F' : [':lua vim.lsp.buf.format({async = true})'         , 'format selected'],
       \ 'f' : [':lua vim.lsp.buf.format'                  , 'format'],
       \ 'h' : [''              , 'hide'],
       \ 'i' : [':lua vim.lsp.buf.implementations'          , 'implementation'],
       \ 'j' : [':Lspsaga diagnostics_jump_next'              , 'next diagnostic'],
-      \ 'l' : [''         , 'code lens'],
-      \ 'n' : [''         , 'next diagnostic'],
-      \ 'o' : [''                , ''],
-      \ 'p' : [''         , 'prev diagnostic'],
+      \ 'l' : [':Lspsaga goto_definition'         , 'code lens'],
       \ 'P' : [''   , 'prev error'],
-      \ 'r' : [':Telescope lsp_references layout_config={height=0.85,width=.80,prompt_position="top"}'                  , 'references'],
+      \ 'r' : [':Telescope lsp_references layout_config={height=0.95,width=.95,prompt_position="top"}'                  , 'references'],
       \ 'R' : [':Lspsaga rename'                                      , 'rename'],
       \ 's' : [':Lspsaga lsp_finder'                                      , 'rename'],
       \ 'k' : [':Lspsaga hover_doc'     , 'Hover'],
       \ 't' : [''         , 'type definition'],
-      \ 'Z' : [''                         , 'disable'],
-      \ 'z' : [''                          , 'enable'],
+      \ 'Z' : [''                         , ''],
+      \ 'z' : [''                          , ''],
       \ }
 
 " t is for terminal

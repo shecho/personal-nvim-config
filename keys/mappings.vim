@@ -29,7 +29,7 @@ vnoremap <c-u> viwU<Esc>
 " TAB in general mode will move to text buffer
 nnoremap <silent> <TAB> :bnext<CR>
 " SHIFT-TAB will go back
-nnoremap <silent> <S-TAB> :bprevious<CR>
+" nnoremap <silent> <S-TAB> :bprevious<CR>
 
 " Move selected line / block of text in visual mode
 " shift + k to move up
@@ -115,7 +115,9 @@ nnoremap <leader>na :lua require("harpoon.mark").add_file()<CR>
 nnoremap <leader>m :lua require("harpoon.ui").toggle_quick_menu()<CR>
 nnoremap <leader>n1 :lua require("harpoon.ui").nav_file(1)<CR>
 nnoremap <leader>n2 :lua require("harpoon.ui").nav_file(2)<CR>
+nnoremap <leader>lA :lua require("harpoon.ui").nav_file(2)<CR>
 
-" nnoremap <leader>lf :lua vim.lsp.buf.format({async = true})<CR>
+nnoremap <leader>lq :lua vim.lsp.buf.code_action()<CR>
+nnoremap <leader>li :lua vim.lsp.buf.implementation()<CR>
 " nnoremap <leader>lq :lua vim.lsp.buf.code_action()<CR>
 

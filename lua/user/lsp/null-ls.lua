@@ -18,17 +18,15 @@ null_ls.setup({
 	sources = {
 		formatting.prettier, -- js/ts formatter
 		formatting.stylua, -- lua formatter
-		-- diagnostics.eslint_d.with({ -- js/ts linter
-		-- 	-- only enable eslint if root has .eslintrc.js (not in youtube nvim video)
-		-- 	condition = function(utils)
-		-- 		return utils.root_has_file(".eslintrc.js") -- change file extension if you use something else
-		-- 	end,
-		-- }),
-		null_ls.builtins.diagnostics.eslint_d.with({
-			diagnostics_format = "[eslint] #{m}\n(#{c})",
+		null_ls.builtins.completion.spell,
+		diagnostics.eslint_d.with({ -- js/ts linter
+			-- diagnostics_format = "[eslint] #{m}\n(#{c})",
+			condition = function(utils)
+				return utils.root_has_file(".eslintrc.js") -- change file extension if you use something else
+			end,
 		}),
+		-- require("typescript.extensions.null-ls.code-actions"),
 		formatting.black.with({ extra_args = { "--fast" } }),
-		formatting.stylua,
 		diagnostics.shellcheck,
 	},
 	-- configure format on save

@@ -30,6 +30,7 @@ mason_lspconfig.setup({
 		"sumneko_lua",
 		"emmet_ls",
 		"bashls",
+		"vimls",
 	},
 	-- auto-install configured servers (with lspconfig)
 	automatic_installation = true, -- not the same as ensure_installed
@@ -42,6 +43,7 @@ mason_null_ls.setup({
 		"stylua", -- lua formatter
 		"eslint_d", -- ts/js linter
 		"buffer", -- css/sass/scss/less linter
+		"vim",
 	},
 	-- auto-install configured formatters & linters (with null-ls)
 	automatic_installation = true,

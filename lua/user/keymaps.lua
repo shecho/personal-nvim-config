@@ -48,8 +48,8 @@ keymap("n", "N", "Nzzzv", opts)
 -- keymap("n", "<RightMouse>", ":Alpha<CR>", opts)
 
 -- Move text up and down
-keymap("n", "<A-J>", "<Esc>:m .+1<CR>==gi", opts)
-keymap("n", "<A-K>", "<Esc>:m .-2<CR>==gi", opts)
+-- keymap("n", "<A-J>", "<Esc>:m .+1<CR>==gi", opts)
+-- keymap("n", "<A-K>", "<Esc>:m .-2<CR>==gi", opts)
 
 -- Insert --
 -- Press jk fast to enter
@@ -73,7 +73,7 @@ keymap("x", "<A-k>", ":move '<-2<CR>gv-gv", opts)
 
 -- Custom
 keymap("n", "Q", "<cmd>Bdelete!<CR>", opts)
-keymap("n", "<F11>", "<cmd>lua vim.lsp.buf.references()<CR>", opts)
+-- keymap("n", "<F11>", "<cmd>lua vim.lsp.buf.references()<CR>", opts)
 keymap("n", "<C-p>", "<cmd>Telescope projects<cr>", opts)
 keymap("n", "<C-z>", "<cmd>ZenMode<cr>", opts)
 
@@ -94,7 +94,7 @@ end
 
 vim.api.nvim_set_keymap("n", "K", ":lua require('user.keymaps').show_documentation()<CR>", opts)
 
-vim.api.nvim_set_keymap("n", "<m-e>", "NvimTreeToggle<cr>", opts)
+vim.api.nvim_set_keymap("n", "<c-e>", "NvimTreeToggle<cr>", opts)
 
 vim.cmd([[
   function! QuickFixToggle()
@@ -105,6 +105,5 @@ vim.cmd([[
     endif
   endfunction
 ]])
-
 
 return M

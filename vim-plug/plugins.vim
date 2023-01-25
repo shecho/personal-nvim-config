@@ -13,8 +13,13 @@ call plug#begin('~/.config/nvim/autoload/plugged')
     " Loader
     Plug 'lewis6991/impatient.nvim'
     Plug 'eandrju/cellular-automaton.nvim'
-    "  Plug 'prettier/vim-prettier'
+    Plug 'folke/trouble.nvim'
+    Plug 'ghillb/cybu.nvim'
     " Plug 'jiangmiao/auto-pairs'
+    " Plug 'tpope/vim-obsession'
+    " Plug 'dhruvasagar/vim-prosession'
+
+
     " Closetags
 
     Plug 'alvan/vim-closetag'
@@ -58,8 +63,8 @@ call plug#begin('~/.config/nvim/autoload/plugged')
     Plug 'tpope/vim-sleuth'
 
     " Treesitter
-    Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
     Plug 'nvim-treesitter/playground'
+    Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
     Plug 'nvim-treesitter/nvim-treesitter-refactor'
     Plug 'romgrk/nvim-treesitter-context'
 
@@ -214,14 +219,9 @@ call plug#begin('~/.config/nvim/autoload/plugged')
     Plug 'SirVer/ultisnips'
     Plug 'quangnguyen30192/cmp-nvim-ultisnips'
 
-    " For snippy users.
-    Plug 'dcampos/nvim-snippy'
-    Plug 'dcampos/cmp-snippy'
-
     "  Snippets
     Plug 'L3MON4D3/LuaSnip'
     Plug 'rafamadriz/friendly-snippets'
-    Plug 'L3MON4D3/LuaSnip'
     Plug 'saadparwaiz1/cmp_luasnip'
 
 
