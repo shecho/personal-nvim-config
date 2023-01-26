@@ -15,8 +15,8 @@ call plug#begin('~/.config/nvim/autoload/plugged')
     Plug 'eandrju/cellular-automaton.nvim'
     Plug 'folke/trouble.nvim'
     Plug 'ghillb/cybu.nvim'
+    Plug 'matbme/JABS.nvim'
     " Plug 'jiangmiao/auto-pairs'
-    " Plug 'tpope/vim-obsession'
     " Plug 'dhruvasagar/vim-prosession'
 
 
@@ -67,6 +67,8 @@ call plug#begin('~/.config/nvim/autoload/plugged')
     Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
     Plug 'nvim-treesitter/nvim-treesitter-refactor'
     Plug 'romgrk/nvim-treesitter-context'
+    Plug 'ckolkey/ts-node-action'
+
 
     " Cool Icons
     " Plug 'kyazdani42/nvim-web-devicons'
@@ -210,6 +212,7 @@ call plug#begin('~/.config/nvim/autoload/plugged')
     Plug 'glepnir/lspsaga.nvim' 
     Plug 'hrsh7th/cmp-nvim-lua'
     Plug 'hrsh7th/cmp-cmdline'
+
     " For vsnip users.
     Plug 'hrsh7th/cmp-vsnip'
     Plug 'hrsh7th/vim-vsnip'

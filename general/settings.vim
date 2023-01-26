@@ -44,6 +44,8 @@ set guifont=Operator\ JetBrains\ Fira\ Code\ Nerd\ Font
 " set foldcolumn=2                        " Folding abilities
 
 " au! BufWritePost $MYVIMRC source %      " auto source when writing to init.vm alternatively you can run :source $MYVIMRC
+" let g:python3_host_prog = "/usr/bin/python3"
+" let g:loaded_python3_provider = 0
 autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
 
 " You can't stop me

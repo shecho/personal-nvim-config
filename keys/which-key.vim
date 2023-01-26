@@ -64,6 +64,7 @@ let g:which_key_map['Z'] = [ ':ZenMode'                           , 'zen' ]
 let g:which_key_map.a = {
       \ 'name' : '+actions' ,
       \ 'a' : [':NvimTreeToggle'                                                                        , 'explorer'],
+      \ '9' : ["'9"                                                                       , 'explorer'],
       \ 'c' : [':ColorizerToggle'                                                                       , 'colorizer'],
       \ 'e' : ['viwU<Esc>'                                                                              , 'Capitalize word'],
       \ 'h' : ['<C-W>s'                                                                        , 'explorer'],
@@ -197,8 +198,6 @@ let g:which_key_map.l = {
       \ 'a' : [':Lspsaga code_action'              , 'code action'],
       \ 'd' : [':Telescope lsp_definitions'              , 'definition'],
       \ 'D' : [':Lspsaga goto_definition'             , 'declaration'],
-      \ 'F' : [':lua vim.lsp.buf.format({async = true})'         , 'format selected'],
-      \ 'f' : [':lua vim.lsp.buf.format'                  , 'format'],
       \ 'h' : [''              , 'hide'],
       \ 'i' : [':lua vim.lsp.buf.implementations'          , 'implementation'],
       \ 'j' : [':Lspsaga diagnostics_jump_next'              , 'next diagnostic'],

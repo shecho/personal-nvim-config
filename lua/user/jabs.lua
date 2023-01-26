@@ -7,7 +7,7 @@ end
 -- local ui = vim.api.nvim_list_uis()[1]
 
 jabs.setup({
-	position = "center", -- center, corner
+	position = "corner", -- center, corner
 	width = 50,
 	height = 10,
 	border = "rounded", -- none, single, double, rounded, solid, shadow, (or an array or chars)

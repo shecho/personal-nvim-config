@@ -140,8 +140,8 @@ cmp.setup({
 			maxwidth = 60,
 			before = function(entry, vim_item)
 				vim_item.menu = ({
-					nvim_lsp = "",
 					luasnip = "",
+					nvim_lsp = "",
 					nvim_lua = "ﲳ",
 					treesitter = "",
 					buffer = "﬘",

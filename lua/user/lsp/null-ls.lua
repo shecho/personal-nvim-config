@@ -25,7 +25,7 @@ null_ls.setup({
 				return utils.root_has_file(".eslintrc.js") -- change file extension if you use something else
 			end,
 		}),
-		-- require("typescript.extensions.null-ls.code-actions"),
+		require("typescript.extensions.null-ls.code-actions"),
 		formatting.black.with({ extra_args = { "--fast" } }),
 		diagnostics.shellcheck,
 	},

@@ -18,6 +18,7 @@ require "user.treesitter"
 require "user.indentline"
 require "user.autopairs"
 require "user.autotag"
+require "user.jabs"
 
 -- Finders
 require "user.nvim-tree"

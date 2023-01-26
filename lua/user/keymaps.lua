@@ -76,6 +76,9 @@ keymap("n", "Q", "<cmd>Bdelete!<CR>", opts)
 -- keymap("n", "<F11>", "<cmd>lua vim.lsp.buf.references()<CR>", opts)
 keymap("n", "<C-p>", "<cmd>Telescope projects<cr>", opts)
 keymap("n", "<C-z>", "<cmd>ZenMode<cr>", opts)
+keymap("n", "=", "<cmd>JABSOpen<cr>", { noremap = true, silent = true, nowait = true })
+keymap("n", "=", "<cmd>JABSOpen<cr>", { noremap = true, silent = true, nowait = true })
+keymap("n", "<C-x>", '<cmd>lua require("ts-node-action").node_action()<cr>', opts)
 
 vim.cmd([[nnoremap c* /\<<C-R>=expand('<cword>')<CR>\>\C<CR>``cgn]])
 
