@@ -117,9 +117,10 @@ nnoremap <leader>n1 :lua require("harpoon.ui").nav_file(1)<CR>
 nnoremap <leader>n2 :lua require("harpoon.ui").nav_file(2)<CR>
 nnoremap <leader>lA :lua require("harpoon.ui").nav_file(2)<CR>
 
-nnoremap <leader>lf :lua vim.lsp.buf.formating({ async = true })<CR>
+nnoremap <leader>lf :lua vim.lsp.buf.format({async = true})<CR>
+nnoremap <leader>lF :lua vim.lsp.buf.formating()<CR>
 nnoremap <leader>lq :lua vim.lsp.buf.code_action()<CR>
 nnoremap <leader>li :lua vim.lsp.buf.implementation()<CR>
-nnoremap <leader>li :lua require("ts-node-action").node_action()<CR>
+nnoremap <leader>lua require("ts-node-action").node_action()<CR>
 " nnoremap <leader>lq :lua vim.lsp.buf.code_action()<CR>
 

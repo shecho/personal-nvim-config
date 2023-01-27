@@ -26,7 +26,13 @@ if not lspkind_status then
 	return
 end
 
--- load vs-code like snippets from plugins (e.g. friendly-snippets)
+vim.api.nvim_set_hl(0, "CmpItemKind", { fg = "#61afef" })
+vim.api.nvim_set_hl(0, "CmpItemKindColor", { fg = "#528bff" })
+vim.api.nvim_set_hl(0, "CmpItemKindFunction", { fg = "#c678dd" })
+vim.api.nvim_set_hl(0, "CmpItemKindConstant", { fg = "#98c379" })
+vim.api.nvim_set_hl(0, "CmpItemKindSnippet", { fg = "#d19a66" })
+vim.api.nvim_set_hl(0, "CmpItemKindVariable", { fg = "#526fff" })
+
 local loader = require("luasnip/loaders/from_vscode")
 loader.lazy_load()
 
@@ -205,6 +211,6 @@ cmp.event:on("menu_closed", function()
 	vim.b.copilot_suggestion_hidden = false
 end)
 
-vim.cmd([[
-highlight! default link CmpItemKind CmpItemMenuDefault
-]])
+-- vim.cmd([[
+-- highlight! default link CmpItemKind CmpItemMenuDefault
+-- ]])

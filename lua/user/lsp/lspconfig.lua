@@ -4,7 +4,10 @@
 -- if not lsp_status then
 -- 	return
 -- end
-
+local cmp_status, cmp = pcall(require, "cmp")
+if not cmp_status then
+	return
+end
 -- import lspconfig plugin safely
 local lspconfig_status, lspconfig = pcall(require, "lspconfig")
 if not lspconfig_status then
@@ -24,7 +27,16 @@ if not typescript_setup then
 end
 
 local keymap = vim.keymap -- for conciseness
+-- local protocol = require("vim.lsp.protocol")
+-- local augroup_format = vim.api.nvim_create_augroup("Format", { clear = true })
 
+-- vim.api.nvim_create_autocmd("BufWritePre", {
+-- 	group = vim.api.nvim_create_augroup("LspFormatting", { clear = true }),
+-- 	buffer = bufnr,
+-- 	callback = function()
+-- 		vim.lsp.buf.format()
+-- 	end,
+-- })
 -- enable keybinds only for when lsp server available
 local on_attach = function(client, bufnr)
 	-- keybind options
@@ -32,20 +44,12 @@ local on_attach = function(client, bufnr)
 	-- set keybinds
 	keymap.set("n", "gi", "<cmd>lua vim.lsp.buf.implementation()<CR>", opts) -- go to implementation
 	keymap.set("n", "<leader>ca", "<cmd>Lspsaga code_action<CR>", opts) -- see available code actions
-
 	-- typescript specific keymaps (e.g. rename file and update imports)
 	if client.name == "tsserver" then
 		keymap.set("n", "<leader>rf", ":TypescriptRenameFile<CR>") -- rename file and update imports
 		keymap.set("n", "<leader>oi", ":TypescriptOrganizeImports<CR>") -- organize imports (not in youtube nvim video)
 		keymap.set("n", "<leader>ru", ":TypescriptRemoveUnused<CR>") -- remove unused variables (not in youtube nvim video)
 	end
-	vim.api.nvim_create_autocmd("BufWritePre", {
-		group = vim.api.nvim_create_augroup("LspFormatting", { clear = true }),
-		buffer = bufnr,
-		callback = function()
-			vim.lsp.buf.format()
-		end,
-	})
 end
 
 -- used to enable autocompletion (assign to every lsp server config)
@@ -74,6 +78,11 @@ lspconfig["html"].setup({
 
 -- })
 
+lspconfig.flow.setup({
+	on_attach = on_attach,
+	capabilities = capabilities,
+})
+
 typescript.setup({
 	server = {
 		capabilities = capabilities,
@@ -81,6 +90,8 @@ typescript.setup({
 	},
 })
 lspconfig["tsserver"].setup({
+	capabilities = capabilities,
+	cmd = { "typescript-language-server", "--stdio" },
 	on_attach = function(_, bufnr)
 		on_attach(_, bufnr)
 	end,
@@ -136,6 +147,28 @@ lspconfig["sumneko_lua"].setup({
 			},
 		},
 	},
+})
+cmp.setup.cmdline({ "/", "?" }, {
+	mapping = cmp.mapping.preset.cmdline(),
+	sources = {
+		{ name = "buffer" },
+	},
+})
+cmp.setup.cmdline(":", {
+	mapping = cmp.mapping.preset.cmdline(),
+	sources = cmp.config.sources({
+		{ name = "path" },
+	}, {
+		{ name = "cmdline" },
+	}),
+})
+vim.cmd([[
+set completeopt=menuone,noinsert,noselect
+highlight! default link CmpItemKind CmpItemMenuDefault
+]])
+
+vim.diagnostic.config({
+	virtual_text = true,
 })
 -- some test
 -- local lsp_configss = {

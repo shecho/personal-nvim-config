@@ -3,19 +3,27 @@
 -- go to the above and then enter <c-v>u<unicode> and the symbold should appear
 -- or go here and upload the font file: https://mathew-kurian.github.io/CharacterMap/
 -- find more here: https://www.nerdfonts.com/cheat-sheet
+-- icon = "",
+-- icon = "",
+-- icon = "﯑",
+-- 
+-- ❄
+-- ☄
+-- 
+
 vim.g.use_nerd_icons = false
 if vim.fn.has("mac") == 1 or vim.g.use_nerd_icons then
 	-- elseif vim.fn.has "mac" == 1 then
 	return {
 		kind = {
 			Text = "",
-			-- Method = "m",
-			-- Function = "",
+			Function = "",
 			-- Constructor = "",
 			Method = "",
-			Function = "",
+			-- Function = "",
 			Constructor = "",
-			Field = "",
+			-- Field = "",
+			Field = "ﰠ",
 			-- Variable = "",
 			Variable = "",
 			Class = "",

@@ -28,13 +28,14 @@ require "user.project"
 require "user.cybu"
 
 -- Lsp
+require "user.lsp.lspconfig"
 require "user.lsp.mason"
 require "user.lsp.null-ls"
-require "user.lsp.lspconfig"
 require "user.lsp.lspsaga"
 require "user.lsp.lspkind"
 require "user.cmp"
 require "user.copilot"
+require "user.luasnip"
 
 EOF
 
