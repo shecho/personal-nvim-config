@@ -167,9 +167,7 @@ set completeopt=menuone,noinsert,noselect
 highlight! default link CmpItemKind CmpItemMenuDefault
 ]])
 
-vim.diagnostic.config({
-	virtual_text = true,
-})
+vim.diagnostic.config({ virtual_text = true })
 -- some test
 -- local lsp_configss = {
 -- 	capabilities = capabilities,

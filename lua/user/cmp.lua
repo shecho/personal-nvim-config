@@ -21,6 +21,7 @@ end
 -- end
 
 -- import lspkind plugin safely
+
 local lspkind_status, lspkind = pcall(require, "lspkind")
 if not lspkind_status then
 	return
@@ -72,6 +73,7 @@ cmp.setup({
 			behavior = cmp.ConfirmBehavior.Replace,
 			select = true,
 		}),
+		["<C-l>"] = nil,
 		["<C-b>"] = cmp.mapping.scroll_docs(-4),
 		["<C-f>"] = cmp.mapping.scroll_docs(4),
 		["<C-Space>"] = cmp.mapping(cmp.mapping.complete(), { "i", "c", "n" }),
@@ -131,7 +133,11 @@ cmp.setup({
 			},
 		},
 		{ name = "spell" },
+		-- { name = "emoji" },
+		-- { name = "look" },
 		-- { name = "gh_issues" },
+		-- { name = "treesitter" },
+		-- { name = "rg", keyword_length = 3 },
 	}),
 	-- configure lspkind for vs-code like icons
 	formatting = {
@@ -161,7 +167,7 @@ cmp.setup({
 		}),
 	},
 	experimental = {
-		ghost_text = true,
+		ghost_text = false,
 	},
 	window = {
 		documentation = cmp.config.window.bordered(),
@@ -177,6 +183,7 @@ cmp.setup({
 			-- cmp.config.compare.scopes, --this is commented in nvim-cmp too
 			cmp.config.compare.exact,
 			cmp.config.compare.score,
+			require("cmp-under-comparator").under,
 			cmp.config.compare.recently_used,
 			cmp.config.compare.locality,
 			cmp.config.compare.kind,
@@ -189,6 +196,14 @@ cmp.setup({
 vim.cmd(
 	[[ autocmd FileType lua lua require'cmp'.setup.buffer { sources = { { name = 'buffer' },{ name = 'nvim_lua'},{name = "nvim_lsp"}},} ]]
 )
+local autocmd = vim.api.nvim_create_autocmd
+autocmd("FileType", {
+	pattern = "conf",
+	callback = function()
+		require("cmp").setup.buffer({ enabled = false })
+	end,
+})
+
 cmp.setup.cmdline("/", {
 	mapping = cmp.mapping.preset.cmdline(),
 	sources = {

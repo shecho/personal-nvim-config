@@ -46,9 +46,8 @@ let g:which_key_map['d'] = [ ':Bdelete'                           , 'delete buff
 let g:which_key_map['e'] = [ ':NvimTreeToggle'                    , 'explorer' ]
 let g:which_key_map['E'] = [ ':NvimTreeToggle'                    , 'explorer' ]
 let g:which_key_map['f'] = [ '', 'Find project' ]
-" let g:which_key_map['h'] = [ ''                             , 'split below']
 let g:which_key_map['m'] = [ ':call WindowSwap#EasyWindowSwap()'  , 'move window' ]
-let g:which_key_map['p'] = [ ':Telescope find_files hidden=true winblend=10 layout_config={height=0.95,width=.90,prompt_position="top"}', 'Find files' ]
+let g:which_key_map['p'] = [ ':Telescope find_files hidden=true winblend=10 layout_config={height=0.95,width=.90}', 'Find files' ]
 let g:which_key_map['q'] = [ 'q'                                  , 'quit' ]
 let g:which_key_map['r'] = [ ':Telescope buffers'                 , 'search ag' ]
 let g:which_key_map['u'] = [ ':UndotreeToggle'                    , 'undo tree']
@@ -63,7 +62,14 @@ let g:which_key_map['Z'] = [ ':ZenMode'                           , 'zen' ]
 " a is for actions
 let g:which_key_map.a = {
       \ 'name' : '+actions' ,
-      \ 'a' : [':NvimTreeToggle'                                                                        , 'explorer'],
+      \ '1' : ["'1"                                                                       , 'explorer'],
+      \ '2' : ["'2"                                                                       , 'explorer'],
+      \ '3' : ["'3"                                                                       , 'explorer'],
+      \ '4' : ["'4"                                                                       , 'explorer'],
+      \ '5' : ["'5"                                                                       , 'explorer'],
+      \ '6' : ["'6"                                                                       , 'explorer'],
+      \ '7' : ["'7"                                                                       , 'explorer'],
+      \ '8' : ["'8"                                                                       , 'explorer'],
       \ '9' : ["'9"                                                                       , 'explorer'],
       \ 'c' : [':ColorizerToggle'                                                                       , 'colorizer'],
       \ 'e' : ['viwU<Esc>'                                                                              , 'Capitalize word'],
@@ -71,11 +77,8 @@ let g:which_key_map.a = {
       \ 'm' : [''                                                                       , 'markdown preview'],
       \ 'M' : [''                                                                   , ''],
       \ 'n' : [':set nonumber!'                                                                         , 'line-numbers'],
-      \ 'r' : [':set norelativenumber!'                                                                 , 'relative line nums'],
       \ 's' : [':let @/ = ""'                                                                           , 'remove search highlight'],
       \ 't' : [':FloatermToggle'                                                                        , 'terminal'],
-      \ 'v' : [''                   , ''],
-      \ 'V' : [':'                                                                                      , ''],
       \ 'w' : [':StripWhitespace'        , 'strip whitespace'],
       \ }
 
@@ -93,16 +96,14 @@ let g:which_key_map.b = {
       \ 'b' : ['Buffers'   , 'fzf-buffer'],
       \ }
 
-" c is for copilot 
+" c is for copilot
 let g:which_key_map.c = {
       \ 'name' : '+copilot' ,
       \ 'd' : ['<Plug>(copilot-dismiss)'                                                                                      , 'copilot-dismiss'],
       \ 'n' : ['<Plug>(copilot-next)'                                                                                         , 'copilot-next'],
       \ 'p' : ['<Plug>(copilot-previous)'                                                                                     , 'copilot-previous'],
       \ 's' : [':Copilot panel'                                                                                               , 'panel'],
-      \ 'a' : [''                                                              , ''],
-      \ 'C' : [''                                                        , ''],
-      \ 'c' : [':Telescope harpoon marks theme=dropdown previewer=false winblend=15 layout_config={height=0.60,width=0.50}'   , 'Mark menu'],
+      \ 'm' : [':Telescope harpoon marks theme=dropdown previewer=false winblend=15 layout_config={height=0.60,width=0.50}'   , 'Mark menu'],
       \ 'l' : [':so %'                                                                                                        , 'Source Vimrc'],
       \ 'o' : [':IndentBlanklineToggle'                                                                                       , 'TogglBlankLine'],
       \ }
@@ -160,7 +161,6 @@ let g:which_key_map.g = {
       \ 'name' : '+git' ,
       \ 'a' : [':Git add .'                        , 'add all'],
       \ 'b' : [':GitBlameToggle'                   , 'blame enable'],
-      \ 'A' : [':GitBlameDisable'                  , 'blame disable'],
       \ 'B' : [':GBrowse'                          , 'browse'],
       \ 'c' : [':Git commit'                       , 'commit'],
       \ 'd' : [':Git diff'                         , 'diff'],
@@ -198,18 +198,14 @@ let g:which_key_map.l = {
       \ 'a' : [':Lspsaga code_action'              , 'code action'],
       \ 'd' : [':Telescope lsp_definitions'              , 'definition'],
       \ 'D' : [':Lspsaga goto_definition'             , 'declaration'],
-      \ 'h' : [''              , 'hide'],
       \ 'i' : [':lua vim.lsp.buf.implementations'          , 'implementation'],
       \ 'j' : [':Lspsaga diagnostics_jump_next'              , 'next diagnostic'],
       \ 'l' : [':Lspsaga goto_definition'         , 'code lens'],
-      \ 'P' : [''   , 'prev error'],
+      \ 'p' : [':Lspsaga diagnostics_jump_prev'   , 'prev error'],
       \ 'r' : [':Telescope lsp_references layout_config={height=0.95,width=.95,prompt_position="top"}'                  , 'references'],
       \ 'R' : [':Lspsaga rename'                                      , 'rename'],
       \ 's' : [':Lspsaga lsp_finder'                                      , 'rename'],
       \ 'k' : [':Lspsaga hover_doc'     , 'Hover'],
-      \ 't' : [''         , 'type definition'],
-      \ 'Z' : [''                         , ''],
-      \ 'z' : [''                          , ''],
       \ }
 
 " t is for terminal

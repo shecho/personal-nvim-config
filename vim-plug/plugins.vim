@@ -13,9 +13,9 @@ call plug#begin('~/.config/nvim/autoload/plugged')
     " Loader
     Plug 'lewis6991/impatient.nvim'
     Plug 'eandrju/cellular-automaton.nvim'
-    Plug 'folke/trouble.nvim'
     Plug 'ghillb/cybu.nvim'
     Plug 'matbme/JABS.nvim'
+    " Plug 'steelsojka/headwind.nvim'
     " Plug 'jiangmiao/auto-pairs'
     " Plug 'dhruvasagar/vim-prosession'
 
@@ -46,7 +46,7 @@ call plug#begin('~/.config/nvim/autoload/plugged')
     Plug 'suy/vim-context-commentstring'
 
     " highlight all matches under cursor
-    " Plug 'RRethy/vim-illuminate'
+    Plug 'RRethy/vim-illuminate'
 
 
     " Projects 
@@ -168,8 +168,8 @@ call plug#begin('~/.config/nvim/autoload/plugged')
     Plug 'luochen1990/rainbow'
 
     " Multiple Cursors
-    Plug 'terryma/vim-multiple-cursors'
-    " Plug 'mg979/vim-visual-multi', {'branch': 'master'}
+    " Plug 'terryma/vim-multiple-cursors'
+    Plug 'mg979/vim-visual-multi', {'branch': 'master'}
 
     " Async Linting Engine
     Plug 'ntpeters/vim-better-whitespace'
@@ -205,18 +205,24 @@ call plug#begin('~/.config/nvim/autoload/plugged')
     Plug 'jayp0521/mason-null-ls.nvim'
 
     " completions
-    Plug'hrsh7th/cmp-nvim-lsp'
     Plug'hrsh7th/nvim-cmp'
+    Plug'hrsh7th/cmp-nvim-lsp'
     Plug'hrsh7th/cmp-buffer'
     Plug'hrsh7th/cmp-path'
     Plug 'glepnir/lspsaga.nvim' 
     Plug 'hrsh7th/cmp-nvim-lua'
     Plug 'hrsh7th/cmp-cmdline'
+    Plug 'hrsh7th/cmp-look'
+    " Plug 'hrsh7th/cmp-emoji'
 
+    " testing
+    Plug 'lukas-reineke/cmp-under-comparator'
+    " Plug 'lukas-reineke/cmp-rg'
+    " Plug 'ray-x/cmp-treesitter'
+    "  Plug 'dcampos/cmp-emmet-vim'
     " For vsnip users.
     Plug 'hrsh7th/cmp-vsnip'
     Plug 'hrsh7th/vim-vsnip'
-
 
     " for ultisnips users.
     Plug 'SirVer/ultisnips'
@@ -229,8 +235,8 @@ call plug#begin('~/.config/nvim/autoload/plugged')
 
 
     Plug 'zbirenbaum/copilot.lua'
-    Plug 'github/copilot.vim'
-    Plug 'zbirenbaum/copilot-cmp'
+    " Plug 'github/copilot.vim'
+    " Plug 'zbirenbaum/copilot-cmp'
 
 
   endif

@@ -7,7 +7,7 @@ local keymap = vim.api.nvim_set_keymap
 keymap("n", "<Space>", "", opts)
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
--- keymap("n", "<C-Space>", "<cmd>WhichKey \\<leader><cr>", opts)
+keymap("n", "<C-Space>", "<cmd>WhichKey \\<leader><cr>", opts)
 keymap("n", "<C-i>", "<C-i>", opts)
 
 -- Modes
@@ -36,8 +36,6 @@ keymap("n", "<C-Down>", ":resize +2<CR>", opts)
 keymap("n", "<C-Right>", ":vertical resize -2<CR>", opts)
 keymap("n", "<C-Left>", ":vertical resize +2<CR>", opts)
 
--- I hate typing these
-
 keymap("n", "n", "nzzzv", opts)
 keymap("n", "N", "Nzzzv", opts)
 
@@ -48,12 +46,12 @@ keymap("n", "N", "Nzzzv", opts)
 -- keymap("n", "<RightMouse>", ":Alpha<CR>", opts)
 
 -- Move text up and down
--- keymap("n", "<A-J>", "<Esc>:m .+1<CR>==gi", opts)
--- keymap("n", "<A-K>", "<Esc>:m .-2<CR>==gi", opts)
+keymap("n", "<A-J>", "<Esc>:m .+1<CR>==gi", opts)
+keymap("n", "<A-K>", "<Esc>:m .-2<CR>==gi", opts)
 
 -- Insert --
 -- Press jk fast to enter
-keymap("i", "jk", "<ESC>", opts)
+keymap("i", "kj", "<ESC>", opts)
 
 -- Visual --
 -- Stay in indent mode
@@ -75,10 +73,11 @@ keymap("x", "<A-k>", ":move '<-2<CR>gv-gv", opts)
 keymap("n", "Q", "<cmd>Bdelete!<CR>", opts)
 -- keymap("n", "<F11>", "<cmd>lua vim.lsp.buf.references()<CR>", opts)
 keymap("n", "<C-p>", "<cmd>Telescope projects<cr>", opts)
+keymap("n", "<leader>le", "<cmd> lua vim.lsp.buf.rename()<cr>", opts)
 keymap("n", "<C-z>", "<cmd>ZenMode<cr>", opts)
 keymap("n", "=", "<cmd>JABSOpen<cr>", { noremap = true, silent = true, nowait = true })
-keymap("n", "=", "<cmd>JABSOpen<cr>", { noremap = true, silent = true, nowait = true })
 keymap("n", "<C-x>", '<cmd>lua require("ts-node-action").node_action()<cr>', opts)
+-- keymap("n", "<C-c>", "<cmd>:noh<cr>", { noremap = true, silent = true, nowait = true })
 
 vim.cmd([[nnoremap c* /\<<C-R>=expand('<cword>')<CR>\>\C<CR>``cgn]])
 
@@ -96,8 +95,7 @@ M.show_documentation = function()
 end
 
 vim.api.nvim_set_keymap("n", "K", ":lua require('user.keymaps').show_documentation()<CR>", opts)
-
-vim.api.nvim_set_keymap("n", "<c-e>", "NvimTreeToggle<cr>", opts)
+-- vim.api.nvim_set_keymap("n", "<c-e>", "NvimTreeToggle<cr>", opts)
 
 vim.cmd([[
   function! QuickFixToggle()
