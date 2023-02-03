@@ -102,6 +102,7 @@ call plug#begin('~/.config/nvim/autoload/plugged')
     " Plug 'fannheyward/telescope-coc.nvim'
     Plug 'nvim-lua/popup.nvim'
     Plug 'nvim-telescope/telescope-ui-select.nvim'
+    Plug 'nvim-telescope/telescope-file-browser.nvim'
     Plug 'nvim-telescope/telescope-fzf-native.nvim', { 'do': 'make' }
 
     " Git
@@ -166,6 +167,7 @@ call plug#begin('~/.config/nvim/autoload/plugged')
     Plug 'glacambre/firenvim', { 'do': { _ -> firenvim#install(0) } }
     " Rainbow brackets
     Plug 'luochen1990/rainbow'
+    Plug 'axelvc/template-string.nvim'
 
     " Multiple Cursors
     " Plug 'terryma/vim-multiple-cursors'

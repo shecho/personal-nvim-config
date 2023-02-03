@@ -75,7 +75,7 @@ let g:which_key_map.a = {
       \ 'e' : ['viwU<Esc>'                                                                              , 'Capitalize word'],
       \ 'h' : ['<C-W>s'                                                                        , 'explorer'],
       \ 'm' : [''                                                                       , 'markdown preview'],
-      \ 'M' : [''                                                                   , ''],
+      \ 'i' : [':hi IlluminatedWordText cterm=bolditalic gui=standout guifg=#828997'                                                                   , ''],
       \ 'n' : [':set nonumber!'                                                                         , 'line-numbers'],
       \ 's' : [':let @/ = ""'                                                                           , 'remove search highlight'],
       \ 't' : [':FloatermToggle'                                                                        , 'terminal'],

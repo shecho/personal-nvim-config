@@ -3,7 +3,6 @@ source $HOME/.config/nvim/vim-plug/plugins.vim
 source $HOME/.config/nvim/general/settings.vim
 source $HOME/.config/nvim/general/functions.vim
 source $HOME/.config/nvim/themes/airline.vim
-source $HOME/.config/nvim/plug-config/illuminate.vim
   " Themes
 source $HOME/.config/nvim/themes/onedark.vim
   " source $HOME/.config/nvim/themes/syntax.vim
@@ -12,6 +11,7 @@ source $HOME/.config/nvim/themes/onedark.vim
 
 lua << EOF
 require "user.impatient"
+require "user.illuminate"
 require "user.keymaps"
 require "user.true-zen"
 require "user.plug-colorizer"

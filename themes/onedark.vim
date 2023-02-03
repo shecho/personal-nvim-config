@@ -22,18 +22,23 @@ syntax on
 " colorscheme onedark
 colorscheme one
 
-call one#highlight('Special', '', '', 'bold')
-" call one#highlight('@attribute', '', '', 'bold,standout')
-" call one#highlight('@variable', '', '', 'bold,standout')
-call one#highlight('Constant', '', '', 'bolditalic')
 " call one#highlight('@Constant', '', '', 'bolditalic')
+" call one#highlight('@variable', '', '', 'bold,standout')
+" call one#highlight('@attribute', '', '', 'bold,standout')
+call one#highlight('Special', '', '', 'bold')
+call one#highlight('Constant', '', '', 'bolditalic')
+call one#highlight('@Keyword', 'c678dd', '', 'italic')"reserved words
+call one#highlight('@Parameter', 'B243E6', '', 'bolditalic,')"params abd arguments and variables names
+call one#highlight('@method', 'c678dd', '', 'bolditalic')
+call one#highlight('@property', 'd19a66', '', 'bolditalic')
 call one#highlight('Boolean', '', '', 'bolditalic')
 call one#highlight('Conditional', '', '', 'italic')
 call one#highlight('SpecialChar', '', '', 'bold')
 call one#highlight('Character', '', '', 'bold')
 call one#highlight('Function', '', '','bold')" #B243E6
 call one#highlight('Include', 'c678dd', '', 'italic')"imports/exports
-call one#highlight('Tag', '', '', 'bold')
+call one#highlight('Tag', '', 'B243E6', 'bold')
+call one#highlight('@Tag', '', '', 'bold')
 call one#highlight('Number', '', '', 'bold')
 call one#highlight('Float', '', '', 'bold')
 call one#highlight('String', '', '', 'bold')"string
@@ -51,10 +56,11 @@ call one#highlight('DiagnosticFloatingError', 'e06c75', '', 'bolditalic')
 call one#highlight('DiagnosticSignError', 'e06c75', '', 'bolditalic')
 call one#highlight('DiagnosticUnderlineError', 'e06c75', '', 'bolditalic,underline')
 call one#highlight('Identifier', '', '', 'bold')"params abd arguments and variables names
-call one#highlight('Keyword', 'c678dd', '', 'italic')"reserved words
+" call one#highlight('Keyword', 'c678dd', '', 'italic')"reserved words
 call one#highlight('Delimiter','', '', 'bold')"brackets
 call one#highlight('MatchParen', '', '', 'underline,bolditalic')
 call one#highlight('MatchBrackets', '', '', 'bolditalic')
+" call one#highlight('@Punctuation', '', '', 'bold')
 " call one#highlight('Directory', '', '', 'bold')
 " call one#highlight('Label', '', '', 'bold,underline')"html and jsx 
 " call one#highlight('WildMenu', '', '', 'reverse')
@@ -67,7 +73,7 @@ call one#highlight('Visual', '', '', 'bolditalic')
 " call one#highlight('TabLineFill', '', '', '')
 " call one#highlight('TabLine', '', '', '')
 call one#highlight('Search', '', '', 'bolditalic')
-call one#highlight('IncSearch', '', '', 'bolditalic')
+call one#highlight('IncSearch', '', '', 'bolditalic,standout')
 call one#highlight('Statement', '', '', 'bold')
 " call one#highlight('Statement', '', '', 'bold')
 call one#highlight('CursorColumn', '828997', '', 'standout')"current word #4b5263 #5c6370 #828997 #abb2bf  
@@ -100,26 +106,28 @@ call one#highlight('CursorColumn', '828997', '', 'standout')"current word #4b526
 " let g:VM_highlight_matches = 'hi! Search ctermfg=228 cterm=underline'
 " let g:VM_highlight_matches = 'hi! link Search PmenuSel'
 " multi cursors
-let g:VM_highlight_matches = 'value'
+" let g:VM_highlight_matches = 'value'
+
 let g:VM_theme = 'purplegray'
 
+hi illuminatedWord gui=bolditalic guifg=#828997
 hi IlluminatedWordText gui=bolditalic guifg=#828997
-hi CursorColumn gui=bolditalic guifg=#828997
+hi IlluminatedWordRead gui=bolditalic guifg=#828997
+" hi CursorColumn gui=bolditalic guifg=#828997
+
 
 " augroup illuminate_augroup
 "     autocmd!
-"     autocmd VimEnter * hi link illuminatedWord CursorLine
-"     autocmd VimEnter * hi link illuminatedWord CursorColumn
+"     autocmd VimEnter * hi illuminatedWord cterm=standout gui=standout guifg=#828997
+"     autocmd VimEnter * hi IlluminatedWordRead cterm=standout gui=standout guifg=#828997
+"     autocmd VimEnter * hi IlluminatedWordText cterm=bolditalic gui=standout guifg=#828997
 " augroup END
 
 " augroup illuminate_augroup
 "     autocmd!
-"     autocmd VimEnter * hi illuminatedWord cterm=underline,bolditalic gui=underline guifg=#828997
+"     autocmd VimEnter * hi illuminatedCurWord cterm=standout gui=standout guifg=#828997
 " augroup END
-" augroup illuminate_augroup
-"     autocmd!
-"     autocmd VimEnter * hi illuminatedCurWord cterm=italic gui=italic guifg=#828997
-" augroup END
+
 
 if (has("termguicolors"))
     set termguicolors
