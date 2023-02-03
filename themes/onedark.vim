@@ -24,20 +24,26 @@ colorscheme one
 
 " call one#highlight('@Constant', '', '', 'bolditalic')
 " call one#highlight('@variable', '', '', 'bold,standout')
+" call one#highlight('@variable', '528bff', '', 'bold')"params abd arguments and variables names
 " call one#highlight('@attribute', '', '', 'bold,standout')
+" call one#highlight('@function', '#61afef', '', 'bold')"params abd arguments and variables names
+" call one#highlight('Function', '', '','bold')" #B243E6
+" call one#highlight('Tag', 'B243E6', '', 'bold')
+" call one#highlight('@Tag', '528bff', '', 'bold')
+" call one#highlight('Operator', '', '', '')" *= - + =>'#c678dd#
+
+call one#highlight('@Tag.delimiter', 'abb2bf', '', 'bold')
 call one#highlight('Special', '', '', 'bold')
-call one#highlight('Constant', '', '', 'bolditalic')
+call one#highlight('Constant', '', '', 'bold')
 call one#highlight('@Keyword', 'c678dd', '', 'italic')"reserved words
-call one#highlight('@Parameter', 'B243E6', '', 'bolditalic,')"params abd arguments and variables names
-call one#highlight('@method', 'c678dd', '', 'bolditalic')
+call one#highlight('@Parameter', 'abb2bf', '', 'bolditalic,')"params abd arguments and variables names
+call one#highlight('@method', '528bff', '', 'italic')
 call one#highlight('@property', 'd19a66', '', 'bolditalic')
 call one#highlight('Boolean', '', '', 'bolditalic')
 call one#highlight('Conditional', '', '', 'italic')
 call one#highlight('SpecialChar', '', '', 'bold')
 call one#highlight('Character', '', '', 'bold')
-call one#highlight('Function', '', '','bold')" #B243E6
 call one#highlight('Include', 'c678dd', '', 'italic')"imports/exports
-call one#highlight('Tag', '', 'B243E6', 'bold')
 call one#highlight('@Tag', '', '', 'bold')
 call one#highlight('Number', '', '', 'bold')
 call one#highlight('Float', '', '', 'bold')
@@ -45,21 +51,25 @@ call one#highlight('String', '', '', 'bold')"string
 call one#highlight('Repeat', '', '','italic')" #B243E6
 call one#highlight('Type', '', '', 'bolditalic') 
 call one#highlight('Asynchronous', '', '', 'italic')
-call one#highlight('Operator', 'c678dd', '', '')" *= - + =>'#c678dd#
+call one#highlight('@operator', 'c678dd', '', '')" *= - + =>'#c678dd  c678dd
 call one#highlight('Exception', '', '', 'italic') " try catch
 call one#highlight('StorageClass', '', '','bolditalic')" #B243E6
-call one#highlight('Error', 'be5046', '', 'bolditalic')"#e06c75 #be5046 #c18401 #e5c07b #d19a66
+call one#highlight('Error', 'be5046', '', 'bolditalic')"#e06c75 #be5046 #e45649 #ca1243  #c18401 #e5c07b #d19a66 #61afef #528bff 528bff #4078f2 4078f2
 call one#highlight('ErrorMsg', 'e06c75', '', 'bold')
 call one#highlight('DiagnosticVirtualTextError', 'e06c75', '', 'bolditalic')
 call one#highlight('DiagnosticError', 'e06c75', '', 'bolditalic')
 call one#highlight('DiagnosticFloatingError', 'e06c75', '', 'bolditalic')
 call one#highlight('DiagnosticSignError', 'e06c75', '', 'bolditalic')
 call one#highlight('DiagnosticUnderlineError', 'e06c75', '', 'bolditalic,underline')
-call one#highlight('Identifier', '', '', 'bold')"params abd arguments and variables names
-" call one#highlight('Keyword', 'c678dd', '', 'italic')"reserved words
 call one#highlight('Delimiter','', '', 'bold')"brackets
 call one#highlight('MatchParen', '', '', 'underline,bolditalic')
-call one#highlight('MatchBrackets', '', '', 'bolditalic')
+
+
+" call one#highlight('Identifier', '', '', 'bold')"params abd arguments and variables names
+" call one#highlight('Keyword', 'c678dd', '', 'italic')"reserved words
+" call one#highlight('@Punctuation', '', '', 'bold')
+" call one#highlight('@Punctuation.delimiter', '', '', 'bold')
+" call one#highlight('@Punctuation.bracket', '', '', 'bold')
 " call one#highlight('@Punctuation', '', '', 'bold')
 " call one#highlight('Directory', '', '', 'bold')
 " call one#highlight('Label', '', '', 'bold,underline')"html and jsx 
@@ -76,7 +86,7 @@ call one#highlight('Search', '', '', 'bolditalic')
 call one#highlight('IncSearch', '', '', 'bolditalic,standout')
 call one#highlight('Statement', '', '', 'bold')
 " call one#highlight('Statement', '', '', 'bold')
-call one#highlight('CursorColumn', '828997', '', 'standout')"current word #4b5263 #5c6370 #828997 #abb2bf  
+call one#highlight('CursorColumn', '828997', '', 'standout')"current word #4b5263 #5c6370  5c6370 #828997 #abb2bf  abb2bf  
 " call one#highlight('CursorLine', '', '', 'standout')
 " call one#highlight('Cursor', '', '', 'standout')
 " call one#highlight('CursorLine', '', '', 'standout')" current line
