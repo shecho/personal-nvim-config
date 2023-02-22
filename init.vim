@@ -58,7 +58,6 @@ source $HOME/.config/nvim/keys/which-key.vim
   source $HOME/.config/nvim/plug-config/tagalong.vim
   source $HOME/.config/nvim/plug-config/markdown-preview.vim
   source $HOME/.config/nvim/plug-config/rainbow.vim
-  " source $HOME/.config/nvim/plug-config/minimap.vim
   " source $HOME/.config/nvim/plug-config/vim-rooter.vim
   " source $HOME/.config/nvim/plug-config/sneak.vim
   " source $HOME/.config/nvim/plug-config/vista.vim

@@ -20,19 +20,19 @@ keymap("n", "<C-i>", "<C-i>", opts)
 
 -- Normal --
 -- Better window navigation
+
 keymap("n", "<m-h>", "<C-w>h", opts)
 keymap("n", "<m-j>", "<C-w>j", opts)
 keymap("n", "<m-k>", "<C-w>k", opts)
 keymap("n", "<m-l>", "<C-w>l", opts)
-
 -- Tabs --
 -- keymap("n", "<m-t>", ":tabnew %<cr>", opts)
 -- keymap("n", "<m-y>", ":tabclose<cr>", opts)
 -- keymap("n", "<m-\\>", ":tabonly<cr>", opts)
 
 -- Resize with arrows
-keymap("n", "<C-Up>", ":resize -2<CR>", opts)
-keymap("n", "<C-Down>", ":resize +2<CR>", opts)
+keymap("n", "<S-Up>", ":resize -2<CR>", opts)
+keymap("n", "<S-Down>", ":resize +2<CR>", opts)
 keymap("n", "<C-Right>", ":vertical resize -2<CR>", opts)
 keymap("n", "<C-Left>", ":vertical resize +2<CR>", opts)
 
@@ -40,8 +40,8 @@ keymap("n", "n", "nzzzv", opts)
 keymap("n", "N", "Nzzzv", opts)
 
 -- Naviagate buffers
--- keymap("n", "<S-l>", ":bnext<CR>", opts)
--- keymap("n", "<S-h>", ":bprevious<CR>", opts)
+keymap("n", "<S-l>", ":bnext<CR>", opts)
+keymap("n", "<S-h>", ":bprevious<CR>", opts)
 
 -- keymap("n", "<RightMouse>", ":Alpha<CR>", opts)
 

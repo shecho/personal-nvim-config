@@ -44,6 +44,7 @@ end
 -- vim.opt.completeopt = "menu,menuone,noselect"
 -- vim.opt.completeopt = "menu,menuone"
 -- vim.opt.completeopt = "menu,preview,menuone,noselect"
+
 vim.opt.completeopt = { "menu", "menuone", "noselect" }
 -- vim.opt.completeopt = "menuone,noselect"
 
@@ -153,13 +154,13 @@ cmp.setup({
 			before = function(entry, vim_item)
 				vim_item.menu = ({
 					luasnip = "",
-					nvim_lsp = "",
+					nvim_lsp = "",
 					nvim_lua = "ﲳ",
 					treesitter = "",
 					buffer = "﬘",
 					path = "ﱮ",
 					zsh = "",
-					vsnip = "",
+					vsnip = "",
 					spell = "暈",
 				})[entry.source.name]
 				return vim_item
@@ -197,6 +198,7 @@ vim.cmd(
 	[[ autocmd FileType lua lua require'cmp'.setup.buffer { sources = { { name = 'buffer' },{ name = 'nvim_lua'},{name = "nvim_lsp"}},} ]]
 )
 local autocmd = vim.api.nvim_create_autocmd
+
 autocmd("FileType", {
 	pattern = "conf",
 	callback = function()
