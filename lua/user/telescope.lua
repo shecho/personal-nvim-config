@@ -74,7 +74,6 @@ telescope.setup({
 
 				["<C-b>"] = actions.results_scrolling_up,
 				["<C-f>"] = actions.results_scrolling_down,
-				["q"] = actions.close,
 
 				["<Down>"] = actions.move_selection_next,
 				["<Up>"] = actions.move_selection_previous,
