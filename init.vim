@@ -20,6 +20,7 @@ require "user.indentline"
 require "user.autopairs"
 require "user.autotag"
 require "user.jabs"
+require "user.barbar"
 
 -- Finders
 require "user.nvim-tree"
@@ -54,7 +55,6 @@ source $HOME/.config/nvim/keys/which-key.vim
   source $HOME/.config/nvim/plug-config/git-messenger.vim
   source $HOME/.config/nvim/plug-config/closetags.vim
   source $HOME/.config/nvim/plug-config/floaterm.vim
-  source $HOME/.config/nvim/plug-config/barbar.vim
   source $HOME/.config/nvim/plug-config/tagalong.vim
   source $HOME/.config/nvim/plug-config/markdown-preview.vim
   source $HOME/.config/nvim/plug-config/rainbow.vim
@@ -80,12 +80,12 @@ require "user.cmp"
 require "user.copilot"
 
 -- Lsp
+require "user.lsp.lspsaga"
+require "user.luasnip"
 require "user.lsp.lspconfig"
 require "user.lsp.mason"
 require "user.lsp.null-ls"
-require "user.lsp.lspsaga"
 require "user.lsp.lspkind"
-require "user.luasnip"
 
 EOF
 

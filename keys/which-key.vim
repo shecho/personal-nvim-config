@@ -54,7 +54,7 @@ let g:which_key_map['u'] = [ ':UndotreeToggle'                    , 'undo tree']
 let g:which_key_map['v'] = [ '<C-W>v'                             , 'split right']
 let g:which_key_map['W'] = [ 'w'                                  , 'write' ]
 let g:which_key_map['k'] = [ ':Lspsaga hover_doc'                 , 'Hover' ]
-let g:which_key_map['Z'] = [ ':ZenMode'                           , 'zen' ]
+let g:which_key_map['Z'] = [ ':TZMinimalist'                           , 'zen' ]
 
 
 " Group mappings
@@ -193,18 +193,17 @@ let g:which_key_map.G = {
 " l is for lsp
 let g:which_key_map.l = {
       \ 'name' : '+lsp' ,
-      \ '.' : [''                          , 'config'],
-      \ 'c' : [':Lspsaga show_buf_diagnostics'                , 'refactor'],
+      \ 'c' : [':Lspsaga show_buf_diagnostics'                , 'Diagnostics'],
       \ 'a' : [':Lspsaga code_action'              , 'code action'],
       \ 'd' : [':Telescope lsp_definitions'              , 'definition'],
-      \ 'D' : [':Lspsaga goto_definition'             , 'declaration'],
-      \ 'i' : [':lua vim.lsp.buf.implementations'          , 'implementation'],
-      \ 'j' : [':Lspsaga diagnostics_jump_next'              , 'next diagnostic'],
-      \ 'l' : [':Lspsaga goto_definition'         , 'code lens'],
-      \ 'p' : [':Lspsaga peek_definition'   , 'prev error'],
-      \ 'r' : [':Telescope lsp_references layout_config={height=0.95,width=.95,prompt_position="top"}'                  , 'references'],
-      \ 'R' : [':Lspsaga rename'                                      , 'rename'],
-      \ 's' : [':Lspsaga lsp_finder'                                      , 'rename'],
+      \ 'D' : [':Lspsaga goto_definition'             , 'Go to definition'],
+      \ 'i' : [':lua vim.lsp.buf.implementations'          , 'Implementation'],
+      \ 'j' : [':Lspsaga diagnostics_jump_next'              , 'Next diagnostic'],
+      \ 'l' : [':Lspsaga goto_definition'         , 'Go to definition'],
+      \ 'p' : [':Lspsaga peek_definition'   , 'Prev error'],
+      \ 'r' : [':Telescope lsp_references layout_config={height=0.95,width=.95,prompt_position="top"}'                  , 'References'],
+      \ 'R' : [':Lspsaga rename'                                      , 'Rename'],
+      \ 's' : [':Lspsaga lsp_finder'                                      , 'Rename'],
       \ 'k' : [':Lspsaga hover_doc'     , 'Hover'],
       \ }
 
@@ -217,7 +216,7 @@ let g:which_key_map.t = {
       \ 'n' : [':FloatermNew node'                              , 'node'],
       \ 'r' : [':FloatermNew ranger'                            , 'ranger'],
       \ 't' : [':FloatermToggle'                                , 'toggle'],
-      \ 'y' : [':FloatermNew htop'                              , 'ytop'],
+      \ 'y' : [':FloatermNew htop'                              , 'htop'],
       \ }
 
 " T is for terminal

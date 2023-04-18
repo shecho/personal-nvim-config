@@ -35,5 +35,26 @@ saga.setup({
 			black = "#1c1c19",
 		},
 		-- kind = {},
+		finder = {
+			max_height = 0.6,
+			min_width = 30,
+			force_max_height = false,
+			keys = {
+				jump_to = "p",
+				expand_or_jump = "o",
+				vsplit = "s",
+				split = "i",
+				tabe = "<C-j>",
+				tabnew = "l",
+				quit = { "q", "<ESC>" },
+				close_in_preview = "<ESC>",
+			},
+		},
+		finder_action_keys = {
+			open = "l",
+			vsplit = "v",
+			split = "s",
+			quit = { "q", "<ESC>" },
+		},
 	},
 })

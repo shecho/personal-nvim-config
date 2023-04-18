@@ -1,5 +1,10 @@
 -- Set barbar's options
-require("bufferline").setup({
+local bufferline_status, bufferline = pcall(require, "bufferline")
+if not bufferline_status then
+	return
+end
+
+bufferline.setup({
 	-- Enable/disable animations
 	animation = true,
 
@@ -7,7 +12,7 @@ require("bufferline").setup({
 	auto_hide = false,
 
 	-- Enable/disable current/total tabpages indicator (top right corner)
-	tabpages = true,
+	tabpages = false,
 
 	-- Enable/disable close button
 	closable = true,
@@ -18,40 +23,59 @@ require("bufferline").setup({
 	clickable = true,
 
 	-- Enables / disables diagnostic symbols
-	diagnostics = {
-		-- you can use a list
-		{ enabled = true, icon = "ﬀ" }, -- ERROR
-		{ enabled = false }, -- WARN
-		{ enabled = false }, -- INFO
-		{ enabled = true }, -- HINT
+	icons = {
+		-- Configure the base icons on the bufferline.
+		buffer_index = true,
+		-- buffer_number = true,
+		button = "",
+		-- Enables / disables diagnostic symbols
+		diagnostics = {
+			[vim.diagnostic.severity.ERROR] = { enabled = true, icon = "ﬀ" },
+			[vim.diagnostic.severity.WARN] = { enabled = false },
+			[vim.diagnostic.severity.INFO] = { enabled = false },
+			[vim.diagnostic.severity.HINT] = { enabled = true },
+		},
+		filetype = {
+			-- Sets the icon's highlight group.
+			-- If false, will use nvim-web-devicons colors
+			custom_colors = false,
 
-		-- OR `vim.diagnostic.severity`
-		[vim.diagnostic.severity.ERROR] = { enabled = true, icon = "ﬀ" },
-		[vim.diagnostic.severity.WARN] = { enabled = false },
-		[vim.diagnostic.severity.INFO] = { enabled = false },
-		[vim.diagnostic.severity.HINT] = { enabled = true },
+			-- Requires `nvim-web-devicons` if `true`
+			enabled = true,
+		},
+		separator = { left = "▎", right = "" },
+
+		-- Configure the icons on the bufferline when modified or pinned.
+		-- Supports all the base icon options.
+		modified = { button = "●" },
+		pinned = { button = "車" },
+
+		-- Configure the icons on the bufferline based on the visibility of a buffer.
+		-- Supports all the base icon options, plus `modified` and `pinned`.
+		alternate = { filetype = { enabled = false } },
+		current = { buffer_index = true },
+		inactive = { button = "×" },
+		visible = { modified = { buffer_number = false } },
 	},
-
 	-- Excludes buffers from the tabline
-	exclude_ft = { "javascript" },
+	-- exclude_ft = { "javascript" },
 	exclude_name = { "package.json" },
 
 	-- Hide inactive buffers and file extensions. Other options are `alternate`, `current`, and `visible`.
-	hide = { extensions = true, inactive = true },
+	-- hide = { extensions = true, inactive = true },
 
 	-- Disable highlighting alternate buffers
-	highlight_alternate = false,
+	-- highlight_alternate = true,
 
 	-- Disable highlighting file icons in inactive buffers
-	highlight_inactive_file_icons = false,
+	-- highlight_inactive_file_icons = false,
 
 	-- Enable highlighting visible buffers
-	highlight_visible = true,
+	highlight_visible = false,
 
 	-- Enable/disable icons
 	-- if set to 'numbers', will show buffer index in the tabline
 	-- if set to 'both', will show buffer index and icons in the tabline
-	icons = true,
 
 	-- If set, the icon color will follow its corresponding buffer
 	-- highlight group. By default, the Buffer*Icon group is linked to the
@@ -60,15 +84,15 @@ require("bufferline").setup({
 	icon_custom_colors = false,
 
 	-- Configure icons on the bufferline.
-	icon_separator_active = "▎",
-	icon_separator_inactive = "▎",
-	icon_close_tab = "",
-	icon_close_tab_modified = "●",
-	icon_pinned = "車",
+	-- icon_separator_active = "▎",
+	-- icon_separator_inactive = "▎",
+	-- icon_close_tab = "",
+	-- icon_close_tab_modified = "●",
+	-- icon_pinned = "車",
 
 	-- If true, new buffers will be inserted at the start/end of the list.
 	-- Default is to insert after current buffer.
-	insert_at_end = false,
+	insert_at_end = true,
 	insert_at_start = false,
 
 	-- Sets the maximum padding width with which to surround each tab
@@ -78,7 +102,7 @@ require("bufferline").setup({
 	minimum_padding = 1,
 
 	-- Sets the maximum buffer name length.
-	maximum_length = 30,
+	maximum_length = 50,
 
 	-- If set, the letters for each buffer in buffer-pick mode will be
 	-- assigned based on their name. Otherwise or in case all letters are

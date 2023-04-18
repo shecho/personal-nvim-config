@@ -131,7 +131,7 @@ call plug#begin('~/.config/nvim/autoload/plugged')
 
     " Zen mode
     Plug 'Pocco81/true-zen.nvim'
-    Plug 'folke/zen-mode.nvim'
+    " Plug 'folke/zen-mode.nvim'
 
     " Snippets
     " Plug 'honza/vim-snippets'
