@@ -19,7 +19,6 @@ require "user.treesitter"
 require "user.indentline"
 require "user.autopairs"
 require "user.autotag"
-require "user.jabs"
 require "user.barbar"
 
 -- Finders
@@ -27,7 +26,6 @@ require "user.nvim-tree"
 require "user.telescope"
 require "user.harpoon"
 require "user.project"
-require "user.cybu"
 
 --" require "user.copilot"
 
@@ -53,11 +51,11 @@ source $HOME/.config/nvim/keys/which-key.vim
   source $HOME/.config/nvim/plug-config/start-screen.vim
   source $HOME/.config/nvim/plug-config/gitgutter.vim 
   source $HOME/.config/nvim/plug-config/git-messenger.vim
-  source $HOME/.config/nvim/plug-config/closetags.vim
   source $HOME/.config/nvim/plug-config/floaterm.vim
-  source $HOME/.config/nvim/plug-config/tagalong.vim
-  source $HOME/.config/nvim/plug-config/markdown-preview.vim
   source $HOME/.config/nvim/plug-config/rainbow.vim
+  " source $HOME/.config/nvim/plug-config/tagalong.vim
+  " source $HOME/.config/nvim/plug-config/markdown-preview.vim
+  " source $HOME/.config/nvim/plug-config/closetags.vim
   " source $HOME/.config/nvim/plug-config/vim-rooter.vim
   " source $HOME/.config/nvim/plug-config/sneak.vim
   " source $HOME/.config/nvim/plug-config/vista.vim

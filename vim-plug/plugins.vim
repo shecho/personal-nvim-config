@@ -12,9 +12,7 @@ call plug#begin('~/.config/nvim/autoload/plugged')
   else
     " Loader
     Plug 'lewis6991/impatient.nvim'
-    Plug 'eandrju/cellular-automaton.nvim'
-    Plug 'ghillb/cybu.nvim'
-    Plug 'matbme/JABS.nvim'
+    " Plug 'ghillb/cybu.nvim'
     " Plug 'steelsojka/headwind.nvim'
     " Plug 'jiangmiao/auto-pairs'
     " Plug 'dhruvasagar/vim-prosession'
@@ -22,7 +20,7 @@ call plug#begin('~/.config/nvim/autoload/plugged')
 
     " Closetags
 
-    Plug 'alvan/vim-closetag'
+    " Plug 'alvan/vim-closetag'
     Plug 'windwp/nvim-autopairs'
     Plug 'windwp/nvim-ts-autotag'
     Plug 'folke/trouble.nvim'
@@ -54,7 +52,7 @@ call plug#begin('~/.config/nvim/autoload/plugged')
     " Easymotion
     " Plug 'easymotion/vim-easymotion'
     " Surround
-    Plug 'tpope/vim-surround'
+    " Plug 'tpope/vim-surround'
 
     " Have the file system follow you around
     Plug 'airblade/vim-rooter'
@@ -104,6 +102,7 @@ call plug#begin('~/.config/nvim/autoload/plugged')
     Plug 'nvim-telescope/telescope-ui-select.nvim'
     Plug 'nvim-telescope/telescope-file-browser.nvim'
     Plug 'nvim-telescope/telescope-fzf-native.nvim', { 'do': 'make' }
+    Plug 'danielvolchek/tailiscope.nvim'
 
     " Git
     Plug 'airblade/vim-gitgutter'
@@ -116,7 +115,7 @@ call plug#begin('~/.config/nvim/autoload/plugged')
     " Terminal
     Plug 'voldikss/vim-floaterm'
     "  Plug 'francoiscabrol/ranger.vim'
-    Plug 'kevinhwang91/rnvimr'
+    " Plug 'kevinhwang91/rnvimr'
     Plug 'rbgrouleff/bclose.vim'
 
     " Start Screen
@@ -164,7 +163,7 @@ call plug#begin('~/.config/nvim/autoload/plugged')
 
 
     " Neovim in Browser
-    Plug 'glacambre/firenvim', { 'do': { _ -> firenvim#install(0) } }
+    " Plug 'glacambre/firenvim', { 'do': { _ -> firenvim#install(0) } }
     " Rainbow brackets
     Plug 'luochen1990/rainbow'
     Plug 'axelvc/template-string.nvim'
@@ -196,7 +195,7 @@ call plug#begin('~/.config/nvim/autoload/plugged')
     Plug 'onsails/lspkind.nvim'
     Plug 'neovim/nvim-lspconfig'
     Plug 'kabouzeid/nvim-lspinstall'
-    Plug 'VonHeikemen/lsp-zero.nvim'
+    " Plug 'VonHeikemen/lsp-zero.nvim'
     Plug 'jose-elias-alvarez/typescript.nvim'
 
     " Linting 

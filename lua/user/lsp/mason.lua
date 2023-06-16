@@ -23,15 +23,11 @@ mason_lspconfig.setup({
 	ensure_installed = {
 		"tsserver",
 		"html",
-		-- "cssmodules_ls",
-		-- "cssls",
 		"emmet_ls",
 		"tailwindcss",
-		-- "sumneko_lua",
 		"lua_ls",
 		"emmet_ls",
 		"bashls",
-		-- "vimls",
 	},
 	-- auto-install configured servers (with lspconfig)
 	automatic_installation = true, -- not the same as ensure_installed

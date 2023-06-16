@@ -78,10 +78,10 @@ return packer.startup(function(use)
 	use("j-hui/fidget.nvim")
 	-- use("lvimuser/lsp-inlayhints.nvim")
 	-- use "simrat39/inlay-hints.nvim"
-	use("https://git.sr.ht/~whynothugo/lsp_lines.nvim")
+	-- use("https://git.sr.ht/~whynothugo/lsp_lines.nvim")
 
 	-- Completion
-	use("christianchiarulli/nvim-cmp")
+	-- use("christianchiarulli/nvim-cmp")
 	use("hrsh7th/cmp-buffer") -- buffer completions
 	use("hrsh7th/cmp-path") -- path completions
 	use("hrsh7th/cmp-cmdline") -- cmdline completions
@@ -105,7 +105,7 @@ return packer.startup(function(use)
 	use("nvim-treesitter/nvim-treesitter-textobjects")
 	-- use "wellle/targets.vim"
 	-- use "RRethy/nvim-treesitter-textsubjects"
-	use("kylechui/nvim-surround")
+	-- use("kylechui/nvim-surround")
 	-- use({
 	-- 	"abecodes/tabout.nvim",
 	-- 	wants = { "nvim-treesitter" }, -- or require if not used so far
@@ -113,12 +113,12 @@ return packer.startup(function(use)
 
 	-- Marks
 	use("christianchiarulli/harpoon")
-	use("MattesGroeger/vim-bookmarks")
+	-- use("MattesGroeger/vim-bookmarks")
 
 	-- Fuzzy Finder/Telescope
 	use("nvim-telescope/telescope.nvim")
-	use("nvim-telescope/telescope-media-files.nvim")
-	use("tom-anders/telescope-vim-bookmarks.nvim")
+	-- use("nvim-telescope/telescope-media-files.nvim")
+	-- use("tom-anders/telescope-vim-bookmarks.nvim")
 
 	-- Note Taking
 	use("mickael-menu/zk-nvim")
@@ -162,7 +162,7 @@ return packer.startup(function(use)
 	use("christianchiarulli/lualine.nvim")
 
 	-- Startup
-	use("goolord/alpha-nvim")
+	-- use("goolord/alpha-nvim")
 
 	-- Indent
 	use("lukas-reineke/indent-blankline.nvim")
@@ -228,7 +228,7 @@ return packer.startup(function(use)
 
 	-- Rust
 	-- use({ "christianchiarulli/rust-tools.nvim", branch = "modularize_and_inlay_rewrite" })
-	use("Saecki/crates.nvim")
+	-- use("Saecki/crates.nvim")
 
 	-- Typescript TODO: set this up, also add keybinds to ftplugin
 	use("jose-elias-alvarez/typescript.nvim")
