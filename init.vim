@@ -9,8 +9,9 @@ source $HOME/.config/nvim/themes/onedark.vim
   " source $HOME/.config/nvim/themes/nvcode.vim
   " luafile $HOME/.config/nvim/themes/oneDark.lua
 
+" require "user.impatient"
+
 lua << EOF
-require "user.impatient"
 require "user.illuminate"
 require "user.keymaps"
 require "user.true-zen"

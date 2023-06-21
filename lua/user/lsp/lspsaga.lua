@@ -16,8 +16,8 @@ saga.setup({
 		preview = " ",
 		code_action = "💡",
 		diagnostic = "🐞",
-		incoming = " ",
-		outgoing = " ",
+		-- incoming = " ",
+		-- outgoing = " ",
 		colors = {
 			--float window normal bakcground color
 			normal_bg = "#3b4048", --#181a1f #4b5263 #3b4048

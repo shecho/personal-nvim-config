@@ -27,7 +27,7 @@ mason_lspconfig.setup({
 		"tailwindcss",
 		"lua_ls",
 		"emmet_ls",
-		"bashls",
+		-- "bashls",
 	},
 	-- auto-install configured servers (with lspconfig)
 	automatic_installation = true, -- not the same as ensure_installed
@@ -36,10 +36,10 @@ mason_lspconfig.setup({
 mason_null_ls.setup({
 	-- list of formatters & linters for mason to install
 	ensure_installed = {
-		"prettier", -- ts/js formatter
+		-- "prettier", -- ts/js formatter
 		"stylua", -- lua formatter
-		"eslint_d", -- ts/js linter
-		"buffer", -- css/sass/scss/less linter
+		-- "eslint_d", -- ts/js linter
+		-- "buffer", -- css/sass/scss/less linter
 	},
 	-- auto-install configured formatters & linters (with null-ls)
 	automatic_installation = true,
