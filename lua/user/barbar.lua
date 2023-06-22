@@ -27,7 +27,7 @@ bufferline.setup({
 		-- Configure the base icons on the bufferline.
 		buffer_index = true,
 		-- buffer_number = true,
-		button = "",
+		button = "x",
 		-- Enables / disables diagnostic symbols
 		diagnostics = {
 			[vim.diagnostic.severity.ERROR] = { enabled = true, icon = "ﬀ" },

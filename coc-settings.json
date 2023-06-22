@@ -10,7 +10,6 @@
   "suggest.virtualText": true,
   "suggest.detailField": "abbr",
   "suggest.defaultSortMethod": "none",
-  "suggest.acceptSuggestionOnCommitCharacter": true,
   "suggest.floatConfig": {
     "rounded": true,
     "border": true
@@ -31,7 +30,9 @@
   "tailwindCSS.headwind.removeDuplicates": true,
   "tailwindCSS.headwind.runOnSave": false,
   "coc.source.emoji.enable": true,
-  "coc.source.emoji.filetypes": ["markdown"],
+  "coc.source.emoji.filetypes": [
+    "markdown"
+  ],
   "coc.preferences.bracketEnterImprove": true,
   "coc.preferences.formatOnSaveFiletypes": [
     "css",
@@ -48,11 +49,20 @@
   ],
   "snippets.autoTrigger": true,
   "snippets.shortcut": " S",
-  "snippets.ultisnips.directories": ["UltiSnips", "~/.config/nvim/snips"],
+  "snippets.ultisnips.directories": [
+    "UltiSnips",
+    "~/.config/nvim/snips"
+  ],
   "snippets.extends": {
-    "javascriptreact": ["javascript"],
-    "typescriptreact": ["javascript"],
-    "typescript": ["javascript"]
+    "javascriptreact": [
+      "javascript"
+    ],
+    "typescriptreact": [
+      "javascript"
+    ],
+    "typescript": [
+      "javascript"
+    ]
   },
   "emmet.includeLanguages": {
     "vue-html": "html",
@@ -85,7 +95,12 @@
     "typescriptreact"
   ],
   "eslint.options": {
-    "extensinons": [".ts", ".js", ".tsx", ".jsx"]
+    "extensinons": [
+      ".ts",
+      ".js",
+      ".tsx",
+      ".jsx"
+    ]
   },
   "explorer.keyMappings.global": {
     "mc": "copyFile",

@@ -27,7 +27,7 @@ local function my_on_attach(bufnr)
 	-- custom mappings
 	vim.keymap.set("n", "<C-t>", api.tree.change_root_to_parent, opts("Up"))
 	vim.keymap.set("n", "?", api.tree.toggle_help, opts("Help"))
-	vim.keymap.set("n", "l", api.tree.open.edit, opts("Open"))
+	-- vim.keymap.set("n", "l", api.tree.open.edit, opts("Open"))
 end
 ---@diagnostic disable-next-line: unused-local
 -- local function notify_level(level)
