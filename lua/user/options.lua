@@ -58,6 +58,8 @@ vim.opt.fillchars:append({
 	stl = " ",
 })
 vim.opt.shortmess:append("c")
+vim.opt.clipboard = "unnamedplus"
+
 for k, v in pairs(options) do
 	vim.opt[k] = v
 end
