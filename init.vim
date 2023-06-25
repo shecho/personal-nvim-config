@@ -1,6 +1,7 @@
 "Vim Commentary General Settings
+
 source $HOME/.config/nvim/vim-plug/plugins.vim
-source $HOME/.config/nvim/general/settings.vim
+" source $HOME/.config/nvim/general/settings.vim
 source $HOME/.config/nvim/general/functions.vim
 source $HOME/.config/nvim/themes/airline.vim
   " Themes
@@ -10,10 +11,11 @@ source $HOME/.config/nvim/themes/onedark.vim
   " luafile $HOME/.config/nvim/themes/oneDark.lua
 
 " require "user.impatient"
-
 lua << EOF
-require "user.illuminate"
+--require "user.settings"
+--require "user.options" -- Some options missing from settings.vim file
 require "user.keymaps"
+require "user.illuminate"
 require "user.true-zen"
 require "user.plug-colorizer"
 require "user.treesitter"
@@ -31,7 +33,7 @@ require "user.project"
 
 EOF
 
-source $HOME/.config/nvim/keys/mappings.vim
+" source $HOME/.config/nvim/keys/mappings.vim
 source $HOME/.config/nvim/keys/which-key.vim
 
  " VS Code extension
@@ -59,7 +61,7 @@ require "user.lsp.lspconfig"
 require "user.lsp.mason"
 require "user.lsp.null-ls"
 require "user.lsp.lspkind"
-vim.opt.guifont = "Nerd Font Mono Hack nerd font"
+vim.opt.guifont = "Hack nerd font"
 
 EOF
 
