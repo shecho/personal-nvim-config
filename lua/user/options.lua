@@ -1,5 +1,6 @@
 local options = {
 	backup = false, -- creates a backup file
+	nu = true,
 	clipboard = "unnamedplus", -- allows neovim to access the system clipboard
 	completeopt = { "menuone", "noselect" }, -- mostly just for cmp
 	conceallevel = 0, -- so that `` is visible in markdown files
@@ -16,9 +17,7 @@ local options = {
 	splitright = true, -- force all vertical splits to go to the right of current window
 	swapfile = false, -- creates a swapfile
 	termguicolors = true, -- set term gui colors (most terminals support this)
-	undofile = true, -- enable persistent undo
-	writebackup = false, -- if a
-	expandtab = true, -- convert tabs to spaces
+	undofile = true, -- enable persistent undo writebackup = false, -- if a expandtab = true, -- convert tabs to spaces
 	shiftwidth = 2, -- the number of spaces inserted for each indentation
 	tabstop = 4, -- insert 2 spaces for a tab
 	softtabstop = 4,
@@ -27,7 +26,7 @@ local options = {
 	laststatus = 2,
 	showcmd = false,
 	ruler = false,
-	relativenumber = false, -- set relative numbered lines
+	relativenumber = true, -- set relative numbered lines
 	numberwidth = 4, -- set number column width to 2 {default 4}
 	signcolumn = "yes", -- always show the sign column, otherwise it would shift the text each time
 	wrap = false, -- display lines as one long line
@@ -35,7 +34,6 @@ local options = {
 	sidescrolloff = 8,
 	-- guifont = "monospace:h17", -- the font used in graphical neovim applications
 	title = true,
-	nu = true,
 	cmdheight = 2,
 	-- t_Co = 256,
 	smarttab = true,
@@ -65,7 +63,7 @@ for k, v in pairs(options) do
 end
 vim.cmd("set whichwrap+=<,>,[,],h,l")
 vim.cmd([[set formatoptions-=cro]]) -- TODO: this doesn't seem to work
-vim.cmd([[syntax enable ]]) -- TODO: this doesn't seem to work
+vim.cmd([[ syntax enable ]]) -- TODO: this doesn't seem to work
 
 vim.filetype.add({
 	extension = {
