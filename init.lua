@@ -11,20 +11,20 @@ source $HOME/.config/nvim/themes/onedark.vim
 --require "user.options" -- Some options missing from settings.vim file
 --require "user.impatient"
 require("user.keymaps")
-require("user.illuminate")
-require("user.true-zen")
-require("user.plug-colorizer")
-require("user.treesitter")
-require("user.indentline")
-require("user.autopairs")
-require("user.autotag")
-require("user.barbar")
+require("user.plugins.illuminate")
+require("user.plugins.true-zen")
+require("user.plugins.plug-colorizer")
+require("user.plugins.treesitter")
+require("user.plugins.indentline")
+require("user.plugins.autopairs")
+require("user.plugins.autotag")
+require("user.plugins.barbar")
 
 -- Finders
-require("user.nvim-tree")
-require("user.telescope")
-require("user.harpoon")
-require("user.project")
+require("user.plugins.nvim-tree")
+require("user.plugins.telescope")
+require("user.plugins.harpoon")
+require("user.plugins.project")
 --" require "user.copilot"
 
 vim.cmd([[
@@ -35,22 +35,21 @@ vim.cmd([[
   source $HOME/.config/nvim/plug-config/codi.vim
   source $HOME/.config/nvim/plug-config/start-screen.vim
   source $HOME/.config/nvim/plug-config/gitgutter.vim
-  source $HOME/.config/nvim/plug-config/git-messenger.vim
   source $HOME/.config/nvim/plug-config/floaterm.vim
   source $HOME/.config/nvim/plug-config/rainbow.vim
   source $HOME/.config/nvim/plug-config/quickscope.vim
 
 ]])
 
-require("user.cmp")
-require("user.copilot")
+require("user.plugins.cmp")
+require("user.plugins.copilot")
 -- Lsp
-require("user.lsp.lspsaga")
-require("user.luasnip")
-require("user.lsp.lspconfig")
-require("user.lsp.mason")
-require("user.lsp.null-ls")
-require("user.lsp.lspkind")
+require("user.plugins.lsp.lspsaga")
+require("user.plugins.luasnip")
+require("user.plugins.lsp.lspconfig")
+require("user.plugins.lsp.mason")
+require("user.plugins.lsp.null-ls")
+require("user.plugins.lsp.lspkind")
 -- vim.opt.guifont = { "Hack" }
 vim.cmd([[
 

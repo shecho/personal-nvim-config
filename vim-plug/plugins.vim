@@ -109,7 +109,6 @@ call plug#begin('~/.config/nvim/autoload/plugged')
     Plug 'tpope/vim-fugitive'
     Plug 'tpope/vim-rhubarb'
     Plug 'junegunn/gv.vim'
-    Plug 'rhysd/git-messenger.vim'
     Plug 'f-person/git-blame.nvim'   
 
     " Terminal
