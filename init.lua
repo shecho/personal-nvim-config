@@ -31,7 +31,7 @@ vim.cmd([[
   source $HOME/.config/nvim/keys/which-key.vim
   source $HOME/.config/nvim/plug-config/vim-commentary.vim
   source $HOME/.config/nvim/plug-config/better-whitespace.vim
-  source $HOME/.config/nvim/plug-config/fzf.vim
+  "source $HOME/.config/nvim/plug-config/fzf.vim
   source $HOME/.config/nvim/plug-config/codi.vim
   source $HOME/.config/nvim/plug-config/start-screen.vim
   source $HOME/.config/nvim/plug-config/gitgutter.vim
@@ -51,14 +51,13 @@ require("user.lsp.lspconfig")
 require("user.lsp.mason")
 require("user.lsp.null-ls")
 require("user.lsp.lspkind")
-vim.opt.guifont = "Hack nerd font"
-
+-- vim.opt.guifont = { "Hack" }
 vim.cmd([[
-" Add paths to node and python here
+
 if !empty(glob("~/.config/nvim/paths.vim"))
   source $HOME/.config/nvim/paths.vim
 endif
-" set guifont=JetBrain\ Operator\ Fira\ Code\ Hack\ Nerd\ Font
-syntax enable     
+set guifont=JetBrain\ Operator\ Fira\ Code\ Hack\ Nerd\ Font
+syntax enable
 
 ]])
