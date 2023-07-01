@@ -1,3 +1,10 @@
+if vim.loader then
+	vim.loader.enable()
+	vim.schedule(function()
+		vim.notify("nvim loader is enabled")
+	end)
+end
+
 vim.cmd([[
 source $HOME/.config/nvim/vim-plug/plugins.vim
 source $HOME/.config/nvim/general/settings.vim
@@ -31,7 +38,7 @@ vim.cmd([[
   source $HOME/.config/nvim/keys/which-key.vim
   source $HOME/.config/nvim/plug-config/vim-commentary.vim
   source $HOME/.config/nvim/plug-config/better-whitespace.vim
-  "source $HOME/.config/nvim/plug-config/fzf.vim
+  source $HOME/.config/nvim/plug-config/fzf.vim
   source $HOME/.config/nvim/plug-config/codi.vim
   source $HOME/.config/nvim/plug-config/start-screen.vim
   source $HOME/.config/nvim/plug-config/gitgutter.vim
@@ -60,3 +67,4 @@ set guifont=JetBrain\ Operator\ Fira\ Code\ Hack\ Nerd\ Font
 syntax enable
 
 ]])
+-- vim.g.loaded_python3_provider = 0

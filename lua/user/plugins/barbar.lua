@@ -25,12 +25,12 @@ bufferline.setup({
 	-- Enables / disables diagnostic symbols
 	icons = {
 		-- Configure the base icons on the bufferline.
-		buffer_index = true,
+		buffer_index = false,
 		-- buffer_number = true,
-		button = "x",
+		button = "✖",
 		-- Enables / disables diagnostic symbols
 		diagnostics = {
-			[vim.diagnostic.severity.ERROR] = { enabled = true, icon = "ﬀ" },
+			[vim.diagnostic.severity.ERROR] = { enabled = true, icon = "" },
 			[vim.diagnostic.severity.WARN] = { enabled = false },
 			[vim.diagnostic.severity.INFO] = { enabled = false },
 			[vim.diagnostic.severity.HINT] = { enabled = true },
@@ -48,8 +48,7 @@ bufferline.setup({
 		-- Configure the icons on the bufferline when modified or pinned.
 		-- Supports all the base icon options.
 		modified = { button = "●" },
-		pinned = { button = "車" },
-
+		pinned = { button = "📌" },
 		-- Configure the icons on the bufferline based on the visibility of a buffer.
 		-- Supports all the base icon options, plus `modified` and `pinned`.
 		alternate = { filetype = { enabled = false } },

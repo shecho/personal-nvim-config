@@ -20,7 +20,7 @@ let g:fzf_buffers_jump = 1
 
 let g:fzf_tags_command = 'ctags -R'
 " Border color
-let g:fzf_layout = {'up':'~95%', 'window': { 'width': 0.9, 'height': 0.9,'yoffset':0,'xoffset': 1, 'highlight': 'Todo', 'border': 'none' } }
+" let g:fzf_layout = {'up':'~95%', 'window': { 'width': 0.9, 'height': 0.9,'yoffset':0,'xoffset': 1, 'highlight': 'Todo', 'border': 'none' } }
 
 let $FZF_DEFAULT_OPTS = '--layout=reverse --inline-info'
 let $FZF_DEFAULT_COMMAND="rg --files --hidden --glob '!.git/**'"

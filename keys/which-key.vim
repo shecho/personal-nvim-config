@@ -15,9 +15,9 @@ nnoremap <leader>? :CocSearch <C-R>=expand("<cword>")<CR><CR>
 let g:which_key_map['?'] = 'search word'
 
 " Not a fan of floating windows for this
-let g:which_key_use_floating_win = 0
-let g:which_key_flatten = 0
-let g:which_key_floating_opts = { 'row': '-1', 'col':'-1', 'width': '4' ,'height':'4' }
+let g:which_key_use_floating_win = 1
+let g:which_key_flatten = 1
+let g:which_key_floating_opts = { 'row': '-1', 'col':'-1', 'width': '1' ,'height':'1' }
 let g:which_key_max_size = 0
 " let g:which_key_floating_relative_win= 1
 
@@ -130,7 +130,6 @@ let g:which_key_map.s = {
       \ 'c' : [':Commits'               , 'commits'],
       \ 'C' : [':BCommits'              , 'buffer commits'],
       \ 'f' : [':Telescope live_grep'   , 'files'],
-      \ 'r' : [':RnvimrToggle'          , 'ranger'],
       \ 'g' : [':Telescope git_branches', 'git branches'],
       \ 'G' : [':GFiles:'               , 'modified git files'],
       \ 'h' : [':History'               , 'file history'],
@@ -140,7 +139,7 @@ let g:which_key_map.s = {
       \ 'o' : [':Telescope oldfiles layout_strategy=vertical'    , 'recent files'] ,
       \ 'p' : [':Telescope projects theme=dropdown no_ignore=true  winblend=40 layout_config={prompt_position="top"}'    , 'Projects'] ,
       \ 's' : [':Telescope find_files hidden=true no_ignore=true winblend=20 layout_config={height=0.95,width=.90,prompt_position="top"}'      , 'snippets'],
-      \ 't' : [':Files'                 , 'text Rg'],
+      \ 't' : [':Files'                 , 'Files'],
       \ 'T' : [':BTags'                 , 'buffer tags'],
       \ 'w' : [':Windows'               , 'search windows'],
       \ 'y' : [':Filetypes'             , 'file types'],
