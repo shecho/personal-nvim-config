@@ -31,8 +31,8 @@ set nobackup                            " This is recommended by coc
 set nowritebackup                       " This is recommended by coc
 set shortmess+=c                        " Don't pass messages to |ins-completion-menu|.
 set signcolumn=yes                      " Always show the signcolumn, otherwise it would shift the text each time
-set updatetime=300                      " Faster completion
-set timeoutlen=1000                      " By default timeoutlen is 1000 ms
+set updatetime=200                      " Faster completion
+set timeoutlen=100                      " By default timeoutlen is 1000 ms
 set clipboard=unnamedplus               " Copy paste between vim and everything else
 set smartcase
 set incsearch
@@ -44,6 +44,8 @@ set guifont=Operator\ JetBrains\ Fira\ Code\ Nerd\ Font
 " set foldcolumn=2                        " Folding abilities
 
 " au! BufWritePost $MYVIMRC source %      " auto source when writing to init.vm alternatively you can run :source $MYVIMRC
+" let g:python3_host_prog = "/usr/bin/python3"
+" let g:loaded_python3_provider = 0
 autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
 
 " You can't stop me

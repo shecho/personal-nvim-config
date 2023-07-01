@@ -21,12 +21,19 @@ end
 -- end
 
 -- import lspkind plugin safely
+
 local lspkind_status, lspkind = pcall(require, "lspkind")
 if not lspkind_status then
 	return
 end
 
--- load vs-code like snippets from plugins (e.g. friendly-snippets)
+vim.api.nvim_set_hl(0, "CmpItemKind", { fg = "#61afef" })
+vim.api.nvim_set_hl(0, "CmpItemKindColor", { fg = "#528bff" })
+vim.api.nvim_set_hl(0, "CmpItemKindFunction", { fg = "#c678dd" })
+vim.api.nvim_set_hl(0, "CmpItemKindConstant", { fg = "#98c379" })
+vim.api.nvim_set_hl(0, "CmpItemKindSnippet", { fg = "#d19a66" })
+vim.api.nvim_set_hl(0, "CmpItemKindVariable", { fg = "#526fff" })
+
 local loader = require("luasnip/loaders/from_vscode")
 loader.lazy_load()
 
@@ -37,6 +44,7 @@ end
 -- vim.opt.completeopt = "menu,menuone,noselect"
 -- vim.opt.completeopt = "menu,menuone"
 -- vim.opt.completeopt = "menu,preview,menuone,noselect"
+
 vim.opt.completeopt = { "menu", "menuone", "noselect" }
 -- vim.opt.completeopt = "menuone,noselect"
 
@@ -52,6 +60,10 @@ cmp.setup({
 		end,
 	},
 	mapping = cmp.mapping.preset.insert({
+		["<Enter>"] = cmp.mapping.confirm({
+			behavior = cmp.ConfirmBehavior.Replace,
+			select = false,
+		}),
 		["<CR>"] = cmp.mapping.confirm({
 			behavior = cmp.ConfirmBehavior.Replace,
 			select = false,
@@ -66,6 +78,7 @@ cmp.setup({
 			behavior = cmp.ConfirmBehavior.Replace,
 			select = true,
 		}),
+		["<C-l>"] = nil,
 		["<C-b>"] = cmp.mapping.scroll_docs(-4),
 		["<C-f>"] = cmp.mapping.scroll_docs(4),
 		["<C-Space>"] = cmp.mapping(cmp.mapping.complete(), { "i", "c", "n" }),
@@ -115,7 +128,7 @@ cmp.setup({
 		{ name = "vsnip" }, -- For vsnip users.
 		{ name = "nvim_lsp" },
 		{ name = "path" },
-		{ name = "copilot", group_index = 2 },
+		-- { name = "copilot", group_index = 2 },
 		{
 			name = "buffer",
 			option = {
@@ -125,7 +138,11 @@ cmp.setup({
 			},
 		},
 		{ name = "spell" },
+		-- { name = "emoji" },
+		-- { name = "look" },
 		-- { name = "gh_issues" },
+		-- { name = "treesitter" },
+		-- { name = "rg", keyword_length = 3 },
 	}),
 	-- configure lspkind for vs-code like icons
 	formatting = {
@@ -140,14 +157,14 @@ cmp.setup({
 			maxwidth = 60,
 			before = function(entry, vim_item)
 				vim_item.menu = ({
-					nvim_lsp = "",
 					luasnip = "",
+					nvim_lsp = "",
 					nvim_lua = "ﲳ",
 					treesitter = "",
 					buffer = "﬘",
 					path = "ﱮ",
 					zsh = "",
-					vsnip = "",
+					vsnip = "",
 					spell = "暈",
 				})[entry.source.name]
 				return vim_item
@@ -155,7 +172,7 @@ cmp.setup({
 		}),
 	},
 	experimental = {
-		ghost_text = true,
+		ghost_text = false,
 	},
 	window = {
 		documentation = cmp.config.window.bordered(),
@@ -164,13 +181,14 @@ cmp.setup({
 	sorting = {
 		priority_weight = 2,
 		comparators = {
-			require("copilot_cmp.comparators").prioritize,
-			require("copilot_cmp.comparators").score,
+			-- require("copilot_cmp.comparators").prioritize,
+			-- require("copilot_cmp.comparators").score,
 			-- Below is the default comparitor list and order for nvim-cmp
 			cmp.config.compare.offset,
 			-- cmp.config.compare.scopes, --this is commented in nvim-cmp too
 			cmp.config.compare.exact,
 			cmp.config.compare.score,
+			require("cmp-under-comparator").under,
 			cmp.config.compare.recently_used,
 			cmp.config.compare.locality,
 			cmp.config.compare.kind,
@@ -183,6 +201,15 @@ cmp.setup({
 vim.cmd(
 	[[ autocmd FileType lua lua require'cmp'.setup.buffer { sources = { { name = 'buffer' },{ name = 'nvim_lua'},{name = "nvim_lsp"}},} ]]
 )
+local autocmd = vim.api.nvim_create_autocmd
+
+autocmd("FileType", {
+	pattern = "conf",
+	callback = function()
+		require("cmp").setup.buffer({ enabled = false })
+	end,
+})
+
 cmp.setup.cmdline("/", {
 	mapping = cmp.mapping.preset.cmdline(),
 	sources = {
@@ -205,6 +232,6 @@ cmp.event:on("menu_closed", function()
 	vim.b.copilot_suggestion_hidden = false
 end)
 
-vim.cmd([[
-highlight! default link CmpItemKind CmpItemMenuDefault
-]])
+-- vim.cmd([[
+-- highlight! default link CmpItemKind CmpItemMenuDefault
+-- ]])

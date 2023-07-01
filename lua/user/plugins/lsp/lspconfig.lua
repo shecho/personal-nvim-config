@@ -4,7 +4,10 @@
 -- if not lsp_status then
 -- 	return
 -- end
-
+local cmp_status, cmp = pcall(require, "cmp")
+if not cmp_status then
+	return
+end
 -- import lspconfig plugin safely
 local lspconfig_status, lspconfig = pcall(require, "lspconfig")
 if not lspconfig_status then
@@ -24,38 +27,29 @@ if not typescript_setup then
 end
 
 local keymap = vim.keymap -- for conciseness
+-- local protocol = require("vim.lsp.protocol")
+-- local augroup_format = vim.api.nvim_create_augroup("Format", { clear = true })
 
+-- vim.api.nvim_create_autocmd("BufWritePre", {
+-- 	group = vim.api.nvim_create_augroup("LspFormatting", { clear = true }),
+-- 	buffer = bufnr,
+-- 	callback = function()
+-- 		vim.lsp.buf.format()
+-- 	end,
+-- })
 -- enable keybinds only for when lsp server available
 local on_attach = function(client, bufnr)
 	-- keybind options
 	local opts = { noremap = true, silent = true, buffer = bufnr }
 	-- set keybinds
-	-- keymap.set("n", "gf", "<cmd>Lspsaga lsp_finder<CR>", opts) -- show definition, references
-	-- keymap.set("n", "gD", "<Cmd>lua vim.lsp.buf.declaration()<CR>", opts) -- got to declaration
-	-- keymap.set("n", "gd", "<cmd>Lspsaga peek_definition<CR>", opts) -- see definition and make edits in window
 	keymap.set("n", "gi", "<cmd>lua vim.lsp.buf.implementation()<CR>", opts) -- go to implementation
 	keymap.set("n", "<leader>ca", "<cmd>Lspsaga code_action<CR>", opts) -- see available code actions
-	-- keymap.set("n", "<leader>n", "<cmd>Lspsaga rename<CR>", opts) -- smart rename
-	-- keymap.set("n", "<leader>D", "<cmd>Lspsaga show_line_diagnostics<CR>", opts) -- show  diagnostics for line
-	-- keymap.set("n", "<leader>d", "<cmd>Lspsaga show_cursor_diagnostics<CR>", opts) -- show diagnostics for cursor
-	-- keymap.set("n", "[d", "<cmd>Lspsaga diagnostic_jump_prev<CR>", opts) -- jump to previous diagnostic in buffer
-	-- keymap.set("n", "]d", "<cmd>Lspsaga diagnostic_jump_next<CR>", opts) -- jump to next diagnostic in buffer
-	-- keymap.set("n", "K", "<cmd>Lspsaga hover_doc<CR>", opts) -- show documentation for what is under cursor
-	-- keymap.set("n", "<leader>o", "<cmd>LSoutlineToggle<CR>", opts) -- see outline on right hand side
-
 	-- typescript specific keymaps (e.g. rename file and update imports)
 	if client.name == "tsserver" then
 		keymap.set("n", "<leader>rf", ":TypescriptRenameFile<CR>") -- rename file and update imports
 		keymap.set("n", "<leader>oi", ":TypescriptOrganizeImports<CR>") -- organize imports (not in youtube nvim video)
 		keymap.set("n", "<leader>ru", ":TypescriptRemoveUnused<CR>") -- remove unused variables (not in youtube nvim video)
 	end
-	vim.api.nvim_create_autocmd("BufWritePre", {
-		group = vim.api.nvim_create_augroup("LspFormatting", { clear = true }),
-		buffer = bufnr,
-		callback = function()
-			vim.lsp.buf.format()
-		end,
-	})
 end
 
 -- used to enable autocompletion (assign to every lsp server config)
@@ -69,45 +63,73 @@ for type, icon in pairs(signs) do
 	vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = "" })
 end
 
-lspconfig["tsserver"].setup({
-	on_attach = on_attach,
-	filetypes = { "typescript", "typescriptreact", "typescript.tsx" },
-})
 -- configure html server
 lspconfig["html"].setup({
-	capabilities = capabilities,
-	on_attach = on_attach,
+	on_attach = function(_, bufnr)
+		on_attach(_, bufnr)
+	end,
 })
 
 -- configure typescript server with plugin
+-- lspconfig["tsserver"].setup({
+-- 	capabilities = capabilities,
+-- 	on_attach = on_attach,
+-- filetypes = { "typescript", "typescriptreact", "typescript.tsx" },
+
+-- })
+
+lspconfig.flow.setup({
+	on_attach = on_attach,
+	capabilities = capabilities,
+})
+
 typescript.setup({
 	server = {
 		capabilities = capabilities,
 		on_attach = on_attach,
 	},
 })
+lspconfig["tsserver"].setup({
+	capabilities = capabilities,
+	cmd = { "typescript-language-server", "--stdio" },
+	on_attach = function(_, bufnr)
+		on_attach(_, bufnr)
+	end,
+	filetypes = { "javascript", "javascriptreact", "javascript.jsx", "typescript", "typescriptreact", "typescript.tsx" },
+})
 
 -- configure css server
 lspconfig["cssls"].setup({
 	capabilities = capabilities,
-	on_attach = on_attach,
+	on_attach = function(_, bufnr)
+		on_attach(_, bufnr)
+	end,
 })
 
 -- configure tailwindcss server
 lspconfig["tailwindcss"].setup({
 	capabilities = capabilities,
-	on_attach = on_attach,
+	on_attach = function(_, bufnr)
+		on_attach(_, bufnr)
+	end,
+})
+
+lspconfig["vimls"].setup({
+	capabilities = capabilities,
+	on_attach = function(_, bufnr)
+		on_attach(_, bufnr)
+	end,
 })
 
 -- configure emmet language server
 lspconfig["emmet_ls"].setup({
 	capabilities = capabilities,
 	on_attach = on_attach,
-	filetypes = { "html", "typescriptreact", "javascriptreact", "css", "sass", "scss", "less", "svelte" },
+	filetypes = { "html", "typescriptreact", "javascriptreact" },
 })
 
 -- configure lua server (with special settings)
-lspconfig["sumneko_lua"].setup({
+lspconfig["lua_ls"].setup({
 	capabilities = capabilities,
 	on_attach = on_attach,
 	settings = { -- custom settings for lua
@@ -126,8 +148,28 @@ lspconfig["sumneko_lua"].setup({
 		},
 	},
 })
+cmp.setup.cmdline({ "/", "?" }, {
+	mapping = cmp.mapping.preset.cmdline(),
+	sources = {
+		{ name = "buffer" },
+	},
+})
+cmp.setup.cmdline(":", {
+	mapping = cmp.mapping.preset.cmdline(),
+	sources = cmp.config.sources({
+		{ name = "path" },
+	}, {
+		{ name = "cmdline" },
+	}),
+})
+vim.cmd([[
+set completeopt=menuone,noinsert,noselect
+highlight! default link CmpItemKind CmpItemMenuDefault
+]])
+
+vim.diagnostic.config({ virtual_text = true })
 -- some test
--- local lsp_config = {
+-- local lsp_configss = {
 -- 	capabilities = capabilities,
 -- 	on_attach = function(_, bufnr)
 -- 		on_attach(_, bufnr)

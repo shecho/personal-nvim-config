@@ -12,12 +12,15 @@ call plug#begin('~/.config/nvim/autoload/plugged')
   else
     " Loader
     Plug 'lewis6991/impatient.nvim'
-    Plug 'eandrju/cellular-automaton.nvim'
-    "  Plug 'prettier/vim-prettier'
+    " Plug 'ghillb/cybu.nvim'
+    " Plug 'steelsojka/headwind.nvim'
     " Plug 'jiangmiao/auto-pairs'
+    " Plug 'dhruvasagar/vim-prosession'
+
+
     " Closetags
 
-    Plug 'alvan/vim-closetag'
+    " Plug 'alvan/vim-closetag'
     Plug 'windwp/nvim-autopairs'
     Plug 'windwp/nvim-ts-autotag'
     Plug 'folke/trouble.nvim'
@@ -41,7 +44,7 @@ call plug#begin('~/.config/nvim/autoload/plugged')
     Plug 'suy/vim-context-commentstring'
 
     " highlight all matches under cursor
-    " Plug 'RRethy/vim-illuminate'
+    Plug 'RRethy/vim-illuminate'
 
 
     " Projects 
@@ -49,7 +52,7 @@ call plug#begin('~/.config/nvim/autoload/plugged')
     " Easymotion
     " Plug 'easymotion/vim-easymotion'
     " Surround
-    Plug 'tpope/vim-surround'
+    " Plug 'tpope/vim-surround'
 
     " Have the file system follow you around
     Plug 'airblade/vim-rooter'
@@ -58,10 +61,12 @@ call plug#begin('~/.config/nvim/autoload/plugged')
     Plug 'tpope/vim-sleuth'
 
     " Treesitter
-    Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
     Plug 'nvim-treesitter/playground'
+    Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
     Plug 'nvim-treesitter/nvim-treesitter-refactor'
     Plug 'romgrk/nvim-treesitter-context'
+    Plug 'ckolkey/ts-node-action'
+
 
     " Cool Icons
     " Plug 'kyazdani42/nvim-web-devicons'
@@ -95,20 +100,21 @@ call plug#begin('~/.config/nvim/autoload/plugged')
     " Plug 'fannheyward/telescope-coc.nvim'
     Plug 'nvim-lua/popup.nvim'
     Plug 'nvim-telescope/telescope-ui-select.nvim'
+    Plug 'nvim-telescope/telescope-file-browser.nvim'
     Plug 'nvim-telescope/telescope-fzf-native.nvim', { 'do': 'make' }
+    Plug 'danielvolchek/tailiscope.nvim'
 
     " Git
     Plug 'airblade/vim-gitgutter'
     Plug 'tpope/vim-fugitive'
     Plug 'tpope/vim-rhubarb'
     Plug 'junegunn/gv.vim'
-    Plug 'rhysd/git-messenger.vim'
     Plug 'f-person/git-blame.nvim'   
 
     " Terminal
     Plug 'voldikss/vim-floaterm'
     "  Plug 'francoiscabrol/ranger.vim'
-    Plug 'kevinhwang91/rnvimr'
+    " Plug 'kevinhwang91/rnvimr'
     Plug 'rbgrouleff/bclose.vim'
 
     " Start Screen
@@ -123,7 +129,7 @@ call plug#begin('~/.config/nvim/autoload/plugged')
 
     " Zen mode
     Plug 'Pocco81/true-zen.nvim'
-    Plug 'folke/zen-mode.nvim'
+    " Plug 'folke/zen-mode.nvim'
 
     " Snippets
     " Plug 'honza/vim-snippets'
@@ -156,22 +162,20 @@ call plug#begin('~/.config/nvim/autoload/plugged')
 
 
     " Neovim in Browser
-    Plug 'glacambre/firenvim', { 'do': { _ -> firenvim#install(0) } }
+    " Plug 'glacambre/firenvim', { 'do': { _ -> firenvim#install(0) } }
     " Rainbow brackets
     Plug 'luochen1990/rainbow'
+    Plug 'axelvc/template-string.nvim'
 
     " Multiple Cursors
-    Plug 'terryma/vim-multiple-cursors'
-    " Plug 'mg979/vim-visual-multi', {'branch': 'master'}
+    " Plug 'terryma/vim-multiple-cursors'
+    Plug 'mg979/vim-visual-multi', {'branch': 'master'}
 
     " Async Linting Engine
     Plug 'ntpeters/vim-better-whitespace'
 
     " Sneak
     " Plug 'justinmk/vim-sneak'
-
-    " Minimap
-    " Plug 'wfxr/minimap.vim'
 
     Plug 'vim-airline/vim-airline'
     Plug 'vim-airline/vim-airline-themes'
@@ -190,7 +194,7 @@ call plug#begin('~/.config/nvim/autoload/plugged')
     Plug 'onsails/lspkind.nvim'
     Plug 'neovim/nvim-lspconfig'
     Plug 'kabouzeid/nvim-lspinstall'
-    Plug 'VonHeikemen/lsp-zero.nvim'
+    " Plug 'VonHeikemen/lsp-zero.nvim'
     Plug 'jose-elias-alvarez/typescript.nvim'
 
     " Linting 
@@ -198,36 +202,38 @@ call plug#begin('~/.config/nvim/autoload/plugged')
     Plug 'jayp0521/mason-null-ls.nvim'
 
     " completions
-    Plug'hrsh7th/cmp-nvim-lsp'
     Plug'hrsh7th/nvim-cmp'
+    Plug'hrsh7th/cmp-nvim-lsp'
     Plug'hrsh7th/cmp-buffer'
     Plug'hrsh7th/cmp-path'
     Plug 'glepnir/lspsaga.nvim' 
     Plug 'hrsh7th/cmp-nvim-lua'
     Plug 'hrsh7th/cmp-cmdline'
+    Plug 'hrsh7th/cmp-look'
+    " Plug 'hrsh7th/cmp-emoji'
+
+    " testing
+    Plug 'lukas-reineke/cmp-under-comparator'
+    " Plug 'lukas-reineke/cmp-rg'
+    " Plug 'ray-x/cmp-treesitter'
+    "  Plug 'dcampos/cmp-emmet-vim'
     " For vsnip users.
     Plug 'hrsh7th/cmp-vsnip'
     Plug 'hrsh7th/vim-vsnip'
-
 
     " for ultisnips users.
     Plug 'SirVer/ultisnips'
     Plug 'quangnguyen30192/cmp-nvim-ultisnips'
 
-    " For snippy users.
-    Plug 'dcampos/nvim-snippy'
-    Plug 'dcampos/cmp-snippy'
-
     "  Snippets
     Plug 'L3MON4D3/LuaSnip'
     Plug 'rafamadriz/friendly-snippets'
-    Plug 'L3MON4D3/LuaSnip'
     Plug 'saadparwaiz1/cmp_luasnip'
 
 
     Plug 'zbirenbaum/copilot.lua'
-    Plug 'github/copilot.vim'
-    Plug 'zbirenbaum/copilot-cmp'
+    " Plug 'github/copilot.vim'
+    " Plug 'zbirenbaum/copilot-cmp'
 
 
   endif

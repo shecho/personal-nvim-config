@@ -6,6 +6,7 @@ end
 
 local actions = require("telescope.actions")
 local icons = require("user.icons")
+local trouble = require("trouble.providers.telescope")
 
 telescope.setup({
 	defaults = {
@@ -74,7 +75,6 @@ telescope.setup({
 
 				["<C-b>"] = actions.results_scrolling_up,
 				["<C-f>"] = actions.results_scrolling_down,
-				["q"] = actions.close,
 
 				["<Down>"] = actions.move_selection_next,
 				["<Up>"] = actions.move_selection_previous,
@@ -82,9 +82,10 @@ telescope.setup({
 				["<CR>"] = actions.select_default,
 				["<C-s>"] = actions.select_horizontal,
 				["<C-v>"] = actions.select_vertical,
-				["<C-t>"] = actions.select_tab,
+				-- ["<C-t>"] = actions.select_tab,
+				["<c-t>"] = trouble.open_with_trouble,
 
-				["<c-d>"] = require("telescope.actions").delete_buffer,
+				["<c-d>"] = actions.delete_buffer,
 
 				["<Tab>"] = actions.move_selection_next,
 				["<S-Tab>"] = actions.move_selection_previous,
@@ -93,9 +94,12 @@ telescope.setup({
 			},
 
 			n = {
+				["<c-t>"] = trouble.open_with_trouble,
+
 				["<esc>"] = actions.close,
 				["<C-j>"] = actions.select_default,
-				["<C-l>"] = actions.select_default,
+				["<l>"] = actions.select_default,
+				-- ["<C-l>"] = actions.select_default,
 				["<CR>"] = actions.select_default,
 				["<C-x>"] = actions.select_horizontal,
 				["<C-v>"] = actions.select_vertical,
@@ -116,7 +120,7 @@ telescope.setup({
 				["M"] = actions.move_to_middle,
 				["L"] = actions.move_to_bottom,
 				["q"] = actions.close,
-				["dd"] = require("telescope.actions").delete_buffer,
+				["dd"] = actions.delete_buffer,
 				["s"] = actions.select_horizontal,
 				["v"] = actions.select_vertical,
 				["t"] = actions.select_tab,
@@ -159,7 +163,22 @@ telescope.setup({
 			case_mode = "smart_case", -- or "ignore_case" or "respect_case"
 			-- the default case_mode is "smart_case"
 		},
+		file_browser = {
+			theme = "ivy",
+			-- disables netrw and use telescope-file-browser in its place
+			hijack_netrw = true,
+			mappings = {
+				["i"] = {
+					-- your custom insert mode mappings
+				},
+				["n"] = {
+					-- your custom normal mode mappings
+				},
+			},
+		},
 	},
 })
 telescope.load_extension("fzf")
 telescope.load_extension("ui-select")
+telescope.load_extension("file_browser")
+telescope.load_extension("tailiscope")
