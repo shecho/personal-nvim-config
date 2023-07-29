@@ -201,7 +201,7 @@ let g:which_key_map.l = {
       \ 'p' : [':Lspsaga peek_definition'   , 'Prev error'],
       \ 'r' : [':Telescope lsp_references layout_config={height=0.95,width=.95,prompt_position="top"}'                  , 'References'],
       \ 'R' : [':Lspsaga rename'                                      , 'Rename'],
-      \ 's' : [':Lspsaga lsp_finder'                                      , 'Rename'],
+      \ 's' : [':Lspsaga finder'                                      , 'Rename'],
       \ 'k' : [':Lspsaga hover_doc'     , 'Hover'],
       \ }
 

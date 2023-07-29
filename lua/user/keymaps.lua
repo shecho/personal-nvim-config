@@ -194,7 +194,6 @@ vim.cmd([[
 	nnoremap <leader>m :lua require("harpoon.ui").toggle_quick_menu()<CR>
 	nnoremap <leader>n1 :lua require("harpoon.ui").nav_file(1)<CR>
 	nnoremap <leader>n2 :lua require("harpoon.ui").nav_file(2)<CR>
-	nnoremap <leader>lA :lua require("harpoon.ui").nav_file(2)<CR>
 
 	nnoremap <leader>lf :lua vim.lsp.buf.format({async = true})<CR>
 	nnoremap <leader>lF :lua vim.lsp.buf.formating()<CR>

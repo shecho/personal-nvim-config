@@ -13,18 +13,20 @@
 
 vim.g.use_nerd_icons = false
 if vim.fn.has("mac") == 1 or vim.g.use_nerd_icons then
-	-- elseif vim.fn.has "mac" == 1 then
+	-- elseif vim.fn.has("mac") == 1 then
 	return {
 		kind = {
 			-- Text = "",
 			Text = " ",
 			Function = "",
+			-- Function = "f",
 			Constructor = "",
-			Method = "",
+			-- Method = "",
+			Method = " ",
 			-- Function = "",
 			-- Constructor = "",
-			-- Field = "",
-			Field = "ﰠ",
+			Field = "",
+			-- Field = "ﰠ",
 			-- Variable = "",
 			Variable = "",
 			Class = "",
@@ -44,8 +46,8 @@ if vim.fn.has("mac") == 1 or vim.g.use_nerd_icons then
 			Reference = "",
 			Folder = "",
 			EnumMember = "",
-			Constant = "",
-			-- Constant = " ",
+			-- Constant = "",
+			Constant = " ",
 			Struct = "",
 			Event = "",
 			Operator = "",

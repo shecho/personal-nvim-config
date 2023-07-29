@@ -1,6 +1,5 @@
 vim.cmd([[
 	set iskeyword+=-      
-	set n
 	set formatoptions-=cro
 	set relativenumber
 	syntax enable     
@@ -16,7 +15,7 @@ vim.cmd([[
 	set splitright                  
 	set t_Co=256                    
 	set conceallevel=0              
-	set tabstop=4 softtabstop=
+	set tabstop=4 softtabstop=2
 	set shiftwidth=2          
 	set smarttab              
 	set expandtab             

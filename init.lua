@@ -14,8 +14,8 @@ source $HOME/.config/nvim/themes/onedark.vim
 
 ]])
 
---require "user.settings"
---require "user.options" -- Some options missing from settings.vim file
+-- require("user.settings")
+-- require("user.options") -- Some options missing from settings.vim file
 --require "user.impatient"
 require("user.keymaps")
 require("user.plugins.illuminate")
@@ -64,6 +64,7 @@ if !empty(glob("~/.config/nvim/paths.vim"))
   source $HOME/.config/nvim/paths.vim
 endif
 set guifont=JetBrain\ Operator\ Fira\ Code\ Hack\ Nerd\ Font
+
 syntax enable
 
 ]])
