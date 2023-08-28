@@ -28,7 +28,6 @@ require("user.plugins.autotag")
 require("user.plugins.barbar")
 
 -- Finders
-require("user.plugins.nvim-tree")
 require("user.plugins.telescope")
 require("user.plugins.harpoon")
 require("user.plugins.project")
@@ -58,6 +57,11 @@ require("user.plugins.lsp.mason")
 require("user.plugins.lsp.null-ls")
 require("user.plugins.lsp.lspkind")
 -- vim.opt.guifont = { "Hack" }
+-- Finders
+-- require("nvim-tree").setup()
+
+require("user.nvim-tree")
+
 vim.cmd([[
 
 if !empty(glob("~/.config/nvim/paths.vim"))
