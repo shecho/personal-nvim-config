@@ -31,6 +31,7 @@ require("user.plugins.barbar")
 require("user.plugins.telescope")
 require("user.plugins.harpoon")
 require("user.plugins.project")
+require("user.nvim-tree")
 --" require "user.copilot"
 
 vim.cmd([[
@@ -57,10 +58,6 @@ require("user.plugins.lsp.mason")
 require("user.plugins.lsp.null-ls")
 require("user.plugins.lsp.lspkind")
 -- vim.opt.guifont = { "Hack" }
--- Finders
--- require("nvim-tree").setup()
-
-require("user.nvim-tree")
 
 vim.cmd([[
 
