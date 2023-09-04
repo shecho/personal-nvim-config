@@ -13,6 +13,7 @@ vim.api.nvim_create_autocmd("User", {
 	end,
 })
 
+
 vim.cmd([[
 "source $HOME/.config/nvim/vim-plug/plugins.vim
 source $HOME/.config/nvim/general/settings.vim
@@ -24,9 +25,9 @@ source $HOME/.config/nvim/general/functions.vim
 
 require("user.settings")
 require("user.options") -- Some options missing from settings.vim file
+require("user.keymaps")
 require("shecho.lazy")
 
--- require("user.keymaps")
 -- require("user.plugins.illuminate")
 -- require("user.plugins.true-zen")
 -- require("user.plugins.plug-colorizer")
