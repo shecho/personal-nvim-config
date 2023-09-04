@@ -16,7 +16,7 @@ hi Comment cterm=italic
 let g:onedark_terminal_italics=1
 let g:onedark_termcolors=256
 let g:one_termcolors=256
-let g:one_allow_italics = 1 
+let g:one_allow_italics = 1
 
 syntax on
 " colorscheme onedark
@@ -51,8 +51,8 @@ call one#highlight('Number', '', '', 'bold')
 call one#highlight('Float', '', '', 'bold')
 call one#highlight('String', '', '', 'bold')"string
 call one#highlight('Repeat', '', '','italic')" #B243E6
-call one#highlight('Type', '', '', 'bold') 
-call one#highlight('@type.definition', '', '', 'bolditalic') 
+call one#highlight('Type', '', '', 'bold')
+call one#highlight('@type.definition', '', '', 'bolditalic')
 call one#highlight('Asynchronous', '', '', 'italic')
 call one#highlight('@operator', 'c678dd', '', '')" *= - + =>'#c678dd c678dd
 call one#highlight('Exception', '', '', 'italic') " try catch
@@ -66,7 +66,7 @@ call one#highlight('DiagnosticSignError', 'e06c75', '', 'bolditalic')
 call one#highlight('DiagnosticUnderlineError', 'e06c75', '', 'bolditalic,underline')
 call one#highlight('Delimiter','', '', 'bold')"brackets
 call one#highlight('MatchParen', '', '', 'underline,bolditalic')
-" call one#highlight('@function', '61afef', '', 'bold')"params abd arguments and variables names #61afef  
+" call one#highlight('@function', '61afef', '', 'bold')"params abd arguments and variables names #61afef
 " call one#highlight('Function', '61afef', '','bold')" #B243E6
 
 
@@ -77,7 +77,7 @@ call one#highlight('MatchParen', '', '', 'underline,bolditalic')
 " call one#highlight('@Punctuation.bracket', '', '', 'bold')
 " call one#highlight('@Punctuation', '', '', 'bold')
 " call one#highlight('Directory', '', '', 'bold')
-" call one#highlight('Label', '', '', 'bold,underline')"html and jsx 
+" call one#highlight('Label', '', '', 'bold,underline')"html and jsx
 " call one#highlight('WildMenu', '', '', 'reverse')
 " call one#highlight('Use', '', '', 'standout')
 " call one#highlight('Utility', '', '', 'standout')
@@ -91,7 +91,7 @@ call one#highlight('Search', '', '', 'bolditalic')
 call one#highlight('IncSearch', '', '', 'bolditalic,standout')
 call one#highlight('Statement', '', '', 'bold')
 " call one#highlight('Statement', '', '', 'bold')
-call one#highlight('CursorColumn', '828997', '', 'standout')"current word #4b5263 #5c6370  5c6370 #828997 #abb2bf  abb2bf  
+call one#highlight('CursorColumn', '828997', '', 'standout')"current word #4b5263 #5c6370  5c6370 #828997 #abb2bf  abb2bf
 " call one#highlight('CursorLine', '', '', 'standout')
 " call one#highlight('Cursor', '', '', 'standout')
 " call one#highlight('CursorLine', '', '', 'standout')" current line
@@ -99,7 +99,7 @@ call one#highlight('CursorColumn', '828997', '', 'standout')"current word #4b526
 " call one#highlight('CursorLineNr', '', '', 'standout')" current line
 " call one#highlight('LineNr', '', '', 'standout')" current line
 " call one#highlight('Define', '', '000000', 'bolditalic')
-" 
+"
 		" bold
 		" underline
 		" undercurl	curly underline
