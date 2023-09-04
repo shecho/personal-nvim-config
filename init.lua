@@ -13,7 +13,6 @@ vim.api.nvim_create_autocmd("User", {
 	end,
 })
 
-
 vim.cmd([[
 "source $HOME/.config/nvim/vim-plug/plugins.vim
 source $HOME/.config/nvim/general/settings.vim
@@ -67,7 +66,6 @@ vim.cmd([[
 -- require("user.plugins.lsp.null-ls")
 -- require("user.plugins.lsp.lspkind")
 -- vim.opt.guifont = { "Hack" }
-
 
 -- vim.cmd([[
 

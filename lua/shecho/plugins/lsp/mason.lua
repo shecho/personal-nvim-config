@@ -30,14 +30,13 @@ return {
       ensure_installed = {
         "tsserver",
         "html",
-        "cssls",
+        -- "cssls",
         "tailwindcss",
         "svelte",
-        "lua_ls",
-        "graphql",
+        -- "graphql",
         "emmet_ls",
-        "prismals",
-        "pyright"
+        "lua_ls",
+        -- "bashls",
       },
       -- auto-install configured servers (with lspconfig)
       automatic_installation = true, -- not the same as ensure_installed
@@ -46,9 +45,9 @@ return {
     mason_null_ls.setup({
       -- list of formatters & linters for mason to install
       ensure_installed = {
-        "prettier", -- ts/js formatter
         "stylua", -- lua formatter
-        "eslint_d", -- ts/js linter
+        -- "prettier", -- ts/js formatter
+        -- "eslint_d", -- ts/js linter
       },
       -- auto-install configured servers (with lspconfig)
       automatic_installation = true,
