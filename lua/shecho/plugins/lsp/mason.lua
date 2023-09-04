@@ -32,7 +32,7 @@ return {
         "html",
         -- "cssls",
         "tailwindcss",
-        "svelte",
+        -- "svelte",
         -- "graphql",
         "emmet_ls",
         "lua_ls",

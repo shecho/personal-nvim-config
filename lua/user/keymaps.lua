@@ -71,6 +71,7 @@ keymap("x", "<A-k>", ":move '<-2<CR>gv-gv", opts)
 
 -- Custom
 keymap("n", "Q", "<cmd>Bdelete!<CR>", opts)
+keymap("n", "d", "<cmd>BufferClose<CR>", opts)
 -- keymap("n", "<F11>", "<cmd>lua vim.lsp.buf.references()<CR>", opts)
 keymap("n", "<C-p>", "<cmd>Telescope projects<cr>", opts)
 keymap("n", "<leader>le", "<cmd> lua vim.lsp.buf.rename()<cr>", opts)

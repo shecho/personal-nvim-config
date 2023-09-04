@@ -23,7 +23,7 @@ source $HOME/.config/nvim/general/functions.vim
 ]])
 
 require("user.settings")
-require("user.options") -- Some options missing from settings.vim file
+-- require("user.options") -- Some options missing from settings.vim file
 require("user.keymaps")
 require("shecho.lazy")
 
@@ -41,7 +41,7 @@ require("shecho.lazy")
 -- require("user.plugins.harpoon")
 -- require("user.plugins.project")
 -- require("user.nvim-tree")
---" require "user.copilot"
+-- " require "user.copilot"
 
 vim.cmd([[
   "source $HOME/.config/nvim/keys/which-key.vim
@@ -67,13 +67,9 @@ vim.cmd([[
 -- require("user.plugins.lsp.lspkind")
 -- vim.opt.guifont = { "Hack" }
 
--- vim.cmd([[
+vim.cmd([[
 
--- if !empty(glob("~/.config/nvim/paths.vim"))
---   source $HOME/.config/nvim/paths.vim
--- endif
--- set guifont=JetBrain\ Operator\ Fira\ Code\ Hack\ Nerd\ Font
+set guifont=JetBrain\ Operator\ Fira\ Code\ Hack\ Nerd\ Font
+syntax enable
 
--- syntax enable
-
--- ]])
+]])
