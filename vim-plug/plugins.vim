@@ -11,7 +11,7 @@ call plug#begin('~/.config/nvim/autoload/plugged')
   if exists('g:vscode')
   else
     " Loader
-    Plug 'lewis6991/impatient.nvim'
+    " Plug 'lewis6991/impatient.nvim'
     " Plug 'ghillb/cybu.nvim'
     " Plug 'steelsojka/headwind.nvim'
     " Plug 'jiangmiao/auto-pairs'
@@ -35,7 +35,7 @@ call plug#begin('~/.config/nvim/autoload/plugged')
     Plug 'glts/vim-radical'
 
     " Repeat stuff
-    Plug 'tpope/vim-repeat'
+    "Plug 'tpope/vim-repeat'
 
     " Text Navigation
     Plug 'unblevable/quick-scope'
