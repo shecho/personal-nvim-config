@@ -11,7 +11,7 @@ call plug#begin('~/.config/nvim/autoload/plugged')
   if exists('g:vscode')
   else
     " Loader
-    Plug 'lewis6991/impatient.nvim'
+    " Plug 'lewis6991/impatient.nvim'
     " Plug 'ghillb/cybu.nvim'
     " Plug 'steelsojka/headwind.nvim'
     " Plug 'jiangmiao/auto-pairs'
@@ -35,10 +35,10 @@ call plug#begin('~/.config/nvim/autoload/plugged')
     Plug 'glts/vim-radical'
 
     " Repeat stuff
-    Plug 'tpope/vim-repeat'
+    "Plug 'tpope/vim-repeat'
 
     " Text Navigation
-    Plug 'unblevable/quick-scope'
+    Plug 'unblevable/quick-scope' "pending
 
     " Useful for React Commenting 
     Plug 'suy/vim-context-commentstring'
@@ -96,7 +96,7 @@ call plug#begin('~/.config/nvim/autoload/plugged')
 
     " FZF
     Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
-    Plug 'junegunn/fzf.vim'
+    " Plug 'junegunn/fzf.vim'
 
     " Telescope 
     Plug 'nvim-lua/plenary.nvim'
@@ -187,7 +187,7 @@ call plug#begin('~/.config/nvim/autoload/plugged')
 
 
     " Making stuff
-    Plug 'wbthomason/packer.nvim'
+    "Plug 'wbthomason/packer.nvim'
     Plug 'ThePrimeagen/harpoon'
     Plug 'prabirshrestha/vim-lsp'
 
@@ -197,7 +197,7 @@ call plug#begin('~/.config/nvim/autoload/plugged')
 
     Plug 'onsails/lspkind.nvim'
     Plug 'neovim/nvim-lspconfig'
-    Plug 'kabouzeid/nvim-lspinstall'
+    " Plug 'kabouzeid/nvim-lspinstall'
     " Plug 'VonHeikemen/lsp-zero.nvim'
     Plug 'jose-elias-alvarez/typescript.nvim'
 

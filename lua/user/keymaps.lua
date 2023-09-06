@@ -1,9 +1,9 @@
 ---@diagnostic disable: unused-local, undefined-global
 local M = {}
-local opts = { noremap = true, silent = true }
+local opts = {noremap = true, silent = true}
 local keymap = vim.api.nvim_set_keymap
 
---Remap space as leader key
+-- Remap space as leader key
 keymap("n", "<Space>", "", opts)
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
@@ -71,30 +71,44 @@ keymap("x", "<A-k>", ":move '<-2<CR>gv-gv", opts)
 
 -- Custom
 keymap("n", "Q", "<cmd>Bdelete!<CR>", opts)
+-- keymap("n", "d", "<cmd>BufferClose<CR>", opts)
 -- keymap("n", "<F11>", "<cmd>lua vim.lsp.buf.references()<CR>", opts)
 keymap("n", "<C-p>", "<cmd>Telescope projects<cr>", opts)
 keymap("n", "<leader>le", "<cmd> lua vim.lsp.buf.rename()<cr>", opts)
 keymap("n", "<C-z>", "<cmd>TZMinimalist<cr>", opts)
 -- keymap("n", "=", "<cmd>JABSOpen<cr>", { noremap = true, silent = true, nowait = true })
-keymap("n", "<C-x>", '<cmd>lua require("ts-node-action").node_action()<cr>', opts)
+keymap("n", "<C-x>", '<cmd>lua require("ts-node-action").node_action()<cr>',
+       opts)
+keymap("n", "<leader>u", "UndotreeToggle<cr>", opts)
+
+keymap("n", "<leader>2", "<cmd>FloatermToggle<cr>", opts)
+keymap("t", "<leader>2", "<cmd>FloatermToggle<cr>", opts)
+keymap("v", "<leader>2", "<cmd>FloatermToggle<cr>", opts)
+
+-- keymap("n", "<leader>3", "gcc", opts)
+-- keymap("n", "<leader>/", "gcc", opts)
+keymap("n", "<leader>3", "<cmd>Commentary<cr>", opts)
+
 -- keymap("n", "<C-c>", "<cmd>:noh<cr>", { noremap = true, silent = true, nowait = true })
 
 vim.cmd([[nnoremap c* /\<<C-R>=expand('<cword>')<CR>\>\C<CR>``cgn]])
 
 M.show_documentation = function()
-	local filetype = vim.bo.filetype
-	if vim.tbl_contains({ "vim", "help" }, filetype) then
-		vim.cmd("h " .. vim.fn.expand("<cword>"))
-	elseif vim.tbl_contains({ "man" }, filetype) then
-		vim.cmd("Man " .. vim.fn.expand("<cword>"))
-	elseif vim.fn.expand("%:t") == "Cargo.toml" then
-		require("crates").show_popup()
-	else
-		vim.lsp.buf.hover()
-	end
+    local filetype = vim.bo.filetype
+    if vim.tbl_contains({"vim", "help"}, filetype) then
+        vim.cmd("h " .. vim.fn.expand("<cword>"))
+    elseif vim.tbl_contains({"man"}, filetype) then
+        vim.cmd("Man " .. vim.fn.expand("<cword>"))
+    elseif vim.fn.expand("%:t") == "Cargo.toml" then
+        require("crates").show_popup()
+    else
+        vim.lsp.buf.hover()
+    end
 end
 
-vim.api.nvim_set_keymap("n", "K", ":lua require('user.keymaps').show_documentation()<CR>", opts)
+vim.api.nvim_set_keymap("n", "K",
+                        ":lua require('user.keymaps').show_documentation()<CR>",
+                        opts)
 -- vim.api.nvim_set_keymap("n", "<c-e>", "NvimTreeToggle<cr>", opts)
 
 vim.cmd([[
@@ -116,6 +130,7 @@ vim.cmd([[
 	nnoremap s <Esc>
 	xnoremap s <Esc>
 	vnoremap s <Esc>
+
 	" Easy CAPS
 	inoremap <c-u> <ESC>viwUi
 	nnoremap <c-u> viwU<Esc>
@@ -123,7 +138,7 @@ vim.cmd([[
 	" TAB in general mode will move to text buffer
 	nnoremap <silent> <TAB> :bnext<CR>
 	" SHIFT-TAB will go back
-	" nnoremap <silent> <S-TAB> :bprevious<CR>
+	 nnoremap <silent> <S-TAB> :bprevious<CR>
 
 	" Move selected line / block of text in visual mode
 	" shift + k to move up
@@ -187,20 +202,17 @@ vim.cmd([[
 	nnoremap <leader>1 <c-^>
 
 
-	" TODO: Lo to witch wey " harpoon
-	nnoremap <leader>nr :lua require("harpoon.mark").rm_file()<CR>
-	nnoremap <leader>nc :lua require("harpoon.mark").clear_all()<CR>
-	nnoremap <leader>na :lua require("harpoon.mark").add_file()<CR>
-	nnoremap <leader>m :lua require("harpoon.ui").toggle_quick_menu()<CR>
-	nnoremap <leader>n1 :lua require("harpoon.ui").nav_file(1)<CR>
-	nnoremap <leader>n2 :lua require("harpoon.ui").nav_file(2)<CR>
-
+	
+	nnoremap <leader>0 :e $MYVIMRC <CR>
 	nnoremap <leader>lf :lua vim.lsp.buf.format({async = true})<CR>
 	nnoremap <leader>lF :lua vim.lsp.buf.formating()<CR>
 	nnoremap <leader>le :lua vim.lsp.buf.rename()<CR>
 	nnoremap <leader>lq :lua vim.lsp.buf.code_action()<CR>
 	nnoremap <leader>li :lua vim.lsp.buf.implementation()<CR>
 	nnoremap <leader>aa :lua require("ts-node-action").node_action()<CR>
+    vnoremap <silent> <space>/ :Commentary<CR>
+
+  "" nnoremap <leader>3 :Commentary<CR>
 
   function! QuickFixToggle()
     if empty(filter(getwininfo(), 'v:val.quickfix'))

@@ -108,13 +108,12 @@ nnoremap <leader>1 <c-^>
 
 
 " TODO: Lo to witch wey " harpoon
-nnoremap <leader>nr :lua require("harpoon.mark").rm_file()<CR>
-nnoremap <leader>nc :lua require("harpoon.mark").clear_all()<CR>
-nnoremap <leader>na :lua require("harpoon.mark").add_file()<CR>
-nnoremap <leader>m :lua require("harpoon.ui").toggle_quick_menu()<CR>
-nnoremap <leader>n1 :lua require("harpoon.ui").nav_file(1)<CR>
-nnoremap <leader>n2 :lua require("harpoon.ui").nav_file(2)<CR>
-nnoremap <leader>lA :lua require("harpoon.ui").nav_file(2)<CR>
+" nnoremap <leader>nr :lua require("harpoon.mark").rm_file()<CR>
+" nnoremap <leader>nc :lua require("harpoon.mark").clear_all()<CR>
+" nnoremap <leader>na :lua require("harpoon.mark").add_file()<CR>
+" nnoremap <leader>m :lua require("harpoon.ui").toggle_quick_menu()<CR>
+" nnoremap <leader>n1 :lua require("harpoon.ui").nav_file(1)<CR>
+" nnoremap <leader>n2 :lua require("harpoon.ui").nav_file(2)<CR>
 
 nnoremap <leader>lf :lua vim.lsp.buf.format({async = true})<CR>
 nnoremap <leader>lF :lua vim.lsp.buf.formating()<CR>

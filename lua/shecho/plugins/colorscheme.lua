@@ -1,5 +1,12 @@
-" onedark.vim override: Don't set a background color when running in a terminal;
-if (has("autocmd") && !has("gui_running"))
+return {
+	{
+		"rakr/vim-one",
+		priority = 1000, -- make sure to load this before all the other start plugins
+		lazy = false,
+		config = function()
+			-- load the colorscheme here
+			vim.cmd([[
+        if (has("autocmd") && !has("gui_running"))
     augroup highlightYankedText
 	autocmd!
 	autocmd TextYankPost *  silent! lua require'vim.highlight'.on_yank()
@@ -30,7 +37,7 @@ colorscheme one
 " call one#highlight('@Tag', '528bff', '', 'bold')
 " call one#highlight('Operator', '', '', '')" *= - + =>'#c678dd#
 
-call one#highlight('@Tag.delimiter', 'abb2bf', '', 'bold')
+"call one#highlight('@Tag.delimiter', 'abb2bf', '', 'bold')
 call one#highlight('Special', '', '', 'bold')
 call one#highlight('Constant', '', '', 'bold')
 call one#highlight('@constant.builtin', 'c678dd', '', 'bold')
@@ -92,7 +99,6 @@ call one#highlight('IncSearch', '', '', 'bolditalic,standout')
 call one#highlight('Statement', '', '', 'bold')
 " call one#highlight('Statement', '', '', 'bold')
 call one#highlight('CursorColumn', '828997', '', 'standout')"current word #4b5263 #5c6370  5c6370 #828997 #abb2bf  abb2bf
-
 " call one#highlight('CursorLine', '', '', 'standout')
 " call one#highlight('Cursor', '', '', 'standout')
 " call one#highlight('CursorLine', '', '', 'standout')" current line
@@ -149,3 +155,10 @@ if (has("termguicolors"))
     set termguicolors
     hi LineNr ctermbg=NONE guibg=NONE
 endif
+
+
+
+      ]])
+		end,
+	},
+}

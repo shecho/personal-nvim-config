@@ -107,7 +107,7 @@ cmp.setup({
 			else
 				fallback()
 			end
-		end, { "i", "s" }),
+		end),
 		["<S-Tab>"] = cmp.mapping(function(fallback)
 			if cmp.visible() then
 				cmp.select_prev_item()
@@ -147,11 +147,7 @@ cmp.setup({
 	-- configure lspkind for vs-code like icons
 	formatting = {
 		-- fields = { "abbr", "kind", "menu" },
-		fields = {
-			cmp.ItemField.Abbr,
-			cmp.ItemField.Kind,
-			cmp.ItemField.Menu,
-		},
+		fields = { cmp.ItemField.Abbr, cmp.ItemField.Kind, cmp.ItemField.Menu },
 		format = lspkind.cmp_format({
 			mode = "symbol_text",
 			maxwidth = 60,
@@ -171,9 +167,7 @@ cmp.setup({
 			end,
 		}),
 	},
-	experimental = {
-		ghost_text = false,
-	},
+	experimental = { ghost_text = false },
 	window = {
 		documentation = cmp.config.window.bordered(),
 		completion = cmp.config.window.bordered(),
@@ -212,17 +206,11 @@ autocmd("FileType", {
 
 cmp.setup.cmdline("/", {
 	mapping = cmp.mapping.preset.cmdline(),
-	sources = {
-		{ name = "buffer" },
-	},
+	sources = { { name = "buffer" } },
 })
 cmp.setup.cmdline(":", {
 	mapping = cmp.mapping.preset.cmdline(),
-	sources = cmp.config.sources({
-		{ name = "path" },
-	}, {
-		{ name = "cmdline" },
-	}),
+	sources = cmp.config.sources({ { name = "path" } }, { { name = "cmdline" } }),
 })
 
 cmp.event:on("menu_opened", function()
