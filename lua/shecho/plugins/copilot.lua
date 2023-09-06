@@ -3,8 +3,14 @@ return {
 		"zbirenbaum/copilot.lua",
 		cmd = "Copilot",
 		build = ":Copilot auth",
+		event = "InsertEnter",
 		opts = {
+			cmp = {
+				enabled = true,
+				method = "getCompletionsCycling",
+			},
 			suggestion = {
+				panel = { enabled = false },
 				enabled = true,
 				auto_trigger = true,
 				debounce = 75,

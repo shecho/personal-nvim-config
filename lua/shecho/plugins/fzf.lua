@@ -8,4 +8,9 @@ return {
 			require("fzf-lua").setup({})
 		end,
 	},
+	{
+		"junegunn/fzf",
+		build = "./install --bin",
+		config = function() end,
+	},
 }

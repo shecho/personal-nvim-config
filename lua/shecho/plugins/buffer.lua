@@ -20,4 +20,5 @@ return {
 ,
 	},
 	{ "rbgrouleff/bclose.vim", event = { "BufReadPre", "BufNewFile" }, confing = true },
+	{ "moll/vim-bbye", cmd = { "Bdelete" } },
 }

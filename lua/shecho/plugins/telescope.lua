@@ -34,9 +34,9 @@ return {
 
 		telescope.setup({
 			defaults = {
-				-- path_display = { "truncate " },
+				path_display = { "truncate " },
 				prompt_prefix = icons.ui.Telescope .. " ",
-				path_display = { "smart" },
+				-- path_display = { "smart" },
 				file_ignore_patterns = {
 					".git/",
 					"target/",
