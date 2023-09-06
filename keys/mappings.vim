@@ -70,6 +70,12 @@ nnoremap <nowait><silent> <C-C> :noh<CR>
 " keymap("n", "<C-Left>", ":vertical resize -2<CR>", opts)
 " keymap("n", "<C-Right>", ":vertical resize +2<CR>", opts)
 
+" -- Resize with arrows
+" keymap("n", "<C-Up>", ":resize -2<CR>", opts)
+" keymap("n", "<C-Down>", ":resize +2<CR>", opts)
+" keymap("n", "<C-Left>", ":vertical resize -2<CR>", opts)
+" keymap("n", "<C-Right>", ":vertical resize +2<CR>", opts)
+
 " Better nav for omnicomplete
 " inoremap <expr> <c-j> ("\<C-n>")
 " inoremap <expr> <c-k> ("\<C-p>")
