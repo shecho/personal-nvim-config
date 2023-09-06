@@ -7,7 +7,7 @@ return {
 			vim.cmd([[
 
 vnoremap <silent> <space>/ :call Comment()
-vnoremap <silent> <space>3 :call Comment()
+vnoremap <silent> <space>3 :Commentary
 vnoremap <silent> <leader>/ :Commentary<CR>
 autocmd FileType javascript.jsx setlocal commentstring={/*\ %s\ */}
         ]])

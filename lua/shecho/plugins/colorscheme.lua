@@ -37,7 +37,7 @@ colorscheme one
 " call one#highlight('@Tag', '528bff', '', 'bold')
 " call one#highlight('Operator', '', '', '')" *= - + =>'#c678dd#
 
-call one#highlight('@Tag.delimiter', 'abb2bf', '', 'bold')
+"call one#highlight('@Tag.delimiter', 'abb2bf', '', 'bold')
 call one#highlight('Special', '', '', 'bold')
 call one#highlight('Constant', '', '', 'bold')
 call one#highlight('@constant.builtin', 'c678dd', '', 'bold')

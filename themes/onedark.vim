@@ -92,6 +92,7 @@ call one#highlight('IncSearch', '', '', 'bolditalic,standout')
 call one#highlight('Statement', '', '', 'bold')
 " call one#highlight('Statement', '', '', 'bold')
 call one#highlight('CursorColumn', '828997', '', 'standout')"current word #4b5263 #5c6370  5c6370 #828997 #abb2bf  abb2bf
+
 " call one#highlight('CursorLine', '', '', 'standout')
 " call one#highlight('Cursor', '', '', 'standout')
 " call one#highlight('CursorLine', '', '', 'standout')" current line

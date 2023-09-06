@@ -38,7 +38,7 @@ call plug#begin('~/.config/nvim/autoload/plugged')
     "Plug 'tpope/vim-repeat'
 
     " Text Navigation
-    Plug 'unblevable/quick-scope'
+    Plug 'unblevable/quick-scope' "pending
 
     " Useful for React Commenting 
     Plug 'suy/vim-context-commentstring'

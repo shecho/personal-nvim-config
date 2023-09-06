@@ -3,7 +3,11 @@ return {
 		"nvim-treesitter/nvim-treesitter",
 		event = { "BufReadPre", "BufNewFile" },
 		build = ":TSUpdate",
-		dependencies = { "windwp/nvim-ts-autotag", "axelvc/template-string.nvim" },
+		dependencies = {
+			"windwp/nvim-ts-autotag",
+			"axelvc/template-string.nvim",
+			"nvim-treesitter/nvim-treesitter-refactor",
+		},
 		config = function()
 			local template_string = require("template-string")
 
