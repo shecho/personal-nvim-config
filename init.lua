@@ -14,8 +14,8 @@ source $HOME/.config/nvim/themes/onedark.vim
 
 ]])
 
---require "user.settings"
---require "user.options" -- Some options missing from settings.vim file
+-- require("user.settings")
+-- require("user.options") -- Some options missing from settings.vim file
 --require "user.impatient"
 require("user.keymaps")
 require("user.plugins.illuminate")
@@ -28,10 +28,10 @@ require("user.plugins.autotag")
 require("user.plugins.barbar")
 
 -- Finders
-require("user.plugins.nvim-tree")
 require("user.plugins.telescope")
 require("user.plugins.harpoon")
 require("user.plugins.project")
+require("user.nvim-tree")
 --" require "user.copilot"
 
 vim.cmd([[
@@ -58,12 +58,14 @@ require("user.plugins.lsp.mason")
 require("user.plugins.lsp.null-ls")
 require("user.plugins.lsp.lspkind")
 -- vim.opt.guifont = { "Hack" }
+
 vim.cmd([[
 
 if !empty(glob("~/.config/nvim/paths.vim"))
   source $HOME/.config/nvim/paths.vim
 endif
 set guifont=JetBrain\ Operator\ Fira\ Code\ Hack\ Nerd\ Font
+
 syntax enable
 
 ]])

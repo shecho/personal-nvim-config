@@ -1,6 +1,5 @@
 local options = {
 	backup = false, -- creates a backup file
-	nu = true,
 	clipboard = "unnamedplus", -- allows neovim to access the system clipboard
 	completeopt = { "menuone", "noselect" }, -- mostly just for cmp
 	conceallevel = 0, -- so that `` is visible in markdown files
@@ -53,19 +52,18 @@ local options = {
 -- vim.opt.fillchars.eob = " "
 -- vim.opt.fillchars = vim.opt.fillchars + "vertleft: "
 -- vim.opt.fillchars = vim.opt.fillchars + "vertright: "
-vim.opt.fillchars = vim.opt.fillchars + "eob: "
-vim.opt.fillchars:append({
-	stl = " ",
-})
-vim.opt.shortmess:append("c")
-vim.opt.clipboard = "unnamedplus"
+-- vim.opt.fillchars = vim.opt.fillchars + "eob: "
+-- vim.opt.fillchars:append({
+-- 	stl = " ",
+-- })
+-- vim.opt.shortmess:append("c")
+-- vim.opt.clipboard = "unnamedplus"
 
 for k, v in pairs(options) do
 	vim.opt[k] = v
 end
-vim.cmd("set whichwrap+=<,>,[,],h,l")
-vim.cmd([[set formatoptions-=cro]]) -- TODO: this doesn't seem to work
-vim.cmd([[ syntax enable ]]) -- TODO: this doesn't seem to work
+-- vim.cmd("set whichwrap+=<,>,[,],h,l")
+-- vim.cmd([[set formatoptions-=cro]]) -- TODO: this doesn't seem to work
 
 vim.filetype.add({
 	extension = {

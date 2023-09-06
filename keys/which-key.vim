@@ -199,9 +199,9 @@ let g:which_key_map.l = {
       \ 'j' : [':Lspsaga diagnostics_jump_next'              , 'Next diagnostic'],
       \ 'l' : [':Lspsaga goto_definition'         , 'Go to definition'],
       \ 'p' : [':Lspsaga peek_definition'   , 'Prev error'],
-      \ 'r' : [':Telescope lsp_references layout_config={height=0.95,width=.95,prompt_position="top"}'                  , 'References'],
+      \ 'r' : [':Telescope lsp_references theme=dropdown layout_config={prompt_position="top",width=0.80}'                  , 'References'],
       \ 'R' : [':Lspsaga rename'                                      , 'Rename'],
-      \ 's' : [':Lspsaga lsp_finder'                                      , 'Rename'],
+      \ 's' : [':Lspsaga finder'                                      , 'Rename'],
       \ 'k' : [':Lspsaga hover_doc'     , 'Hover'],
       \ }
 

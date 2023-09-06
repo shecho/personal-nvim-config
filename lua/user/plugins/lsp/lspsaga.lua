@@ -16,6 +16,7 @@ saga.setup({
 		preview = " ",
 		code_action = "💡",
 		diagnostic = "🐞",
+		hover = " ",
 		-- incoming = " ",
 		-- outgoing = " ",
 		colors = {
@@ -41,20 +42,15 @@ saga.setup({
 			force_max_height = false,
 			keys = {
 				jump_to = "p",
-				expand_or_jump = "o",
 				vsplit = "s",
 				split = "i",
-				tabe = "<C-j>",
-				tabnew = "l",
+				-- tabe = "<C-j>",
+				-- expand_or_jump = "<TAB>",
+				-- toggle_or_open = "<CR>",
+				-- tabnew = "<ENTER>",
 				quit = { "q", "<ESC>" },
 				close_in_preview = "<ESC>",
 			},
-		},
-		finder_action_keys = {
-			open = "l",
-			vsplit = "v",
-			split = "s",
-			quit = { "q", "<ESC>" },
 		},
 	},
 })

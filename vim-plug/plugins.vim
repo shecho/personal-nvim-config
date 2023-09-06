@@ -68,11 +68,15 @@ call plug#begin('~/.config/nvim/autoload/plugged')
     Plug 'ckolkey/ts-node-action'
 
 
-    " Cool Icons
+    " navigation
     " Plug 'kyazdani42/nvim-web-devicons'
     Plug 'nvim-tree/nvim-web-devicons'
+    " Plug 'nvim-tree/nvim-tree.lua'
     Plug 'nvim-tree/nvim-tree.lua'
     Plug 'ryanoasis/vim-devicons'
+    " Plug 'luukvbaal/nnn.nvim'
+    " Plug 'echasnovski/mini.nvim'
+    " Plug 'stevearc/oil.nvim'
 
 
     " Themes
