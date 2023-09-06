@@ -107,7 +107,7 @@ local mappings = {
 	v = { "<cmd>vsplit<cr>", "vsplit" },
 	h = { "<cmd>split<cr>", "split" },
 	w = { "<cmd>w<CR>", "Write" },
-	-- r = { "<cmd>nohlsearch<CR>", "No HL" },
+	-- h = { "<cmd>nohlsearch<CR>", "No HL" },
 	q = { '<cmd>lua require("user.functions").smart_quit()<CR>', "Quit" },
 	["/"] = { '<cmd>lua require("Comment.api").toggle.linewise.current()<CR>', "Comment" },
 	["3"] = { '<cmd>lua require("Comment.api").toggle.linewise.current()<CR>', "Comment" },
@@ -152,6 +152,15 @@ local mappings = {
 		d = { "<cmd>BrowseDevdocsSearch<cr>", "Devdocs" },
 		f = { "<cmd>BrowseDevdocsFiletypeSearch<cr>", "Devdocs Filetype" },
 		m = { "<cmd>BrowseMdnSearch<cr>", "Mdn" },
+	},
+
+	p = {
+		name = "Packer",
+		c = { "<cmd>PackerCompile<cr>", "Compile" },
+		i = { "<cmd>PackerInstall<cr>", "Install" },
+		s = { "<cmd>PackerSync<cr>", "Sync" },
+		S = { "<cmd>PackerStatus<cr>", "Status" },
+		u = { "<cmd>PackerUpdate<cr>", "Update" },
 	},
 
 	a = {
@@ -276,7 +285,10 @@ local mappings = {
 		q = { "<cmd>lua vim.lsp.diagnostic.set_loclist()<cr>", "Quickfix" },
 		r = { "<cmd>lua vim.lsp.buf.rename()<cr>", "Rename" },
 		R = { "<cmd>TroubleToggle lsp_references<cr>", "References" },
+		s = { "<cmd>Telescope lsp_document_symbols<cr>", "Document Symbols" },
+		S = { "<cmd>Telescope lsp_dynamic_workspace_symbols<cr>", "Workspace Symbols" },
 		t = { "", "Toggle Diagnostics" },
+		u = { "", "" },
 	},
 
 	-- s = {
