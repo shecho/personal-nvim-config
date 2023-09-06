@@ -1,1 +1,1 @@
-return {'ckolkey/ts-node-action', dependencies = {'nvim-treesitter'}, opts = {}}
+return { "ckolkey/ts-node-action", dependencies = { "nvim-treesitter" }, opts = {} }

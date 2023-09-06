@@ -17,7 +17,11 @@ local sn = luasnip.snippet_node
 
 luasnip.add_snippets("all", {
 	s("ternary", {
-		i(1, "cond"), t(" ? "), i(2, "then"), t(" : "), i(3, "else"),
+		i(1, "cond"),
+		t(" ? "),
+		i(2, "then"),
+		t(" : "),
+		i(3, "else"),
 	}),
 	s("aaa", { t("console.log("), i(1, ""), t(")") }),
 	s("rc", {

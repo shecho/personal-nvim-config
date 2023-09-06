@@ -1,13 +1,13 @@
 return {
-  "nvim-tree/nvim-web-devicons",
-  config = function()
-    require("nvim-web-devicons").set_icon({
-      gql = {
-        icon = "",
-        color = "#e535ab",
-        cterm_color = "199",
-        name = "GraphQL",
-      },
+	"nvim-tree/nvim-web-devicons",
+	config = function()
+		require("nvim-web-devicons").set_icon({
+			gql = {
+				icon = "",
+				color = "#e535ab",
+				cterm_color = "199",
+				name = "GraphQL",
+			},
 			sh = {
 				icon = "",
 				color = "#1DC123",
@@ -68,6 +68,6 @@ return {
 				cterm_color = "59",
 				name = "Diff",
 			},
-    })
-  end,
+		})
+	end,
 }

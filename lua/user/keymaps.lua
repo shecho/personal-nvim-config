@@ -78,6 +78,16 @@ keymap("n", "<leader>le", "<cmd> lua vim.lsp.buf.rename()<cr>", opts)
 keymap("n", "<C-z>", "<cmd>TZMinimalist<cr>", opts)
 -- keymap("n", "=", "<cmd>JABSOpen<cr>", { noremap = true, silent = true, nowait = true })
 keymap("n", "<C-x>", '<cmd>lua require("ts-node-action").node_action()<cr>', opts)
+keymap("n", "<leader>u", "UndotreeToggle<cr>", opts)
+
+keymap("n", "<leader>2", "<cmd>FloatermToggle<cr>", opts)
+keymap("t", "<leader>2", "<cmd>FloatermToggle<cr>", opts)
+keymap("v", "<leader>2", "<cmd>FloatermToggle<cr>", opts)
+
+--keymap("n", "<leader>3", "gcc", opts)
+--keymap("n", "<leader>/", "gcc", opts)
+keymap("n", "<leader>3", "<cmd>Commentary<cr>", opts)
+
 -- keymap("n", "<C-c>", "<cmd>:noh<cr>", { noremap = true, silent = true, nowait = true })
 
 vim.cmd([[nnoremap c* /\<<C-R>=expand('<cword>')<CR>\>\C<CR>``cgn]])
@@ -117,6 +127,7 @@ vim.cmd([[
 	nnoremap s <Esc>
 	xnoremap s <Esc>
 	vnoremap s <Esc>
+
 	" Easy CAPS
 	inoremap <c-u> <ESC>viwUi
 	nnoremap <c-u> viwU<Esc>
@@ -124,7 +135,7 @@ vim.cmd([[
 	" TAB in general mode will move to text buffer
 	nnoremap <silent> <TAB> :bnext<CR>
 	" SHIFT-TAB will go back
-	" nnoremap <silent> <S-TAB> :bprevious<CR>
+	 nnoremap <silent> <S-TAB> :bprevious<CR>
 
 	" Move selected line / block of text in visual mode
 	" shift + k to move up
@@ -196,7 +207,9 @@ vim.cmd([[
 	nnoremap <leader>lq :lua vim.lsp.buf.code_action()<CR>
 	nnoremap <leader>li :lua vim.lsp.buf.implementation()<CR>
 	nnoremap <leader>aa :lua require("ts-node-action").node_action()<CR>
-    nnoremap <leader>3 gcc
+    vnoremap <silent> <space>/ :Commentary<CR>
+
+  "" nnoremap <leader>3 :Commentary<CR>
 
   function! QuickFixToggle()
     if empty(filter(getwininfo(), 'v:val.quickfix'))

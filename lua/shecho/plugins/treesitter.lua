@@ -1,20 +1,33 @@
-
 return {
 	{
 		"nvim-treesitter/nvim-treesitter",
 		event = { "BufReadPre", "BufNewFile" },
 		build = ":TSUpdate",
-		dependencies = {
-			"windwp/nvim-ts-autotag",
-		},
+		dependencies = { "windwp/nvim-ts-autotag", "axelvc/template-string.nvim" },
 		config = function()
+			local template_string = require("template-string")
+
+			template_string.setup({
+				filetypes = {
+					"typescript",
+					"javascript",
+					"typescriptreact",
+					"javascriptreact",
+					"python",
+				}, -- filetypes where the plugin is active
+				jsx_brackets = true, -- must add brackets to jsx attributes
+				remove_template_string = false, -- remove backticks when there are no template string
+				restore_quotes = {
+					-- quotes used when "remove_template_string" option is enabled
+					normal = [[']],
+					jsx = [["]],
+				},
+			})
 			-- import nvim-treesitter plugin
 			local treesitter = require("nvim-treesitter.configs")
 			-- configure treesitter
 			treesitter.setup({ -- enable syntax highlighting
-				highlight = {
-					enable = true,
-				},
+				highlight = { enable = true },
 				-- autotag = { enable = true },
 				autotag = {
 					enable = true,
@@ -45,10 +58,7 @@ return {
 					"gitignore",
 				},
 				-- enable nvim-ts-context-commentstring plugin for commenting tsx and jsx
-				context_commentstring = {
-					enable = true,
-					enable_autocmd = false,
-				},
+				context_commentstring = { enable = true, enable_autocmd = false },
 				-- auto install above language parsers
 				auto_install = true,
 				playground = {
@@ -57,16 +67,9 @@ return {
 					updatetime = 25, -- Debounced time for highlighting nodes in the playground from source code
 					persist_queries = false, -- Whether the query persists across vim sessions
 				},
-				autopairs = {
-					enable = true,
-				},
-				indent = {
-					enable = true,
-					disable = { "python", "css", "rust" },
-				},
-				refactor = {
-					highlight_current_scope = { enable = false },
-				},
+				autopairs = { enable = true },
+				indent = { enable = true, disable = { "python", "css", "rust" } },
+				refactor = { highlight_current_scope = { enable = false } },
 				rainbow = {
 					enable = true,
 					extended_mode = true,
@@ -137,12 +140,8 @@ return {
 					},
 					swap = {
 						enable = true,
-						swap_next = {
-							["<leader>."] = "@parameter.inner",
-						},
-						swap_previous = {
-							["<leader>,"] = "@parameter.inner",
-						},
+						swap_next = { ["<leader>."] = "@parameter.inner" },
+						swap_previous = { ["<leader>,"] = "@parameter.inner" },
 					},
 				},
 			})
