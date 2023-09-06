@@ -1,6 +1,6 @@
 ---@diagnostic disable: unused-local, undefined-global
 local M = {}
-local opts = { noremap = true, silent = true }
+local opts = {noremap = true, silent = true}
 local keymap = vim.api.nvim_set_keymap
 
 -- Remap space as leader key
@@ -77,15 +77,16 @@ keymap("n", "<C-p>", "<cmd>Telescope projects<cr>", opts)
 keymap("n", "<leader>le", "<cmd> lua vim.lsp.buf.rename()<cr>", opts)
 keymap("n", "<C-z>", "<cmd>TZMinimalist<cr>", opts)
 -- keymap("n", "=", "<cmd>JABSOpen<cr>", { noremap = true, silent = true, nowait = true })
-keymap("n", "<C-x>", '<cmd>lua require("ts-node-action").node_action()<cr>', opts)
+keymap("n", "<C-x>", '<cmd>lua require("ts-node-action").node_action()<cr>',
+       opts)
 keymap("n", "<leader>u", "UndotreeToggle<cr>", opts)
 
 keymap("n", "<leader>2", "<cmd>FloatermToggle<cr>", opts)
 keymap("t", "<leader>2", "<cmd>FloatermToggle<cr>", opts)
 keymap("v", "<leader>2", "<cmd>FloatermToggle<cr>", opts)
 
---keymap("n", "<leader>3", "gcc", opts)
---keymap("n", "<leader>/", "gcc", opts)
+-- keymap("n", "<leader>3", "gcc", opts)
+-- keymap("n", "<leader>/", "gcc", opts)
 keymap("n", "<leader>3", "<cmd>Commentary<cr>", opts)
 
 -- keymap("n", "<C-c>", "<cmd>:noh<cr>", { noremap = true, silent = true, nowait = true })
@@ -93,19 +94,21 @@ keymap("n", "<leader>3", "<cmd>Commentary<cr>", opts)
 vim.cmd([[nnoremap c* /\<<C-R>=expand('<cword>')<CR>\>\C<CR>``cgn]])
 
 M.show_documentation = function()
-	local filetype = vim.bo.filetype
-	if vim.tbl_contains({ "vim", "help" }, filetype) then
-		vim.cmd("h " .. vim.fn.expand("<cword>"))
-	elseif vim.tbl_contains({ "man" }, filetype) then
-		vim.cmd("Man " .. vim.fn.expand("<cword>"))
-	elseif vim.fn.expand("%:t") == "Cargo.toml" then
-		require("crates").show_popup()
-	else
-		vim.lsp.buf.hover()
-	end
+    local filetype = vim.bo.filetype
+    if vim.tbl_contains({"vim", "help"}, filetype) then
+        vim.cmd("h " .. vim.fn.expand("<cword>"))
+    elseif vim.tbl_contains({"man"}, filetype) then
+        vim.cmd("Man " .. vim.fn.expand("<cword>"))
+    elseif vim.fn.expand("%:t") == "Cargo.toml" then
+        require("crates").show_popup()
+    else
+        vim.lsp.buf.hover()
+    end
 end
 
-vim.api.nvim_set_keymap("n", "K", ":lua require('user.keymaps').show_documentation()<CR>", opts)
+vim.api.nvim_set_keymap("n", "K",
+                        ":lua require('user.keymaps').show_documentation()<CR>",
+                        opts)
 -- vim.api.nvim_set_keymap("n", "<c-e>", "NvimTreeToggle<cr>", opts)
 
 vim.cmd([[

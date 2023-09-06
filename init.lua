@@ -38,6 +38,7 @@ vim.cmd([[
 vim.cmd([[
 
 set guifont=JetBrain\ Operator\ Fira\ Code\ Hack\ Nerd\ Font
+
 syntax enable
 
 ]])
