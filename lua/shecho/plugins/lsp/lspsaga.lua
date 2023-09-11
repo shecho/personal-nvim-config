@@ -4,6 +4,7 @@ return {
 		"nvim-treesitter/nvim-treesitter", -- optional
 		"nvim-tree/nvim-web-devicons", -- optional
 	},
+	event = "LspAttach",
 	config = function()
 		require("lspsaga").setup({
 			ui = {
@@ -22,7 +23,7 @@ return {
 				-- outgoing = " ",
 				colors = {
 					--float window normal bakcground color
-					normal_bg = "#3b4048", --#181a1f #4b5263 #3b4048
+					-- normal_bg = "#3b4048", --#181a1f #4b5263 #3b4048
 					--title background color
 					title_bg = "#afd700",
 					red = "#e95678",

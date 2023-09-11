@@ -47,6 +47,14 @@ return {
 				end,
 			},
 			mapping = cmp.mapping.preset.insert({
+				["<Tab>"] = vim.schedule_wrap(function(fallback)
+					if cmp.visible() and has_words_before() then
+						cmp.select_next_item({ behavior = cmp.SelectBehavior.Select })
+					else
+						fallback()
+					end
+				end),
+
 				["<Enter>"] = cmp.mapping.confirm({
 					behavior = cmp.ConfirmBehavior.Replace,
 					select = false,
@@ -57,7 +65,11 @@ return {
 				}),
 				-- ["<CR>"] = cmp.mapping.confirm({ select = false }),
 				["<C-k>"] = cmp.mapping.select_prev_item(), -- previous suggestion
-				["<C-j>"] = cmp.mapping.select_next_item(), -- next suggestion
+				-- ["<C-j>"] = cmp.mapping.select_next_item(), -- next suggestion
+				["<C-j>"] = cmp.mapping.confirm({
+					behavior = cmp.ConfirmBehavior.Replace,
+					select = true,
+				}),
 				["<C-b>"] = cmp.mapping.scroll_docs(-4),
 				["<C-f>"] = cmp.mapping.scroll_docs(4),
 				["<C-l>"] = nil,

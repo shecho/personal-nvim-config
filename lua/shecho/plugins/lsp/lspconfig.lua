@@ -30,6 +30,7 @@ return {
 			opts.desc = "Show LSP references"
 			keymap.set("n", "<leader>lr", "<cmd>Telescope lsp_references<CR>", opts) -- show definition, references
 
+			opts.desc = "Show LSP implementation"
 			keymap.set("n", "gi", "<cmd>lua vim.lsp.buf.implementation()<CR>", opts) -- go to implementation
 
 			keymap.set("n", "<leader>ls", "<cmd>Lspsaga finder<CR>", opts) -- see available code actions
@@ -38,7 +39,9 @@ return {
 			keymap.set("n", "<leader>lD", vim.lsp.buf.declaration, opts) -- go to declaration
 
 			opts.desc = "Show LSP definitions"
-			keymap.set("n", "<leader>ld", "<cmd>Telescope lsp_definitions<CR>", opts) -- show lsp definitions
+			keymap.set("n", "<leader>lD", "<cmd>Telescope lsp_definitions<CR>", opts) -- show lsp definitions
+			opts.desc = "Show LSP saga definitions"
+			keymap.set("n", "<leader>ld", "<cmd>Lspsaga goto_definition<CR>", opts) -- show lsp definitions
 
 			opts.desc = "Show LSP implementations"
 			keymap.set("n", "<leader>li", "<cmd>Telescope lsp_implementations<CR>", opts) -- show lsp implementations
@@ -51,8 +54,8 @@ return {
 			-- keymap.set({ "n", "v" }, "<leader>la", vim.lsp.buf.code_action, opts) -- see available code actions, in visual mode will apply to selection
 
 			opts.desc = "Smart rename"
-			-- keymap.set("n", "<leader>lR", vim.lsp.buf.rename, opts) -- smart rename
-			keymap.set({ "n", "v" }, "<leader>lR", "<cmd>Lspsaga rename<CR>", opts) -- see available code actions
+			keymap.set("n", "<leader>lR", vim.lsp.buf.rename, opts) -- smart rename
+			-- keymap.set({ "n", "v" }, "<leader>lR", "<cmd>Lspsaga rename<CR>", opts) -- see available code actions
 
 			opts.desc = "Show buffer diagnostics"
 			keymap.set("n", "<leader>lD", "<cmd>Telescope diagnostics bufnr=0<CR>", opts) -- show  diagnostics for file
@@ -66,8 +69,11 @@ return {
 			opts.desc = "Show documentation for what is under cursor"
 			keymap.set("n", "K", vim.lsp.buf.hover, opts) -- show documentation for what is under cursor
 
-			opts.desc = "Restart LSP"
-			keymap.set("n", "<leader>lr", ":LspRestart<CR>", opts) -- mapping to restart lsp if necessary
+			opts.desc = "Show saga hover"
+			keymap.set("n", "<leader>k", vim.lsp.buf.hover, opts) -- show documentation for what is under cursor
+
+			-- opts.desc = "Restart LSP"
+			-- keymap.set("n", "<leader>lr", ":LspRestart<CR>", opts) -- mapping to restart lsp if necessary
 		end
 
 		-- used to enable autocompletion (assign to every lsp server config)
