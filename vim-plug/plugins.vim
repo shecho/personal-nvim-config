@@ -32,7 +32,6 @@ call plug#begin('~/.config/nvim/autoload/plugged')
     Plug 'tpope/vim-commentary'
 
     " Convert binary, hex, etc..
-    Plug 'glts/vim-radical'
 
     " Repeat stuff
     "Plug 'tpope/vim-repeat'
