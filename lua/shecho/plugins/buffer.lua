@@ -1,6 +1,6 @@
 return {
-	{
-		"echasnovski/mini.bufremove",
+  {
+    "echasnovski/mini.bufremove",
         -- stylua: ignore
         keys = {
             {
@@ -18,7 +18,7 @@ return {
             }
         }
 ,
-	},
-	{ "rbgrouleff/bclose.vim", event = { "BufReadPre", "BufNewFile" }, confing = true },
-	{ "moll/vim-bbye", cmd = { "Bdelete" } },
+  },
+  { "rbgrouleff/bclose.vim", event = { "BufReadPre", "BufNewFile" }, confing = true },
+  { "moll/vim-bbye", cmd = { "Bdelete" } },
 }
