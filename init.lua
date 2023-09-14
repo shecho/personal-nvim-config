@@ -1,16 +1,14 @@
 if vim.loader then
-  vim.loader.enable()
-  vim.schedule(function()
-    vim.notify("nvim loader is enabled")
-  end)
+    vim.loader.enable()
+    vim.schedule(function() vim.notify("nvim loader is enabled") end)
 end
 vim.api.nvim_create_autocmd("User", {
-  pattern = "LazyVimStarted",
-  callback = function()
-    vim.schedule(function()
-      -- require("util.profiler").stop()
-    end)
-  end,
+    pattern = "LazyVimStarted",
+    callback = function()
+        vim.schedule(function()
+            -- require("util.profiler").stop()
+        end)
+    end
 })
 
 vim.cmd([[
@@ -28,14 +26,6 @@ vim.cmd([[
  "" source $HOME/.config/nvim/plug-config/floaterm.vim
 
 ]])
--- require("user.plugins.cmp")
--- require("user.plugins.copilot")
--- Lsp
--- require("user.plugins.luasnip")
--- require("user.plugins.lsp.lspconfig")
--- require("user.plugins.lsp.mason")
--- require("user.plugins.lsp.null-ls")
--- require("user.plugins.lsp.lspkind")
 
 vim.cmd([[
 

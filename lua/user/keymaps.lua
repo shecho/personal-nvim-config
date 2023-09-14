@@ -210,7 +210,7 @@ vim.cmd([[
 	nnoremap <leader>lq :lua vim.lsp.buf.code_action()<CR>
 	nnoremap <leader>li :lua vim.lsp.buf.implementation()<CR>
 	nnoremap <leader>aa :lua require("ts-node-action").node_action()<CR>
-    vnoremap <silent> <space>/ :Commentary<CR>
+  vnoremap <silent> <space>/ :Commentary<CR>
 
   "" nnoremap <leader>3 :Commentary<CR>
 
