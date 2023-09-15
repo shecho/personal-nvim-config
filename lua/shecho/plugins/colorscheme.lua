@@ -1,11 +1,11 @@
 return {
-    {
-        "rakr/vim-one",
-        priority = 1000, -- make sure to load this before all the other start plugins
-        lazy = false,
-        config = function()
-            -- load the colorscheme here
-            vim.cmd([[
+  {
+    "rakr/vim-one",
+    priority = 1000, -- make sure to load this before all the other start plugins
+    lazy = false,
+    config = function()
+      -- load the colorscheme here
+      vim.cmd([[
         if (has("autocmd") && !has("gui_running"))
     augroup highlightYankedText
 	autocmd!
@@ -159,6 +159,6 @@ endif
 
 
       ]])
-        end
-    }
+    end,
+  },
 }
