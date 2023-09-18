@@ -16,7 +16,6 @@ return {
 
     local keymap = vim.keymap -- for conciseness
 
-    -- local opts = { noremap = true, silent = true }
     local on_attach = function(client, bufnr)
       local opts = { noremap = true, silent = true, buffer = bufnr }
       opts.buffer = bufnr
@@ -51,11 +50,11 @@ return {
 
       opts.desc = "See available code actions"
       keymap.set({ "n", "v" }, "<leader>la", "<cmd>Lspsaga code_action<CR>", opts) -- see available code actions
-      -- keymap.set({ "n", "v" }, "<leader>la", vim.lsp.buf.code_action, opts) -- see available code actions, in visual mode will apply to selection
+      keymap.set({ "n", "v" }, "<leader>lq", vim.lsp.buf.code_action, opts) -- see available code actions, in visual mode will apply to selection
 
       opts.desc = "Smart rename"
-      keymap.set("n", "<leader>lR", vim.lsp.buf.rename, opts) -- smart rename
-      -- keymap.set({ "n", "v" }, "<leader>lR", "<cmd>Lspsaga rename<CR>", opts) -- see available code actions
+      keymap.set("n", "<leader>le", vim.lsp.buf.rename, opts) -- smart rename
+      keymap.set("n", "<leader>lR", "<cmd>Lspsaga rename<CR>", opts) -- see available code actions
 
       opts.desc = "Show buffer diagnostics"
       keymap.set("n", "<leader>lD", "<cmd>Telescope diagnostics bufnr=0<CR>", opts) -- show  diagnostics for file
@@ -79,8 +78,6 @@ return {
     -- used to enable autocompletion (assign to every lsp server config)
     local capabilities = cmp_nvim_lsp.default_capabilities()
 
-    -- Change the Diagnostic symbols in the sign column (gutter)
-    -- (not in youtube nvim video)
     local signs = {
       Error = " ",
       Warn = " ",

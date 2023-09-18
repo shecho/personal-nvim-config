@@ -81,7 +81,7 @@ nnoremap <nowait><silent> <C-C> :noh<CR>
 " inoremap <expr> <c-k> ("\<C-p>")
 
 "Some better remaps
-nnoremap Y y$ " 
+nnoremap Y y$ "
 nnoremap N Nzzzv
 nnoremap J mzJ`z
 cnoremap Q q
@@ -102,14 +102,13 @@ xnoremap <leader>7 xi''<Esc>P
 nnoremap <leader>7 ciw''<Esc>P
 
 xnoremap <leader>8 xi""<Esc>P
-nnoremap <leader>8 ciw""<Esc>P 
+nnoremap <leader>8 ciw""<Esc>P
 
 nnoremap <leader>1 <c-^>
 
 
 " TODO: Lo to witch wey " harpoon
 " nnoremap <leader>nr :lua require("harpoon.mark").rm_file()<CR>
-" nnoremap <leader>nc :lua require("harpoon.mark").clear_all()<CR>
 " nnoremap <leader>na :lua require("harpoon.mark").add_file()<CR>
 " nnoremap <leader>m :lua require("harpoon.ui").toggle_quick_menu()<CR>
 " nnoremap <leader>n1 :lua require("harpoon.ui").nav_file(1)<CR>
