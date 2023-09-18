@@ -5,24 +5,10 @@ if vim.loader then
   end)
 end
 
-vim.cmd([[
-source $HOME/.config/nvim/general/settings.vim
-"source $HOME/.config/nvim/general/functions.vim
-]])
-
--- require("user.settings")
--- require("user.options") -- Some options missing from settings.vim file
+vim.cmd([[ source $HOME/.config/nvim/general/settings.vim ]])
 require("user.keymaps")
 require("shecho.lazy")
-
 vim.cmd([[
-  "source $HOME/.config/nvim/keys/which-key.vim
-]])
-
-vim.cmd([[
-
 set guifont=JetBrain\ Operator\ Fira\ Code\ Hack\ Nerd\ Font
-
 syntax enable
-
 ]])

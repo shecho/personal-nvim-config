@@ -34,12 +34,18 @@ km("n", "<m-l>", "<C-w>l", opts)
 -- keymap("n", "<C-Right>", ":vertical resize -2<CR>", opts)
 
 -- Better movement on the code
+-- nnoremap
+-- cnoremap Q q
+--
 km("n", "n", "nzzzv", opts)
 km("n", "N", "Nzzzv", opts)
+km("n", "Y", 'y$ "', opts)
+km("n", "J", "mzJ`z", opts)
+km("c", "Q", "q", { silent = true, nowait = true, desc = "remove Q" })
 
 -- Naviagate buffers
-km("n", "<S-l>", ":bnext<CR>", opts)
-km("n", "<S-h>", ":bprevious<CR>", opts)
+-- km("n", "<S-l>", ":bnext<CR>", opts)
+-- km("n", "<S-h>", ":bprevious<CR>", opts)
 
 -- Move text up and down
 km("n", "<A-J>", "<Esc>:m .+1<CR>==gi", opts)
@@ -110,6 +116,20 @@ km("n", "<leader>0", "<cmd>e $MYVIMRC<cr>", { noremap = true, silent = true, now
 keymap("n", "<leader>v", "<C-W>v", { noremap = true, silent = true, nowait = true, desc = "Vertical Split" })
 keymap("n", "<leader>ah", "<C-W>s", { noremap = true, silent = true, nowait = true, desc = "Hori Split" })
 
+-- sorrund like
+keymap("n", "<leader>4", "ciw{}<Esc>P", { silent = true, nowait = true, desc = "{}" })
+keymap("v", "<leader>4", "xi{}<Esc>P", { silent = true, nowait = true, desc = "{}" })
+keymap("n", "<leader>5", "ciw[]<Esc>P", { noremap = true, silent = true, nowait = true, desc = "()" })
+keymap("v", "<leader>5", "xi[]<Esc>P", { noremap = true, silent = true, nowait = true, desc = "()" })
+-- keymap("n", "<leader>6", "", { noremap = true, silent = true, nowait = true, desc = "()" })
+-- keymap("v", "<leader>6", "", { noremap = true, silent = true, nowait = true, desc = "()" })
+keymap("n", "<leader>7", "ciw''<Esc>P", { noremap = true, silent = true, nowait = true, desc = "()" })
+keymap("v", "<leader>7", "xi''<Esc>P", { noremap = true, silent = true, nowait = true, desc = "()" })
+keymap("n", "<leader>8", 'ciw""<Esc>P', { noremap = true, silent = true, nowait = true, desc = "()" })
+keymap("v", "<leader>8", 'xi""<Esc>P', { noremap = true, silent = true, nowait = true, desc = "()" })
+keymap("n", "<leader>9", "ciw()<Esc>P", { noremap = true, silent = true, nowait = true, desc = "()" })
+keymap("v", "<leader>9", "xi()<Esc>P", { noremap = true, silent = true, nowait = true, desc = "()" })
+
 -- ease caps
 -- " inoremap <c-u> <ESC>viwUi
 
@@ -128,9 +148,6 @@ end
 keymap("n", "K", ":lua require('user.keymaps').show_documentation()<CR>", opts)
 
 vim.cmd([[
-	" Easy CAPS
-	" nnoremap <c-u> viwU<Esc>
-	" vnoremap <c-u> viwU<Esc>
 	" Better window navigation
 	nnoremap <C-h> <C-w>h
 	nnoremap <C-j> <C-w>j
@@ -140,27 +157,6 @@ vim.cmd([[
 	nnoremap <silent> <C-k>    :resize +2<CR>
 	nnoremap <silent> <S-h>    :vertical resize -2<CR>
 	nnoremap <silent> <S-l>    :vertical resize +2<CR>
-
-	"Some better remaps
-	nnoremap Y y$ "
-	nnoremap J mzJ`z
-	cnoremap Q q
-
-    "sorround remaps
-	xnoremap <leader>9 xi()<Esc>P
-	nnoremap <leader>9 ciw()<Esc>P
-
-	xnoremap <leader>4 xi{}<Esc>P
-	nnoremap <leader>4 ciw{}<Esc>P
-
-	xnoremap <leader>5 xi[]<Esc>P
-	nnoremap <leader>5 ciw[]<Esc>P
-
-	xnoremap <leader>7 xi''<Esc>P
-	nnoremap <leader>7 ciw''<Esc>P
-
-	xnoremap <leader>8 xi""<Esc>P
-	nnoremap <leader>8 ciw""<Esc>P
 
     " TODO: move to lsp config"
 	nnoremap <leader>lf :lua vim.lsp.buf.format({async = true})<CR>
