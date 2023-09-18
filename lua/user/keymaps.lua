@@ -1,18 +1,19 @@
 ---@diagnostic disable: unused-local, undefined-global
 local M = {}
 local opts = { noremap = true, silent = true }
-local keymap = vim.api.nvim_set_keymap
+local km = vim.api.nvim_set_keymap
+local keymap = vim.keymap.set
 
 -- Remap space as leader key
-keymap("n", "<Space>", "", opts)
+km("n", "<Space>", "", opts)
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 -- keymap("n", "<C-Space>", "<cmd>WhichKey \\<leader><cr>", opts)
-keymap("n", "<C-i>", "<C-i>", opts)
+km("n", "<C-i>", "<C-i>", opts)
 
 -- Modes
 --   normal_mode = "n",
---   insert_mode = "i",
+-- insert_mode = "i",
 --   visual_mode = "v",
 --   visual_block_mode = "x",
 --   term_mode = "t",
@@ -21,10 +22,10 @@ keymap("n", "<C-i>", "<C-i>", opts)
 -- Normal --
 -- Better window navigation
 
-keymap("n", "<m-h>", "<C-w>h", opts)
-keymap("n", "<m-j>", "<C-w>j", opts)
-keymap("n", "<m-k>", "<C-w>k", opts)
-keymap("n", "<m-l>", "<C-w>l", opts)
+km("n", "<m-h>", "<C-w>h", opts)
+km("n", "<m-j>", "<C-w>j", opts)
+km("n", "<m-k>", "<C-w>k", opts)
+km("n", "<m-l>", "<C-w>l", opts)
 
 -- Resize with arrows
 -- keymap("n", "<S-Up>", ":resize -2<CR>", opts)
@@ -33,85 +34,84 @@ keymap("n", "<m-l>", "<C-w>l", opts)
 -- keymap("n", "<C-Right>", ":vertical resize -2<CR>", opts)
 
 -- Better movement on the code
-keymap("n", "n", "nzzzv", opts)
-keymap("n", "N", "Nzzzv", opts)
+km("n", "n", "nzzzv", opts)
+km("n", "N", "Nzzzv", opts)
 
 -- Naviagate buffers
-keymap("n", "<S-l>", ":bnext<CR>", opts)
-keymap("n", "<S-h>", ":bprevious<CR>", opts)
+km("n", "<S-l>", ":bnext<CR>", opts)
+km("n", "<S-h>", ":bprevious<CR>", opts)
 
 -- Move text up and down
-keymap("n", "<A-J>", "<Esc>:m .+1<CR>==gi", opts)
-keymap("n", "<A-K>", "<Esc>:m .-2<CR>==gi", opts)
+km("n", "<A-J>", "<Esc>:m .+1<CR>==gi", opts)
+km("n", "<A-K>", "<Esc>:m .-2<CR>==gi", opts)
 
 -- Insert --
 -- Press jk fast to enter
-keymap("i", "kj", "<ESC>", opts)
+km("i", "kj", "<ESC>", opts)
 
 -- Visual --
 -- Stay in indent mode
-keymap("v", ">", ">gv", opts)
-keymap("v", "<", "<gv", opts)
+km("v", ">", ">gv", opts)
+km("v", "<", "<gv", opts)
 -- Move text up and down
-keymap("v", "<A-k>", ":m .-2<CR>==", opts)
-keymap("v", "<A-j>", ":m .+1<CR>==", opts)
+km("v", "<A-k>", ":m .-2<CR>==", opts)
+km("v", "<A-j>", ":m .+1<CR>==", opts)
 
 -- Visual Block --
 -- Move text up and down
-keymap("x", "J", ":move '>+1<CR>gv-gv", opts)
-keymap("x", "K", ":move '<-2<CR>gv-gv", opts)
-keymap("x", "<A-j>", ":move '>+1<CR>gv-gv", opts)
-keymap("x", "<A-k>", ":move '<-2<CR>gv-gv", opts)
-
--- Project move to telescope
-keymap("n", "<C-p>", "<cmd>Telescope projects<cr>", opts)
+km("x", "J", ":move '>+1<CR>gv-gv", opts)
+km("x", "K", ":move '<-2<CR>gv-gv", opts)
+km("x", "<A-j>", ":move '>+1<CR>gv-gv", opts)
+km("x", "<A-k>", ":move '<-2<CR>gv-gv", opts)
 
 -- LSP move to lsp config
-keymap("n", "<leader>le", "<cmd> lua vim.lsp.buf.rename()<cr>", opts)
+km("n", "<leader>le", "<cmd> lua vim.lsp.buf.rename()<cr>", opts)
 
 -- keymap("n", "<F11>", "<cmd>lua vim.lsp.buf.references()<CR>", opts)
 -- zen mode
-keymap("n", "<C-z>", "<cmd>TZMinimalist<cr>", opts)
+km("n", "<C-z>", "<cmd>TZMinimalist<cr>", opts)
 -- keymap("n", "=", "<cmd>JABSOpen<cr>", { noremap = true, silent = true, nowait = true })
 
 -- Some actions
-keymap("n", "<C-x>", '<cmd>lua require("ts-node-action").node_action()<cr>', opts)
-keymap("n", "<leader>u", "<cmd>UndotreeToggle<cr>", opts)
+km("n", "<C-x>", '<cmd>lua require("ts-node-action").node_action()<cr>', opts)
+km("n", "<leader>u", "<cmd>UndotreeToggle<cr>", opts)
 
 -- Floaterm
-keymap("n", "<leader>2", "<cmd>FloatermToggle<cr>", opts)
-keymap("t", "<leader>2", "<cmd>FloatermToggle<cr>", opts)
-keymap("v", "<leader>2", "<cmd>FloatermToggle<cr>", opts)
+opts.desc = "Floaterm toogle"
+keymap({ "n", "t", "v" }, "<leader>2", "<cmd>FloatermToggle<cr>", opts)
 
 -- remove S as a command
-keymap("n", "<leader>;", ":", opts)
-keymap("n", "s", "<Esc>", opts)
-keymap("v", "s", "<Esc>", opts)
-keymap("x", "s", "<Esc>", opts)
+km("n", "<leader>;", ":", opts)
+keymap({ "n", "v", "x" }, "s", "<Esc>", opts)
 
 -- TABS and buffer
-keymap("n", "<TAB>", "<cmd>bnext<cr>", opts)
-keymap("n", "<S-TAB>", "<cmd>bprevious<cr>", opts)
-keymap("n", "Q", "<cmd>Bdelete!<CR>", opts)
-keymap("n", "<leader>1", "<c-^>", { noremap = true, silent = true, nowait = true, desc = "Previous file" })
+km("n", "<TAB>", "<cmd>bnext<cr>", opts)
+km("n", "<S-TAB>", "<cmd>bprevious<cr>", opts)
+km("n", "Q", "<cmd>Bdelete!<CR>", opts)
+opts.desc = "Delete buffer"
+km("n", "<leader>q", "<cmd>Bdelete<CR>", opts)
+km("n", "<leader>1", "<c-^>", { noremap = true, silent = true, nowait = true, desc = "Previous file" })
 
 -- esc
-keymap("n", "<C-c>", "<Esc>", { noremap = true, silent = true, nowait = true })
-keymap("n", "<C-c>", "<cmd>:noh<cr>", { noremap = true, silent = true, nowait = true })
+km("n", "<C-c>", "<Esc>", { noremap = true, silent = true, nowait = true })
+km("n", "<C-c>", "<cmd>:noh<cr>", { noremap = true, silent = true, nowait = true })
 
 -- select_all
-keymap("n", "<C-a>", "gg<S-v>Gy", { noremap = true, silent = true, nowait = true, desc = "Select all" })
+km("n", "<C-a>", "gg<S-v>Gy", { noremap = true, silent = true, nowait = true, desc = "Select all" })
 
 -- Alternate way to save
-keymap("n", "<C-s>", "<cmd>w<cr>", { noremap = true, silent = true, nowait = true })
-keymap("n", "<C-q>", "<cmd>:wq!<cr>", { noremap = true, silent = true, nowait = true })
+km("n", "<C-s>", "<cmd>w<cr>", { noremap = true, silent = true, nowait = true })
+km("n", "<C-q>", "<cmd>:wq!<cr>", { noremap = true, silent = true, nowait = true })
 
 -- nnoremap <leader>0 :e $MYVIMRC <CR>
-keymap("n", "<leader>0", "<cmd>e $MYVIMRC<cr>", { noremap = true, silent = true, nowait = true, desc = "MyVimrc" })
+km("n", "<leader>0", "<cmd>e $MYVIMRC<cr>", { noremap = true, silent = true, nowait = true, desc = "MyVimrc" })
 
 -- splits
 keymap("n", "<leader>v", "<C-W>v", { noremap = true, silent = true, nowait = true, desc = "Vertical Split" })
-keymap("n", "<leader>ah", "<C-W>s", { noremap = true, silent = true, nowait = true, desc = "Vertical Split" })
+keymap("n", "<leader>ah", "<C-W>s", { noremap = true, silent = true, nowait = true, desc = "Hori Split" })
+
+-- ease caps
+-- " inoremap <c-u> <ESC>viwUi
 
 M.show_documentation = function()
   local filetype = vim.bo.filetype
@@ -125,16 +125,12 @@ M.show_documentation = function()
     vim.lsp.buf.hover()
   end
 end
-
-vim.api.nvim_set_keymap("n", "K", ":lua require('user.keymaps').show_documentation()<CR>", opts)
--- vim.api.nvim_set_keymap("n", "<c-e>", "NvimTreeToggle<cr>", opts)
+keymap("n", "K", ":lua require('user.keymaps').show_documentation()<CR>", opts)
 
 vim.cmd([[
-
 	" Easy CAPS
-	inoremap <c-u> <ESC>viwUi
-	nnoremap <c-u> viwU<Esc>
-	vnoremap <c-u> viwU<Esc>
+	" nnoremap <c-u> viwU<Esc>
+	" vnoremap <c-u> viwU<Esc>
 	" Better window navigation
 	nnoremap <C-h> <C-w>h
 	nnoremap <C-j> <C-w>j
@@ -150,7 +146,7 @@ vim.cmd([[
 	nnoremap J mzJ`z
 	cnoremap Q q
 
-"sorround remaps
+    "sorround remaps
 	xnoremap <leader>9 xi()<Esc>P
 	nnoremap <leader>9 ciw()<Esc>P
 
@@ -166,15 +162,11 @@ vim.cmd([[
 	xnoremap <leader>8 xi""<Esc>P
 	nnoremap <leader>8 ciw""<Esc>P
 
-	"nnoremap <leader>1 <c-^>
-
-
-" TODO: move to lsp config"
+    " TODO: move to lsp config"
 	nnoremap <leader>lf :lua vim.lsp.buf.format({async = true})<CR>
 	nnoremap <leader>lF :lua vim.lsp.buf.formating()<CR>
 	nnoremap <leader>le :lua vim.lsp.buf.rename()<CR>
 	nnoremap <leader>lq :lua vim.lsp.buf.code_action()<CR>
 	nnoremap <leader>li :lua vim.lsp.buf.implementation()<CR>
-	nnoremap <leader>aa :lua require("ts-node-action").node_action()<CR>
 ]])
 return M
