@@ -2,13 +2,6 @@ return {
   {
     "mhinz/vim-startify",
     priority = 1000, -- make sure to load this before all the other start plugins
-    keys = {
-      {
-        "<leader>ap",
-        "<cmd>Startify<CR>",
-        { desc = "Start Screen" },
-      },
-    },
     config = function()
       -- load the colorscheme here
       vim.cmd([[
