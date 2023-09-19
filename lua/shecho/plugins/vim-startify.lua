@@ -7,12 +7,13 @@ return {
       vim.cmd([[
 
       let g:startify_custom_header = [
-        \ '        _   ___    ________          __   ',
-        \ '       / | / / |  / / ____/___  ____/ /__ ',
-        \ '      /  |/ /| | / / /   / __ \/ __  / _ \',
-        \ '     / /|  / | |/ / /___/ /_/ / /_/ /  __/',
-        \ '    /_/ |_/  |___/\____/\____/\__,_/\___/ ',
-        \]
+      \ '  __     ___               ',
+      \ '  \ \   / (_)_ __ ___      ',
+      \ '   \ \ / /| | ''_ ` _ \    ',
+      \ '    \ V / | | | | | | |    ',
+      \ '     \_/  |_|_| |_| |_|    ',
+      \ '',
+      \ ]
 
       let g:startify_session_dir = '~/.config/nvim/session'
 
@@ -43,6 +44,8 @@ return {
 
       let g:startify_enable_special = 0
       ]])
+      local keymap = vim.keymap -- for conciseness
+      keymap.set("n", "<leader>sp", "<cmd>Startify<cr>", { desc = "Start screen" })
     end,
   },
 }
