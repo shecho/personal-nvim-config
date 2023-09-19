@@ -1,10 +1,10 @@
 return {
-	{
-		"mhinz/vim-startify",
-		priority = 1000, -- make sure to load this before all the other start plugins
-		config = function()
-			-- load the colorscheme here
-			vim.cmd([[
+  {
+    "mhinz/vim-startify",
+    priority = 1000, -- make sure to load this before all the other start plugins
+    config = function()
+      -- load the colorscheme here
+      vim.cmd([[
 
 let g:startify_custom_header = [
   \ '        _   ___    ________          __   ',
@@ -13,7 +13,7 @@ let g:startify_custom_header = [
   \ '     / /|  / | |/ / /___/ /_/ / /_/ /  __/',
   \ '    /_/ |_/  |___/\____/\____/\__,_/\___/ ',
   \]
-                                
+
 let g:startify_session_dir = '~/.config/nvim/session'
 
 
@@ -44,6 +44,6 @@ let g:startify_bookmarks = [
 
 let g:startify_enable_special = 0
       ]])
-		end,
-	},
+    end,
+  },
 }

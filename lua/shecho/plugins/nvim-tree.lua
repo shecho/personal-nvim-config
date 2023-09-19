@@ -36,7 +36,7 @@ return {
       hijack_directories = { enable = true },
       disable_netrw = true,
       hijack_netrw = true,
-      open_on_tab = true,
+      -- open_on_tab = true,
       update_cwd = true,
       -- open_on_setup = false,
       filters = {
@@ -110,8 +110,8 @@ return {
     })
     -- set keymaps
     local keymap = vim.keymap
-    keymap.set("n", "<leader>e", "<cmd>NvimTreeToggle<CR>", { desc = "Toggle file explorer" }) -- toggle file explorer
-    -- keymap.set("n", "<leader>ef", "<cmd>NvimTreeFindFileToggle<CR>",
+    keymap.set("n", "<leader>E", "<cmd>NvimTreeToggle<CR>", { desc = "Toggle explorer" }) -- toggle file explorer
+    keymap.set("n", "<leader>e", "<cmd>NvimTreeFindFileToggle<CR>", { desc = "Toggle explorer current" })
     --  {desc = "Toggle file explorer on current file"}) -- toggle file explorer on current file
     -- keymap.set("n", "<leader>ec", "<cmd>NvimTreeCollapse<CR>",
     --  {desc = "Collapse file explorer"}) -- collapse file explorer

@@ -29,9 +29,6 @@ return {
       opts.desc = "Show LSP references"
       keymap.set("n", "<leader>lr", "<cmd>Telescope lsp_references<CR>", opts) -- show definition, references
 
-      opts.desc = "Show LSP implementation"
-      keymap.set("n", "gi", "<cmd>lua vim.lsp.buf.implementation()<CR>", opts) -- go to implementation
-
       keymap.set("n", "<leader>ls", "<cmd>Lspsaga finder<CR>", opts) -- see available code actions
 
       opts.desc = "Go to declaration"
@@ -41,6 +38,9 @@ return {
       keymap.set("n", "<leader>lD", "<cmd>Telescope lsp_definitions<CR>", opts) -- show lsp definitions
       opts.desc = "Show LSP saga definitions"
       keymap.set("n", "<leader>ld", "<cmd>Lspsaga goto_definition<CR>", opts) -- show lsp definitions
+
+      opts.desc = "Show LSP implementation"
+      keymap.set("n", "<leader>lI", "<cmd>lua vim.lsp.buf.implementation()<CR>", opts) -- go to implementation
 
       opts.desc = "Show LSP implementations"
       keymap.set("n", "<leader>li", "<cmd>Telescope lsp_implementations<CR>", opts) -- show lsp implementations
@@ -71,9 +71,9 @@ return {
       opts.desc = "Show saga hover"
       keymap.set("n", "<leader>k", vim.lsp.buf.hover, opts) -- show documentation for what is under cursor
 
-      -- opts.desc = "Format"
-      keymap.set("n", "<leader>lf", vim.lsp.buf.format({ async = true }), { buffer = bufnr, desc = "format" }) -- show documentation for what is under cursor
-      keymap.set("n", "<leader>lF", vim.lsp.buf.formating(), { buffer = bufnr, desc = "format" }) -- show documentation for what is under cursor
+      opts.desc = "Format"
+      keymap.set("n", "<leader>lf", vim.lsp.buf.format, opts) -- nnoremap <leader>lf :lua vim.lsp.buf.format({async = true})<CR>
+      keymap.set("n", "<leader>lF", vim.lsp.buf.formating, opts) --  nnoremap <leader>lF :lua vim.lsp.buf.formating()<CR>
 
       -- opts.desc = "Restart LSP"
       -- keymap.set("n", "<leader>lr", ":LspRestart<CR>", opts) -- mapping to restart lsp if necessary
@@ -95,14 +95,6 @@ return {
 
     -- configure html server
     lspconfig["html"].setup({
-      capabilities = capabilities,
-      on_attach = function(_, bufnr)
-        on_attach(_, bufnr)
-      end,
-    })
-
-    -- configure typescript server with plugin
-    lspconfig["tsserver"].setup({
       capabilities = capabilities,
       on_attach = function(_, bufnr)
         on_attach(_, bufnr)
@@ -196,13 +188,6 @@ return {
           on_attach(_, bufnr)
         end,
       },
-    })
-    lspconfig["tsserver"].setup({
-      capabilities = capabilities,
-      cmd = { "typescript-language-server", "--stdio" },
-      on_attach = function(_, bufnr)
-        on_attach(_, bufnr)
-      end,
       filetypes = {
         "javascript",
         "javascriptreact",
@@ -212,6 +197,21 @@ return {
         "typescript.tsx",
       },
     })
+    -- lspconfig["tsserver"].setup({
+    --   capabilities = capabilities,
+    --   cmd = { "typescript-language-server", "--stdio" },
+    --   on_attach = function(_, bufnr)
+    --     on_attach(_, bufnr)
+    --   end,
+    --   filetypes = {
+    --     "javascript",
+    --     "javascriptreact",
+    --     "javascript.jsx",
+    --     "typescript",
+    --     "typescriptreact",
+    --     "typescript.tsx",
+    --   },
+    -- })
 
     -- configure lua server (with special settings)
     lspconfig["lua_ls"].setup({
