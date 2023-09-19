@@ -12,6 +12,20 @@ return {
   {
     "junegunn/gv.vim",
     event = { "BufReadPre", "BufNewFile" },
+    keys = {
+      {
+        "<leader>gh",
+        "<cmd>GV<cr>",
+        nowait = true,
+        desc = "Git History",
+      },
+      {
+        "<leader>gH",
+        "<cmd>GV!<cr>",
+        nowait = true,
+        desc = "Buffer commits",
+      },
+    },
     config = function() end,
   },
   {
@@ -21,6 +35,16 @@ return {
   },
   {
     "mbbill/undotree",
+    keys = {
+      {
+        "<leader>u",
+        "<cmd>UndotreeToggle<cr>",
+        desc = "UndotreeToggle",
+        noremap = true,
+        nowait = true,
+        silent = true,
+      },
+    },
     event = { "BufReadPre", "BufNewFile" },
     config = function() end,
   },

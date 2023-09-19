@@ -1,1 +1,1 @@
-# Nvim Shechos config
+# Nvim users config

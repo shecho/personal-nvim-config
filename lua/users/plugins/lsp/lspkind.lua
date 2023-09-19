@@ -1,4 +1,4 @@
-local icons = require("user.icons")
+local icons = require("users.icons")
 
 require("lspkind").init({
     mode = "symbol_text",

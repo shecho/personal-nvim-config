@@ -9,8 +9,8 @@ vim.cmd([[
   source $HOME/.config/nvim/general/settings.vim
 ]])
 
-require("user.keymaps")
-require("shecho.lazy")
+require("users.keymaps")
+require("user.lazy")
 
 vim.cmd([[
   set guifont=JetBrain\ Operator\ Fira\ Code\ Hack\ Nerd\ Font

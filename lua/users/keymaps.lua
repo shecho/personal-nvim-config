@@ -69,9 +69,6 @@ keymap("x", "K", ":move '<-2<CR>gv-gv", opts)
 keymap("x", "<A-j>", ":move '>+1<CR>gv-gv", opts)
 keymap("x", "<A-k>", ":move '<-2<CR>gv-gv", opts)
 
--- LSP move to lsp config
-keymap("n", "<leader>le", "<cmd> lua vim.lsp.buf.rename()<cr>", opts)
-
 -- keymap("n", "<F11>", "<cmd>lua vim.lsp.buf.references()<CR>", opts)
 -- zen mode
 keymap("n", "<C-z>", "<cmd>TZMinimalist<cr>", opts)
@@ -79,7 +76,6 @@ keymap("n", "<C-z>", "<cmd>TZMinimalist<cr>", opts)
 
 -- Some actions
 keymap("n", "<C-x>", '<cmd>lua require("ts-node-action").node_action()<cr>', opts)
-keymap("n", "<leader>u", "<cmd>UndotreeToggle<cr>", opts)
 
 -- Floaterm
 opts.desc = "Floaterm toogle"
@@ -130,7 +126,7 @@ keymap("n", "<leader>aj", "<C-W>j", opt_nw)
 opt_nw.desc = "Win right"
 keymap("n", "<leader>al", "<C-W>l", opt_nw)
 opt_nw.desc = "Cursorline"
-keymap("n", "<leader>ac", "<cmd>lua require('user.functions').toggle_option('cursorline')<cr>", opt_nw)
+keymap("n", "<leader>ac", "<cmd>lua require('user.core.functions').toggle_option('cursorline')<cr>", opt_nw)
 
 -- sorrund like
 
@@ -154,8 +150,8 @@ opt_nw.desc = "()"
 keymap("n", "<leader>9", "ciw()<Esc>P", opt_nw)
 keymap("v", "<leader>9", "xi()<Esc>P", opt_nw)
 
-keymap("n", "K", ":lua require('user.functions').show_documentation()<CR>", opts)
-keymap("n", "Q", ":lua require('user.functions').smart_quit()<CR>", opts)
+keymap("n", "K", ":lua require('user.core.functions').show_documentation()<CR>", opts)
+keymap("n", "Q", ":lua require('user.core.functions').smart_quit()<CR>", opts)
 -- ease caps
 -- " inoremap <c-u> <ESC>viwUi
 

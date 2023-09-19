@@ -29,7 +29,7 @@ return {
   config = function()
     local telescope = require("telescope")
     local actions = require("telescope.actions")
-    local icons = require("user.icons")
+    local icons = require("users.icons")
     local trouble = require("trouble.providers.telescope")
 
     telescope.setup({
