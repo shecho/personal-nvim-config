@@ -117,9 +117,10 @@ keymap("n", "<leader>0", "<cmd>e $MYVIMRC<cr>", opt_nw)
 
 -- splits
 opt_nw.desc = "Vertical Split"
-keymap("n", "<leader>v", "<C-W>v", opt_nw)
+-- keymap("n", "<leader>v", "<C-W>v", opt_nw)
+keymap("n", "<leader>v", "<cmd>vsplit<cr>", opt_nw)
 opt_nw.desc = "Horizontal Split"
-keymap("n", "<leader>ah", "<C-W>s", opt_nw)
+keymap("n", "<leader>ah", "<cmd>split<cr>", opt_nw)
 opt_nw.desc = "Balance Window"
 keymap("n", "<leader>a=", "<C-W>=", opt_nw)
 opt_nw.desc = "Win up"
@@ -128,6 +129,8 @@ opt_nw.desc = "Win left"
 keymap("n", "<leader>aj", "<C-W>j", opt_nw)
 opt_nw.desc = "Win right"
 keymap("n", "<leader>al", "<C-W>l", opt_nw)
+opt_nw.desc = "Cursorline"
+keymap("n", "<leader>ac", "<cmd>lua require('user.functions').toggle_option('cursorline')<cr>", opt_nw)
 
 -- sorrund like
 

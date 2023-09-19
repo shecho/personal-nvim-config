@@ -18,12 +18,12 @@ return {
     "f-person/git-blame.nvim",
     event = { "BufReadPre", "BufNewFile" },
     config = function() end,
-  }, -- some changes
+  },
   {
     "mbbill/undotree",
     event = { "BufReadPre", "BufNewFile" },
     config = function() end,
-  }, -- some changes
+  },
   {
     "airblade/vim-gitgutter",
     event = { "BufReadPre", "BufNewFile" },

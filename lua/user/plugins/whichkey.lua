@@ -106,11 +106,7 @@ local mappings = {
   h = { "<cmd>split<cr>", "split" },
   w = { "<cmd>w<CR>", "Write" },
 
-  -- ["f"] = {
-  --   "<cmd>lua require('telescope.builtin').find_files(require('telescope.themes').get_dropdown{previewer = false})<cr>",
-  --   "Find files",
-  -- },
-  -- ["F"] = { "<cmd>Telescope live_grep theme=ivy<cr>", "Find Text" },
+  -- ["F"] = { "<cmd>TTelescope live_grep theme=ivy<cr>elescope live_grep theme=ivy<cr>", "Find Text" },
   c = {
     name = "Coplilot",
     i = { "<cmd>BrowseInputSearch<cr>", "Input Search" },
@@ -148,18 +144,12 @@ local mappings = {
     name = "Find",
     b = { "<cmd>Telescope git_branches<cr>", "Checkout branch" },
     c = { "<cmd>Telescope colorscheme<cr>", "Colorscheme" },
-    f = { "<cmd>Telescope find_files<cr>", "Find files" },
     t = { "<cmd>Telescope live_grep<cr>", "Find Text" },
     s = { "<cmd>Telescope grep_string<cr>", "Find String" },
-    h = { "<cmd>Telescope help_tags<cr>", "Help" },
-    H = { "<cmd>Telescope highlights<cr>", "Highlights" },
     i = {
       "<cmd>lua require('telescope').extensions.media_files.media_files()<cr>",
       "Media",
     },
-    l = { "<cmd>Telescope resume<cr>", "Last Search" },
-    r = { "<cmd>Telescope oldfiles<cr>", "Recent File" },
-    k = { "<cmd>Telescope keymaps<cr>", "Keymaps" },
   },
 
   g = {
@@ -200,36 +190,12 @@ local mappings = {
     R = { "<cmd>TroubleToggle lsp_references<cr>", "References" },
   },
 
-  -- s = {
-  --   name = "Surround",
-  --   ["."] = { "<cmd>lua require('surround').repeat_last()<cr>", "Repeat" },
-  --   a = { "<cmd>lua require('surround').surround_add(true)<cr>", "Add" },
-  --   d = { "<cmd>lua require('surround').surround_delete()<cr>", "Delete" },
-  --   r = { "<cmd>lua require('surround').surround_replace()<cr>", "Replace" },
-  --   q = { "<cmd>lua require('surround').toggle_quotes()<cr>", "Quotes" },
-  --   b = { "<cmd>lua require('surround').toggle_brackets()<cr>", "Brackets" },
-  -- },
-
   t = {
     name = "Terminal",
     f = { "<cmd>ToggleTerm direction=float<cr>", "Float" },
     h = { "<cmd>ToggleTerm size=10 direction=horizontal<cr>", "Horizontal" },
     v = { "<cmd>ToggleTerm size=80 direction=vertical<cr>", "Vertical" },
   },
-
-  T = {
-    name = "Treesitter",
-    p = { "<cmd>TSPlaygroundToggle<cr>", "Playground" },
-    r = { "<cmd>TSToggle rainbow<cr>", "Rainbow" },
-  },
-
-  -- z = {
-  --   name = "Zen",
-  --   z = { "<cmd>TZAtaraxis<cr>", "Zen" },
-  --   m = { "<cmd>TZMinimalist<cr>", "Minimal" },
-  --   n = { "<cmd>TZNarrow<cr>", "Narrow" },
-  --   f = { "<cmd>TZFocus<cr>", "Focus" },
-  -- },
 }
 
 local vopts = {
@@ -240,14 +206,7 @@ local vopts = {
   noremap = true, -- use `noremap` when creating keymaps
   nowait = true, -- use `nowait` when creating keymaps
 }
-local vmappings = {
-  ["/"] = {
-    '<ESC><CMD>lua require("Comment.api").toggle.linewise(vim.fn.visualmode())<CR>',
-    "Comment",
-  },
-}
 
 which_key.setup(setup)
 which_key.register(mappings, opts)
-which_key.register(vmappings, vopts)
 which_key.register(m_mappings, m_opts)

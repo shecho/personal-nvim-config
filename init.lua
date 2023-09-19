@@ -1,6 +1,8 @@
 if vim.loader then
-    vim.loader.enable()
-    vim.schedule(function() vim.notify("nvim loader is enabled") end)
+  vim.loader.enable()
+  vim.schedule(function()
+    vim.notify("nvim loader is enabled")
+  end)
 end
 
 vim.cmd([[
