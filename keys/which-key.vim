@@ -1,4 +1,4 @@
-" ; ; ; Leader Key Maps
+" Leader Key Maps
 
 " Map leader to which_key
 nnoremap <silent> <leader> :silent <c-u> :silent WhichKey '<Space>'<CR>
@@ -16,9 +16,9 @@ let g:which_key_map['?'] = 'search word'
 
 " Not a fan of floating windows for this
 let g:which_key_use_floating_win = 1
-let g:which_key_flatten = 0
-let g:which_key_floating_opts = { 'row': '-1', 'col':'-1', 'width': '4' ,'height':'4' }
-let g:which_key_max_size = 4
+let g:which_key_flatten = 1
+let g:which_key_floating_opts = { 'row': '-1', 'col':'-1', 'width': '1' ,'height':'1' }
+let g:which_key_max_size = 0
 " let g:which_key_floating_relative_win= 1
 
 " let g:which_key_fallback_to_native_key=1
@@ -37,24 +37,21 @@ autocmd  FileType which_key set laststatus=0 noshowmode noruler
 
 
 " Single mappings
-let g:which_key_map['3'] = [ ':call Comment()'                    , 'comment' ]
-let g:which_key_map['/'] = [ ':call Comment()'                    , 'comment' ]
-let g:which_key_map['0'] = [ ':e $MYVIMRC'                        , 'open init' ]
-let g:which_key_map['-'] = [ ':Commands'                          , 'commands' ]
-let g:which_key_map['='] = [ '<C-W>='                             , 'balance windows' ]
-let g:which_key_map['d'] = [ ':Bdelete'                           , 'delete buffer']
-let g:which_key_map['e'] = [ ':CocCommand explorer'               , 'explorer' ]
-let g:which_key_map['f'] = [ ':Telescope find_files theme=dropdown', 'find and replace' ]
-let g:which_key_map['h'] = [ '<C-W>s'                             , 'split below']
-let g:which_key_map['m'] = [ ':call WindowSwap#EasyWindowSwap()'  , 'move window' ]
-let g:which_key_map['p'] = [ ':Telescope find_files prompt_prefix=🔍'              , 'search files' ]
-let g:which_key_map['q'] = [ 'q'                                  , 'quit' ]
-let g:which_key_map['r'] = [ ':Telescope grep_string'             , 'search ag' ]
-let g:which_key_map['u'] = [ ':UndotreeToggle'                    , 'undo tree']
-let g:which_key_map['v'] = [ '<C-W>v'                             , 'split right']
-let g:which_key_map['W'] = [ 'w'                                  , 'write' ]
-let g:which_key_map['z'] = [ 'Goyo'                               , 'zen' ]
-let g:which_key_map['k'] = [ 'K'                               , 'hover' ]
+" let g:which_key_map['3'] = [ 'gcc'                                , 'comment' ]
+" let g:which_key_map['/'] = [ ':call Comment()'                    , 'comment' ]
+" let g:which_key_map['0'] = [ ':e $MYVIMRC'                        , 'open init' ]
+" let g:which_key_map['-'] = [ ':Commands'                          , 'commands' ]
+" let g:which_key_map['='] = [ '<C-W>='                             , 'balance windows' ]
+" let g:which_key_map['d'] = [ ':Bdelete'                           , 'delete buffer']
+" let g:which_key_map['e'] = [ ':NvimTreeToggle'                    , 'explorer' ]
+" let g:which_key_map['E'] = [ ':NvimTreeToggle'                    , 'explorer' ]
+" let g:which_key_map['m'] = [ ':call WindowSwap#EasyWindowSwap()'  , 'move window' ]
+let g:which_key_map['p'] = [ ':Telescope find_files hidden=true winblend=10 layout_config={height=0.95,width=.90}', 'Find files' ]
+" let g:which_key_map['r'] = [ ':Telescope buffers'                 , 'search ag' ]
+" let g:which_key_map['u'] = [ ':UndotreeToggle'                    , 'undo tree']
+" let g:which_key_map['v'] = [ '<C-W>v'                             , 'split right']
+" let g:which_key_map['k'] = [ ':Lspsaga hover_doc'                 , 'Hover' ]
+" let g:which_key_map['Z'] = [ ':TZMinimalist'                           , 'zen' ]
 
 
 " Group mappings
@@ -62,109 +59,47 @@ let g:which_key_map['k'] = [ 'K'                               , 'hover' ]
 " a is for actions
 let g:which_key_map.a = {
       \ 'name' : '+actions' ,
-      \ 'c' : [':ColorizerToggle'        , 'colorizer'],
-      \ 'e' : [':CocCommand explorer'    , 'explorer'],
-      \ 'l' : [':Bracey'                 , 'start live server'],
-      \ 'L' : [':BraceyStop'             , 'stop live server'],
-      \ 'm' : [':MarkdownPreview'        , 'markdown preview'],
-      \ 'M' : [':MarkdownPreviewStop'    , 'markdown preview stop'],
-      \ 'n' : [':set nonumber!'          , 'line-numbers'],
-      \ 'r' : [':set norelativenumber!'  , 'relative line nums'],
-      \ 's' : [':let @/ = ""'            , 'remove search highlight'],
-      \ 't' : [':FloatermToggle'         , 'terminal'],
-      \ 'v' : [':Codi'                   , 'virtual repl on'],
-      \ 'V' : [':Codi!'                  , 'virtual repl off'],
-      \ 'w' : [':StripWhitespace'        , 'strip whitespace'],
+      \ '1' : ["'1"                                                                       , 'mark1'],
+      \ '9' : ["'9"                                                                       , 'mark9'],
+      \ 'e' : [':ColorizerToggle'                                                         , 'colorizer'],
+      \ 'c' : ['viwU<Esc>'                                                                , 'Capitalize word'],
+      \ 'h' : ['<C-W>s'                                                                   , 'explorer'],
+      \ 'm' : [''                                                                       , 'markdown preview'],
+      \ 's' : [':let @/ = ""'                                                             , 'remove search highlight'],
       \ }
 
-" b is for buffer
-let g:which_key_map.b = {
-      \ 'name' : '+buffer' ,
-      \ '1' : ['b1'        , 'buffer 1'],
-      \ '2' : ['b2'        , 'buffer 2'],
-      \ 'd' : [':Bdelete'  , 'delete-buffer'],
-      \ 'f' : ['bfirst'    , 'first-buffer'],
-      \ 'h' : ['Startify'  , 'home-buffer'],
-      \ 'l' : ['blast'     , 'last-buffer'],
-      \ 'n' : ['bnext'     , 'next-buffer'],
-      \ 'p' : ['bprevious' , 'previous-buffer'],
-      \ '?' : ['Buffers'   , 'fzf-buffer'],
+" c is for copilot
+let g:which_key_map.c = {
+      \ 'name' : '+copilot' ,
+      \ 'd' : ['<Plug>(copilot-dismiss)'                                                                                      , 'copilot-dismiss'],
+      \ 'n' : ['<Plug>(copilot-next)'                                                                                         , 'copilot-next'],
+      \ 'p' : ['<Plug>(copilot-previous)'                                                                                     , 'copilot-previous'],
+      \ 's' : [':Copilot panel'                                                                                               , 'panel'],
+      \ 'm' : [':Telescope harpoon marks theme=dropdown previewer=false winblend=15 layout_config={height=0.60,width=0.50}'   , 'Mark menu'],
+      \ 'l' : [':so %'                                                                                                        , 'Source Vimrc'],
+      \ 'o' : [':IndentBlanklineToggle'                                                                                       , 'TogglBlankLine'],
       \ }
 
-" f is for find and replace
-let g:which_key_map.F = {
-      \ 'name' : '+find & replace' ,
-      \ 'b' : [':Farr --source=vimgrep'    , 'buffer'],
-      \ 'p' : [':Farr --source=rgnvim'     , 'project'],
-      \ }
-
-" k is for task
-let g:which_key_map.K = {
-      \ 'name' : '+task' ,
-      \ 'c' : [':AsyncTask file-compile'      , 'compile file'],
-      \ 'b' : [':AsyncTask project-build'     , 'build project'],
-      \ 'e' : [':AsyncTaskEdit'               , 'edit local tasks'],
-      \ 'f' : [':AsyncTaskFzf'                , 'find task'],
-      \ 'g' : [':AsyncTaskEdit!'              , 'edit global tasks'],
-      \ 'h' : [':AsyncTaskList!'              , 'list hidden tasks'],
-      \ 'l' : [':CocList tasks'               , 'list tasks'],
-      \ 'm' : [':AsyncTaskMacro'              , 'macro help'],
-      \ 'o' : [':copen'                       , 'open task view'],
-      \ 'r' : [':AsyncTask file-run'          , 'run file'],
-      \ 'p' : [':AsyncTask project-run'       , 'run project'],
-      \ 'x' : [':cclose'                      , 'close task view'],
-      \ }
-      " \ 'l' : [':AsyncTaskList'               , 'list tasks'],
 
 " s is for search
 let g:which_key_map.s = {
       \ 'name' : '+search' ,
-      \ '/' : [':History/'              , 'history'],
-      \ ';' : [':Commands'              , 'commands'],
-      \ 'a' : [':Rg'                    , 'text Ag'],
-      \ 'B' : [':BLines'                , 'current buffer'],
-      \ 'b' : [':Buffers'               , 'open buffers'],
+      \ 'a' : [':Rg'                    , 'text RG'],
+      \ 'q' : [':Telescope grep_string hidden=true winblend=20 layout_config={height=0.95,width=.90,prompt_position="top"}'                    , 'live_greep'],
       \ 'c' : [':Commits'               , 'commits'],
-      \ 'C' : [':BCommits'              , 'buffer commits'],
-      \ 'f' : [':Rg'                    , 'files'],
-      \ 'g' : [':GFiles'                , 'git files'],
-      \ 'G' : [':GFiles:'               , 'modified git files'],
-      \ 'h' : [':History'               , 'file history'],
-      \ 'H' : [':History:'              , 'command history'],
-      \ 'l' : [':Lines'                 , 'lines'] ,
-      \ 'm' : [':Marks'                 , 'marks'] ,
-      \ 'M' : [':Maps'                  , 'normal maps'] ,
-      \ 'p' : [':Files'                 , 'help tags'] ,
-      \ 'P' : [':Tags'                  , 'project tags'],
-      \ 's' : [':CocList snippets'      , 'snippets'],
-      \ 'S' : [':Colors'                , 'color schemes'],
-      \ 't' : [':Files'                 , 'text Rg'],
-      \ 'T' : [':BTags'                 , 'buffer tags'],
-      \ 'w' : [':Windows'               , 'search windows'],
-      \ 'y' : [':Filetypes'             , 'file types'],
-      \ 'z' : [':FZF'                   , 'FZF'],
-      \ '=' : [':resize +4<CR>'         , '+4'],
-      \ '-' : [':resize -4<CR>'         , '-4'],
-      \ }
-      " \ 's' : [':Snippets'     , 'snippets'],
-" :resize +2<CR>
-
-
-let g:which_key_map.S = {
-      \ 'name' : '+Session' ,
-      \ 'c' : [':SClose'          , 'Close Session']  ,
-      \ 'd' : [':SDelete'         , 'Delete Session'] ,
-      \ 'l' : [':SLoad'           , 'Load Session']     ,
-      \ 's' : [':Startify'        , 'Start Page']     ,
-      \ 'S' : [':SSave'           , 'Save Session']   ,
+      \ 'f' : [':Telescope live_grep'   , 'files'],
+      \ 'g' : [':Telescope git_branches', 'git branches'],
+      \ 'm' : [':Telescope marks layout_strategy=vertical'       , 'marks'] ,
+      \ 'o' : [':Telescope oldfiles layout_strategy=vertical'    , 'recent files'] ,
+      \ 'p' : [':Telescope projects theme=dropdown no_ignore=true  winblend=40 layout_config={prompt_position="top"}'    , 'Projects'] ,
+      \ 's' : [':Telescope find_files hidden=true no_ignore=true winblend=20 layout_config={height=0.95,width=.90,prompt_position="top"}'      , 'snippets'],
       \ }
 
 " g is for git
 let g:which_key_map.g = {
       \ 'name' : '+git' ,
       \ 'a' : [':Git add .'                        , 'add all'],
-      \ 'A' : [':Git add %'                        , 'add current'],
-      \ 'b' : [':Git blame'                        , 'blame'],
+      \ 'b' : [':GitBlameToggle'                   , 'blame enable'],
       \ 'B' : [':GBrowse'                          , 'browse'],
       \ 'c' : [':Git commit'                       , 'commit'],
       \ 'd' : [':Git diff'                         , 'diff'],
@@ -177,151 +112,41 @@ let g:which_key_map.g = {
       \ 'j' : ['<Plug>(GitGutterNextHunk)'         , 'next hunk'],
       \ 'k' : ['<Plug>(GitGutterPrevHunk)'         , 'prev hunk'],
       \ 'l' : [':Git log'                          , 'log'],
-      \ 'm' : ['<Plug>(git-messenger)'             , 'message'],
       \ 'p' : [':Git push'                         , 'push'],
       \ 'P' : [':Git pull'                         , 'pull'],
-      \ 'r' : [':GRemove'                          , 'remove'],
-      \ 'S' : ['<Plug>(GitGutterStageHunk)'        , 'stage hunk'],
-      \ 's' : [':!git status'                      , 'status'],
+      \ 's' : [':git status'                      , 'status'],
       \ 't' : [':GitGutterSignsToggle'             , 'toggle signs'],
       \ 'u' : ['<Plug>(GitGutterUndoHunk)'         , 'undo hunk'],
       \ 'v' : [':GV'                               , 'view commits'],
       \ 'V' : [':GV!'                              , 'view buffer commits'],
       \ }
+      " \ 'r' : [':GRemove'                          , 'remove'],
 
-let g:which_key_map.G = {
-      \ 'name' : '+gist' ,
-      \ 'a' : [':Gist -a'                          , 'post gist anon'],
-      \ 'b' : [':Gist -b'                          , 'post gist browser'],
-      \ 'd' : [':Gist -d'                          , 'delete gist'],
-      \ 'e' : [':Gist -e'                          , 'edit gist'],
-      \ 'l' : [':Gist -l'                          , 'list public gists'],
-      \ 's' : [':Gist -ls'                         , 'list starred gists'],
-      \ 'm' : [':Gist -m'                          , 'post gist all buffers'],
-      \ 'p' : [':Gist -P'                          , 'post public gist '],
-      \ 'P' : [':Gist -p'                          , 'post private gist '],
-      \ }
-
-" l is for language server protocol
+" l is for lsp
 let g:which_key_map.l = {
       \ 'name' : '+lsp' ,
-      \ '.' : [':CocConfig'                          , 'config'],
-      \ 'c' : ['<Plug>(coc-refactor)'                , 'refactor'],
-      \ 'a' : ['<Plug>(coc-codeaction)'              , 'line action'],
-      \ 'A' : ['<Plug>(coc-codeaction-selected)'     , 'selected action'],
-      \ 'b' : [':CocNext'                            , 'next action'],
-      \ 'B' : [':CocPrev'                            , 'prev action'],
-      \ 'C' : [':CocList commands'                   , 'commands'],
-      \ 'd' : ['<Plug>(coc-definition)'              , 'definition'],
-      \ 'D' : ['<Plug>(coc-declaration)'             , 'declaration'],
-      \ 'e' : [':CocList extensions'                 , 'extensions'],
-      \ 'F' : ['<Plug>(coc-format-selected)'         , 'format selected'],
-      \ 'f' : ['<Plug>(coc-format)'                  , 'format'],
-      \ 'h' : ['<Plug>(coc-float-hide)'              , 'hide'],
-      \ 'i' : ['<Plug>(coc-implementation)'          , 'implementation'],
-      \ 'I' : [':CocList diagnostics'                , 'diagnostics'],
-      \ 'j' : ['<Plug>(coc-float-jump)'              , 'float jump'],
-      \ 'l' : ['<Plug>(coc-codelens-action)'         , 'code lens'],
-      \ 'n' : ['<Plug>(coc-diagnostic-next)'         , 'next diagnostic'],
-      \ 'N' : ['<Plug>(coc-diagnostic-next-error)'   , 'next error'],
-      \ 'o' : ['<Plug>(coc-openlink)'                , 'open link'],
-      \ 'O' : [':CocList outline'                    , 'outline'],
-      \ 'p' : ['<Plug>(coc-diagnostic-prev)'         , 'prev diagnostic'],
-      \ 'P' : ['<Plug>(coc-diagnostic-prev-error)'   , 'prev error'],
-      \ 'q' : ['<Plug>(coc-fix-current)'             , 'quickfix'],
-      \ 'R' : ['<Plug>(coc-rename)'                  , 'rename'],
-      \ 'r' : ['<Plug>(coc-references)'              , 'references'],
-      \ 's' : [':CocList -I symbols'                 , 'references'],
-      \ 'S' : [':CocList snippets'                   , 'snippets'],
-      \ 't' : ['<Plug>(coc-type-definition)'         , 'type definition'],
-      \ 'u' : [':CocListResume'                      , 'resume list'],
-      \ 'U' : [':CocUpdate'                          , 'update CoC'],
-      \ 'v' : [':Vista!!'                            , 'tag viewer'],
-      \ 'Z' : [':CocDisable'                         , 'disable CoC'],
-      \ 'z' : [':CocEnable'                          , 'enable CoC'],
+      \ 'c' : [':Lspsaga show_buf_diagnostics'                , 'Diagnostics'],
+      \ 'a' : [':Lspsaga code_action'              , 'code action'],
+      \ 'D' : [':Telescope lsp_definitions'              , 'definition'],
+      \ 'd' : [':Lspsaga goto_definition'             , 'Go to definition'],
+      \ 'i' : [':lua vim.lsp.buf.implementations'          , 'Implementation'],
+      \ 'j' : [':Lspsaga diagnostics_jump_next'              , 'Next diagnostic'],
+      \ 'l' : [':Lspsaga goto_definition'         , 'Go to definition'],
+      \ 'p' : [':Lspsaga peek_definition'   , 'Prev error'],
+      \ 'r' : [':Telescope lsp_references theme=dropdown layout_config={prompt_position="top",width=0.80}'                  , 'References'],
+      \ 'R' : [':Lspsaga rename'                                      , 'Rename'],
+      \ 's' : [':Lspsaga finder'                                      , 'Rename'],
+      \ 'k' : [':Lspsaga hover_doc'     , 'Hover'],
       \ }
 
 " t is for terminal
 let g:which_key_map.t = {
       \ 'name' : '+terminal' ,
       \ ';' : [':FloatermNew --wintype=popup --height=6'        , 'terminal'],
-      \ 'f' : [':FloatermNew fzf'                               , 'fzf'],
       \ 'g' : [':FloatermNew lazygit'                           , 'git'],
-      \ 'd' : [':FloatermNew lazydocker'                        , 'docker'],
-      \ 'n' : [':FloatermNew node'                              , 'node'],
-      \ 'N' : [':FloatermNew nnn'                               , 'nnn'],
-      \ 'p' : [':FloatermNew python'                            , 'python'],
-      \ 'm' : [':FloatermNew lazynpm'                           , 'npm'],
       \ 'r' : [':FloatermNew ranger'                            , 'ranger'],
       \ 't' : [':FloatermToggle'                                , 'toggle'],
-      \ 'y' : [':FloatermNew ytop'                              , 'ytop'],
-      \ 's' : [':FloatermNew ncdu'                              , 'ncdu'],
       \ }
-
-" T is for terminal
-let g:which_key_map.T = {
-      \ 'name' : '+tabline' ,
-      \ 'b' : [':XTabListBuffers'         , 'list buffers'],
-      \ 'd' : [':XTabCloseBuffer'         , 'close buffer'],
-      \ 'D' : [':XTabDeleteTab'           , 'close tab'],
-      \ 'h' : [':XTabHideBuffer'          , 'hide buffer'],
-      \ 'i' : [':XTabInfo'                , 'info'],
-      \ 'l' : [':XTabLock'                , 'lock tab'],
-      \ 'm' : [':XTabMode'                , 'toggle mode'],
-      \ 'n' : [':tabNext'                 , 'next tab'],
-      \ 'N' : [':XTabMoveBufferNext'      , 'buffer->'],
-      \ 't' : [':tabnew'                  , 'new tab'],
-      \ 'p' : [':tabprevious'             , 'prev tab'],
-      \ 'P' : [':XTabMoveBufferPrev'      , '<-buffer'],
-      \ 'x' : [':XTabPinBuffer'           , 'pin buffer'],
-      \ }
-
-" w is for wiki
-let g:which_key_map.w = {
-      \ 'name' : '+wiki' ,
-      \ 'w' : ['<Plug>VimwikiIndex'                              , 'ncdu'],
-      \ 'n' : ['<plug>(wiki-open)'                              , 'ncdu'],
-      \ 'j' : ['<plug>(wiki-journal)'                              , 'ncdu'],
-      \ 'R' : ['<plug>(wiki-reload)'                              , 'ncdu'],
-      \ 'c' : ['<plug>(wiki-code-run)'                              , 'ncdu'],
-      \ 'b' : ['<plug>(wiki-graph-find-backlinks)'                              , 'ncdu'],
-      \ 'g' : ['<plug>(wiki-graph-in)'                              , 'ncdu'],
-      \ 'G' : ['<plug>(wiki-graph-out)'                              , 'ncdu'],
-      \ 'l' : ['<plug>(wiki-link-toggle)'                              , 'ncdu'],
-      \ 'd' : ['<plug>(wiki-page-delete)'                              , 'ncdu'],
-      \ 'r' : ['<plug>(wiki-page-rename)'                              , 'ncdu'],
-      \ 't' : ['<plug>(wiki-page-toc)'                              , 'ncdu'],
-      \ 'T' : ['<plug>(wiki-page-toc-local)'                              , 'ncdu'],
-      \ 'e' : ['<plug>(wiki-export)'                              , 'ncdu'],
-      \ 'u' : ['<plug>(wiki-list-uniq)'                              , 'ncdu'],
-      \ 'U' : ['<plug>(wiki-list-uniq-local)'                              , 'ncdu'],
-      \ }
-
-" Global
-" <Plug>VimwikiIndex
-" <Plug>VimwikiTabIndex
-" <Plug>VimwikiUISelect
-" <Plug>VimwikiDiaryIndex
-" <Plug>VimwikiMakeDiaryNote
-" <Plug>VimwikiTabMakeDiaryNote
-" <Plug>VimwikiMakeYesterdayDiaryNote
-" <Plug>VimwikiMakeTomorrowDiaryNote
-"
-" " Local
-" <Plug>Vimwiki2HTML
-" <Plug>Vimwiki2HTMLBrowse
-" <Plug>VimwikiDiaryGenerateLinks
-" <Plug>VimwikiFollowLink
-" <Plug>VimwikiSplitLink
-" <Plug>VimwikiVSplitLink
-" <Plug>VimwikiTabnewLink
-" <Plug>VimwikiGoBackLink
-" <Plug>VimwikiNextLink
-" <Plug>VimwikiPrevLink
-" <Plug>VimwikiGoto
-" <Plug>VimwikiDeleteLink
-" <Plug>VimwikiRenameLink
-" <Plug>VimwikiAddHeaderLevel
 
 " Register which key map
 call which_key#register('<Space>', "g:which_key_map")
