@@ -31,6 +31,14 @@ return {
   {
     "f-person/git-blame.nvim",
     event = { "BufReadPre", "BufNewFile" },
+    keys = {
+      {
+        "<leader>gt",
+        "<cmd>GitBlameToggle<cr>",
+        nowait = true,
+        desc = "Git History",
+      },
+    },
     config = function() end,
   },
   {
@@ -61,6 +69,7 @@ return {
             let g:gitgutter_preview_win_floating = 1
 
             let g:gitgutter_enabled = 1
+
             highlight GitGutterAdd    guifg=#98c379 ctermfg=2
             highlight GitGutterChange guifg=#61afef ctermfg=3
             highlight GitGutterDelete guifg=#e06c75 ctermfg=1
@@ -68,4 +77,3 @@ return {
     end,
   },
 }
-

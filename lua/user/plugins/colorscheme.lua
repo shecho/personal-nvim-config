@@ -12,7 +12,7 @@ return {
             augroup END
         endif
 
-        hi Comment cterm=italic
+        " hi Comment cterm=italic
         " cterm=bold,underline,italic ctermfg=168 gui=bold,underline,italic guifg=#e06c75 guisp=#e06c75
         " highlight DiagnosticUnderlineError cterm=bold,underline,italic ctermfg=168 gui=bold,underline,italic guifg=#e06c75 guisp=#e06c75
         " highlight CopilotSuggestion guifg=#555555 ctermfg=8
@@ -21,6 +21,7 @@ return {
         let g:onedark_termcolors=256
         let g:one_termcolors=256
         let g:one_allow_italics = 1
+
         syntax on
         colorscheme one
 
@@ -87,14 +88,13 @@ return {
         " call one#highlight('TabLineSel', '', '3e4452', 'bolditalic')
         " call one#highlight('TabLineFill', '', '', '')
         " call one#highlight('TabLine', '', '', '')
-        call one#highlight('Search', '', '', 'bolditalic')
-        call one#highlight('IncSearch', '', '', 'bolditalic,standout')
+        " call one#highlight('Search', '', '', 'bolditalic')
+        " call one#highlight('IncSearch', '', '', 'bolditalic,standout')
         call one#highlight('Statement', '', '', 'bold')
         " call one#highlight('Statement', '', '', 'bold')
         call one#highlight('CursorColumn', '828997', '', 'standout')"current word #4b5263 #5c6370  5c6370 #828997 #abb2bf  abb2bf
         " call one#highlight('CursorLine', '', '', 'standout')
         " call one#highlight('Cursor', '', '', 'standout')
-        " call one#highlight('CursorLine', '', '', 'standout')" current line
         " call one#highlight('CursorIM', '', '', 'standout')" current line
         " call one#highlight('CursorLineNr', '', '', 'standout')" current line
         " call one#highlight('LineNr', '', '', 'standout')" current line

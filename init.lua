@@ -8,7 +8,7 @@ end
 -- vim.cmd([[
 --   source $HOME/.config/nvim/general/settings.vim
 -- ]])
-require("users.settings")
+require("users.options")
 require("users.keymaps")
 require("user.lazy")
 
