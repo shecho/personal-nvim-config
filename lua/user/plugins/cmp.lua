@@ -1,26 +1,32 @@
 return {
   "hrsh7th/nvim-cmp",
-  event = "InsertEnter",
+  -- event = "InsertEnter",
+  event = { "BufReadPre", "BufNewFile" },
   dependencies = {
     "hrsh7th/cmp-buffer", -- source for text in buffer
     "hrsh7th/cmp-path", -- source for file system paths
-    "L3MON4D3/LuaSnip", -- snippet engine
+    {
+      "L3MON4D3/LuaSnip",
+      dependencies = {
+        "rafamadriz/friendly-snippets",
+        config = function()
+          require("luasnip.loaders.from_vscode").lazy_load()
+        end,
+      },
+      opts = { history = true, delete_check_events = "TextChanged" },
+    },
     "saadparwaiz1/cmp_luasnip", -- for autocompletion
-    "rafamadriz/friendly-snippets", -- useful snippets
-    "onsails/lspkind.nvim", -- some
-    "hrsh7th/cmp-nvim-lua", -- no idea
-    "hrsh7th/cmp-cmdline", -- no idea
-    "hrsh7th/cmp-look", -- no idea
-    "hrsh7th/cmp-vsnip", -- no idea
-    "hrsh7th/vim-vsnip",
-    "SirVer/ultisnips",
-    "quangnguyen30192/cmp-nvim-ultisnips",
-    "L3MON4D3/LuaSnip",
+    -- "rafamadriz/friendly-snippets", -- useful snippets
+    "onsails/lspkind.nvim",
+    "hrsh7th/cmp-nvim-lua",
+    "hrsh7th/cmp-cmdline",
+    "hrsh7th/cmp-look",
   },
   config = function()
     local cmp = require("cmp")
     local luasnip = require("luasnip")
     local lspkind = require("lspkind")
+    local keymap = require("cmp.utils.keymap")
 
     -- loads vscode style snippets from installed plugins (e.g. friendly-snippets)
     require("luasnip.loaders.from_vscode").lazy_load()
@@ -33,13 +39,18 @@ return {
     vim.api.nvim_set_hl(0, "CmpItemKindVariable", { fg = "#526fff" })
 
     local has_words_before = function()
+      ---@diagnostic disable-next-line: deprecated
       local line, col = unpack(vim.api.nvim_win_get_cursor(0))
       return col ~= 0 and vim.api.nvim_buf_get_lines(0, line - 1, line, true)[1]:sub(col, col):match("%s") == nil
     end
     vim.opt.completeopt = { "menu", "menuone", "noselect" }
 
+    local feedkey = function(key, mode)
+      vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes(key, true, true, true), mode, true)
+    end
     cmp.setup({
       preselect = cmp.PreselectMode.None,
+      -- preselect = true,
       completion = { completeopt = "menu,menuone,preview,noselect" },
       snippet = { -- configure how nvim-cmp interacts with snippet engine
         expand = function(args)
@@ -47,24 +58,42 @@ return {
         end,
       },
       mapping = cmp.mapping.preset.insert({
-        ["<Tab>"] = vim.schedule_wrap(function(fallback)
-          if cmp.visible() and has_words_before() then
+        ["<Tab>"] = cmp.mapping(function(fallback)
+          if luasnip.expand_or_jumpable() then
+            luasnip.expand_or_jump()
+          elseif vim.fn.pumvisible() == 1 then
+            feedkey("<C-n>")
+          elseif cmp.visible() and has_words_before() then
+            -- cmp.select_next_item()
             cmp.select_next_item({
               behavior = cmp.SelectBehavior.Select,
             })
+          elseif cmp.visible() then
+            cmp.select_next_item()
+          elseif has_words_before() then
+            cmp.complete()
           else
             fallback()
           end
-        end),
-
+        end, { "i", "s" }),
         ["<Enter>"] = cmp.mapping.confirm({
           behavior = cmp.ConfirmBehavior.Replace,
-          select = false,
+          select = true,
         }),
-        ["<CR>"] = cmp.mapping.confirm({
-          behavior = cmp.ConfirmBehavior.Replace,
-          select = false,
-        }),
+        ["<S-Tab>"] = cmp.mapping(function(fallback)
+          if cmp.visible() then
+            cmp.select_prev_item()
+          elseif luasnip.jumpable(-1) then
+            luasnip.jump(-1)
+          else
+            if vim.fn.pumvisible() == 0 then
+              vim.api.nvim_feedkeys(keymap.t("<C-z><C-p><C-p>"), "in", true)
+            else
+              vim.api.nvim_feedkeys(keymap.t("<C-p>"), "in", true)
+            end
+          end
+        end, { "i", "s" }),
+        ["<CR>"] = cmp.mapping.confirm(),
         -- ["<CR>"] = cmp.mapping.confirm({ select = false }),
         ["<C-k>"] = cmp.mapping.select_prev_item(), -- previous suggestion
         -- ["<C-j>"] = cmp.mapping.select_next_item(), -- next suggestion
@@ -85,13 +114,10 @@ return {
       }),
       -- sources for autocompletion
       sources = cmp.config.sources({
-        { name = "nvim_lsp" },
         { name = "luasnip" }, -- snippets
         { name = "vsnip" }, -- For vsnip users.
+        { name = "nvim_lsp" },
         { name = "nvim_lua" },
-        { name = "buffer" }, -- text within current buffer
-        { name = "path" }, -- file system paths
-        -- { name = "copilot", group_index = 2 },
         {
           name = "buffer",
           option = {
@@ -100,7 +126,10 @@ return {
             end,
           },
         },
-        { name = "spell" },
+        -- { name = "spell" },
+        { name = "path" }, -- file system paths
+        -- { name = "buffer" }, -- text within current buffer
+        -- { name = "copilot", group_index = 2 },
       }),
       -- configure lspkind for vs-code like pictograms in completion menu
       formatting = {
@@ -145,13 +174,6 @@ return {
         require("cmp").setup.buffer({ enabled = false })
       end,
     })
-    autocmd("FileType", {
-      pattern = "conf",
-      callback = function()
-        require("cmp").setup.buffer({ enabled = false })
-      end,
-    })
-
     cmp.setup.cmdline("/", {
       mapping = cmp.mapping.preset.cmdline(),
       sources = { { name = "buffer" } },
