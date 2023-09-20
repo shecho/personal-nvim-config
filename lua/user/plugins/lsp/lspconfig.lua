@@ -64,7 +64,9 @@ return {
       keymap.set("n", "K", vim.lsp.buf.hover, opts) -- show documentation for what is under cursor
 
       opts.desc = "Show saga hover"
-      keymap.set("n", "<leader>k", vim.lsp.buf.hover, opts) -- show documentation for what is under cursor
+      keymap.set("n", "<leader>k", "<cmd>Lspsaga hover_doc<CR>", opts) -- show documentation for what is under cursor
+      opts.desc = "Toggle winbar"
+      keymap.set("n", "<leader>lo", "<cmd>Lspsaga winbar_toggle<CR>", opts) -- show documentation for what is under cursor
 
       opts.desc = "Format"
       keymap.set("n", "<leader>lf", vim.lsp.buf.format, opts) -- nnoremap <leader>lf :lua vim.lsp.buf.format({async = true})<CR>
@@ -112,7 +114,6 @@ return {
       end,
     })
 
-    -- configure svelte server
     lspconfig["svelte"].setup({
       capabilities = capabilities,
       on_attach = function(_, bufnr)
@@ -120,7 +121,6 @@ return {
       end,
     })
 
-    -- configure prisma orm server
     lspconfig["prismals"].setup({
       capabilities = capabilities,
       on_attach = function(_, bufnr)
@@ -128,7 +128,6 @@ return {
       end,
     })
 
-    -- configure graphql language server
     lspconfig["graphql"].setup({
       capabilities = capabilities,
       on_attach = function(_, bufnr)

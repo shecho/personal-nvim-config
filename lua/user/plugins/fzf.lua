@@ -11,7 +11,6 @@ return {
     end,
   },
   {
-    -- cmd = "Fzf",
     "junegunn/fzf",
     build = "./install --bin",
     config = function()

@@ -209,11 +209,17 @@ return {
     telescope.load_extension("tailiscope")
 
     local keymap = vim.keymap -- for conciseness
+    keymap.set(
+      "n",
+      "<leader>p",
+      "<cmd>Telescope find_files hidden=true no_ignore=true winblend=40<cr>",
+      { desc = "Fuzzy find files" }
+    )
     keymap.set("n", "<leader>f", "<cmd>Telescope find_files<cr>", { desc = "Fuzzy find files" })
-    keymap.set("n", "<leader>p", "<cmd>Telescope find_files<cr>", { desc = "Fuzzy find files" })
+    keymap.set("n", "<leader>sf", "<cmd>Telescope file_browser theme=ivy<cr>", { desc = "Fuzzy find files" })
     keymap.set("n", "<leader>so", "<cmd>Telescope oldfiles<cr>", { desc = "Fuzzy find recent files" })
     keymap.set("n", "<leader>sa", "<cmd>Telescope live_grep<cr>", { desc = "Find string in cwd" })
-    keymap.set("n", "<leader>sb", "<cmd>Telescope buffers<cr>", { desc = "Find string in cwd" })
-    keymap.set("n", "<C-p>", "<cmd>Telescope projects<cr>", { desc = "Projects" })
+    keymap.set("n", "<leader>sb", "<cmd>Telescope buffers theme=dropdown<cr>", { desc = "Find string in cwd" })
+    keymap.set("n", "<C-p>", "<cmd>Telescope projects theme=dropdown winblend=30 <cr>", { desc = "Projects" })
   end,
 }

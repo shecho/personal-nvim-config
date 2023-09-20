@@ -46,5 +46,11 @@ return {
     )
     keymap.set("n", "<leader>n1", "<cmd>lua require('harpoon.ui').nav_file(1)<cr>", { desc = "File 1" })
     keymap.set("n", "<leader>n2", "<cmd>lua require('harpoon.ui').nav_file(2)<cr>", { desc = "File 2" })
+    keymap.set(
+      "n",
+      "<leader>sm",
+      "<cmd>Telescope harpoon marks theme=dropdown previewer=false winblend=15 layout_config={height=0.60,width=0.50}'",
+      { desc = "File 2" }
+    )
   end,
 }
