@@ -20,12 +20,6 @@ return {
       local opts = { noremap = true, silent = true, buffer = bufnr }
       opts.buffer = bufnr
       -- set keybinds
-      if client.name == "tsserver" then
-        keymap.set("n", "<leader>rf", ":TypescriptRenameFile<CR>") -- rename file and update imports
-        keymap.set("n", "<leader>oi", ":TypescriptOrganizeImports<CR>") -- organize imports (not in youtube nvim video)
-        keymap.set("n", "<leader>ru", ":TypescriptRemoveUnused<CR>") -- remove unused variables (not in youtube nvim video)
-      end
-
       opts.desc = "Show LSP references"
       keymap.set("n", "<leader>lr", "<cmd>Telescope lsp_references<CR>", opts) -- show definition, references
 

@@ -8,6 +8,44 @@ return {
     "tpope/vim-fugitive",
     event = { "BufReadPre", "BufNewFile" },
     config = function() end,
+    keys = {
+      {
+        "<leader>ga",
+        "<cmd>Git add .<cr>",
+        nowait = true,
+        desc = "Add",
+      },
+      {
+        "<leader>gc",
+        "<cmd>Git commit<cr>",
+        nowait = true,
+        desc = "Commit",
+      },
+      {
+        "<leader>gd",
+        "<cmd>Git diff<cr>",
+        nowait = true,
+        desc = "Diff",
+      },
+      {
+        "<leader>gD",
+        "<cmd>Gidiffsplit<cr>",
+        nowait = true,
+        desc = "Diff split",
+      },
+      {
+        "<leader>gp",
+        "<cmd>Git push<cr>",
+        nowait = true,
+        desc = "Push",
+      },
+      {
+        "<leader>gP",
+        "<cmd>Git pull<cr>",
+        nowait = true,
+        desc = "Pull",
+      },
+    },
   },
   {
     "junegunn/gv.vim",
@@ -33,13 +71,18 @@ return {
     event = { "BufReadPre", "BufNewFile" },
     keys = {
       {
-        "<leader>gt",
+        "<leader>gb",
         "<cmd>GitBlameToggle<cr>",
         nowait = true,
         desc = "Git History",
       },
     },
-    config = function() end,
+    config = function()
+      local blame = require("gitblame")
+      blame.setup({
+        enable = false,
+      })
+    end,
   },
   {
     "mbbill/undotree",
@@ -56,24 +99,24 @@ return {
     event = { "BufReadPre", "BufNewFile" },
     config = function() end,
   },
-  {
-    "airblade/vim-gitgutter",
-    event = { "BufReadPre", "BufNewFile" },
-    config = function()
-      vim.cmd([[
-            let g:gitgutter_sign_added              = ''
-            let g:gitgutter_sign_modified           = '▎'
-            let g:gitgutter_sign_removed            = ''
-            let g:gitgutter_sign_removed_first_line = '▎'
-            let g:gitgutter_sign_modified_removed   = '▎'
-            let g:gitgutter_preview_win_floating = 1
-
-            let g:gitgutter_enabled = 1
-
-            highlight GitGutterAdd    guifg=#98c379 ctermfg=2
-            highlight GitGutterChange guifg=#61afef ctermfg=3
-            highlight GitGutterDelete guifg=#e06c75 ctermfg=1
-            ]])
-    end,
-  },
+  -- {
+  --   "airblade/vim-gitgutter",
+  --   event = { "BufReadPre", "BufNewFile" },
+  --   config = function()
+  --     vim.cmd([[
+  --           let g:gitgutter_sign_added              = ''
+  --           let g:gitgutter_sign_modified           = '▎'
+  --           let g:gitgutter_sign_removed            = ''
+  --           let g:gitgutter_sign_removed_first_line = '▎'
+  --           let g:gitgutter_sign_modified_removed   = '▎'
+  --           let g:gitgutter_preview_win_floating = 1
+  --
+  --           let g:gitgutter_enabled = 1
+  --
+  --           highlight GitGutterAdd    guifg=#98c379 ctermfg=2
+  --           highlight GitGutterChange guifg=#61afef ctermfg=3
+  --           highlight GitGutterDelete guifg=#e06c75 ctermfg=1
+  --           ]])
+  --   end,
+  -- },
 }
