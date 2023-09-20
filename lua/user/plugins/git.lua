@@ -9,92 +9,41 @@ return {
     event = { "BufReadPre", "BufNewFile" },
     config = function() end,
     keys = {
-      {
-        "<leader>ga",
-        "<cmd>Git add .<cr>",
-        nowait = true,
-        desc = "Add",
-      },
-      {
-        "<leader>gc",
-        "<cmd>Git commit<cr>",
-        nowait = true,
-        desc = "Commit",
-      },
-      {
-        "<leader>gd",
-        "<cmd>Git diff<cr>",
-        nowait = true,
-        desc = "Diff",
-      },
-      {
-        "<leader>gD",
-        "<cmd>Gidiffsplit<cr>",
-        nowait = true,
-        desc = "Diff split",
-      },
-      {
-        "<leader>gp",
-        "<cmd>Git push<cr>",
-        nowait = true,
-        desc = "Push",
-      },
-      {
-        "<leader>gP",
-        "<cmd>Git pull<cr>",
-        nowait = true,
-        desc = "Pull",
-      },
+      { "<leader>ga", "<cmd>Git add .<cr>", nowait = true, desc = "Add" },
+      { "<leader>gc", "<cmd>Git commit<cr>", nowait = true, desc = "Commit" },
+      { "<leader>gd", "<cmd>Git diff<cr>", nowait = true, desc = "Diff" },
+      { "<leader>gD", "<cmd>Gdiffsplit<cr>", nowait = true, desc = "Diff split" },
+      { "<leader>gp", "<cmd>Git push<cr>", nowait = true, desc = "Push" },
+      { "<leader>gP", "<cmd>Git pull<cr>", nowait = true, desc = "Pull" },
     },
   },
   {
     "junegunn/gv.vim",
     event = { "BufReadPre", "BufNewFile" },
     keys = {
-      {
-        "<leader>gh",
-        "<cmd>GV<cr>",
-        nowait = true,
-        desc = "Git History",
-      },
-      {
-        "<leader>gH",
-        "<cmd>GV!<cr>",
-        nowait = true,
-        desc = "Buffer commits",
-      },
+      { "<leader>gh", "<cmd>GV<cr>", nowait = true, desc = "Git History" },
+      { "<leader>gH", "<cmd>GV!<cr>", nowait = true, desc = "Buffer commits" },
     },
     config = function() end,
   },
   {
     "f-person/git-blame.nvim",
     event = { "BufReadPre", "BufNewFile" },
-    keys = {
-      {
-        "<leader>gb",
-        "<cmd>GitBlameToggle<cr>",
-        nowait = true,
-        desc = "Git History",
-      },
-    },
+    keys = { { "<leader>gb", "<cmd>GitBlameToggle<cr>", nowait = true, desc = "Git History" } },
     config = function()
       local blame = require("gitblame")
       blame.setup({
-        enable = false,
+        enabled = false,
       })
+      vim.cmd([[
+        let g:gitblame_enabled = 0
+      ]])
     end,
   },
   {
     "mbbill/undotree",
     keys = {
-      {
-        "<leader>u",
-        "<cmd>UndotreeToggle<cr>",
-        desc = "UndotreeToggle",
-        noremap = true,
-        nowait = true,
-        silent = true,
-      },
+      { "<leader>u", "<cmd>UndotreeToggle<cr>", desc = "UndotreeToggle", noremap = true, nowait = true, silent = true },
     },
     event = { "BufReadPre", "BufNewFile" },
     config = function() end,
