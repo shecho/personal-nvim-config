@@ -1,7 +1,8 @@
 return {
   {
     "lewis6991/gitsigns.nvim",
-    event = { "BufReadPre", "BufNewFile" },
+    cmd = { "Gitsigns" },
+    -- event = { "BufReadPre", "BufNewFile" },
     config = true,
   },
   {
@@ -19,7 +20,8 @@ return {
   },
   {
     "junegunn/gv.vim",
-    event = { "BufReadPre", "BufNewFile" },
+    -- event = { "BufReadPre", "BufNewFile" },
+    cmd = { "GV" },
     keys = {
       { "<leader>gh", "<cmd>GV<cr>", nowait = true, desc = "Git History" },
       { "<leader>gH", "<cmd>GV!<cr>", nowait = true, desc = "Buffer commits" },
@@ -28,7 +30,8 @@ return {
   },
   {
     "f-person/git-blame.nvim",
-    event = { "BufReadPre", "BufNewFile" },
+    -- event = { "BufReadPre", "BufNewFile" },
+    cmd = { "GitBlameToggle" },
     keys = { { "<leader>gb", "<cmd>GitBlameToggle<cr>", nowait = true, desc = "Git History" } },
     config = function()
       local blame = require("gitblame")
@@ -45,7 +48,8 @@ return {
     keys = {
       { "<leader>u", "<cmd>UndotreeToggle<cr>", desc = "UndotreeToggle", noremap = true, nowait = true, silent = true },
     },
-    event = { "BufReadPre", "BufNewFile" },
+    -- event = { "BufReadPre", "BufNewFile" },
+    cmd = { "UndotreeToggle" },
     config = function() end,
   },
   -- {

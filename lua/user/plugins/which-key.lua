@@ -6,8 +6,23 @@ return {
     vim.o.timeoutlen = 200
   end,
   opts = {
-    -- your configuration comes here
-    -- or leave it empty to use the default settings
-    -- refer to the configuration section below
+    plugins = { spelling = true },
+    defaults = {
+      mode = { "n", "v" },
+      ["g"] = { name = "+git" },
+      ["<leader>b"] = { name = "+Buffer" },
+      ["<leader>a"] = { name = "+Actions" },
+      ["<leader>s"] = { name = "+Search" },
+      ["<leader>g"] = { name = "+Git" },
+      ["<leader>l"] = { name = "+Lsp" },
+      ["<leader>u"] = { name = "+Notify" },
+      ["<leader>x"] = { name = "+Diagnostics/quickfix" },
+      ["<leader>n"] = { name = "+Harpoon" },
+    },
   },
+  config = function(_, opts)
+    local wk = require("which-key")
+    wk.setup(opts)
+    wk.register(opts.defaults)
+  end,
 }

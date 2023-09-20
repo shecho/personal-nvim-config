@@ -1,6 +1,7 @@
 return {
   "lukas-reineke/indent-blankline.nvim",
-  event = { "BufReadPost", "BufNewFile" },
+  cmd = { "IndentBlanklineEnable", "IndentBlanklineToggle", "IndentBlanklineDisable" },
+  -- event = { "BufReadPost", "BufNewFile" },
   opts = {
     -- char = "▏",
     char = "│",

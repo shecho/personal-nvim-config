@@ -1,5 +1,6 @@
 return {
   "szw/vim-maximizer",
+  cmd = { "MaximizerToggle", "MaximizerRestore" },
   keys = {
     {
       "<leader>am",

@@ -1,6 +1,7 @@
 return {
   {
     "voldikss/vim-floaterm",
+    cmd = { "FloatermToggle", "FloatermNew", "FloatermNext", "FloatermPrev" },
     config = function()
       vim.cmd([[
         " let g:floaterm_wintype='normal'

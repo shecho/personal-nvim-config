@@ -154,7 +154,13 @@ keymap("n", "K", ":lua require('user.core.functions').show_documentation()<CR>",
 keymap("n", "Q", ":lua require('user.core.functions').smart_quit()<CR>", opts)
 -- ease caps
 -- " inoremap <c-u> <ESC>viwUi
-keymap("n", "<leader>rp", "<cmd>%s/\\<<C-r><C-w>\\>/<C-r><C-w>/gI<Left><Left><Left><CR>", opts)
+opt_nw.desc = "Indent Toggle"
+keymap("n", "<leader>bt", "<cmd>IndentBlanklineToggle<CR>", opt_nw)
+
+opt_nw.desc = "Indent Disable"
+keymap("n", "<leader>bc", "<cmd>IndentBlanklineDisable<CR>", opt_nw)
+opt_nw.desc = "Indent Enable"
+keymap("n", "<leader>be", "<cmd>IndentBlanklineEnable<CR>", opt_nw)
 
 vim.cmd([[
   nnoremap("<leader>rp", ":%s/\\<<C-r><C-w>\\>/<C-r><C-w>/gI<Left><Left><Left>")

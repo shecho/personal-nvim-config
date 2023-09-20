@@ -17,7 +17,7 @@ return {
             \	'separately': {
             \		'*': {},
             \		'markdown': {
-            \			'parentheses_options': 'containedin=markdowncode contained', 
+            \			'parentheses_options': 'containedin=markdowncode contained',
             \		},
             \		'lisp': {
             \	    'guifgs': ['#858580', '#8fbcbb', '#d08770', '#a3be8c', '#ebcb8b', '#b48ead', '#80a880', '#887070'],
@@ -29,15 +29,15 @@ return {
             \			'parentheses': ['start=/(/ end=/)/ fold', 'start=/\[/ end=/\]/ fold', 'start=/\v\{\ze[^-]/ end=/}/ fold'],
             \		},
             \		'vim': {
-            \			'parentheses_options': 'containedin=vimFuncBody', 
+            \			'parentheses_options': 'containedin=vimFuncBody',
             \		},
             \		'perl': {
-            \			'syn_name_prefix': 'perlBlockFoldRainbow', 
+            \			'syn_name_prefix': 'perlBlockFoldRainbow',
             \		},
             \		'stylus': {
-            \			'parentheses': ['start=/{/ end=/}/ fold contains=@colorableGroup'], 
+            \			'parentheses': ['start=/{/ end=/}/ fold contains=@colorableGroup'],
             \		},
-            \		'css': 0, 
+            \		'css': 0,
             \	}
             \}
               ]])

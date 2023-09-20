@@ -16,7 +16,7 @@ return {
     build = "./install --bin",
     config = function()
       local keymap = vim.keymap -- for conciseness
-      keymap.set("n", "<leader>ss", "<cmd>FzfLua live_grep<cr>", { desc = "Fuzzy find files" })
+      keymap.set("n", "<leader>sS", "<cmd>Fzf<cr>", { desc = "Fuzzy find files" })
     end,
   },
 }
