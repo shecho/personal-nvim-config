@@ -21,7 +21,8 @@ set smarttab                            " Makes tabbing smarter will realize you
 set expandtab                           " Converts tabs to spaces
 set smartindent                         " Makes indenting smart
 set autoindent                          " Good auto indent
-set laststatus=2                        " Always display the status line
+set laststatus=3                        " Always display the status line
+set splitkeep =screen
 set number                              " Line numbers
 set cursorline                          " Enable highlighting of the current line
 set background=dark                     " tell vim what the background color looks like
@@ -31,17 +32,21 @@ set nobackup                            " This is recommended by coc
 set nowritebackup                       " This is recommended by coc
 set shortmess+=c                        " Don't pass messages to |ins-completion-menu|.
 set signcolumn=yes                      " Always show the signcolumn, otherwise it would shift the text each time
-set updatetime=300                      " Faster completion
-set timeoutlen=100                      " By default timeoutlen is 1000 ms
+set updatetime=200                      " Faster completion
+set timeoutlen=200                      " By default timeoutlen is 1000 ms
 set clipboard=unnamedplus               " Copy paste between vim and everything else
+set smartcase
 set incsearch
-set guifont=Fira\ Code\ Nerd\ Font
-" let $NVIM_TUI_ENABLE_TRUE_COLOR=1
+set ignorecase
+set guifont=Operator\ JetBrains\ Fira\ Code\ Nerd\ Font
+" let $NVIM_T/UI_ENABLE_TRUE_COLOR=1
 " set mmp=1300
 " set autochdir                           " Your working directory will always be the same as your working directory
 " set foldcolumn=2                        " Folding abilities
 
 " au! BufWritePost $MYVIMRC source %      " auto source when writing to init.vm alternatively you can run :source $MYVIMRC
+" let g:python3_host_prog = "/usr/bin/python3"
+" let g:loaded_python3_provider = 0
 autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
 
 " You can't stop me
