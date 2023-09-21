@@ -49,8 +49,8 @@ return {
     keymap.set(
       "n",
       "<leader>sm",
-      "<cmd>Telescope harpoon marks theme=dropdown previewer=false winblend=15 layout_config={height=0.60,width=0.50}'",
-      { desc = "File 2" }
+      "<cmd>Telescope harpoon marks theme=dropdown previewer=false winblend=15 layout_config={height=0.60,width=0.50}'<cr>",
+      { desc = "Harpoon marks" }
     )
   end,
 }
