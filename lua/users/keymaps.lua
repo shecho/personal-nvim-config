@@ -91,9 +91,6 @@ keymap({ "n", "v", "x" }, "s", "<Esc>", opts)
 -- TABS and buffer
 keymap("n", "<TAB>", "<cmd>bnext<cr>", opts)
 keymap("n", "<S-TAB>", "<cmd>bprevious<cr>", opts)
-opts.desc = "Delete buffer"
-keymap("n", "<leader>q", "<cmd>Bdelete!<CR>", opts)
--- keymap("n", "Q", "<cmd>Bdelete!<CR>", opts)
 keymap("n", "<leader>1", "<c-^>", opt_nw)
 
 -- esc
@@ -105,6 +102,7 @@ keymap("n", "<C-a>", "gg<S-v>Gy", opt_nw)
 
 -- Alternate way to save
 keymap("n", "<C-s>", "<cmd>w<cr>", opt_nw)
+keymap("n", "<M-s>", "<cmd>w<cr>", opt_nw)
 keymap("n", "<C-q>", "<cmd>:wq!<cr>", opt_nw)
 
 -- nnoremap <leader>0 :e $MYVIMRC <CR>
