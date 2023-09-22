@@ -230,8 +230,13 @@ return {
       "<cmd>Telescope buffers theme=dropdown initial_mode=normal<cr>",
       { desc = "Find string in cwd" }
     )
+    keymap.set(
+      "n",
+      "<leader>so",
+      "<cmd>Telescope oldfiles initial_mode=normal<cr>",
+      { desc = "Fuzzy find recent files" }
+    )
     keymap.set("n", "<leader>f", "<cmd>Telescope find_files<cr>", { desc = "Fuzzy find files" })
-    keymap.set("n", "<leader>so", "<cmd>Telescope oldfiles<cr>", { desc = "Fuzzy find recent files" })
     keymap.set("n", "<leader>sa", "<cmd>Telescope live_grep<cr>", { desc = "Find string in cwd" })
     keymap.set("n", "<C-p>", "<cmd>Telescope projects theme=dropdown winblend=30 <cr>", { desc = "Projects" })
   end,

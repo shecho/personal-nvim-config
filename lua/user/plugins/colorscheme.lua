@@ -13,6 +13,7 @@ return {
         endif
 
         " hi Comment cterm=italic
+        " hi Pmenu cterm=bold
         " cterm=bold,underline,italic ctermfg=168 gui=bold,underline,italic guifg=#e06c75 guisp=#e06c75
         " highlight DiagnosticUnderlineError cterm=bold,underline,italic ctermfg=168 gui=bold,underline,italic guifg=#e06c75 guisp=#e06c75
         " highlight CopilotSuggestion guifg=#555555 ctermfg=8
@@ -31,6 +32,7 @@ return {
         " call one#highlight('@attribute', '', '', 'bold,standout')
         " call one#highlight('Tag', 'B243E6', '', 'bold')
         " call one#highlight('@Tag', '528bff', '', 'bold')
+        call one#highlight('normal', '', '', 'bold')
         call one#highlight('Special', '', '', 'bold')
         call one#highlight('Constant', '', '', 'bold')
         call one#highlight('@constant.builtin', 'c678dd', '', 'bold')
@@ -91,7 +93,6 @@ return {
         " call one#highlight('Search', '', '', 'bolditalic')
         " call one#highlight('IncSearch', '', '', 'bolditalic,standout')
         call one#highlight('Statement', '', '', 'bold')
-        " call one#highlight('Statement', '', '', 'bold')
         call one#highlight('CursorColumn', '828997', '', 'standout')"current word #4b5263 #5c6370  5c6370 #828997 #abb2bf  abb2bf
         " call one#highlight('CursorLine', '', '', 'standout')
         " call one#highlight('Cursor', '', '', 'standout')
