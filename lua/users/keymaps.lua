@@ -102,8 +102,18 @@ keymap("n", "<C-a>", "gg<S-v>Gy", opt_nw)
 
 -- Alternate way to save
 keymap("n", "<C-s>", "<cmd>w<cr>", opt_nw)
-keymap("n", "<M-s>", "<cmd>w<cr>", opt_nw)
+-- keymap("n", "<M-s>", "<cmd>w<cr>")
+-- keymap("n", "<A-s>", "<cmd>w<cr>")
+-- keymap("n", "<S-s>", "<cmd>w<cr>")
+keymap("n", "<D-s>", "<cmd>w<cr>")
+keymap("n", "<Char-0xAA>", "<cmd>write<cr>", {
+  desc = "N: Save current file by <command-s>",
+})
 keymap("n", "<C-q>", "<cmd>:wq!<cr>", opt_nw)
+
+-- vim.cmd([[
+--   nnoremap <leader>q <cmd>:q!<cr>
+-- ]])
 
 -- nnoremap <leader>0 :e $MYVIMRC <CR>
 opt_nw.desc = "MyVimrc"
@@ -159,9 +169,5 @@ opt_nw.desc = "Indent Disable"
 keymap("n", "<leader>bc", "<cmd>IndentBlanklineDisable<CR>", opt_nw)
 opt_nw.desc = "Indent Enable"
 keymap("n", "<leader>be", "<cmd>IndentBlanklineEnable<CR>", opt_nw)
-
-vim.cmd([[
-  nnoremap("<leader>rp", ":%s/\\<<C-r><C-w>\\>/<C-r><C-w>/gI<Left><Left><Left>")
-]])
 
 return M

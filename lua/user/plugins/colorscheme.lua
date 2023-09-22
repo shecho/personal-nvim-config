@@ -31,9 +31,6 @@ return {
         " call one#highlight('@attribute', '', '', 'bold,standout')
         " call one#highlight('Tag', 'B243E6', '', 'bold')
         " call one#highlight('@Tag', '528bff', '', 'bold')
-        " call one#highlight('Operator', '', '', '')" *= - + =>'#c678dd#
-        call one#highlight('@Tag.delimiter', 'abb2bf', '', 'bold')
-        " call one#highlight('@Tag.delimiter', '', '', '')
         call one#highlight('Special', '', '', 'bold')
         call one#highlight('Constant', '', '', 'bold')
         call one#highlight('@constant.builtin', 'c678dd', '', 'bold')
@@ -53,11 +50,10 @@ return {
         call one#highlight('Number', '', '', 'bold')
         call one#highlight('Float', '', '', 'bold')
         call one#highlight('String', '', '', 'bold')"string
-        call one#highlight('Repeat', '', '','italic')" #B243E6
+        call one#highlight('Repeat', '', '','italic')"
         call one#highlight('Type', '', '', 'bold')
         call one#highlight('@type.definition', '', '', 'bolditalic')
         call one#highlight('Asynchronous', '', '', 'italic')
-        call one#highlight('@operator', 'c678dd', '', '')" *= - + =>'#c678dd c678dd
         call one#highlight('Exception', '', '', 'italic') " try catch
         call one#highlight('StorageClass', '', '','bolditalic')" #B243E6
         call one#highlight('Error', 'be5046', '', 'bolditalic')"#e06c75 #be5046 #e45649 #ca1243  #c18401 #e5c07b #d19a66 #61afef #528bff 528bff #4078f2 4078f2 #abb2bf
@@ -67,17 +63,21 @@ return {
         call one#highlight('DiagnosticFloatingError', 'e06c75', '', 'bolditalic')
         call one#highlight('DiagnosticSignError', 'e06c75', '', 'bolditalic')
         call one#highlight('DiagnosticUnderlineError', 'e06c75', '', 'bolditalic,underline')
-        call one#highlight('Delimiter','', '', 'bold')"brackets
+        " call one#highlight('@Tag.delimiter', '', '', '')
+        call one#highlight('@Tag.delimiter', 'abb2bf', '', 'bold') " #B243E6 </>
+        call one#highlight('Delimiter','', '', 'bold')"brackets () {} []
         call one#highlight('MatchParen', '', '', 'underline,bolditalic')
+        call one#highlight('@operator', 'c678dd', '', 'bold')" *= - + =>'#c678dd c678dd
+        call one#highlight('Operator', '', '', '')" *= - + =>'#c678dd#
         " call one#highlight('@function', '61afef', '', 'bold')"params abd arguments and variables names #61afef
-        " call one#highlight('Function', '61afef', '','bold')" #B243E6
+        " call one#highlight('Function', '61afef', '','bold')"
         " call one#highlight('Identifier', '', '', 'bold')"params abd arguments and variables names
         " call one#highlight('Keyword', 'c678dd', '', 'italic')"reserved words
         " call one#highlight('@Punctuation', '', '', 'bold')
         " call one#highlight('@Punctuation.delimiter', '', '', 'bold')
         " call one#highlight('@Punctuation.bracket', '', '', 'bold')
         " call one#highlight('@Punctuation', '', '', 'bold')
-        " call one#highlight('Directory', '', '', 'bold')
+        call one#highlight('Directory', '', '', 'bold')
         " call one#highlight('Label', '', '', 'bold,underline')"html and jsx
         " call one#highlight('WildMenu', '', '', 'reverse')
         " call one#highlight('Use', '', '', 'standout')
@@ -87,7 +87,7 @@ return {
         " call one#highlight('TTabLineSelabLineSel', '', '3e4452', 'bolditalic,underline')
         " call one#highlight('TabLineSel', '', '3e4452', 'bolditalic')
         " call one#highlight('TabLineFill', '', '', '')
-        " call one#highlight('TabLine', '', '', '')
+        call one#highlight('TabLine', '', '', 'bold')
         " call one#highlight('Search', '', '', 'bolditalic')
         " call one#highlight('IncSearch', '', '', 'bolditalic,standout')
         call one#highlight('Statement', '', '', 'bold')
@@ -99,7 +99,7 @@ return {
         " call one#highlight('CursorLineNr', '', '', 'standout')" current line
         " call one#highlight('LineNr', '', '', 'standout')" current line
         " call one#highlight('Define', '', '000000', 'bolditalic')
-        " bold
+
         " underline
         " undercurl	curly underline
         " strikethrough

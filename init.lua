@@ -11,7 +11,5 @@ require("user.lazy")
 
 vim.cmd([[
   set guifont=JetBrain\ Operator\ Fira\ Code\ Hack\ Nerd\ Font
-  autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
   cmap w!! w !sudo tee %
-  syntax enable
 ]])

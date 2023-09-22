@@ -19,12 +19,13 @@ return {
       "nvim-telescope/telescope-ui-select.nvim",
       event = "VeryLazy",
       -- config = function(_, opts)
-      -- 	require("ui-select").setup(opts)
-      -- 	require("telescope").load_extension("ui-select")
+      --   require("ui-select").setup(opts)
+      --   require("telescope").load_extension("ui-select")
       -- end,
     },
     { "nvim-telescope/telescope-file-browser.nvim" },
     { "danielvolchek/tailiscope.nvim" },
+    { "rcarriga/nvim-notify" },
   },
   config = function()
     local telescope = require("telescope")
@@ -208,12 +209,13 @@ return {
     telescope.load_extension("ui-select")
     telescope.load_extension("file_browser")
     telescope.load_extension("tailiscope")
+    telescope.load_extension("notify")
 
     local keymap = vim.keymap -- for conciseness
     keymap.set(
       "n",
       "<leader>p",
-      "<cmd>Telescope find_files hidden=true no_ignore=true winblend=40<cr>",
+      "<cmd>Telescope find_files hidden=true no_ignore=true winblend=30<cr>",
       { desc = "Fuzzy find files" }
     )
     keymap.set(
@@ -222,10 +224,15 @@ return {
       "<cmd>Telescope file_browser theme=ivy initial_mode=normal<cr>",
       { desc = "Fuzzy find files" }
     )
+    keymap.set(
+      "n",
+      "<leader>sb",
+      "<cmd>Telescope buffers theme=dropdown initial_mode=normal<cr>",
+      { desc = "Find string in cwd" }
+    )
     keymap.set("n", "<leader>f", "<cmd>Telescope find_files<cr>", { desc = "Fuzzy find files" })
     keymap.set("n", "<leader>so", "<cmd>Telescope oldfiles<cr>", { desc = "Fuzzy find recent files" })
     keymap.set("n", "<leader>sa", "<cmd>Telescope live_grep<cr>", { desc = "Find string in cwd" })
-    keymap.set("n", "<leader>sb", "<cmd>Telescope buffers theme=dropdown<cr>", { desc = "Find string in cwd" })
     keymap.set("n", "<C-p>", "<cmd>Telescope projects theme=dropdown winblend=30 <cr>", { desc = "Projects" })
   end,
 }
