@@ -32,7 +32,7 @@ return {
     "f-person/git-blame.nvim",
     -- event = { "BufReadPre", "BufNewFile" },
     cmd = { "GitBlameToggle" },
-    keys = { { "<leader>gb", "<cmd>GitBlameToggle<cr>", nowait = true, desc = "Git History" } },
+    keys = { { "<leader>gb", "<cmd>GitBlameToggle<cr>", nowait = true, desc = "Git Blame" } },
     config = function()
       local blame = require("gitblame")
       blame.setup({

@@ -107,22 +107,14 @@ local mappings = {
   w = { "<cmd>w<CR>", "Write" },
 
   -- ["F"] = { "<cmd>TTelescope live_grep theme=ivy<cr>elescope live_grep theme=ivy<cr>", "Find Text" },
-  c = {
-    name = "Coplilot",
-    i = { "<cmd>BrowseInputSearch<cr>", "Input Search" },
-    b = { "<cmd>Browse<cr>", "Browse" },
-    d = { "<cmd>BrowseDevdocsSearch<cr>", "Devdocs" },
-    f = { "<cmd>BrowseDevdocsFiletypeSearch<cr>", "Devdocs Filetype" },
-    m = { "<cmd>BrowseMdnSearch<cr>", "Mdn" },
-  },
   a = {
     name = "Actions",
     r = {
-      '<cmd>lua require("user.functions").toggle_option("relativenumber")<cr>',
+      '<cmd>lua require("user.core.functions").toggle_option("relativenumber")<cr>',
       "Relative",
     },
     l = {
-      '<cmd>lua require("user.functions").toggle_option("cursorline")<cr>',
+      '<cmd>lua require("user.core.functions").toggle_option("cursorline")<cr>',
       "Cursorline",
     },
   },
@@ -171,13 +163,6 @@ local mappings = {
   l = {
     name = "LSP",
     a = { "<cmd>lua vim.lsp.buf.code_action()<cr>", "Code Action" },
-    w = {
-      "<cmd>Telescope lsp_workspace_diagnostics<cr>",
-      "Workspace Diagnostics",
-    },
-    l = { "<cmd>lua vim.lsp.codelens.run()<cr>", "CodeLens Action" },
-    q = { "<cmd>lua vim.lsp.diagnostic.set_loclist()<cr>", "Quickfix" },
-    r = { "<cmd>lua vim.lsp.buf.rename()<cr>", "Rename" },
     R = { "<cmd>TroubleToggle lsp_references<cr>", "References" },
   },
 
@@ -187,15 +172,6 @@ local mappings = {
     h = { "<cmd>ToggleTerm size=10 direction=horizontal<cr>", "Horizontal" },
     v = { "<cmd>ToggleTerm size=80 direction=vertical<cr>", "Vertical" },
   },
-}
-
-local vopts = {
-  mode = "v", -- VISUAL mode
-  prefix = "<leader>",
-  buffer = nil, -- Global mappings. Specify a buffer number for buffer local mappings
-  silent = true, -- use `silent` when creating keymaps
-  noremap = true, -- use `noremap` when creating keymaps
-  nowait = true, -- use `nowait` when creating keymaps
 }
 
 which_key.setup(setup)

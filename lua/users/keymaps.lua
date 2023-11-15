@@ -12,7 +12,6 @@ vim.g.maplocalleader = " "
 -- keymap("n", "<C-Space>", "<cmd>WhichKey \\<leader><cr>", opts)
 keymap("n", "<C-i>", "<C-i>", opts)
 
--- Modes
 -- normal_mode = "n",
 -- insert_mode = "i",
 -- visual_mode = "v",
@@ -29,6 +28,7 @@ keymap("n", "<C-j>", "<cmd> resize -2<CR>", opt_nw) -- nnoremap <silent> <C-j> :
 keymap("n", "<C-k>", "<cmd> resize +2<CR>", opt_nw) -- nnoremap <silent> <C-k> :resize +2<CR>
 keymap("n", "<S-h>", "<cmd> vertical resize -2<CR>", opt_nw) -- nnoremap <silent> <S-h> :vertical resize -2<CR>
 keymap("n", "<S-l>", "<cmd> vertical resize +2<CR>", opt_nw) -- nnoremap <silent> <S-l> :vertical resize +2<CR>
+
 -- Resize with arrows
 -- keymap("n", "<S-Up>", ":resize -2<CR>", opts)
 -- keymap("n", "<S-Down>", ":resize +2<CR>", opts)
@@ -102,20 +102,11 @@ keymap("n", "<C-a>", "gg<S-v>Gy", opt_nw)
 
 -- Alternate way to save
 keymap("n", "<C-s>", "<cmd>w<cr>", opt_nw)
--- keymap("n", "<M-s>", "<cmd>w<cr>")
--- keymap("n", "<A-s>", "<cmd>w<cr>")
--- keymap("n", "<S-s>", "<cmd>w<cr>")
-keymap("n", "<D-s>", "<cmd>w<cr>")
-keymap("n", "<Char-0xAA>", "<cmd>write<cr>", {
-  desc = "N: Save current file by <command-s>",
-})
+keymap({ "n", "i" }, "<D-s>", "<cmd>w<cr>")
+-- })
 keymap("n", "<C-q>", "<cmd>:wq!<cr>", opt_nw)
+keymap("n", "<leader>q", "<cmd>:wq!<cr>", opt_nw)
 
--- vim.cmd([[
---   nnoremap <leader>q <cmd>:q!<cr>
--- ]])
-
--- nnoremap <leader>0 :e $MYVIMRC <CR>
 opt_nw.desc = "MyVimrc"
 keymap("n", "<leader>0", "<cmd>e $MYVIMRC<cr>", opt_nw)
 
@@ -160,14 +151,8 @@ keymap("v", "<leader>9", "xi()<Esc>P", opt_nw)
 
 keymap("n", "K", ":lua require('user.core.functions').show_documentation()<CR>", opts)
 keymap("n", "Q", ":lua require('user.core.functions').smart_quit()<CR>", opts)
+
 -- ease caps
 -- " inoremap <c-u> <ESC>viwUi
-opt_nw.desc = "Indent Toggle"
-keymap("n", "<leader>bt", "<cmd>IndentBlanklineToggle<CR>", opt_nw)
-
-opt_nw.desc = "Indent Disable"
-keymap("n", "<leader>bc", "<cmd>IndentBlanklineDisable<CR>", opt_nw)
-opt_nw.desc = "Indent Enable"
-keymap("n", "<leader>be", "<cmd>IndentBlanklineEnable<CR>", opt_nw)
 
 return M

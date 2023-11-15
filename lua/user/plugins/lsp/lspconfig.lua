@@ -163,6 +163,16 @@ return {
         on_attach(_, bufnr)
       end,
     })
+    lspconfig.clangd.setup({
+      capabilities = capabilities,
+      cmd = {
+        "clangd",
+        "--offset-encoding=utf-16",
+      },
+      on_attach = function(_, bufnr)
+        on_attach(_, bufnr)
+      end,
+    })
 
     lspconfig.flow.setup({
       on_attach = function(_, bufnr)

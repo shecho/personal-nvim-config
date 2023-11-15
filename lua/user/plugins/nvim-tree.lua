@@ -53,7 +53,6 @@ return {
       view = {
         width = 40,
         -- height = 30,
-        hide_root_folder = false,
         side = "right",
         -- auto_resize = true,
         number = false,

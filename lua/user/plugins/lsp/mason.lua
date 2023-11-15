@@ -24,6 +24,7 @@ return {
         "tsserver",
         "html",
         -- "cssls",
+        -- "ccls",
         "tailwindcss",
         -- "svelte",
         -- "graphql",
