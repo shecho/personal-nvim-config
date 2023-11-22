@@ -5,8 +5,8 @@ if vim.loader then
   end)
 end
 
-require("users.options")
-require("users.keymaps")
+require("user.options")
+require("user.keymaps")
 require("user.lazy")
 
 vim.cmd([[

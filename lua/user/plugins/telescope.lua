@@ -30,7 +30,7 @@ return {
   config = function()
     local telescope = require("telescope")
     local actions = require("telescope.actions")
-    local icons = require("users.icons")
+    local icons = require("user.icons")
     local trouble = require("trouble.providers.telescope")
 
     telescope.setup({
@@ -94,7 +94,9 @@ return {
             ["<C-p>"] = actions.cycle_history_prev,
 
             ["<C-j>"] = actions.move_selection_next,
+            ["<D-j>"] = actions.move_selection_next,
             ["<C-k>"] = actions.move_selection_previous,
+            ["<D-k>"] = actions.move_selection_previous,
             ["<C-l>"] = actions.select_default,
 
             ["<C-b>"] = actions.results_scrolling_up,
@@ -114,7 +116,7 @@ return {
             ["<Tab>"] = actions.move_selection_next,
             ["<S-Tab>"] = actions.move_selection_previous,
             ["<C-h>"] = actions.which_key, -- keys from pressing <C-h>
-            ["<esc>"] = actions.close,
+            -- ["<esc>"] = actions.close,
           },
 
           n = {

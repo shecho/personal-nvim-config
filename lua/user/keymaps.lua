@@ -87,6 +87,8 @@ keymap("n", "<leader>;", ":", opts)
 
 opts.desc = "Remove s"
 keymap({ "n", "v", "x" }, "s", "<Esc>", opts)
+opts.desc = "Remove q"
+keymap({ "n", "v", "x" }, "q", "<Esc>", opts)
 
 -- TABS and buffer
 keymap("n", "<TAB>", "<cmd>bnext<cr>", opts)
@@ -96,6 +98,7 @@ keymap("n", "<leader>1", "<c-^>", opt_nw)
 -- esc
 keymap("n", "<C-c>", "<Esc>", opt_nw)
 keymap("n", "<C-c>", "<cmd>:noh<cr>", opt_nw)
+keymap("n", "<D-c>", "<cmd>:noh<cr>", opt_nw)
 
 -- select_all
 keymap("n", "<C-a>", "gg<S-v>Gy", opt_nw)
