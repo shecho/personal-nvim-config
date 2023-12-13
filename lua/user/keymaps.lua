@@ -43,10 +43,14 @@ keymap("n", "J", "mzJ`z", opts)
 keymap("c", "Q", "q", opt_nw)
 
 -- Naviagate buffers
--- keymap("n", "<S-l>", ":bnext<CR>", opts)
--- keymap("n", "<S-h>", ":bprevious<CR>", opts)
-
--- Move text up and down
+keymap("n", "<leader>bn", ":BufferNext<CR>", opts)
+keymap("n", "<leader>bp", ":BufferPrevious<CR>", opts)
+keymap("n", "<leader>bq", ":BufferFirst<CR>", opts)
+keymap("n", "<leader>bd", ":BufferClose<CR>", opts)
+keymap("n", "<leader>bc", ":BufferPick<CR>", opts)
+keymap("n", "<leader>bb", ":BufferCloseAllButCurrent<CR>", opts)
+--
+-- -- Move text up and down
 keymap("n", "<A-J>", "<Esc>:m .+1<CR>==gi", opts)
 keymap("n", "<A-K>", "<Esc>:m .-2<CR>==gi", opts)
 
@@ -93,12 +97,13 @@ keymap({ "n", "v", "x" }, "q", "<Esc>", opts)
 -- TABS and buffer
 keymap("n", "<TAB>", "<cmd>bnext<cr>", opts)
 keymap("n", "<S-TAB>", "<cmd>bprevious<cr>", opts)
+
+opt_nw.desc = "Previous buffer"
 keymap("n", "<leader>1", "<c-^>", opt_nw)
 
 -- esc
 keymap("n", "<C-c>", "<Esc>", opt_nw)
 keymap("n", "<C-c>", "<cmd>:noh<cr>", opt_nw)
-keymap("n", "<D-c>", "<cmd>:noh<cr>", opt_nw)
 
 -- select_all
 keymap("n", "<C-a>", "gg<S-v>Gy", opt_nw)

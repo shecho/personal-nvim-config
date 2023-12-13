@@ -10,14 +10,9 @@ return {
             autocmd!
             autocmd TextYankPost *  silent! lua require'vim.highlight'.on_yank()
             augroup END
+
         endif
 
-        " hi Comment cterm=italic
-        " hi Pmenu cterm=bold
-        " cterm=bold,underline,italic ctermfg=168 gui=bold,underline,italic guifg=#e06c75 guisp=#e06c75
-        " highlight DiagnosticUnderlineError cterm=bold,underline,italic ctermfg=168 gui=bold,underline,italic guifg=#e06c75 guisp=#e06c75
-        " highlight CopilotSuggestion guifg=#555555 ctermfg=8
-        " let g:onedark_hide_endofbuffer=1
         let g:onedark_terminal_italics=1
         let g:onedark_termcolors=256
         let g:one_termcolors=256
@@ -37,8 +32,8 @@ return {
         call one#highlight('Constant', '', '', 'bold')
         call one#highlight('@constant.builtin', 'c678dd', '', 'bold')
         call one#highlight('@Keyword', 'c678dd', '', 'italic')"reserved words
-        call one#highlight('@keyword.function', 'c678dd', '', 'bolditalic')"reserved words
-        call one#highlight('@keyword.operator', '', '', 'italic')"reserved words
+        call one#highlight('@keyword.function', 'c678dd', '', 'bolditalic')
+        call one#highlight('@keyword.operator', '', '', 'italic')
         call one#highlight('@Parameter', 'abb2bf', '', 'bolditalic,')"params abd arguments and variables names
         call one#highlight('@Parameter.reference', 'abb2bf', '', 'bolditalic,')"params abd arguments and variables names
         call one#highlight('@method', '528bff', '', 'italic')
@@ -51,7 +46,7 @@ return {
         call one#highlight('@Tag', '', '', 'bold')
         call one#highlight('Number', '', '', 'bold')
         call one#highlight('Float', '', '', 'bold')
-        call one#highlight('String', '', '', 'bold')"string
+        call one#highlight('String', '', '', 'bold')
         call one#highlight('Repeat', '', '','italic')"
         call one#highlight('Type', '', '', 'bold')
         call one#highlight('@type.definition', '', '', 'bolditalic')
@@ -71,9 +66,9 @@ return {
         call one#highlight('MatchParen', '', '', 'underline,bolditalic')
         call one#highlight('@operator', 'c678dd', '', 'bold')" *= - + =>'#c678dd c678dd
         call one#highlight('Operator', '', '', '')" *= - + =>'#c678dd#
-        " call one#highlight('@function', '61afef', '', 'bold')"params abd arguments and variables names #61afef
+        " call one#highlight('@function', '61afef', '', 'bold')"#61afef
         " call one#highlight('Function', '61afef', '','bold')"
-        " call one#highlight('Identifier', '', '', 'bold')"params abd arguments and variables names
+        " call one#highlight('Identifier', '', '', 'bold')"
         " call one#highlight('Keyword', 'c678dd', '', 'italic')"reserved words
         " call one#highlight('@Punctuation', '', '', 'bold')
         " call one#highlight('@Punctuation.delimiter', '', '', 'bold')
@@ -93,12 +88,12 @@ return {
         " call one#highlight('Search', '', '', 'bolditalic')
         " call one#highlight('IncSearch', '', '', 'bolditalic,standout')
         call one#highlight('Statement', '', '', 'bold')
-        call one#highlight('CursorColumn', '828997', '', 'standout')"current word #4b5263 #5c6370  5c6370 #828997 #abb2bf  abb2bf
+        call one#highlight('CursorColumn', '828997', '', 'standout')" word #4b5263 #5c6370  5c6370 #828997 #abb2bf  abb2bf
         " call one#highlight('CursorLine', '', '', 'standout')
         " call one#highlight('Cursor', '', '', 'standout')
-        " call one#highlight('CursorIM', '', '', 'standout')" current line
-        " call one#highlight('CursorLineNr', '', '', 'standout')" current line
-        " call one#highlight('LineNr', '', '', 'standout')" current line
+        " call one#highlight('CursorIM', '', '', 'standout')"
+        " call one#highlight('CursorLineNr', '', '', 'standout')"
+        " call one#highlight('LineNr', '', '', 'standout')"
         " call one#highlight('Define', '', '000000', 'bolditalic')
 
         " underline
@@ -108,34 +103,12 @@ return {
         " inverse		same as reverse
         " italic
         " standout
-        " nocombine	override attributes instead of combining them
-        " NONE		no attributes used (used to reset it)
-        " checks if your terminal has 24-bit color support
         " --------------------------------------------------------------
-        " colorscheme onedark
-        " autocmd ColorScheme * call onedark#set_highlight("Normal", { "fg": 'c678dd',  "gui": "italic", "cterm": "italic" }) " `bg` will not be styled since there is no `bg` setting
-        " autocmd ColorScheme * call onedark#set_highlight("Type", { "fg": 'c678dd',  "gui": "italic", "cterm": "italic" }) " `bg` will not be styled since there is no `bg` setting
 
-        " let g:VM_highlight_matches = 'value'
-        " let g:VM_highlight_matches = 'hi! Search ctermfg=228 cterm=underline'
-        " let g:VM_highlight_matches = 'hi! link Search PmenuSel'
-        " multi cursors
-        " let g:VM_highlight_matches = 'value'
         let g:VM_theme = 'purplegray'
         hi illuminatedWord gui=bolditalic guifg=#828997
         hi IlluminatedWordText gui=bolditalic guifg=#828997
         hi IlluminatedWordRead gui=bolditalic guifg=#828997
-        " hi CursorColumn gui=bolditalic guifg=#828997
-        " augroup illuminate_augroup
-        "     autocmd!
-        "     autocmd VimEnter * hi illuminatedWord cterm=standout gui=standout guifg=#828997
-        "     autocmd VimEnter * hi IlluminatedWordRead cterm=standout gui=standout guifg=#828997
-        "     autocmd VimEnter * hi IlluminatedWordText cterm=bolditalic gui=standout guifg=#828997
-        " augroup END
-        " augroup illuminate_augroup
-        "     autocmd!
-        "     autocmd VimEnter * hi illuminatedCurWord cterm=standout gui=standout guifg=#828997
-        " augroup END
         if (has("termguicolors"))
             set termguicolors
             hi LineNr ctermbg=NONE guibg=NONE
