@@ -17,7 +17,7 @@ require("onedark").setup({
     comments = "bolditalic",
     -- keywords = 'italic',
     functions = "bold",
-    -- strings = 'bold',
+    strings = "bold",
     -- variables = 'bold',
   },
 
