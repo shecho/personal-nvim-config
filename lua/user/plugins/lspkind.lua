@@ -1,9 +1,13 @@
-local icons = require("users.icons")
-
-require("lspkind").init({
-    mode = "symbol_text",
-    preset = "codicons",
-    symbol_map = {
+return {
+  "onsails/lspkind.nvim",
+  event = "VeryLazy",
+  lazy = true,
+  init = function()
+    local icons = require("user.icons")
+    require("lspkind").init({
+      mode = "symbol_text",
+      preset = "codicons",
+      symbol_map = {
         Copilot = "",
         Text = icons.kind.Text,
         -- Text = "",
@@ -40,6 +44,8 @@ require("lspkind").init({
         Event = "",
         Operator = "",
         -- TypeParameter = "",
-        TypeParameter = icons.kind.TypeParameter
-    }
-})
+        TypeParameter = icons.kind.TypeParameter,
+      },
+    })
+  end,
+}

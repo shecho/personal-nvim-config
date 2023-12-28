@@ -32,6 +32,18 @@ return {
         vim.api.nvim_feedkeys(esc, "nx", false)
         api.locked("toggle.linewise")(vim.fn.visualmode())
       end, opts)
+      keymap("n", "<leader>/", api.locked("toggle.linewise.current"), opts)
+      keymap("v", "<leader>/", api.locked("toggle.linewise.count"), opts)
+      keymap("x", "<leader>/", function()
+        vim.api.nvim_feedkeys(esc, "nx", false)
+        api.locked("toggle.linewise")(vim.fn.visualmode())
+      end, opts)
+      keymap({ "n", "i" }, "<D-/>", api.locked("toggle.linewise.current"), opts)
+      keymap("v", "<D-/>", api.locked("toggle.linewise.count"), opts)
+      keymap("x", "<D-/>", function()
+        vim.api.nvim_feedkeys(esc, "nx", false)
+        api.locked("toggle.linewise")(vim.fn.visualmode())
+      end, opts)
 
       -- Linewise toggle using C-/
     end,

@@ -36,7 +36,7 @@ return {
 
       let g:startify_bookmarks = [
             \ { 'c': '~/.config/kitty/kitty.conf' },
-            \ { 'i': '~/.config/nvim/init.vim' },
+            \ { 'i': '~/.config/nvim/init.lua' },
             \ { 'l': '~/.zshrc' },
             \ { 'z': '/Users/sergio.valencia/Documents/' },
             \ '~/',
