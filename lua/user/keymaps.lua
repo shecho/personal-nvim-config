@@ -12,7 +12,6 @@ vim.g.maplocalleader = " "
 -- keymap("n", "<C-Space>", "<cmd>WhichKey \\<leader><cr>", opts)
 keymap("n", "<C-i>", "<C-i>", opts)
 
--- Modes
 -- normal_mode = "n",
 -- insert_mode = "i",
 -- visual_mode = "v",
@@ -43,10 +42,14 @@ keymap("n", "J", "mzJ`z", opts)
 keymap("c", "Q", "q", opt_nw)
 
 -- Naviagate buffers
--- keymap("n", "<S-l>", ":bnext<CR>", opts)
--- keymap("n", "<S-h>", ":bprevious<CR>", opts)
-
--- Move text up and down
+keymap("n", "<leader>bn", ":BufferNext<CR>", opts)
+keymap("n", "<leader>bp", ":BufferPrevious<CR>", opts)
+keymap("n", "<leader>bq", ":BufferFirst<CR>", opts)
+keymap("n", "<leader>bd", ":BufferClose<CR>", opts)
+keymap("n", "<leader>bc", ":BufferPick<CR>", opts)
+keymap("n", "<leader>bb", ":BufferCloseAllButCurrent<CR>", opts)
+--
+-- -- Move text up and down
 keymap("n", "<A-J>", "<Esc>:m .+1<CR>==gi", opts)
 keymap("n", "<A-K>", "<Esc>:m .-2<CR>==gi", opts)
 
@@ -69,9 +72,6 @@ keymap("x", "K", ":move '<-2<CR>gv-gv", opts)
 keymap("x", "<A-j>", ":move '>+1<CR>gv-gv", opts)
 keymap("x", "<A-k>", ":move '<-2<CR>gv-gv", opts)
 
--- LSP move to lsp config
-keymap("n", "<leader>le", "<cmd> lua vim.lsp.buf.rename()<cr>", opts)
-
 -- keymap("n", "<F11>", "<cmd>lua vim.lsp.buf.references()<CR>", opts)
 -- zen mode
 keymap("n", "<C-z>", "<cmd>TZMinimalist<cr>", opts)
@@ -79,7 +79,6 @@ keymap("n", "<C-z>", "<cmd>TZMinimalist<cr>", opts)
 
 -- Some actions
 keymap("n", "<C-x>", '<cmd>lua require("ts-node-action").node_action()<cr>', opts)
-keymap("n", "<leader>u", "<cmd>UndotreeToggle<cr>", opts)
 
 -- Floaterm
 opts.desc = "Floaterm toogle"
@@ -91,13 +90,14 @@ keymap("n", "<leader>;", ":", opts)
 
 opts.desc = "Remove s"
 keymap({ "n", "v", "x" }, "s", "<Esc>", opts)
+opts.desc = "Remove q"
+keymap({ "n", "v", "x" }, "q", "<Esc>", opts)
 
 -- TABS and buffer
 keymap("n", "<TAB>", "<cmd>bnext<cr>", opts)
 keymap("n", "<S-TAB>", "<cmd>bprevious<cr>", opts)
-opts.desc = "Delete buffer"
-keymap("n", "<leader>q", "<cmd>Bdelete!<CR>", opts)
--- keymap("n", "Q", "<cmd>Bdelete!<CR>", opts)
+
+opt_nw.desc = "Previous buffer"
 keymap("n", "<leader>1", "<c-^>", opt_nw)
 
 -- esc
@@ -109,17 +109,20 @@ keymap("n", "<C-a>", "gg<S-v>Gy", opt_nw)
 
 -- Alternate way to save
 keymap("n", "<C-s>", "<cmd>w<cr>", opt_nw)
+keymap({ "n", "i" }, "<D-s>", "<cmd>w<cr>")
+-- })
 keymap("n", "<C-q>", "<cmd>:wq!<cr>", opt_nw)
+keymap("n", "<leader>q", "<cmd>:wq!<cr>", opt_nw)
 
--- nnoremap <leader>0 :e $MYVIMRC <CR>
 opt_nw.desc = "MyVimrc"
 keymap("n", "<leader>0", "<cmd>e $MYVIMRC<cr>", opt_nw)
 
 -- splits
 opt_nw.desc = "Vertical Split"
-keymap("n", "<leader>v", "<C-W>v", opt_nw)
+-- keymap("n", "<leader>v", "<C-W>v", opt_nw)
+keymap("n", "<leader>v", "<cmd>vsplit<cr>", opt_nw)
 opt_nw.desc = "Horizontal Split"
-keymap("n", "<leader>ah", "<C-W>s", opt_nw)
+keymap("n", "<leader>ah", "<cmd>split<cr>", opt_nw)
 opt_nw.desc = "Balance Window"
 keymap("n", "<leader>a=", "<C-W>=", opt_nw)
 opt_nw.desc = "Win up"
@@ -128,6 +131,8 @@ opt_nw.desc = "Win left"
 keymap("n", "<leader>aj", "<C-W>j", opt_nw)
 opt_nw.desc = "Win right"
 keymap("n", "<leader>al", "<C-W>l", opt_nw)
+opt_nw.desc = "Cursorline"
+keymap("n", "<leader>ac", "<cmd>lua require('user.core.functions').toggle_option('cursorline')<cr>", opt_nw)
 
 -- sorrund like
 
@@ -151,8 +156,9 @@ opt_nw.desc = "()"
 keymap("n", "<leader>9", "ciw()<Esc>P", opt_nw)
 keymap("v", "<leader>9", "xi()<Esc>P", opt_nw)
 
-keymap("n", "K", ":lua require('user.functions').show_documentation()<CR>", opts)
-keymap("n", "Q", ":lua require('user.functions').smart_quit()<CR>", opts)
+keymap("n", "K", ":lua require('user.core.functions').show_documentation()<CR>", opts)
+keymap("n", "Q", ":lua require('user.core.functions').smart_quit()<CR>", opts)
+
 -- ease caps
 -- " inoremap <c-u> <ESC>viwUi
 

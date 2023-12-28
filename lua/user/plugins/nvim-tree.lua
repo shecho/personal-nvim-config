@@ -8,7 +8,7 @@ return {
     vim.g.loaded_netrwPlugin = 1
     -- change color for arrows in tree to light blue
     vim.cmd([[ highlight NvimTreeIndentMarker guifg=#3FC5FF ]])
-    local icons = require("users.icons")
+    local icons = require("user.icons")
     local utils = require("nvim-tree.utils")
     local function my_on_attach(bufnr)
       local api = require("nvim-tree.api")
@@ -53,7 +53,6 @@ return {
       view = {
         width = 40,
         -- height = 30,
-        hide_root_folder = false,
         side = "right",
         -- auto_resize = true,
         number = false,

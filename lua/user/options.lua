@@ -1,45 +1,66 @@
-local opt = vim.opt -- for conciseness
--- line numbers
-opt.relativenumber = true -- show relative line numbers
-opt.number = true -- shows absolute line number on cursor line (when relative number is on)
+vim.g.mapleader = " "
+vim.g.maplocalleader = "\\"
 
--- tabs & indentation
-opt.tabstop = 2 -- 2 spaces for tabs (prettier default)
-opt.shiftwidth = 2 -- 2 spaces for indent width
-opt.expandtab = true -- expand tab to spaces
-opt.autoindent = true -- copy indent from current line when starting new one
-opt.smartindent = true
+local opt = vim.opt
+-- opt.relativenumber = true -- Relative line numbers
 
--- line wrapping
-opt.wrap = false -- disable line wrapping
-
--- search settings
-opt.ignorecase = true -- ignore case when searching
-opt.smartcase = true -- if you include mixed case in your search, assumes you want case-sensitive
+opt.numberwidth = 4
+opt.incsearch = true
 opt.hlsearch = true
-opt.mouse = "a"
-
--- cursor line
-opt.cursorline = true -- highlight the current cursor line
-
--- appearance
-
--- turn on termguicolors for nightfly colorscheme to work
--- (have to use iterm2 or any other true color terminal)
-opt.termguicolors = true
-opt.background = "dark" -- colorschemes that can be light or dark will be made dark
-opt.signcolumn = "yes" -- show sign column so that text doesn't shift
-
--- backspace
-opt.backspace = "indent,eol,start" -- allow backspace on indent, end of line or insert mode start position
-
--- clipboard
-opt.clipboard:append("unnamedplus") -- use system clipboard as default register
-
--- split windows
-opt.splitright = true -- split vertical window to the right
-opt.splitbelow = true -- split horizontal window to the bottom
-
--- turn off swapfile
 opt.swapfile = false
+opt.ttyfast = true
+opt.lazyredraw = true
 opt.backup = false
+opt.background = "dark"
+opt.autoindent = true
+opt.smarttab = true
+opt.ruler = true
+opt.fileencoding = "utf-8"
+opt.autowrite = true -- Enable auto write
+opt.clipboard = "unnamedplus" -- Sync with system clipboard
+opt.completeopt = "menu,menuone,noselect"
+opt.conceallevel = 3
+-- opt.confirm = true -- Confirm to save changes before exiting modified buffer
+opt.cursorline = false -- Enable highlighting of the current line
+opt.expandtab = true -- Use spaces instead of tabs
+-- opt.formatoptions = "jcroqlnt" -- tcqj
+opt.grepformat = "%f:%l:%c:%m"
+opt.grepprg = "rg --vimgrep"
+opt.ignorecase = true -- Ignore case
+opt.inccommand = "nosplit" -- preview incremental substitute
+opt.laststatus = 0
+opt.list = false -- Show some invisible characters (tabs...
+opt.mouse = "a" -- Enable mouse mode
+-- opt.guicursor = "a:block"
+opt.number = true -- Print line number
+opt.pumblend = 10 -- Popup blend
+opt.pumheight = 10 -- Maximum number of entries in a popup
+opt.scrolloff = 4 -- Lines of context
+opt.sessionoptions = { "buffers", "curdir", "tabpages", "winsize" }
+opt.shiftround = true -- Round indent
+opt.shiftwidth = 2 -- Size of an indent
+opt.shortmess:append({ W = true, I = true, c = true })
+opt.showmode = false -- Dont show mode since we have a statusline
+opt.sidescrolloff = 8 -- Columns of context
+opt.signcolumn = "yes" -- Always show the signcolumn, otherwise it would shift the text each time
+opt.smartcase = true -- Don't ignore case with capitals
+opt.smartindent = true -- Insert indents automatically
+opt.spelllang = { "en" }
+opt.splitbelow = true -- Put new windows below current
+opt.splitright = true -- Put new windows right of current
+opt.tabstop = 2 -- Number of spaces tabs count for
+opt.termguicolors = true -- True color support
+opt.timeoutlen = 200
+opt.undofile = false
+opt.undolevels = 10000
+opt.updatetime = 20 -- Save swap file and trigger CursorHold
+opt.wildmode = "longest:full,full" -- Command-line completion mode
+opt.winminwidth = 5 -- Minimum window width
+opt.wrap = false -- Disable line wrap
+
+if vim.fn.has("nvim-0.9.0") == 1 then
+  opt.splitkeep = "screen"
+  opt.shortmess:append({ C = true })
+end
+
+-- Fix markdown indentation settings
