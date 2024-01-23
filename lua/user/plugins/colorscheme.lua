@@ -22,11 +22,14 @@ return {
         colorscheme one
 
         " call one#highlight('@Constant', '', '', 'bolditalic')
-        " call one#highlight('@variable', '', '', 'bold')
+        call one#highlight('@variable.builtin', '', '', 'bold')
+        call one#highlight('@variable.member', '', '', 'bold')
         " call one#highlight('@variable', '528bff', '', 'bold')"
         " call one#highlight('@attribute', '', '', 'bold,standout')
-        " call one#highlight('Tag', 'B243E6', '', 'bold')
         " call one#highlight('@Tag', '528bff', '', 'bold')
+        call one#highlight('@Tag.delimiter', 'abb2bf', '', 'bold') " #B243E6 </>
+        call one#highlight('@Tag.attribute', 'd19a66', '', 'bolditalic') " #B243E6
+        " call one#highlight('Tag', 'B243E6', '', 'bold')
         call one#highlight('normal', '', '', 'bold')
         call one#highlight('Special', '', '', 'bold')
         call one#highlight('Constant', '', '', 'bold')
@@ -42,6 +45,7 @@ return {
         call one#highlight('Conditional', '', '', 'italic')
         call one#highlight('SpecialChar', '', '', 'bold')
         call one#highlight('Character', '', '', 'bold')
+        call one#highlight('@character', '', '', 'bold')
         call one#highlight('Include', 'c678dd', '', 'italic')"imports/exports
         call one#highlight('@Tag', '', '', 'bold')
         call one#highlight('Number', '', '', 'bold')
@@ -52,19 +56,19 @@ return {
         call one#highlight('@type.definition', '', '', 'bolditalic')
         call one#highlight('Asynchronous', '', '', 'italic')
         call one#highlight('Exception', '', '', 'italic') " try catch
-        call one#highlight('StorageClass', '', '','bolditalic')" #B243E6
-        call one#highlight('Error', 'be5046', '', 'bolditalic')"#e06c75 #be5046 #e45649 #ca1243  #c18401 #e5c07b #d19a66 #61afef #528bff 528bff #4078f2 4078f2 #abb2bf
+        call one#highlight('StorageClass', '', '','bolditalic')" #B243E6 #abb2bf #c678dd
+        call one#highlight('Error', 'be5046', '', 'bolditalic')" #e06c75 #be5046 #e45649 #ca1243  #c18401 #e5c07b #d19a66 #61afef #528bff 528bff #4078f2 4078f2 #abb2bf
         call one#highlight('ErrorMsg', 'e06c75', '', 'bold')
         call one#highlight('DiagnosticVirtualTextError', 'e06c75', '', 'bolditalic')
         call one#highlight('DiagnosticError', 'e06c75', '', 'bolditalic')
         call one#highlight('DiagnosticFloatingError', 'e06c75', '', 'bolditalic')
         call one#highlight('DiagnosticSignError', 'e06c75', '', 'bolditalic')
         call one#highlight('DiagnosticUnderlineError', 'e06c75', '', 'bolditalic,underline')
-        " call one#highlight('@Tag.delimiter', '', '', '')
-        call one#highlight('@Tag.delimiter', 'abb2bf', '', 'bold') " #B243E6 </>
         call one#highlight('Delimiter','', '', 'bold')"brackets () {} []
         call one#highlight('MatchParen', '', '', 'underline,bolditalic')
         call one#highlight('@operator', 'c678dd', '', 'bold')" *= - + =>'#c678dd c678dd
+        " call one#highlight('@punctuation.delimiter', 'c678dd', '', 'bold')" *= - + =>'#c678dd c678dd
+        call one#highlight('@punctuation.bracket', '', '', 'bold')" *= - + =>'#c678dd c678dd
         call one#highlight('Operator', '', '', '')" *= - + =>'#c678dd#
         " call one#highlight('@function', '61afef', '', 'bold')"#61afef
         " call one#highlight('Function', '61afef', '','bold')"
@@ -75,7 +79,8 @@ return {
         " call one#highlight('@Punctuation.bracket', '', '', 'bold')
         " call one#highlight('@Punctuation', '', '', 'bold')
         call one#highlight('Directory', '', '', 'bold')
-        " call one#highlight('Label', '', '', 'bold,underline')"html and jsx
+        " call one#highlight('Label', '61afef', '', 'bold')"html and jsx
+        " call one#highlight('@label', '61afef', '', 'bold')"html and jsx
         " call one#highlight('WildMenu', '', '', 'reverse')
         " call one#highlight('Use', '', '', 'standout')
         " call one#highlight('Utility', '', '', 'standout')
