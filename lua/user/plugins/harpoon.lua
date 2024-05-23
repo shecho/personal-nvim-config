@@ -48,7 +48,7 @@ return {
     )
     keymap.set(
       "n",
-      "<leader>sm",
+      "<leader>nm",
       "<cmd>Telescope harpoon marks theme=dropdown previewer=false winblend=15 layout_config={height=0.60,width=0.50}' initial_mode=normal<cr>",
       { desc = "Harpoon marks" }
     )

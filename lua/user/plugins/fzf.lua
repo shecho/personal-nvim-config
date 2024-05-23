@@ -8,6 +8,7 @@ return {
       require("fzf-lua").setup({})
       local keymap = vim.keymap -- for conciseness
       keymap.set("n", "<leader>ss", "<cmd>FzfLua live_grep<cr>", { desc = "Fuzzy find files" })
+      keymap.set("n", "<leader>sM'", "<cmd>FzfLua marks<cr>", { desc = "Marks" })
     end,
   },
   {

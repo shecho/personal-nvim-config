@@ -173,7 +173,7 @@ return {
             find_cmd = "rg", -- find command (defaults to `fd`)
           },
           ["ui-select"] = {
-            layout_config = { width = 0.4, height = 0.3 },
+            layout_config = { width = 0.5, height = 0.4 },
             on_complete = {
               function()
                 vim.cmd("stopinsert")
@@ -226,9 +226,20 @@ return {
       "<cmd>Telescope file_browser theme=ivy initial_mode=normal<cr>",
       { desc = "Find files" }
     )
-    keymap.set("n", "<leader>sb", "<cmd>Telescope buffers theme=dropdown initial_mode=normal<cr>", { desc = "Buffers" })
+    keymap.set(
+      "n",
+      "<leader>f",
+      "<cmd>Telescope find_files theme=dropdown layout_config={width=0.90} <cr>",
+      { desc = "Fuzzy find files" }
+    )
+    keymap.set(
+      "n",
+      "<leader>sb",
+      "<cmd>Telescope buffers theme=dropdown initial_mode=normal layout_config={width=0.80}<cr>",
+      { desc = "Buffers" }
+    )
+    keymap.set("n", "<leader>sm", "<cmd>Telescope marks initial_mode=normal<cr>", { desc = "Marks" })
     keymap.set("n", "<leader>so", "<cmd>Telescope oldfiles initial_mode=normal<cr>", { desc = "Recent files" })
-    keymap.set("n", "<leader>f", "<cmd>Telescope find_files<cr>", { desc = "Fuzzy find files" })
     keymap.set("n", "<leader>sa", "<cmd>Telescope live_grep<cr>", { desc = "Find string in cwd" })
     keymap.set("n", "<C-p>", "<cmd>Telescope projects theme=dropdown winblend=30 <cr>", { desc = "Projects" })
   end,
