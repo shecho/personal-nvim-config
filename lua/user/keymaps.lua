@@ -28,6 +28,7 @@ keymap("n", "<C-j>", "<cmd> resize -2<CR>", opt_nw) -- nnoremap <silent> <C-j> :
 keymap("n", "<C-k>", "<cmd> resize +2<CR>", opt_nw) -- nnoremap <silent> <C-k> :resize +2<CR>
 keymap("n", "<S-h>", "<cmd> vertical resize -2<CR>", opt_nw) -- nnoremap <silent> <S-h> :vertical resize -2<CR>
 keymap("n", "<S-l>", "<cmd> vertical resize +2<CR>", opt_nw) -- nnoremap <silent> <S-l> :vertical resize +2<CR>
+
 -- Resize with arrows
 -- keymap("n", "<S-Up>", ":resize -2<CR>", opts)
 -- keymap("n", "<S-Down>", ":resize +2<CR>", opts)
