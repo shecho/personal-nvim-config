@@ -49,3 +49,55 @@ return {
     })
   end,
 }
+
+return {
+  "onsails/lspkind.nvim",
+  event = "VeryLazy",
+  lazy = true,
+  init = function()
+    local icons = require("user.icons")
+    require("lspkind").init({
+      mode = "symbol_text",
+      preset = "codicons",
+      symbol_map = {
+        Copilot = "",
+        Text = icons.kind.Text,
+        -- Text = "",
+        -- Method = "M()",
+        Method = icons.kind.Method,
+        -- Function = "f()",
+        Function = icons.kind.Function,
+        Constructor = "",
+        Field = icons.kind.Field,
+        Variable = "",
+        -- Variable = icons.kind.Variable,
+        -- Class = "ﴯ",
+        Class = "",
+        Interface = "",
+        Module = "",
+        Property = icons.kind.Property,
+        -- Property = "ﰠ",
+        -- Unit = "塞",
+        Unit = "",
+        Value = "",
+        Enum = "",
+        Keyword = "",
+        Snippet = "",
+        Color = "",
+        File = "",
+        Reference = "",
+        Folder = "",
+        EnumMember = "",
+        -- Constant = "",
+        -- Constant = "c",
+        Constant = icons.kind.Constant,
+        -- Struct = "פּ",
+        Struct = icons.kind.Struct,
+        Event = "",
+        Operator = "",
+        -- TypeParameter = "",
+        TypeParameter = icons.kind.TypeParameter,
+      },
+    })
+  end,
+}
