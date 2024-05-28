@@ -12,7 +12,7 @@ return {
     local cmp_nvim_lsp = require("cmp_nvim_lsp")
     local keymap = vim.keymap
 
-    local on_attach = function(client, bufnr)
+    local on_attach = function(_, bufnr)
       local opts = { noremap = true, silent = true, buffer = bufnr }
       opts.buffer = bufnr
       -- set keybinds
@@ -39,8 +39,8 @@ return {
       keymap.set("n", "<leader>lT", "<cmd>Telescope lsp_type_definitions<CR>", opts) -- show lsp type definitions
 
       opts.desc = "See available code actions"
-      keymap.set({ "n", "v" }, "<leader>la", "<cmd>Lspsaga code_action<CR>", opts) -- see available code actions
-      keymap.set({ "n", "v" }, "<leader>lq", vim.lsp.buf.code_action, opts) -- see available code actions, in visual mode will apply to selection
+      keymap.set({ "n", "v" }, "<leader>lq", "<cmd>Lspsaga code_action<CR>", opts) -- see available code actions
+      keymap.set({ "n", "v" }, "<leader>la", vim.lsp.buf.code_action, opts) -- see available code actions, in visual mode will apply to selection
 
       opts.desc = "rename"
       keymap.set("n", "<leader>le", vim.lsp.buf.rename, opts) -- smart rename
@@ -49,16 +49,17 @@ return {
 
       opts.desc = "Show buffer diagnostics"
       keymap.set("n", "<leader>lD", "<cmd>Telescope diagnostics bufnr=0<CR>", opts) -- show  diagnostics for file
+      keymap.set("n", "<leader>ll", "<cmd>Lspsaga show_buf_diagnostics", opts) -- show  diagnostics for file
 
       opts.desc = "Go to previous diagnostic"
       keymap.set("n", "[d", vim.diagnostic.goto_prev, opts) -- jump to previous diagnostic in buffer
 
       opts.desc = "Go to next diagnostic"
-      keymap.set("n", "]d", vim.diagnostic.goto_next, opts) -- jump to next diagnostic in buffer
+      keymap.set("n", "<leader>ln", vim.diagnostic.goto_next, opts) -- jump to next diagnostic in buffer
+      keymap.set("n", "<leader>lN", "<cmd>Lspsaga diagnostic_jump_next", opts) -- jump to next diagnostic in buffer
 
-      opts.desc = "Show documentation for what is under cursor"
+      opts.desc = "Show documentation under cursor"
       keymap.set("n", "K", vim.lsp.buf.hover, opts) -- show documentation for what is under cursor
-
       opts.desc = "Show saga hover"
       keymap.set("n", "<leader>k", "<cmd>Lspsaga hover_doc<CR>", opts) -- show documentation for what is under cursor
       opts.desc = "Toggle winbar"
@@ -66,7 +67,6 @@ return {
 
       opts.desc = "Format"
       keymap.set("n", "<leader>lf", vim.lsp.buf.format, opts) -- nnoremap <leader>lf :lua vim.lsp.buf.format({async = true})<CR>
-      keymap.set("n", "<leader>lF", vim.lsp.buf.formating, opts) --  nnoremap <leader>lF :lua vim.lsp.buf.formating()<CR>
 
       -- opts.desc = "Restart LSP"
       -- keymap.set("n", "<leader>lr", ":LspRestart<CR>", opts) -- mapping to restart lsp if necessary
@@ -89,46 +89,35 @@ return {
     -- configure html server
     lspconfig["html"].setup({
       capabilities = capabilities,
-      on_attach = function(_, bufnr)
-        on_attach(_, bufnr)
-      end,
+      on_attach = on_attach,
     })
 
     -- configure css server
     lspconfig["cssls"].setup({
       capabilities = capabilities,
-      on_attach = function(_, bufnr)
-        on_attach(_, bufnr)
-      end,
+      on_attach = on_attach,
     })
 
     -- configure tailwindcss server
     lspconfig["tailwindcss"].setup({
       capabilities = capabilities,
-      on_attach = function(_, bufnr)
-        on_attach(_, bufnr)
-      end,
+      on_attach = on_attach,
     })
 
     lspconfig["svelte"].setup({
       capabilities = capabilities,
-      on_attach = function(_, bufnr)
-        on_attach(_, bufnr)
-      end,
+      on_attach = on_attach,
     })
 
     lspconfig["prismals"].setup({
       capabilities = capabilities,
-      on_attach = function(_, bufnr)
-        on_attach(_, bufnr)
-      end,
+      on_attach = on_attach,
     })
 
     lspconfig["graphql"].setup({
       capabilities = capabilities,
-      on_attach = function(_, bufnr)
-        on_attach(_, bufnr)
-      end,
+      on_attach = on_attach,
+
       filetypes = {
         "graphql",
         "gql",
@@ -141,9 +130,9 @@ return {
     -- configure emmet language server
     lspconfig["emmet_ls"].setup({
       capabilities = capabilities,
-      on_attach = function(_, bufnr)
-        on_attach(_, bufnr)
-      end,
+
+      on_attach = on_attach,
+
       filetypes = {
         "html",
         "typescriptreact",
@@ -159,9 +148,7 @@ return {
     -- configure python server
     lspconfig["pyright"].setup({
       capabilities = capabilities,
-      on_attach = function(_, bufnr)
-        on_attach(_, bufnr)
-      end,
+      on_attach = on_attach,
     })
     lspconfig.clangd.setup({
       capabilities = capabilities,
@@ -169,24 +156,18 @@ return {
         "clangd",
         "--offset-encoding=utf-16",
       },
-      on_attach = function(_, bufnr)
-        on_attach(_, bufnr)
-      end,
+      on_attach = on_attach,
     })
 
     lspconfig.flow.setup({
-      on_attach = function(_, bufnr)
-        on_attach(_, bufnr)
-      end,
+      on_attach = on_attach,
       capabilities = capabilities,
     })
 
     typescript.setup({
       server = {
         capabilities = capabilities,
-        on_attach = function(_, bufnr)
-          on_attach(_, bufnr)
-        end,
+        on_attach = on_attach,
       },
       filetypes = {
         "javascript",
@@ -197,28 +178,25 @@ return {
         "typescript.tsx",
       },
     })
-    -- lspconfig["tsserver"].setup({
-    --   capabilities = capabilities,
-    --   cmd = { "typescript-language-server", "--stdio" },
-    --   on_attach = function(_, bufnr)
-    --     on_attach(_, bufnr)
-    --   end,
-    --   filetypes = {
-    --     "javascript",
-    --     "javascriptreact",
-    --     "javascript.jsx",
-    --     "typescript",
-    --     "typescriptreact",
-    --     "typescript.tsx",
-    --   },
-    -- })
+    lspconfig["tsserver"].setup({
+      capabilities = capabilities,
+      cmd = { "typescript-language-server", "--stdio" },
+      on_attach = on_attach,
+      h,
+      filetypes = {
+        "javascript",
+        "javascriptreact",
+        "javascript.jsx",
+        "typescript",
+        "typescriptreact",
+        "typescript.tsx",
+      },
+    })
 
     -- configure lua server (with special settings)
     lspconfig["lua_ls"].setup({
       capabilities = capabilities,
-      on_attach = function(_, bufnr)
-        on_attach(_, bufnr)
-      end,
+      on_attach = on_attach,
       settings = { -- custom settings for lua
         Lua = {
           -- make the language server recognize "vim" global
