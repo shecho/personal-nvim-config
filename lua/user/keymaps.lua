@@ -76,6 +76,7 @@ keymap("x", "<A-k>", ":move '<-2<CR>gv-gv", opts)
 -- keymap("n", "<F11>", "<cmd>lua vim.lsp.buf.references()<CR>", opts)
 -- zen mode
 keymap("n", "<C-z>", "<cmd>TZMinimalist<cr>", opts)
+keymap("n", "<leader>z", "<cmd>TZMinimalist<cr>", opts)
 -- keymap("n", "=", "<cmd>JABSOpen<cr>", { noremap = true, silent = true, nowait = true })
 
 -- Some actions
@@ -83,7 +84,8 @@ keymap("n", "<C-x>", '<cmd>lua require("ts-node-action").node_action()<cr>', opt
 
 -- Floaterm
 opts.desc = "Floaterm toogle"
-keymap({ "n", "t", "v" }, "<leader>2", "<cmd>FloatermToggle<cr>", opts)
+keymap({ "n", "t", "v" }, "<lader>2", "<cmd>FloatermToggle<cr>", opts)
+keymap({ "n", "t", "v" }, "<leader>t", "<cmd>FloatermToggle<cr>", opts)
 
 -- remove S as a command
 opts.desc = "Enter cmd mode"
@@ -91,7 +93,7 @@ keymap("n", "<leader>;", ":", opts)
 
 opts.desc = "Remove s"
 keymap({ "n", "v", "x" }, "s", "<Esc>", opts)
-opts.desc = "Remove q"
+opts.desc = "Remov q"
 keymap({ "n", "v", "x" }, "q", "<Esc>", opts)
 
 -- TABS and buffer
@@ -102,8 +104,10 @@ opt_nw.desc = "Previous buffer"
 keymap("n", "<leader>1", "<c-^>", opt_nw)
 
 -- esc
+opt_nw.desc = "Esc"
 keymap("n", "<C-c>", "<Esc>", opt_nw)
 keymap("n", "<C-c>", "<cmd>:noh<cr>", opt_nw)
+keymap("n", "<Esc>", "<cmd>:noh<cr>", opt_nw)
 
 -- select_all
 keymap("n", "<C-a>", "gg<S-v>Gy", opt_nw)

@@ -17,6 +17,7 @@ return {
         keymap = {
           -- accept = "<c-j>",
           accept = "<D-l>",
+          -- accept = "<CR>",
           accept_word = false,
           accept_line = false,
           -- accept_word = true,
