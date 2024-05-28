@@ -16,7 +16,8 @@ return {
         debounce = 75,
         keymap = {
           -- accept = "<c-j>",
-          accept = "<c-l>",
+          accept = "<D-l>",
+          -- accept = "<CR>",
           accept_word = false,
           accept_line = false,
           -- accept_word = true,

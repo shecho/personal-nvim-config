@@ -19,17 +19,18 @@ return {
       "nvim-telescope/telescope-ui-select.nvim",
       event = "VeryLazy",
       -- config = function(_, opts)
-      -- 	require("ui-select").setup(opts)
-      -- 	require("telescope").load_extension("ui-select")
+      --   require("ui-select").setup(opts)
+      --   require("telescope").load_extension("ui-select")
       -- end,
     },
     { "nvim-telescope/telescope-file-browser.nvim" },
     { "danielvolchek/tailiscope.nvim" },
+    { "rcarriga/nvim-notify" },
   },
   config = function()
     local telescope = require("telescope")
     local actions = require("telescope.actions")
-    local icons = require("users.icons")
+    local icons = require("user.icons")
     local trouble = require("trouble.providers.telescope")
 
     telescope.setup({
@@ -93,7 +94,9 @@ return {
             ["<C-p>"] = actions.cycle_history_prev,
 
             ["<C-j>"] = actions.move_selection_next,
+            ["<D-j>"] = actions.move_selection_next,
             ["<C-k>"] = actions.move_selection_previous,
+            ["<D-k>"] = actions.move_selection_previous,
             ["<C-l>"] = actions.select_default,
 
             ["<C-b>"] = actions.results_scrolling_up,
@@ -113,7 +116,7 @@ return {
             ["<Tab>"] = actions.move_selection_next,
             ["<S-Tab>"] = actions.move_selection_previous,
             ["<C-h>"] = actions.which_key, -- keys from pressing <C-h>
-            ["<esc>"] = actions.close,
+            -- ["<esc>"] = actions.close,
           },
 
           n = {
@@ -170,7 +173,7 @@ return {
             find_cmd = "rg", -- find command (defaults to `fd`)
           },
           ["ui-select"] = {
-            layout_config = { width = 0.4, height = 0.3 },
+            layout_config = { width = 0.5, height = 0.4 },
             on_complete = {
               function()
                 vim.cmd("stopinsert")
@@ -188,6 +191,7 @@ return {
             theme = "ivy",
             -- disables netrw and use telescope-file-browser in its place
             hijack_netrw = true,
+            initial_mode = "normal",
             mappings = {
               ["i"] = {
                 -- your custom insert mode mappings
@@ -207,19 +211,36 @@ return {
     telescope.load_extension("ui-select")
     telescope.load_extension("file_browser")
     telescope.load_extension("tailiscope")
+    telescope.load_extension("notify")
 
-    local keymap = vim.keymap -- for conciseness
+    local keymap = vim.keymap
     keymap.set(
       "n",
       "<leader>p",
-      "<cmd>Telescope find_files hidden=true no_ignore=true winblend=40<cr>",
+      "<cmd>Telescope find_files hidden=true no_ignore=true winblend=30<cr>",
       { desc = "Fuzzy find files" }
     )
-    keymap.set("n", "<leader>f", "<cmd>Telescope find_files<cr>", { desc = "Fuzzy find files" })
-    keymap.set("n", "<leader>sf", "<cmd>Telescope file_browser theme=ivy<cr>", { desc = "Fuzzy find files" })
-    keymap.set("n", "<leader>so", "<cmd>Telescope oldfiles<cr>", { desc = "Fuzzy find recent files" })
+    keymap.set(
+      "n",
+      "<leader>sf",
+      "<cmd>Telescope file_browser theme=ivy initial_mode=normal<cr>",
+      { desc = "Find files" }
+    )
+    keymap.set(
+      "n",
+      "<leader>f",
+      "<cmd>Telescope find_files theme=dropdown layout_config={width=0.90} <cr>",
+      { desc = "Fuzzy find files" }
+    )
+    keymap.set(
+      "n",
+      "<leader>sb",
+      "<cmd>Telescope buffers theme=dropdown initial_mode=normal layout_config={width=0.80}<cr>",
+      { desc = "Buffers" }
+    )
+    keymap.set("n", "<leader>sm", "<cmd>Telescope marks initial_mode=normal<cr>", { desc = "Marks" })
+    keymap.set("n", "<leader>so", "<cmd>Telescope oldfiles initial_mode=normal<cr>", { desc = "Recent files" })
     keymap.set("n", "<leader>sa", "<cmd>Telescope live_grep<cr>", { desc = "Find string in cwd" })
-    keymap.set("n", "<leader>sb", "<cmd>Telescope buffers theme=dropdown<cr>", { desc = "Find string in cwd" })
     keymap.set("n", "<C-p>", "<cmd>Telescope projects theme=dropdown winblend=30 <cr>", { desc = "Projects" })
   end,
 }
