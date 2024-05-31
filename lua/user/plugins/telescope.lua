@@ -31,7 +31,7 @@ return {
     local telescope = require("telescope")
     local actions = require("telescope.actions")
     local icons = require("user.icons")
-    local trouble = require("trouble.providers.telescope")
+    local trouble = require("trouble.sources.telescope")
 
     telescope.setup({
       defaults = {
@@ -120,7 +120,7 @@ return {
           },
 
           n = {
-            ["<c-t>"] = trouble.open_with_trouble,
+            ["<c-t>"] = trouble.open,
 
             ["<esc>"] = actions.close,
             ["<C-j>"] = actions.select_default,
