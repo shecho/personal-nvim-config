@@ -17,17 +17,18 @@ return {
       opts.buffer = bufnr
       -- set keybinds
       opts.desc = "Show LSP references"
-      keymap.set("n", "<leader>lr", "<cmd>Telescope lsp_references<CR>", opts) -- show definition, references
+      keymap.set("n", "<leader>ls", "<cmd>Telescope lsp_references<CR>", opts) -- show definition, references
 
-      keymap.set("n", "<leader>ls", "<cmd>Lspsaga finder<CR>", opts) -- see available code actions
+      keymap.set("n", "<leader>lr", vim.lsp.buf.references, opts) -- see available code actions
+      -- keymap.set("n", "<leader>ls", "<cmd>Lspsaga finder<CR>", opts) -- see available code actions
 
-      opts.desc = "Go to declaration"
-      keymap.set("n", "<leader>lD", vim.lsp.buf.declaration, opts) -- go to declaration
+      -- opts.desc = "Go to declaration"
+      keymap.set("n", "<leader>lD", vim.lsp.buf.definition, opts) -- go to declaration
 
       opts.desc = "Show LSP definitions"
-      keymap.set("n", "<leader>lD", "<cmd>Telescope lsp_definitions<CR>", opts) -- show lsp definitions
-      opts.desc = "Show LSP saga definitions"
-      keymap.set("n", "<leader>ld", "<cmd>Lspsaga goto_definition<CR>", opts) -- show lsp definitions
+      keymap.set("n", "<leader>ld", "<cmd>Telescope lsp_definitions<CR>", opts) -- show lsp definitions
+      -- opts.desc = "Show LSP saga definitions"
+      -- keymap.set("n", "<leader>lD", "<cmd>Lspsaga goto_definition<CR>", opts) -- show lsp definitions
 
       opts.desc = "Show LSP implementation"
       keymap.set("n", "<leader>lI", "<cmd>lua vim.lsp.buf.implementation()<CR>", opts) -- go to implementation
@@ -48,7 +49,7 @@ return {
       keymap.set("n", "<leader>lR", "<cmd>Lspsaga rename<CR>", opts) -- see available code actions
 
       opts.desc = "Show buffer diagnostics"
-      keymap.set("n", "<leader>lD", "<cmd>Telescope diagnostics bufnr=0<CR>", opts) -- show  diagnostics for file
+      -- keymap.set("n", "<leader>lD", "<cmd>Telescope diagnostics bufnr=0<CR>", opts) -- show  diagnostics for file
       keymap.set("n", "<leader>ll", "<cmd>Lspsaga show_buf_diagnostics", opts) -- show  diagnostics for file
 
       opts.desc = "Go to previous diagnostic"
@@ -164,6 +165,11 @@ return {
       capabilities = capabilities,
     })
 
+    lspconfig.eslint.setup({
+      capabilities = capabilities,
+      on_attach = on_attach,
+    })
+
     typescript.setup({
       server = {
         capabilities = capabilities,
@@ -178,20 +184,19 @@ return {
         "typescript.tsx",
       },
     })
-    lspconfig["tsserver"].setup({
-      capabilities = capabilities,
-      cmd = { "typescript-language-server", "--stdio" },
-      on_attach = on_attach,
-      h,
-      filetypes = {
-        "javascript",
-        "javascriptreact",
-        "javascript.jsx",
-        "typescript",
-        "typescriptreact",
-        "typescript.tsx",
-      },
-    })
+    -- lspconfig["tsserver"].setup({
+    --   capabilities = capabilities,
+    --   cmd = { "typescript-language-server", "--stdio" },
+    --   on_attach = on_attach,
+    --   filetypes = {
+    --     "javascript",
+    --     "javascriptreact",
+    --     "javascript.jsx",
+    --     "typescript",
+    --     "typescriptreact",
+    --     "typescript.tsx",
+    --   },
+    -- })
 
     -- configure lua server (with special settings)
     lspconfig["lua_ls"].setup({

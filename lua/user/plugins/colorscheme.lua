@@ -22,33 +22,36 @@ return {
         colorscheme one
         " call one#highlight('@none', '', '', 'bold')
         " call one#highlight('@text', '', '000000', 'bold')
-        " call one#highlight('@variable.parameter', 'e5c07b', '000000', 'bold')
-        " call one#highlight('@variable.member', '', '000000', 'bold')
 
-        call one#highlight('@variable', 'abb2bf', '', '')
+        " call one#highlight('@variable', '', '', 'bold')"
+        call one#highlight('@variable', 'abb2bf', '', 'bold')
         call one#highlight('normalfloat', '', '282C34', 'bold')
         call one#highlight('String', '', '', 'bold')
         call one#highlight('Repeat', '', '','italic')"
         call one#highlight('Type', '', '', 'bold')
-        call one#highlight('@Keyword', 'c678dd', '', 'italic')"reserved words
-        call one#highlight('@Constant', '', '', 'bolditalic')
-        call one#highlight('@variable.builtin', '', '', 'bold')
+        call one#highlight('@variable.builtin', 'd19a66', '', 'bold')
         call one#highlight('@variable.member', 'e06c75', '', 'bold')
         call one#highlight('@variable.parameter', 'e06c75', '', 'bold')
-        call one#highlight('@variable', '', '', 'bold')"
-        call one#highlight('normal', '', '', 'bold')
+        " call one#highlight('normal', 'abb2bf', '282C34', 'bold')
         call one#highlight('Delimiter','abb2bf', '', 'bold')"brackets () {} []
+        " call one#highlight('Delimiter','abb2bf', '', 'bold')"brackets () {} []
         call one#highlight('MatchParen', '', '', 'underline,bolditalic')
-        " call one#highlight('@attribute', '', '', 'bold')
+        " call one#highlight('@attribute', '', '000000', 'bold')
         " call one#highlight('Tag', 'B243E6', '000000', 'bold')
         call one#highlight('@Tag', 'e5c07b', '', 'bold')
-        call one#highlight('@Tag.delimiter', 'abb2bf', '', 'bold') " #B243E6 </>
+        call one#highlight('@Tag.delimiter', 'abb2bf', '', 'bold,') " #B243E6 </>
         call one#highlight('@Tag.attribute', 'd19a66', '', 'bolditalic') " #B243E6
         " call one#highlight('Special', '', '', 'bold')
-        call one#highlight('Constant', '', '', 'bold')
+        call one#highlight('@Constant', 'e5c07b', '', 'bold')
         call one#highlight('@constant.builtin', 'c678dd', '', 'bold')
+        call one#highlight('@Keyword', 'c678dd', '', 'italic')"reserved words
         call one#highlight('@keyword.function', '528bff', '', 'bolditalic')
+        " call one#highlight('@keyword.conditional', '', '000000', 'italic')
+        " call one#highlight('@keyword.directive', '', '000000', 'italic')
+        " call one#highlight('@keyword.exception', '', '000000', 'italic')
+        " call one#highlight('@keyword.import', '', '000000', 'italic')
         " call one#highlight('@keyword.operator', '', '000000', 'italic')
+        " call one#highlight('@keyword.repeat', '', '000000', 'italic')
         " call one#highlight('@Parameter', '', '000000', 'bolditalic,')"params abd arguments and variables names
         " call one#highlight('@Parameter.reference', '', '528bff', 'bolditalic,')"params abd arguments and variables names
         call one#highlight('@method', '528bff', '', 'italic')
@@ -75,28 +78,25 @@ return {
         call one#highlight('@operator', 'c678dd', '', '')" *= - + =>'
         " call one#highlight('@punctuation.bracket', '', '', 'bold')" *= - + =>
         " call one#highlight('@Punctuation.delimiter', '', '', 'bold')
-        " call one#highlight('Operator', '', '000000', '')" *= - + =>'
         " call one#highlight('@punctuation.delimiter', 'c678dd', '', 'bold')" *= - + =>'
+        " call one#highlight('Operator', '', '000000', '')" *= - + =>'
         " call one#highlight('@function', '61afef', '', 'bold')"
         " call one#highlight('@function.method', '528bff', '', 'bold')"
         " call one#highlight('@function.builtin', '528bff', '', 'bolditalic')"
         " call one#highlight('@function.macro', '528bff', '', 'bolditalic')"
         call one#highlight('@text.uri', '', '', 'bolditalic,underline')"
-        " call one#highlight('Identifier', '', '', 'bold')"
+        " call one#highlight('Identifier', '', '', 'bold,standout')"
         " call one#highlight('Keyword', 'c678dd', '', 'italic')"reserved words
-        " call one#highlight('@Punctuation.bracket', '', '', 'bold')
         call one#highlight('Directory', '', '', 'bold')
-        " call one#highlight('@label', '61afef', '', 'bold')"html and jsx
-        " call one#highlight('WildMenu', '', '', 'reverse')
-        " call one#highlight('Use', '', '', 'standout')
-        " call one#highlight('Utility', '', '', 'standout')
-        " call one#highlight('Select', '', '', 'standout')
         call one#highlight('Visual', '', '', 'bolditalic')
         call one#highlight('TabLine', '', '', 'bold')
         " call one#highlight('Search', '', '', 'bolditalic')
         " call one#highlight('IncSearch', '', '', 'bolditalic,standout')
         " call one#highlight('Statement', '', '', 'bold')
         call one#highlight('CursorColumn', '828997', '', 'standout')" word #4b5263 #5c6370  5c6370 #828997 #abb2bf  abb2bf
+        call one#highlight('@lsp.type.typeParameter', '828997', '', 'standout')" word #4b5263 #5c6370  5c6370 #828997 #abb2bf  abb2bf
+        " call one#highlight('NonText', '828997', '000000', 'bold')" word #4b5263 #5c6370  5c6370 #828997 #abb2bf  abb2bf
+        " call one#highlight('Whitespace', '828997', '000000', 'standout')" word #4b5263 #5c6370  5c6370 #828997 #abb2bf  abb2bf
         " call one#highlight('CursorLine', '', '', 'standout')
         " call one#highlight('Cursor', '', '', 'standout')
         " call one#highlight('CursorIM', '', '', 'standout')"
@@ -112,11 +112,17 @@ return {
         " italic
         " standout
         " --------------------------------------------------------------
-        call one#highlight('normal', 'abb2bf', '282C34', 'bold')
-        call one#highlight('@variable.builtin', 'd19a66', '', 'italic')
-
-        " call one#highlight('normal', 'abb2bf', '282C34', 'bold')
-
+            " \	    'guifgs': ['#858580', '#8fbcbb', '#d08770', '#a3be8c', '#ebcb8b', '#b48ead', '#80a880', '#887070'],
+        " call one#highlight('RainbowDelimiterRed', 'e06c75', '', 'bold')
+        " call one#highlight('RainbowDelimiterBlue', '8fbcbb', '', 'bold')
+        " call one#highlight('RainbowDelimiterOrange', 'd08770', '', 'bold')
+        " call one#highlight('RainbowDelimiterGreen', 'a3be8c', '', 'bold')
+        " call one#highlight('RainbowDelimiterViolet', 'b48ead', '', 'bold')
+        " call one#highlight('RainbowDelimiterCyan', '528bff', '', 'bold')
+        " call one#highlight('RainbowDelimiterYellow', 'ebcb8b', '', 'bold')
+        " call one#highlight('RainbowDelimiterYellow', 'ebcb8b', '', 'bold')
+        call one#highlight('ExtraWhitespace', 'e06c75', 'ca1243', 'bold')
+        "
         let g:VM_theme = 'purplegray'
         hi illuminatedWord gui=bolditalic guifg=#828997
         hi IlluminatedWordText gui=bolditalic guifg=#828997

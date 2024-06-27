@@ -10,7 +10,6 @@ return {
     },
     config = function()
       local template_string = require("template-string")
-
       template_string.setup({
         filetypes = {
           "typescript",
@@ -72,22 +71,6 @@ return {
         autopairs = { enable = true },
         indent = { enable = true, disable = { "python", "css", "rust" } },
         -- refactor = { highlight_current_scope = { enable = false } },
-        rainbow = {
-          enable = true,
-          extended_mode = true,
-          colors = {
-            -- "#68a0b0",
-            -- "#946EaD",
-            -- "#c7aA6D",
-            "Gold",
-            "Orchid",
-            "DodgerBlue",
-            -- "Cornsilk",
-            -- "Salmon",
-            -- "LawnGreen",
-          },
-          disable = { "html" },
-        },
         -- termcolors = {} -- table of colour name strings
         -- textobjects = {
         --   select = {

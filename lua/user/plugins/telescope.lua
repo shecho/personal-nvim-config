@@ -39,7 +39,7 @@ return {
         prompt_prefix = icons.ui.Telescope .. " ",
         -- path_display = { "smart" },
         file_ignore_patterns = {
-          ".git/",
+          -- ".git/",
           "target/",
           "docs/",
           "vendor/*",
