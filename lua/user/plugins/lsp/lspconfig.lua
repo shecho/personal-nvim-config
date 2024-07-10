@@ -4,11 +4,9 @@ return {
   dependencies = {
     "hrsh7th/cmp-nvim-lsp",
     { "antosha417/nvim-lsp-file-operations", config = true },
-    "jose-elias-alvarez/typescript.nvim",
   },
   config = function()
     local lspconfig = require("lspconfig")
-    local typescript = require("typescript")
     local cmp_nvim_lsp = require("cmp_nvim_lsp")
     local keymap = vim.keymap
 
@@ -22,10 +20,9 @@ return {
       keymap.set("n", "<leader>lr", vim.lsp.buf.references, opts) -- see available code actions
       -- keymap.set("n", "<leader>ls", "<cmd>Lspsaga finder<CR>", opts) -- see available code actions
 
-      -- opts.desc = "Go to declaration"
+      opts.desc = "Show LSP definitions"
       keymap.set("n", "<leader>lD", vim.lsp.buf.definition, opts) -- go to declaration
 
-      opts.desc = "Show LSP definitions"
       keymap.set("n", "<leader>ld", "<cmd>Telescope lsp_definitions<CR>", opts) -- show lsp definitions
       -- opts.desc = "Show LSP saga definitions"
       -- keymap.set("n", "<leader>lD", "<cmd>Lspsaga goto_definition<CR>", opts) -- show lsp definitions
@@ -131,9 +128,7 @@ return {
     -- configure emmet language server
     lspconfig["emmet_ls"].setup({
       capabilities = capabilities,
-
       on_attach = on_attach,
-
       filetypes = {
         "html",
         "typescriptreact",
@@ -170,11 +165,10 @@ return {
       on_attach = on_attach,
     })
 
-    typescript.setup({
-      server = {
-        capabilities = capabilities,
-        on_attach = on_attach,
-      },
+    lspconfig["tsserver"].setup({
+      capabilities = capabilities,
+      cmd = { "typescript-language-server", "--stdio" },
+      on_attach = on_attach,
       filetypes = {
         "javascript",
         "javascriptreact",
@@ -184,19 +178,6 @@ return {
         "typescript.tsx",
       },
     })
-    -- lspconfig["tsserver"].setup({
-    --   capabilities = capabilities,
-    --   cmd = { "typescript-language-server", "--stdio" },
-    --   on_attach = on_attach,
-    --   filetypes = {
-    --     "javascript",
-    --     "javascriptreact",
-    --     "javascript.jsx",
-    --     "typescript",
-    --     "typescriptreact",
-    --     "typescript.tsx",
-    --   },
-    -- })
 
     -- configure lua server (with special settings)
     lspconfig["lua_ls"].setup({

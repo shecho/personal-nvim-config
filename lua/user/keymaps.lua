@@ -43,7 +43,7 @@ keymap("n", "J", "mzJ`z", opts)
 keymap("c", "Q", "q", opt_nw)
 
 -- Naviagate buffers
-keymap("n", "<leader>d", ":bdelete<CR>", opts)
+keymap("n", "<leader>d", ":BufferDelete<CR>", opts)
 keymap("n", "<leader>bn", ":BufferNext<CR>", opts)
 keymap("n", "<leader>bp", ":BufferPrevious<CR>", opts)
 keymap("n", "<leader>bq", ":BufferFirst<CR>", opts)

@@ -35,6 +35,14 @@ return {
 
     telescope.setup({
       defaults = {
+        layout_config = {
+          width = 0.99,
+          height = 0.99,
+          -- prompt_position = "top",
+          -- preview_cutoff = 120,
+          horizontal = { preview_width = 0.45 },
+          vertical = { preview_height = 0.45 },
+        },
         path_display = { "truncate " },
         prompt_prefix = icons.ui.Telescope .. " ",
         -- path_display = { "smart" },
@@ -165,40 +173,53 @@ return {
             ["?"] = actions.which_key,
           },
         },
-        extensions = {
-          media_files = {
-            -- filetypes whitelist
-            -- defaults to {"png", "jpg", "mp4", "webm", "pdf"}
-            filetypes = { "png", "webp", "jpg", "jpeg" },
-            find_cmd = "rg", -- find command (defaults to `fd`)
+      },
+      pickers = {
+        find_files = {
+          -- theme = "dropdown",
+          layout_config = {
+            width = 0.99,
+            height = 0.99,
+            prompt_position = "top",
+            -- preview_cutoff = 120,
+            horizontal = { preview_width = 0.40 },
+            vertical = { preview_height = 0.40 },
           },
-          ["ui-select"] = {
-            layout_config = { width = 0.5, height = 0.4 },
-            on_complete = {
-              function()
-                vim.cmd("stopinsert")
-              end,
+        },
+      },
+      extensions = {
+        media_files = {
+          -- filetypes whitelist
+          -- defaults to {"png", "jpg", "mp4", "webm", "pdf"}
+          filetypes = { "png", "webp", "jpg", "jpeg" },
+          find_cmd = "rg", -- find command (defaults to `fd`)
+        },
+        ["ui-select"] = {
+          layout_config = { width = 0.5, height = 0.4 },
+          on_complete = {
+            function()
+              vim.cmd("stopinsert")
+            end,
+          },
+        },
+        fzf = {
+          fuzzy = true, -- false will only do exact matching
+          override_generic_sorter = true, -- override the generic sorter
+          override_file_sorter = true, -- override the file sorter
+          case_mode = "smart_case", -- or "ignore_case" or "respect_case"
+          -- the default case_mode is "smart_case"
+        },
+        file_browser = {
+          theme = "ivy",
+          -- disables netrw and use telescope-file-browser in its place
+          hijack_netrw = true,
+          initial_mode = "normal",
+          mappings = {
+            ["i"] = {
+              -- your custom insert mode mappings
             },
-          },
-          fzf = {
-            fuzzy = true, -- false will only do exact matching
-            override_generic_sorter = true, -- override the generic sorter
-            override_file_sorter = true, -- override the file sorter
-            case_mode = "smart_case", -- or "ignore_case" or "respect_case"
-            -- the default case_mode is "smart_case"
-          },
-          file_browser = {
-            theme = "ivy",
-            -- disables netrw and use telescope-file-browser in its place
-            hijack_netrw = true,
-            initial_mode = "normal",
-            mappings = {
-              ["i"] = {
-                -- your custom insert mode mappings
-              },
-              ["n"] = {
-                -- your custom normal mode mappings
-              },
+            ["n"] = {
+              -- your custom normal mode mappings
             },
           },
         },
@@ -217,7 +238,7 @@ return {
     keymap.set(
       "n",
       "<leader>p",
-      "<cmd>Telescope find_files hidden=true no_ignore=true winblend=30<cr>",
+      "<cmd>Telescope find_files hidden=true no_ignore=true winblend=30 layout_config={width=0.99,height=0.99}<cr>",
       { desc = "Fuzzy find files" }
     )
     keymap.set(
@@ -229,13 +250,13 @@ return {
     keymap.set(
       "n",
       "<leader>f",
-      "<cmd>Telescope find_files theme=dropdown layout_config={width=0.90} <cr>",
+      "<cmd>Telescope find_files theme=dropdown layout_strategy=vertical layout_config={prompt_position='top',width=0.99,height=0.99,vertical={preview_height=0.46},horizontal={preview_height=0.46}}<cr>",
       { desc = "Fuzzy find files" }
     )
     keymap.set(
       "n",
       "<leader>sb",
-      "<cmd>Telescope buffers theme=dropdown initial_mode=normal layout_config={width=0.80}<cr>",
+      "<cmd>Telescope buffers initial_mode=normal layout_config={width=0.70,height=0.60,prompt_position='top',vertical={preview_height=0.9}}<cr>",
       { desc = "Buffers" }
     )
     keymap.set("n", "<leader>sm", "<cmd>Telescope marks initial_mode=normal<cr>", { desc = "Marks" })

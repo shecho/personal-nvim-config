@@ -12,8 +12,9 @@ return {
     keys = {
       { "<leader>ga", "<cmd>Git add .<cr>", nowait = true, desc = "Add" },
       { "<leader>gc", "<cmd>Git commit<cr>", nowait = true, desc = "Commit" },
-      { "<leader>gd", "<cmd>Git diff<cr>", nowait = true, desc = "Diff" },
-      { "<leader>gD", "<cmd>Gdiffsplit<cr>", nowait = true, desc = "Diff split" },
+      { "<leader>gD", "<cmd>Git diff<cr>", nowait = true, desc = "Diff" },
+      { "<leader>gd", "<cmd>Gvdiffsplit<cr>", nowait = true, desc = "Diff split" },
+      -- { "<leader>gd", "<cmd>Git diff<cr>", nowait = true, desc = "Diff" },
       { "<leader>gp", "<cmd>Git push<cr>", nowait = true, desc = "Push" },
       { "<leader>gP", "<cmd>Git pull<cr>", nowait = true, desc = "Pull" },
     },

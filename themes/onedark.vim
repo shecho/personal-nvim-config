@@ -37,8 +37,8 @@ call one#highlight('@constant.builtin', 'c678dd', '', 'bold')
 call one#highlight('@Keyword', 'c678dd', '', 'italic')"reserved words
 call one#highlight('@keyword.function', 'c678dd', '', 'bolditalic')"reserved words
 call one#highlight('@keyword.operator', '', '', 'italic')"reserved words
-call one#highlight('@Parameter', 'abb2bf', '', 'bolditalic,')"params abd arguments and variables names
-call one#highlight('@Parameter.reference', 'abb2bf', '', 'bolditalic,')"params abd arguments and variables names
+call one#highlight('@Parameter', 'abb2bf', '', 'bolditalic,')"
+call one#highlight('@Parameter.reference', 'abb2bf', '', 'bolditalic,')"
 call one#highlight('@method', '528bff', '', 'italic')
 call one#highlight('@property', 'd19a66', '', 'bolditalic')
 call one#highlight('Boolean', '', '', 'bolditalic')

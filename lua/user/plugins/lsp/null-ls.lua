@@ -1,7 +1,6 @@
 return {
   "jose-elias-alvarez/null-ls.nvim", -- configure formatters & linters
   event = { "BufReadPre", "BufNewFile" },
-  dependencies = { "jose-elias-alvarez/typescript.nvim" },
   config = function()
     local null_ls = require("null-ls")
     local null_ls_utils = require("null-ls.utils")
@@ -32,7 +31,6 @@ return {
         -- 		return utils.root_has_file(".eslintrc.js") -- change file extension if you use something else
         -- 	end,
         -- }),
-        require("typescript.extensions.null-ls.code-actions"),
         -- diagnostics.shellcheck,
       },
       -- configure format on save
@@ -48,7 +46,6 @@ return {
             callback = function()
               vim.lsp.buf.format({
                 filter = function(client)
-                  --  only use null-ls for formatting instead of lsp server
                   return client.name == "null-ls"
                 end,
                 bufnr = bufnr,
