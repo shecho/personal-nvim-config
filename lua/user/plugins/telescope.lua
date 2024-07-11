@@ -250,7 +250,7 @@ return {
     keymap.set(
       "n",
       "<leader>f",
-      "<cmd>Telescope find_files theme=dropdown layout_strategy=vertical layout_config={prompt_position='top',width=0.99,height=0.99,vertical={preview_height=0.46},horizontal={preview_height=0.46}}<cr>",
+      "<cmd>Telescope find_files theme=dropdown layout_strategy=vertical layout_config={prompt_position='top',width=0.99,height=0.99,vertical={preview_height=0.50},horizontal={preview_height=0.46}}<cr>",
       { desc = "Fuzzy find files" }
     )
     keymap.set(

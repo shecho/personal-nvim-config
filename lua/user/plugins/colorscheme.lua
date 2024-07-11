@@ -22,7 +22,6 @@ return {
         colorscheme one
         " call one#highlight('@none', '', '', 'bold')
         " call one#highlight('@text', '', '000000', 'bold')
-
         " call one#highlight('@variable', '', '', 'bold')"
         " call one#highlight('@identifier', 'abb2bf', '', 'bold,standout')"
         call one#highlight('@variable', 'abb2bf', '', 'bold')
@@ -93,7 +92,7 @@ return {
         " call one#highlight('IncSearch', '', '', 'bolditalic,standout')
         call one#highlight('Sttement', '', '', 'bold')
         call one#highlight('CursorColumn', '828997', '', 'standout')" word #4b5263 #5c6370  5c6370 #828997 #abb2bf  abb2bf
-        call one#highlight('@lsp.type.typeParameter', '828997', '', 'standout')" word #4b5263 #5c6370  5c6370 #828997 #abb2bf  abb2bf
+        call one#highlight('@lsp.type.typeParameter', '828997', '', '')" word #4b5263 #5c6370  5c6370 #828997 #abb2bf  abb2bf
         " call one#highlight('NonText', '828997', '000000', 'bold')" word #4b5263 #5c6370  5c6370 #828997 #abb2bf  abb2bf
         " call one#highlight('Whitespace', '828997', '000000', 'standout')" word #4b5263 #5c6370  5c6370 #828997 #abb2bf  abb2bf
         call one#highlight('Cursor', '', '', 'standout')
