@@ -15,15 +15,16 @@ return {
       opts.buffer = bufnr
       -- set keybinds
       opts.desc = "Show LSP references"
-      keymap.set("n", "<leader>ls", "<cmd>Telescope lsp_references<CR>", opts) -- show definition, references
-
-      keymap.set("n", "<leader>lr", vim.lsp.buf.references, opts) -- see available code actions
-      -- keymap.set("n", "<leader>ls", "<cmd>Lspsaga finder<CR>", opts) -- see available code actions
+      -- keymap.set("n", "<leader>lS", "<cmd>Telescope lsp_references<CR>", opts) -- show definition, references
+      keymap.set("n", "<leader>lS", "<cmd>FzfLua lsp_references<CR>", opts) -- show definition, references
+      keymap.set("n", "<leader>ls", "<cmd>Lspsaga finder<CR>", opts) -- show definition, references
+      keymap.set("n", "<leader>lr", "<cmd>Telescope lsp_references<CR>", opts) -- see available code actions
+      -- keymap.set("n", "<leader>lr", vim.lsp.buf.references, opts) -- see available code actions
 
       opts.desc = "Show LSP definitions"
-      keymap.set("n", "<leader>lD", vim.lsp.buf.definition, opts) -- go to declaration
-
-      keymap.set("n", "<leader>ld", "<cmd>Telescope lsp_definitions<CR>", opts) -- show lsp definitions
+      -- keymap.set("n", "<leader>lD", vim.lsp.buf.definition, opts) -- go to declaration
+      keymap.set("n", "<leader>ld", "<cmd>Lspsaga goto_definition<CR>", opts) -- show lsp definitions
+      keymap.set("n", "<leader>lD", "<cmd>Telescope lsp_definitions<CR>", opts) -- show lsp definitions
       -- opts.desc = "Show LSP saga definitions"
       -- keymap.set("n", "<leader>lD", "<cmd>Lspsaga goto_definition<CR>", opts) -- show lsp definitions
 

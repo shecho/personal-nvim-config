@@ -6,5 +6,6 @@ if vim.loader then
 end
 
 require("user.options")
+require("user.core")
 require("user.keymaps")
 require("user.lazy")

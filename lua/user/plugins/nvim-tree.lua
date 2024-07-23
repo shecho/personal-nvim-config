@@ -31,19 +31,29 @@ return {
 
     -- configure nvim-tree
     nvimtree.setup({
+      reload_on_bufenter = true,
+      sync_root_with_cwd = true,
       on_attach = my_on_attach,
       sort_by = "case_sensitive",
+      update_focused_file = {
+        enable = true,
+        update_root = {
+          enable = true,
+          ignore_list = {},
+        },
+        exclude = false,
+      },
       hijack_directories = { enable = true },
       disable_netrw = true,
       hijack_netrw = true,
-      -- open_on_tab = true,
+      open_on_tab = true,
       update_cwd = true,
       -- open_on_setup = false,
       filters = {
         -- dotfiles = false,
         -- dotfiles = true,
         -- custom = { ".git" },
-        exclude = { ".env" },
+        -- exclude = { ".env" },
       },
       git = {
         enable = true,

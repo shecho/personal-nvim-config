@@ -20,14 +20,14 @@ keymap("n", "<C-i>", "<C-i>", opts)
 -- command_mode = "c",
 
 -- Better window navigation
-keymap("n", "<C-h>", "<C-w>h", opt_nw) -- nnoremap <C-h> <C-w>h
-keymap("n", "<C-j>", "<C-w>j", opt_nw) -- nnoremap <C-j> <C-w>j
-keymap("n", "<C-k>", "<C-w>k", opt_nw) -- nnoremap <C-k> <C-w>k
-keymap("n", "<C-l>", "<C-w>l", opt_nw) -- nnoremap <C-l> <C-w>l
-keymap("n", "<C-j>", "<cmd> resize -2<CR>", opt_nw) -- nnoremap <silent> <C-j> :resize -2<CR>
-keymap("n", "<C-k>", "<cmd> resize +2<CR>", opt_nw) -- nnoremap <silent> <C-k> :resize +2<CR>
-keymap("n", "<S-h>", "<cmd> vertical resize -2<CR>", opt_nw) -- nnoremap <silent> <S-h> :vertical resize -2<CR>
-keymap("n", "<S-l>", "<cmd> vertical resize +2<CR>", opt_nw) -- nnoremap <silent> <S-l> :vertical resize +2<CR>
+keymap("n", "<C-h>", "<C-w>h", opt_nw)
+keymap("n", "<C-j>", "<C-w>j", opt_nw)
+keymap("n", "<C-k>", "<C-w>k", opt_nw)
+keymap("n", "<C-l>", "<C-w>l", opt_nw)
+keymap("n", "<C-j>", "<cmd> resize -2<CR>", opt_nw)
+keymap("n", "<C-k>", "<cmd> resize +2<CR>", opt_nw)
+keymap("n", "<S-h>", "<cmd> vertical resize -2<CR>", opt_nw)
+keymap("n", "<S-l>", "<cmd> vertical resize +2<CR>", opt_nw)
 
 -- Resize with arrows
 -- keymap("n", "<S-Up>", ":resize -2<CR>", opts)
@@ -76,8 +76,8 @@ keymap("x", "<A-k>", ":move '<-2<CR>gv-gv", opts)
 
 -- keymap("n", "<F11>", "<cmd>lua vim.lsp.buf.references()<CR>", opts)
 -- zen mode
-keymap("n", "<C-z>", "<cmd>TZMinimalist<cr>", opts)
-keymap("n", "<leader>z", "<cmd>TZMinimalist<cr>", opts)
+keymap("n", "<C-z>", "<cmd>ZenMode<cr>", opts)
+keymap("n", "<leader>z", "<cmd>ZenMode<cr>", opts)
 -- keymap("n", "=", "<cmd>JABSOpen<cr>", { noremap = true, silent = true, nowait = true })
 
 -- Some actions
@@ -141,7 +141,6 @@ opt_nw.desc = "Cursorline"
 keymap("n", "<leader>ac", "<cmd>lua require('user.core.functions').toggle_option('cursorline')<cr>", opt_nw)
 
 -- sorrund like
-
 opt_nw.desc = "{}"
 keymap("n", "<leader>4", "ciw{}<Esc>P", opt_nw)
 keymap("v", "<leader>4", "xi{}<Esc>P", opt_nw)

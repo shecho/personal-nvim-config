@@ -7,6 +7,22 @@ return {
   event = "LspAttach",
   config = function()
     require("lspsaga").setup({
+      finder = {
+        max_height = 0.95,
+        min_width = 90,
+        force_max_height = true,
+        keys = {
+          jump_to = "p",
+          vsplit = "s",
+          split = "i",
+          tabe = "<C-j>",
+          expand_or_jump = "<TAB>",
+          -- toggle_or_open = "<CR>",
+          tabnew = "<ENTER>",
+          quit = { "q", "<ESC>" },
+          close_in_preview = "<ESC>",
+        },
+      },
       ui = {
         -- currently only round theme
         theme = "round",
@@ -39,22 +55,6 @@ return {
           black = "#1c1c19",
         },
         -- kind = {},
-        finder = {
-          max_height = 0.6,
-          min_width = 30,
-          force_max_height = false,
-          keys = {
-            jump_to = "p",
-            vsplit = "s",
-            split = "i",
-            -- tabe = "<C-j>",
-            -- expand_or_jump = "<TAB>",
-            -- toggle_or_open = "<CR>",
-            -- tabnew = "<ENTER>",
-            quit = { "q", "<ESC>" },
-            close_in_preview = "<ESC>",
-          },
-        },
       },
     })
   end,

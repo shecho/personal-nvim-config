@@ -8,7 +8,14 @@ return {
     { "tsakirist/telescope-lazy.nvim" },
     {
       "ahmedkhalf/project.nvim",
-      opts = {},
+      opts = {
+        sync_root_with_cwd = true,
+        respect_buf_cwd = true,
+        update_focused_file = {
+          enable = true,
+          update_root = true,
+        },
+      },
       event = "VeryLazy",
       config = function(_, opts)
         require("project_nvim").setup(opts)
@@ -244,7 +251,8 @@ return {
     keymap.set(
       "n",
       "<leader>sf",
-      "<cmd>Telescope file_browser theme=ivy initial_mode=normal<cr>",
+      -- "<cmd>Telescope file_browser theme=ivy initial_mode=normal<cr>",
+      "<cmd>Telescope file_browser<cr>",
       { desc = "Find files" }
     )
     keymap.set(
