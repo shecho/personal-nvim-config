@@ -5,13 +5,13 @@ return {
     lazy = false,
     config = function()
       vim.cmd([[
-        if (has("autocmd") && !has("gui_running"))
-            augroup highlightYankedText
-            autocmd!
-            autocmd TextYankPost *  silent! lua require'vim.highlight'.on_yank()
-            augroup END
-
-        endif
+        " if (has("autocmd") && !has("gui_running"))
+        "     augroup highlightYankedText
+        "     autocmd!
+        "     autocmd TextYankPost *  silent! lua require'vim.highlight'.on_yank()
+        "     augroup END
+        "
+        " endif
 
         let g:onedark_terminal_italics=1
         let g:onedark_termcolors=256
@@ -34,7 +34,6 @@ return {
         call one#highlight('@variable.parameter', 'e06c75', '', 'bold')
         " call one#highlight('normal', 'abb2bf', '282C34', 'bold')
         call one#highlight('Delimiter','abb2bf', '', 'bold')"brackets () {} []
-        " call one#highlight('Delimiter','abb2bf', '', 'bold')"brackets () {} []
         call one#highlight('MatchParen', '', '', 'underline,bold')
         " call one#highlight('@attribute', '', '000000', 'bold')
         " call one#highlight('Tag', 'B243E6', '000000', 'bold')
@@ -67,7 +66,7 @@ return {
         call one#highlight('@type.definition', '', '', 'bolditalic')
         call one#highlight('Asynchronous', '', '', 'italic')
         call one#highlight('Exception', '', '', 'italic') " try catch
-        call one#highlight('StorageClass', '', '','bolditalic')" #B243E6 #8a3fa0  #7e3992  #c678dd #282C34 #abb2bf  #181a1f #282c34 #31353f #393f4a  #3b3f4c  #0e1013  #151820 
+        call one#highlight('StorageClass', '', '','bolditalic')" #B243E6 #8a3fa0  #7e3992  #c678dd #282C34 #abb2bf  #181a1f #282c34 #31353f #393f4a  #3b3f4c  #0e1013  #151820
         call one#highlight('Error', 'be5046', '', 'bolditalic')" #e06c75 #be5046 #e45649 #ca1243 #c18401 #e5c07b #d19a66 #56B6C2 #61afef #528bff #4078f2 #526fff
         call one#highlight('ErrorMsg', 'e06c75', '', 'bold')
         call one#highlight('DiagnosticVirtualTextError', 'e06c75', '', 'bolditalic')
@@ -92,9 +91,9 @@ return {
         " call one#highlight('IncSearch', '', '', 'bolditalic,standout')
         call one#highlight('Sttement', '', '', 'bold')
         call one#highlight('CursorColumn', '828997', '', 'standout')" word #4b5263 #5c6370  5c6370 #828997 #abb2bf  abb2bf
-        call one#highlight('@lsp.type.typeParameter', '828997', '', '')" word #4b5263 #5c6370  5c6370 #828997 #abb2bf  abb2bf
-        " call one#highlight('NonText', '828997', '000000', 'bold')" word #4b5263 #5c6370  5c6370 #828997 #abb2bf  abb2bf
-        " call one#highlight('Whitespace', '828997', '000000', 'standout')" word #4b5263 #5c6370  5c6370 #828997 #abb2bf  abb2bf
+        call one#highlight('@lsp.type.typeParameter', '828997', '', '')
+        " call one#highlight('NonText', '828997', '000000', 'bold')"
+        " call one#highlight('Whitespace', '828997', '000000', 'standout')
         call one#highlight('Cursor', '', '', 'standout')
         call one#highlight('CursorLine', '', '', 'bolditalic')
         " call one#highlight('CursorIM', '', '', 'bolditalic')"

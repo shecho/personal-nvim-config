@@ -86,7 +86,8 @@ keymap("n", "<C-x>", '<cmd>lua require("ts-node-action").node_action()<cr>', opt
 -- Floaterm
 opts.desc = "Floaterm toogle"
 keymap({ "n", "t", "v" }, "<lader>2", "<cmd>FloatermToggle<cr>", opts)
-keymap({ "n", "t", "v" }, "<leader>t", "<cmd>FloatermToggle<cr>", opts)
+keymap({ "n", "v" }, "<leader>t", "<cmd>FloatermToggle<cr>", opts)
+keymap({ "n", "t" }, "<C-t>", "<cmd>FloatermToggle<cr>", opts)
 
 -- remove S as a command
 opts.desc = "Enter cmd mode"
@@ -107,11 +108,12 @@ keymap("n", "<leader>1", "<c-^>", opt_nw)
 -- esc
 opt_nw.desc = "Esc"
 keymap("n", "<C-c>", "<Esc>", opt_nw)
+opt_nw.desc = "Clear search"
 keymap("n", "<C-c>", "<cmd>:noh<cr>", opt_nw)
-keymap("n", "<Esc>", "<cmd>:noh<cr>", opt_nw)
+keymap("n", "<Esc>", "<cmd>:nohl<cr>", opt_nw)
 
 -- select_all
-keymap("n", "<C-a>", "gg<S-v>Gy", opt_nw)
+keymap("n", "<C-a>", "gg<S-v>GY", opt_nw)
 
 -- Alternate way to save
 keymap("n", "<C-s>", "<cmd>w<cr>", opt_nw)

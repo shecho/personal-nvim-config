@@ -1,6 +1,6 @@
 return {
   "nvim-telescope/telescope.nvim",
-  branch = "0.1.x",
+  -- branch = "0.1.x",
   dependencies = {
     "nvim-lua/plenary.nvim",
     "nvim-tree/nvim-web-devicons",
@@ -8,14 +8,6 @@ return {
     { "tsakirist/telescope-lazy.nvim" },
     {
       "ahmedkhalf/project.nvim",
-      opts = {
-        sync_root_with_cwd = true,
-        respect_buf_cwd = true,
-        update_focused_file = {
-          enable = true,
-          update_root = true,
-        },
-      },
       event = "VeryLazy",
       config = function(_, opts)
         require("project_nvim").setup(opts)
@@ -245,7 +237,7 @@ return {
     keymap.set(
       "n",
       "<leader>p",
-      "<cmd>Telescope find_files hidden=true no_ignore=true winblend=30 layout_config={width=0.99,height=0.99}<cr>",
+      "<cmd>Telescope find_files hidden=true no_ignore=true layout_config={width=0.99,height=0.99}<cr>",
       { desc = "Fuzzy find files" }
     )
     keymap.set(
@@ -270,6 +262,6 @@ return {
     keymap.set("n", "<leader>sm", "<cmd>Telescope marks initial_mode=normal<cr>", { desc = "Marks" })
     keymap.set("n", "<leader>so", "<cmd>Telescope oldfiles initial_mode=normal<cr>", { desc = "Recent files" })
     keymap.set("n", "<leader>sa", "<cmd>Telescope live_grep<cr>", { desc = "Find string in cwd" })
-    keymap.set("n", "<C-p>", "<cmd>Telescope projects theme=dropdown winblend=30 <cr>", { desc = "Projects" })
+    keymap.set("n", "<C-p>", "<cmd>Telescope projects theme=dropdown<cr>", { desc = "Projects" })
   end,
 }

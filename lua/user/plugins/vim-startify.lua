@@ -38,7 +38,7 @@ return {
             \ { 'c': '~/.config/kitty/kitty.conf' },
             \ { 'i': '~/.config/nvim/init.lua' },
             \ { 'l': '~/.zshrc' },
-            \ { 'z': '/Users/sergio.valencia/Documents/' },
+            \ { 'z': '/Users/sergio/' },
             \ '~/',
             \ ]
 

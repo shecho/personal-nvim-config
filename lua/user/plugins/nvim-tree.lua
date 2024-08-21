@@ -31,11 +31,13 @@ return {
 
     -- configure nvim-tree
     nvimtree.setup({
+      respect_buf_cwd = true,
       reload_on_bufenter = true,
       sync_root_with_cwd = true,
       on_attach = my_on_attach,
       sort_by = "case_sensitive",
       update_focused_file = {
+        update_cwd = true,
         enable = true,
         update_root = {
           enable = true,
@@ -61,6 +63,7 @@ return {
         timeout = 500,
       },
       view = {
+        -- preserve_window_proportions = true,
         width = 40,
         -- height = 30,
         side = "right",

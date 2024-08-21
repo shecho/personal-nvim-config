@@ -27,7 +27,7 @@ require("onedark").setup({
   },
 
   -- Custom Highlights --
-  colors = {}, -- Override default colors
+  colors = {}, --
   highlights = {
     ["@keyword"] = { fg = "$purple", fmt = "bolditalic" },
     ["@string"] = { fmt = "bold" },

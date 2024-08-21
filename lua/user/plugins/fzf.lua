@@ -13,7 +13,9 @@ return {
       })
       local keymap = vim.keymap -- for conciseness
       keymap.set("n", "<leader>ss", "<cmd>FzfLua live_grep<cr>", { desc = "Fuzzy find files" })
-      keymap.set("n", "<leader>sM'", "<cmd>FzfLua marks<cr>", { desc = "Marks" })
+      keymap.set("n", "<leader>sM", "<cmd>FzfLua marks<cr>", { desc = "Marks" })
+      keymap.set("n", "<leader>F", "<cmd>FzfLua files<cr>", { desc = "Find files" })
+      keymap.set("n", "<leader>P", "<cmd>FzfLua files<cr>", { desc = "Find files" })
     end,
   },
   {
@@ -21,7 +23,7 @@ return {
     build = "./install --bin",
     config = function()
       local keymap = vim.keymap -- for conciseness
-      keymap.set("n", "<leader>sS", "<cmd>Fzf<cr>", { desc = "Fuzzy find files" })
+      keymap.set("n", "<leader>sS", "<cmd>Fzf files<cr>", { desc = "Fuzzy find files" })
     end,
   },
 }

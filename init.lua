@@ -9,3 +9,10 @@ require("user.options")
 require("user.core")
 require("user.keymaps")
 require("user.lazy")
+
+-- vim.cmd([[
+--   highlight Normal guibg=none
+--   highlight NonText guibg=none
+--   highlight Normal ctermbg=none
+--   highlight NonText ctermbg=none
+-- ]])
