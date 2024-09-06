@@ -26,6 +26,7 @@ return {
       -- custom mappings
       vim.keymap.set("n", "<C-t>", api.tree.change_root_to_parent, opts("Up"))
       vim.keymap.set("n", "?", api.tree.toggle_help, opts("Help"))
+      vim.keymap.set("n", "U", api.tree.toggle_hidden_filter, opts("Toogle hidden filter?"))
       -- vim.keymap.set("n", "l", api.tree.open.edit, opts("Open"))
     end
 
@@ -52,7 +53,7 @@ return {
       update_cwd = true,
       -- open_on_setup = false,
       filters = {
-        -- dotfiles = false,
+        dotfiles = false,
         -- dotfiles = true,
         -- custom = { ".git" },
         -- exclude = { ".env" },

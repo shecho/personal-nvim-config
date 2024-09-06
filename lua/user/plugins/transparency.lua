@@ -1,7 +1,7 @@
 return {
   "xiyaowong/transparent.nvim",
   keys = {
-    { "<leader>at", "<cmd>TransparentToggle<cr>", desc = "Document Diagnostics (Trouble)" },
+    { "<leader>at", "<cmd>TransparentToggle<cr>", desc = "TransparentToggle" },
   },
   config = function()
     require("transparent").setup({})

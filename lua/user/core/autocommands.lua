@@ -106,14 +106,14 @@ vim.api.nvim_create_autocmd({ "BufWinEnter" }, {
 vim.api.nvim_create_autocmd("TextYankPost", {
   callback = function()
     vim.highlight.on_yank()
-    vim.highlight.on_yank({ higroup = "Visual", timeout = 200 })
+    -- vim.highlight.on_yank({ higroup = "Visual", timeout = 200 })
   end,
 })
 
 --
-vim.api.nvim_create_autocmd({ "BufWritePost" }, {
-  pattern = { "*.ts" },
-  callback = function()
-    vim.lsp.buf.format({ async = true })
-  end,
-})
+-- vim.api.nvim_create_autocmd({ "BufWritePost" }, {
+--   pattern = { "*.ts" },
+--   callback = function()
+--     vim.lsp.buf.format({ async = true })
+--   end,
+-- })

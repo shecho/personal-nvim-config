@@ -262,6 +262,7 @@ return {
     keymap.set("n", "<leader>sm", "<cmd>Telescope marks initial_mode=normal<cr>", { desc = "Marks" })
     keymap.set("n", "<leader>so", "<cmd>Telescope oldfiles initial_mode=normal<cr>", { desc = "Recent files" })
     keymap.set("n", "<leader>sa", "<cmd>Telescope live_grep<cr>", { desc = "Find string in cwd" })
+    keymap.set("n", "<leader>sw", "<cmd>Telescope grep_string<cr>", { desc = "Find string in cwd" })
     keymap.set("n", "<C-p>", "<cmd>Telescope projects theme=dropdown<cr>", { desc = "Projects" })
   end,
 }
