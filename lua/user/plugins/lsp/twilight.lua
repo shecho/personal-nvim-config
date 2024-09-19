@@ -6,6 +6,11 @@ return {
       "<cmd>Twilight<CR>",
       desc = "Twilight toggle",
     },
+    {
+      "T",
+      "<cmd>Twilight<CR>",
+      desc = "Twilight toggle",
+    },
   },
   opts = {
     -- your configuration comes here

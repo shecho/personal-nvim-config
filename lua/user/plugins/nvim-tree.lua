@@ -40,11 +40,7 @@ return {
       update_focused_file = {
         update_cwd = true,
         enable = true,
-        update_root = {
-          enable = true,
-          ignore_list = {},
-        },
-        exclude = false,
+        update_root = true,
       },
       hijack_directories = { enable = true },
       disable_netrw = true,

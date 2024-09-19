@@ -109,8 +109,8 @@ keymap("n", "<leader>1", "<c-^>", opt_nw)
 opt_nw.desc = "Esc"
 keymap("n", "<C-c>", "<Esc>", opt_nw)
 opt_nw.desc = "Clear search"
-keymap("n", "<C-c>", "<cmd>:noh<cr>", opt_nw)
-keymap("n", "<Esc>", "<cmd>:nohl<cr>", opt_nw)
+keymap("n", "<Esc>", "<cmd>:noh<cr>", opt_nw)
+keymap("n", "<C-c>", '<cmd>::let @/ = ""<cr>', opt_nw)
 
 -- select_all
 keymap("n", "<C-a>", "gg<S-v>GY", opt_nw)
