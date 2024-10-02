@@ -19,7 +19,7 @@ return {
         let g:one_allow_italics = 1
 
         syntax on
-        colorscheme one
+        colorscheme onedark
         " call one#highlight('@none', '', '', 'bold')
         " call one#highlight('@text', '', '000000', 'bold')
         " call one#highlight('@variable', '', '', 'bold')"
@@ -37,12 +37,12 @@ return {
         call one#highlight('MatchParen', '', '', 'underline,bold')
         " call one#highlight('@attribute', '', '000000', 'bold')
         " call one#highlight('Tag', 'B243E6', '000000', 'bold')
-        call one#highlight('@Tag', 'e5c07b', '', 'bold')
-        call one#highlight('@Tag.delimiter', 'abb2bf', '', 'bold,') " #B243E6 </>
-        call one#highlight('@Tag.attribute', 'd19a66', '', 'italic') " #B243E6
+        call one#highlight('@Tag', 'e5c07b', '', 'bold') " #e5c07b
+        call one#highlight('@Tag.delimiter', 'abb2bf', '', 'bold,') " #B243E6 #abb2bf
+        call one#highlight('@Tag.attribute', 'd19a66', '', 'italic') " #B243E6 #d19a66
         " call one#highlight('Special', '', '', 'bold')
         call one#highlight('@Constant', 'e5c07b', '', 'bold')
-        call one#highlight('@constant.builtin', 'c678dd', '', 'bold')
+        call one#highlight('@constant.builtin', 'c678dd', '', 'bold') " #c678dd
         call one#highlight('@Keyword', 'c678dd', '', 'italic')"reserved words
         call one#highlight('@keyword.function', '528bff', '', 'bolditalic')
         " call one#highlight('@keyword.conditional', '', '000000', 'italic')
@@ -132,4 +132,81 @@ return {
       ]])
     end,
   },
+  {
+    "navarasu/onedark.nvim",
+    priority = 1000, -- make sure to load this before all the other start plugins
+    lazy = false,
+    config = function()
+      require("onedark").setup({
+        style = "dark", -- Default theme style. Choose between 'dark', 'darker', 'cool', 'deep', 'warm', 'warmer' and 'light'
+        transparent = false, -- Show/hide background
+        term_colors = true, -- Change terminal color as per the selected theme style
+        ending_tildes = false, -- Show the end-of-buffer tildes. By default they are hidden
+        cmp_itemkind_reverse = false, -- reverse item kind highlights in cmp menu
+
+        toggle_style_key = nil, -- keybind to toggle theme style. Leave it nil to disable it, or set it to a string, for example "<leader>ts"
+        toggle_style_list = { "dark", "darker", "cool", "deep", "warm", "warmer", "light" }, -- List of styles to toggle between
+
+        code_style = {
+          comments = "bolditalic",
+          keywords = "italic",
+          -- functions = "bold",
+          strings = "bold",
+          -- variables = 'bold',
+        },
+        lualine = {
+          transparent = false, -- lualine center bar transparency
+        },
+        -- Custom Highlights --
+        colors = {}, --
+        highlights = {
+          ["@variable"] = { fmt = "bold" },
+          ["@keyword"] = { fg = "$purple", fmt = "italic" },
+          ["@keyword.function"] = { fg = "$purple", fmt = "bolditalic" },
+          ["@keyword.directive"] = { fg = "$purple", fmt = "italic" },
+          ["@string"] = { fmt = "bold" },
+          ["@repeat"] = { fg = "$purple", fmt = "italic" },
+          ["@type"] = { fmt = "bold" },
+          ["@type.definition"] = { fmt = "bold,underline" },
+          ["@variable.builtin"] = { fmt = "italic" },
+          ["@variable.member"] = { fmt = "italic" },
+          ["@variable.parameter"] = { fmt = "italic" },
+
+          -- ["@function"] = { fmt = "bold" },
+          ["@function.builtin"] = { fg = "$cyan", fmt = "italic,underline" },
+          ["@function.method"] = { fg = "$cyan", fmt = "bolditalic,underline" },
+          ["@operator"] = { fg = "$light_grey" },
+          ["@interface"] = { fg = "$orange", fmt = "bolditalic" },
+          ["@include"] = { fg = "$purple", fmt = "italic" },
+          ["@constant"] = { fg = "$purple", fmt = "bold" }, -- #c678dd
+          ["@tags"] = { fg = "$green", fmt = "bold" },
+          ["@label"] = { fg = "$green", fmt = "bold" },
+          ["@parameter"] = { fg = "$cyan", fmt = "bolditalic" },
+          ["@property"] = { fg = "", fmt = "bold" },
+          ["@punctuation.delimiter"] = { fg = "$purple", fmt = "bold" },
+          ["@punctuation.bracket"] = { fg = "$purple", fmt = "bold" },
+          ["@punctuation.specifies"] = { fg = "$purple", fmt = "bold" },
+          ["@boolean"] = { fg = "$orange", fmt = "bolditalic" },
+          ["@tag"] = { fg = "$yellow", fmt = "bold" },
+          ["@tag.delimiter"] = { fg = "$purple", fmt = "bold" },
+          ["@tag.attribute"] = { fg = "$orange", fmt = "bold" },
+          ["MatchParen"] = { fmt = "bolditalic" },
+          -- ["@property"] = {fg= "$purple", fmt = 'bold'}
+        },
+        -- Plugins Config --
+        diagnostics = {
+          darker = true, -- darker colors for diagnostic
+          undercurl = true, -- use undercurl instead of underline for diagnostics
+          background = true, -- use background color for virtual text
+        },
+      })
+      require("onedark").load()
+    end,
+  },
+  -- {
+  --   "folke/tokyonight.nvim",
+  --   lazy = false,
+  --   priority = 1000,
+  --   opts = {},
+  -- },
 }
