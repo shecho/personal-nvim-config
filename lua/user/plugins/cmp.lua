@@ -30,7 +30,6 @@ return {
 
     -- loads vscode style snippets from installed plugins (e.g. friendly-snippets)
     require("luasnip.loaders.from_vscode").lazy_load()
-
     vim.api.nvim_set_hl(0, "CmpItemKind", { fg = "#61afef" })
     vim.api.nvim_set_hl(0, "CmpItemKindColor", { fg = "#528bff" })
     vim.api.nvim_set_hl(0, "CmpItemKindFunction", { fg = "#c678dd" })
