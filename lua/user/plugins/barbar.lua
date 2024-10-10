@@ -37,7 +37,7 @@ return {
       -- Enables / disables diagnostic symbols
       icons = {
         -- Configure the base icons on the bufferline.
-        buffer_index = false,
+        buffer_index = true,
         -- buffer_number = true,
         button = "✖",
         -- Enables / disables diagnostic symbols

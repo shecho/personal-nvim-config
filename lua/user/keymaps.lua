@@ -115,9 +115,14 @@ keymap("n", "<C-c>", '<cmd>::let @/ = ""<cr>', opt_nw)
 -- select_all
 keymap("n", "<C-a>", "gg<S-v>GY", opt_nw)
 
+-- change colorscheme
+opt_nw.desc = "Toggle colorscheme"
+keymap({ "n", "v" }, "<leader>aa", "<cmd>lua require('onedark').toggle()<cr>", opt_nw)
+
 -- Alternate way to save
 keymap("n", "<C-s>", "<cmd>w<cr>", opt_nw)
 keymap({ "n", "i" }, "<D-s>", "<cmd>w<cr>")
+keymap({ "n", "i" }, "<M-s>", "<cmd>w<cr>")
 -- })
 keymap("n", "<C-q>", "<cmd>:wq!<cr>", opt_nw)
 keymap("n", "<leader>q", "<cmd>:wq!<cr>", opt_nw)

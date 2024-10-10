@@ -31,6 +31,7 @@ return {
     local actions = require("telescope.actions")
     local icons = require("user.icons")
     local trouble = require("trouble.sources.telescope")
+    local open_with_trouble = require("trouble.sources.telescope").open
 
     telescope.setup({
       defaults = {

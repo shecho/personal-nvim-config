@@ -7,6 +7,11 @@ return {
   event = "LspAttach",
   config = function()
     require("lspsaga").setup({
+      definitions = {
+        keys = {
+          edit = "e",
+        },
+      },
       finder = {
         max_height = 0.95,
         min_width = 90,
@@ -38,22 +43,22 @@ return {
         hover = " ",
         -- incoming = " ",
         -- outgoing = " ",
-        colors = {
-          -- float window normal bakcground color
-          -- normal_bg = "#3b4048", --#181a1f #4b5263 #3b4048
-          -- title background color
-          title_bg = "#afd700",
-          red = "#e95678",
-          magenta = "#b33076",
-          orange = "#FF8700",
-          yellow = "#f7bb3b",
-          green = "#afd700",
-          cyan = "#36d0e0",
-          blue = "#61afef",
-          purple = "#CBA6F7",
-          white = "#d1d4cf",
-          black = "#1c1c19",
-        },
+        -- colors = {
+        -- float window normal bakcground color
+        -- normal_bg = "#3b4048", --#181a1f #4b5263 #3b4048
+        -- title background color
+        -- title_bg = "#afd700",
+        --   red = "#e95678",
+        --   magenta = "#b33076",
+        --   orange = "#FF8700",
+        --   yellow = "#f7bb3b",
+        --   green = "#afd700",
+        --   cyan = "#36d0e0",
+        --   blue = "#61afef",
+        --   purple = "#CBA6F7",
+        --   white = "#d1d4cf",
+        --   black = "#1c1c19",
+        -- },
         -- kind = {},
       },
     })
