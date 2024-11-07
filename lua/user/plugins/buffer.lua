@@ -2,9 +2,9 @@ return {
   {
     "echasnovski/mini.bufremove",
     -- stylua: ignore
-    config = function()
-      require("mini.bufremove").setup({ force = false, })
-    end,
+    opts = {
+      force = false,
+    },
     keys = {
       -- {
       --   "<leader>d",
@@ -33,9 +33,7 @@ return {
     "glepnir/flybuf.nvim",
     cmd = "FlyBuf",
     keys = { { "=", "<cmd>FlyBuf<cr>", nowait = true, desc = "Buffers" } },
-    config = function()
-      require("flybuf").setup({})
-    end,
+    opts = {},
   },
   -- { "rbgrouleff/bclose.vim", event = { "BufReadPre", "BufNewFile" }, confing = true },
   -- { "moll/vim-bbye", cmd = { "Bdelete" } },

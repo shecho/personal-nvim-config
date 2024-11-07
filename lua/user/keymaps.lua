@@ -89,10 +89,10 @@ keymap({ "n", "t", "v" }, "<lader>2", "<cmd>FloatermToggle<cr>", opts)
 keymap({ "n", "v" }, "<leader>t", "<cmd>FloatermToggle<cr>", opts)
 keymap({ "n", "t" }, "<C-t>", "<cmd>FloatermToggle<cr>", opts)
 
--- remove S as a command
 opts.desc = "Enter cmd mode"
 keymap("n", "<leader>;", ":", opts)
 
+-- remove S as a command
 opts.desc = "Remove s"
 keymap({ "n", "v", "x" }, "s", "<Esc>", opts)
 opts.desc = "Remov q"
@@ -111,6 +111,12 @@ keymap("n", "<C-c>", "<Esc>", opt_nw)
 opt_nw.desc = "Clear search"
 keymap("n", "<Esc>", "<cmd>:noh<cr>", opt_nw)
 keymap("n", "<C-c>", '<cmd>::let @/ = ""<cr>', opt_nw)
+
+-- Map Ctrl+b in insert mode to delete to the end of the word without leaving insert mode
+keymap("i", "<C-b>", "<C-o>de", opt_nw)
+
+-- Map Ctrl+c to escape from other modes
+keymap({ "i", "n", "v" }, "<C-c>", [[<C-\><C-n>]], opt_nw)
 
 -- select_all
 keymap("n", "<C-a>", "gg<S-v>GY", opt_nw)

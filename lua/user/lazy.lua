@@ -12,13 +12,15 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup({
-  { import = "user.plugins" },
-  { import = "user.plugins.lsp" },
-}, {
-  install = {
-    -- colorscheme = { "one" },
-    colorscheme = { "onedark" },
+  spec = {
+    -- import your plugins
+    { import = "user.plugins" },
+    { import = "user.plugins.lsp" },
   },
+  -- Configure any other settings here. See the documentation for more details.
+  -- colorscheme that will be used when installing plugins.
+  install = { colorscheme = { "onedark" } },
+  -- automatically check for plugin updates
   checker = { enabled = true, notify = false },
   change_detection = { notify = false },
 })

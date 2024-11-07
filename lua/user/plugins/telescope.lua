@@ -3,6 +3,7 @@ return {
   -- branch = "0.1.x",
   dependencies = {
     "nvim-lua/plenary.nvim",
+    { "ThePrimeagen/harpoon", event = "VeryLazy" },
     "nvim-tree/nvim-web-devicons",
     { "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
     { "tsakirist/telescope-lazy.nvim" },
@@ -233,14 +234,11 @@ return {
     telescope.load_extension("file_browser")
     telescope.load_extension("tailiscope")
     telescope.load_extension("notify")
+    telescope.load_extension("harpoon")
+    telescope.load_extension("egrepify")
 
     local keymap = vim.keymap
-    keymap.set(
-      "n",
-      "<leader>p",
-      "<cmd>Telescope find_files hidden=true no_ignore=true layout_config={width=0.99,height=0.99}<cr>",
-      { desc = "Fuzzy find files" }
-    )
+    keymap.set("n", "<leader>p", "<cmd>Telescope find_files hidden=true no_ignore=true layout_config={width=0.99,height=0.99}<cr>", { desc = "Fuzzy find files" })
     keymap.set(
       "n",
       "<leader>sf",

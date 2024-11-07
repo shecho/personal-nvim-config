@@ -1,7 +1,7 @@
 return {
   {
     "navarasu/onedark.nvim",
-    priority = 2000, -- make sure to load this before all the other start plugins
+    priority = 1000, -- make sure to load this before all the other start plugins
     lazy = false,
     config = function()
       --      dark = { -- dark theme palete
@@ -77,7 +77,7 @@ return {
           ["@function.macro"] = { fg = "$cyan", fmt = "italic" },
           ["@interface"] = { fg = "$orange", fmt = "bolditalic" },
           ["@include"] = { fg = "$purple", fmt = "italic" },
-          ["@constant"] = { fg = "$purple", fmt = "bold" },
+          ["@constant"] = { fg = "$green", fmt = "bold" },
           ["@constant.builtin"] = { fg = "$purple", fmt = "bold" },
           ["@constant.macro"] = { fg = "$purple", fmt = "bold" },
           ["@keyword"] = { fg = "$purple", fmt = "italic" },
@@ -114,7 +114,7 @@ return {
           -- ["TSField"] = { fg = "$red", fmt = "italic,reverse" },
           -- tabs BarBar
           ["BufferCurrentIndex"] = { fg = "$fg", bg = "$bg0", fmt = "italic" },
-          ["BufferCurrentBtn"] = { fg = "$red", fmt = "italic" },
+          ["BufferCurrentBtn"] = { fmt = "italic" },
           ["BufferCurrentHINT"] = { fg = "$red", fmt = "italic" },
           -- LSP
           ["DiagnosticVirtualTextHint"] = { fmt = "bolditalic" },

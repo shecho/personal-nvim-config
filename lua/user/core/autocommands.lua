@@ -110,6 +110,16 @@ vim.api.nvim_create_autocmd("TextYankPost", {
   end,
 })
 
+-- vim.api.nvim_create_autocmd({ "TextChanged", "InsertLeave" }, {
+--   pattern = { "*" },
+--   callback = function()
+--     if vim.bo.ft == "harpoon" then
+--       return
+--     end
+--     vim.cmd("silent! wall")
+--   end,
+--   nested = true,
+-- })
 --
 -- vim.api.nvim_create_autocmd({ "BufWritePost" }, {
 --   pattern = { "*.ts" },

@@ -21,6 +21,7 @@ return {
     "hrsh7th/cmp-nvim-lua",
     "hrsh7th/cmp-cmdline",
     "hrsh7th/cmp-look",
+    "luckasRanarison/tailwind-tools.nvim",
   },
   config = function()
     local cmp = require("cmp")
@@ -162,9 +163,7 @@ return {
         completion = cmp.config.window.bordered(),
       },
     })
-    vim.cmd(
-      [[ autocmd FileType lua lua require'cmp'.setup.buffer { sources = { { name = 'buffer' },{ name = 'nvim_lua'},{name = "nvim_lsp"}},} ]]
-    )
+    vim.cmd([[ autocmd FileType lua lua require'cmp'.setup.buffer { sources = { { name = 'buffer' },{ name = 'nvim_lua'},{name = "nvim_lsp"}},} ]])
     local autocmd = vim.api.nvim_create_autocmd
 
     autocmd("FileType", {
