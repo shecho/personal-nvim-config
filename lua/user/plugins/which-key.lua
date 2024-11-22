@@ -1,5 +1,9 @@
 return {
   "folke/which-key.nvim",
+  dependencies = {
+    "nvim-tree/nvim-web-devicons",
+    "echasnovski/mini.icons",
+  },
   event = "VeryLazy",
   init = function()
     vim.o.timeout = true
@@ -7,22 +11,21 @@ return {
   end,
   opts = {
     plugins = { spelling = true },
-    defaults = {
-      mode = { "n", "v" },
-      ["g"] = { name = "+git" },
-      ["<leader>b"] = { name = "+Buffer" },
-      ["<leader>a"] = { name = "+Actions" },
-      ["<leader>s"] = { name = "+Search" },
-      ["<leader>g"] = { name = "+Git" },
-      ["<leader>l"] = { name = "+Lsp" },
-      ["<leader>u"] = { name = "+Notify" },
-      ["<leader>x"] = { name = "+Diagnostics/quickfix" },
-      ["<leader>n"] = { name = "+Harpoon" },
-    },
   },
   config = function(_, opts)
     local wk = require("which-key")
     wk.setup(opts)
-    wk.register(opts.defaults)
+    wk.add({
+      { "<leader>a", group = "Actions" },
+      { "<leader>b", group = "Buffer" },
+      { "<leader>g", group = "Git" },
+      { "<leader>l", group = "Lsp" },
+      { "<leader>n", group = "Harpoon" },
+      { "<leader>s", group = "Search" },
+      { "<leader>U", group = "Notify" },
+      { "<leader>x", group = "Troble" },
+    })
+
+    -- wk.register(opts.defaults)
   end,
 }

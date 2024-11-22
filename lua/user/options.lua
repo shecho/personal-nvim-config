@@ -23,7 +23,6 @@ opt.conceallevel = 3
 -- opt.confirm = true -- Confirm to save changes before exiting modified buffer
 opt.cursorline = false -- Enable highlighting of the current line
 opt.expandtab = true -- Use spaces instead of tabs
--- opt.formatoptions = "jcroqlnt" -- tcqj
 opt.grepformat = "%f:%l:%c:%m"
 opt.grepprg = "rg --vimgrep"
 opt.ignorecase = true -- Ignore case
@@ -57,6 +56,19 @@ opt.updatetime = 20 -- Save swap file and trigger CursorHold
 opt.wildmode = "longest:full,full" -- Command-line completion mode
 opt.winminwidth = 5 -- Minimum window width
 opt.wrap = false -- Disable line wrap
+opt.mousemoveevent = true
+vim.o.mousemoveevent = true
+-- Undercurl
+vim.cmd([[let &t_Cs = "\e[4:3m"]])
+vim.cmd([[let &t_Ce = "\e[4:0m"]])
+
+-- Add asterisks in block comments
+vim.opt.formatoptions:append({ "r" })
+
+if vim.g.neovide then
+  vim.o.guifont = "Fira Code,Symbols Nerd Font Mono:h34"
+  vim.g.neovide_scale_factor = 0.3
+end
 
 if vim.fn.has("nvim-0.9.0") == 1 then
   opt.splitkeep = "screen"

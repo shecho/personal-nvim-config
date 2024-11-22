@@ -9,6 +9,19 @@ return {
       vim.g.barbar_auto_setup = false
     end,
     opts = {
+      sidebar_filetypes = {
+        -- Use the default values: {event = 'BufWinLeave', text = '', align = 'left'}
+        NvimTree = true,
+        -- Or, specify the text used for the offset:
+        undotree = {
+          text = "undotree",
+          align = "center", -- *optionally* specify an alignment (either 'left', 'center', or 'right')
+        },
+        -- Or, specify the event which the sidebar executes when leaving:
+        ["neo-tree"] = { event = "BufWipeout" },
+        -- Or, specify all three
+        Outline = { event = "BufWinLeave", text = "symbols-outline", align = "right" },
+      },
       -- Enable/disable animations
       animation = true,
       -- Enable/disable auto-hiding the tab bar when there is a single buffer
@@ -24,7 +37,7 @@ return {
       -- Enables / disables diagnostic symbols
       icons = {
         -- Configure the base icons on the bufferline.
-        buffer_index = false,
+        buffer_index = true,
         -- buffer_number = true,
         button = "✖",
         -- Enables / disables diagnostic symbols
@@ -38,11 +51,7 @@ return {
           [vim.diagnostic.severity.HINT] = { enabled = true },
         },
         filetype = {
-          -- Sets the icon's highlight group.
-          -- If false, will use nvim-web-devicons colors
-          custom_colors = false,
-
-          -- Requires `nvim-web-devicons` if `true`
+          custom_colors = true,
           enabled = true,
         },
         separator = { left = "▎", right = "" },
@@ -60,7 +69,7 @@ return {
       },
       -- Excludes buffers from the tabline
       -- exclude_ft = { "javascript" },
-      exclude_name = { "package.json" },
+      exclude_name = {},
 
       -- Hide inactive buffers and file extensions. Other options are `alternate`, `current`, and `visible`.
       -- hide = { extensions = true, inactive = true },
@@ -82,8 +91,6 @@ return {
       -- highlight group. By default, the Buffer*Icon group is linked to the
       -- Buffer* group (see Highlighting below). Otherwise, it will take its
       -- default value as defined by devicons.
-      icon_custom_colors = false,
-
       -- Configure icons on the bufferline.
       -- icon_separator_active = "▎",
       -- icon_separator_inactive = "▎",
@@ -124,6 +131,6 @@ return {
       -- insert_at_start = true,
       -- …etc.
     },
-    version = "^1.0.0", -- optional: only update when a new 1.x version is released
+    -- version = "^1.0.0", -- optional: only update when a new 1.x version is released
   },
 }
