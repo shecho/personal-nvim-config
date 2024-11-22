@@ -6,10 +6,13 @@ if vim.loader then
 end
 
 require("user.options")
+require("user.core")
 require("user.keymaps")
 require("user.lazy")
 
-vim.cmd([[
-  set guifont=JetBrain\ Operator\ Fira\ Code\ Hack\ Nerd\ Font
-  cmap w!! w !sudo tee %
-]])
+-- vim.cmd([[
+--   highlight Normal guibg=none
+--   highlight NonText guibg=none
+--   highlight Normal ctermbg=none
+--   highlight NonText ctermbg=none
+-- ]])

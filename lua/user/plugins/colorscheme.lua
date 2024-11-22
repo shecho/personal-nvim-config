@@ -1,131 +1,141 @@
 return {
   {
-    "rakr/vim-one",
+    "navarasu/onedark.nvim",
     priority = 1000, -- make sure to load this before all the other start plugins
     lazy = false,
     config = function()
-      vim.cmd([[
-        if (has("autocmd") && !has("gui_running"))
-            augroup highlightYankedText
-            autocmd!
-            autocmd TextYankPost *  silent! lua require'vim.highlight'.on_yank()
-            augroup END
+      --      dark = { -- dark theme palete
+      -- 	black = "#181a1f",
+      -- 	bg0 = "#282c34",
+      -- 	bg1 = "#31353f",
+      -- 	bg2 = "#393f4a",
+      -- 	bg3 = "#3b3f4c",
+      -- 	bg_d = "#21252b",
+      -- 	bg_blue = "#73b8f1",
+      -- 	bg_yellow = "#ebd09c",
+      -- 	fg = "#abb2bf",
+      -- 	purple = "#c678dd",
+      -- 	green = "#98c379",
+      -- 	orange = "#d19a66",
+      -- 	blue = "#61afef",
+      -- 	yellow = "#e5c07b",
+      -- 	cyan = "#56b6c2",
+      -- 	red = "#e86671",
+      -- 	grey = "#5c6370",
+      -- 	light_grey = "#848b98",
+      -- 	dark_cyan = "#2b6f77",
+      -- 	dark_red = "#993939",
+      -- 	dark_yellow = "#93691d",
+      -- 	dark_purple = "#8a3fa0",
+      -- 	diff_add = "#31392b",
+      -- 	diff_delete = "#382b2c",
+      -- 	diff_change = "#1c3448",
+      -- 	diff_text = "#2c5372",
+      -- },
+      require("onedark").setup({
+        style = "dark", -- Default theme style. Choose between 'dark', 'darker', 'cool', 'deep', 'warm', 'warmer' and 'light'
+        transparent = false, -- Show/hide background
+        term_colors = true, -- Change terminal color as per the selected theme style
+        ending_tildes = false, -- Show the end-of-buffer tildes. By default they are hidden
+        cmp_itemkind_reverse = false, -- reverse item kind highlights in cmp menu
+        toggle_style_key = "<leader>aa", -- keybind to toggle theme style. Leave it nil to disable it, or set it to a string, for example "<leader>ts"
+        toggle_style_list = { "dark", "darker", "cool", "deep", "warm", "warmer" }, -- List of styles to toggle between
+        code_style = {
+          comments = "bolditalic",
+          keywords = "italic",
+          -- functions = "bold",
+          strings = "bold",
+          -- variables = 'bold',
+        },
+        lualine = {
+          transparent = true, -- lualine center bar transparency
+        },
+        -- Custom Highlights --
+        colors = { blue2 = "#526fff" }, --cyan = "#e06c75"
+        highlights = {
+          -- General
+          -- ["Identifier"] = { fmt = "bold" },
+          -- ["Constant"] = { fg = "$red", fmt = "bold" },
+          ["CursorLine"] = { fmt = "bolditalic" },
+          ["Directory"] = { fmt = "bold" },
+          ["MatchParen"] = { fg = "$red", bg = "$bg0", fmt = "bolditalic,underline" },
+          ["TabLine"] = { fmt = "bolditalic" },
+          ["Keyword"] = { fg = "$purple", fmt = "italic" },
+          ["Include"] = { fg = "$purple", fmt = "italic" },
+          ["Visual"] = { fmt = "bolditalic" },
 
-        endif
+          -- Contex
+          ["@attribute"] = { fg = "$purple", fmt = "italic" },
+          ["@string"] = { fmt = "bold" },
+          ["@repeat"] = { fg = "$purple", fmt = "italic" },
+          ["@type"] = { fmt = "bold" },
+          ["@type.builtin"] = { fmt = "bold" },
+          ["@type.definition"] = { fmt = "bold,underline" },
+          ["@function.builtin"] = { fg = "$blue2", fmt = "bolditalic" },
+          ["@function.method"] = { fg = "$blue2", fmt = "italic" },
+          ["@method"] = { fg = "$blue2", fmt = "italic" },
+          ["@function.macro"] = { fg = "$cyan", fmt = "italic" },
+          ["@interface"] = { fg = "$orange", fmt = "bolditalic" },
+          ["@include"] = { fg = "$purple", fmt = "italic" },
+          ["@constant"] = { fg = "$green", fmt = "bold" },
+          ["@constant.builtin"] = { fg = "$purple", fmt = "bold" },
+          ["@constant.macro"] = { fg = "$purple", fmt = "bold" },
+          ["@keyword"] = { fg = "$purple", fmt = "italic" },
+          ["@keyword.conditional"] = { fg = "$purple", fmt = "italic" },
+          ["@keyword.directive"] = { fg = "$purple", fmt = "italic" },
+          ["@keyword.exception"] = { fg = "$purple", fmt = "italic" },
+          ["@keyword.function"] = { fg = "$purple", fmt = "italic" },
+          ["@keyword.import"] = { fg = "$purple", fmt = "italic" },
+          ["@keyword.repeat"] = { fg = "$purple", fmt = "italic" },
+          -- ["@keyword.operator"] = { fg = "$purple", fmt = "italic,reverse" },
 
-        let g:onedark_terminal_italics=1
-        let g:onedark_termcolors=256
-        let g:one_termcolors=256
-        let g:one_allow_italics = 1
+          ["@label"] = { fg = "$green", fmt = "bold,underline" },
+          ["@operator"] = { fg = "$purple" },
+          ["@parameter"] = { fg = "$purple", fmt = "bolditalic" },
+          ["@parameter.reference"] = { fg = "$purple", fmt = "bolditalic,undercurl" },
+          ["@property"] = { fg = "$red", fmt = "bold" },
+          ["@property.json"] = { fg = "$red", fmt = "bold" },
 
-        syntax on
-        colorscheme one
-        " call one#highlight('@none', '', '', 'bold')
-        " call one#highlight('@text', '', '000000', 'bold')
-        " call one#highlight('@variable.parameter', 'e5c07b', '000000', 'bold')
-        " call one#highlight('@variable.member', '', '000000', 'bold')
-
-        call one#highlight('@variable', 'abb2bf', '', '')
-        call one#highlight('normalfloat', '', '282C34', 'bold')
-        call one#highlight('String', '', '', 'bold')
-        call one#highlight('Repeat', '', '','italic')"
-        call one#highlight('Type', '', '', 'bold')
-        call one#highlight('@Keyword', 'c678dd', '', 'italic')"reserved words
-        call one#highlight('@Constant', '', '', 'bolditalic')
-        call one#highlight('@variable.builtin', '', '', 'bold')
-        call one#highlight('@variable.member', 'e06c75', '', 'bold')
-        call one#highlight('@variable.parameter', 'e06c75', '', 'bold')
-        call one#highlight('@variable', '', '', 'bold')"
-        call one#highlight('normal', '', '', 'bold')
-        call one#highlight('Delimiter','abb2bf', '', 'bold')"brackets () {} []
-        call one#highlight('MatchParen', '', '', 'underline,bolditalic')
-        " call one#highlight('@attribute', '', '', 'bold')
-        " call one#highlight('Tag', 'B243E6', '000000', 'bold')
-        call one#highlight('@Tag', 'e5c07b', '', 'bold')
-        call one#highlight('@Tag.delimiter', 'abb2bf', '', 'bold') " #B243E6 </>
-        call one#highlight('@Tag.attribute', 'd19a66', '', 'bolditalic') " #B243E6
-        " call one#highlight('Special', '', '', 'bold')
-        call one#highlight('Constant', '', '', 'bold')
-        call one#highlight('@constant.builtin', 'c678dd', '', 'bold')
-        call one#highlight('@keyword.function', '528bff', '', 'bolditalic')
-        " call one#highlight('@keyword.operator', '', '000000', 'italic')
-        " call one#highlight('@Parameter', '', '000000', 'bolditalic,')"params abd arguments and variables names
-        " call one#highlight('@Parameter.reference', '', '528bff', 'bolditalic,')"params abd arguments and variables names
-        call one#highlight('@method', '528bff', '', 'italic')
-        call one#highlight('@property', 'e06c75', '', 'bolditalic') " #
-        call one#highlight('Boolean', '', '', 'bolditalic')
-        call one#highlight('Conditional', 'B243E6', '', 'italic')
-        " call one#highlight('SpecialChar', '', '', 'bold,standout')
-        " call one#highlight('Character', '', '', 'bold')
-        " call one#highlight('@character', '', '', 'bold')
-        " call one#highlight('Include', 'c678dd', '000000', 'italic')
-        " call one#highlight('Number', '', '', 'bold')
-        " call one#highlight('Float', '', '', 'bold')
-        call one#highlight('@type.definition', '', '', 'bolditalic')
-        call one#highlight('Asynchronous', '', '', 'italic')
-        call one#highlight('Exception', '', '', 'italic') " try catch
-        call one#highlight('StorageClass', '', '','bolditalic')" #B243E6 #8a3fa0  #7e3992  #c678dd #282C34 #abb2bf #528bff #181a1f #282c34 #31353f #393f4a  #3b3f4c  #0e1013  #151820 
-        call one#highlight('Error', 'be5046', '', 'bolditalic')" #e06c75 #be5046 #e45649 #ca1243 #c18401 #e5c07b #d19a66 #56B6C2 #61afef #528bff #4078f2
-        call one#highlight('ErrorMsg', 'e06c75', '', 'bold')
-        call one#highlight('DiagnosticVirtualTextError', 'e06c75', '', 'bolditalic')
-        call one#highlight('DiagnosticError', 'e06c75', '', 'bolditalic')
-        call one#highlight('DiagnosticFloatingError', 'e06c75', '', 'bolditalic')
-        call one#highlight('DiagnosticSignError', 'e06c75', '', 'bolditalic')
-        call one#highlight('DiagnosticUnderlineError', 'e06c75', '', 'bolditalic,underline')
-        call one#highlight('@operator', 'c678dd', '', '')" *= - + =>'
-        " call one#highlight('@punctuation.bracket', '', '', 'bold')" *= - + =>
-        " call one#highlight('@Punctuation.delimiter', '', '', 'bold')
-        " call one#highlight('Operator', '', '000000', '')" *= - + =>'
-        " call one#highlight('@punctuation.delimiter', 'c678dd', '', 'bold')" *= - + =>'
-        " call one#highlight('@function', '61afef', '', 'bold')"
-        " call one#highlight('@function.method', '528bff', '', 'bold')"
-        " call one#highlight('@function.builtin', '528bff', '', 'bolditalic')"
-        " call one#highlight('@function.macro', '528bff', '', 'bolditalic')"
-        call one#highlight('@text.uri', '', '', 'bolditalic,underline')"
-        " call one#highlight('Identifier', '', '', 'bold')"
-        " call one#highlight('Keyword', 'c678dd', '', 'italic')"reserved words
-        " call one#highlight('@Punctuation.bracket', '', '', 'bold')
-        call one#highlight('Directory', '', '', 'bold')
-        " call one#highlight('@label', '61afef', '', 'bold')"html and jsx
-        " call one#highlight('WildMenu', '', '', 'reverse')
-        " call one#highlight('Use', '', '', 'standout')
-        " call one#highlight('Utility', '', '', 'standout')
-        " call one#highlight('Select', '', '', 'standout')
-        call one#highlight('Visual', '', '', 'bolditalic')
-        call one#highlight('TabLine', '', '', 'bold')
-        " call one#highlight('Search', '', '', 'bolditalic')
-        " call one#highlight('IncSearch', '', '', 'bolditalic,standout')
-        " call one#highlight('Statement', '', '', 'bold')
-        call one#highlight('CursorColumn', '828997', '', 'standout')" word #4b5263 #5c6370  5c6370 #828997 #abb2bf  abb2bf
-        " call one#highlight('CursorLine', '', '', 'standout')
-        " call one#highlight('Cursor', '', '', 'standout')
-        " call one#highlight('CursorIM', '', '', 'standout')"
-        " call one#highlight('CursorLineNr', '', '', 'standout')"
-        " call one#highlight('LineNr', '', '', 'standout')"
-        " call one#highlight('Define', '', '000000', 'bolditalic')
-
-        " underline
-        " undercurl	curly underline
-        " strikethrough
-        " reverse
-        " inverse		same as reverse
-        " italic
-        " standout
-        " --------------------------------------------------------------
-        call one#highlight('normal', 'abb2bf', '282C34', 'bold')
-        call one#highlight('@variable.builtin', 'd19a66', '', 'italic')
-
-        " call one#highlight('normal', 'abb2bf', '282C34', 'bold')
-
-        let g:VM_theme = 'purplegray'
-        hi illuminatedWord gui=bolditalic guifg=#828997
-        hi IlluminatedWordText gui=bolditalic guifg=#828997
-        hi IlluminatedWordRead gui=bolditalic guifg=#828997
-        if (has("termguicolors"))
-            set termguicolors
-            " hi LineNr ctermbg=NONE guibg=NONE
-        endif
-      ]])
+          ["@punctuation.delimiter"] = { fmt = "bold" },
+          ["@punctuation.bracket"] = { fmt = "bold" },
+          ["@punctuation.specifies"] = { fg = "$purple", fmt = "bold" },
+          ["@boolean"] = { fg = "$orange", fmt = "bolditalic" },
+          -- ["@tags"] = { fg = "$green", fmt = "bold" },
+          ["@tag"] = { fg = "$yellow", fmt = "bold" },
+          ["@tag.delimiter"] = { fg = "$fg", fmt = "bold" },
+          ["@tag.attribute"] = { fg = "$orange", fmt = "bold" },
+          ["@variable"] = { fmt = "bold" },
+          ["@variable.builtin"] = { fmt = "italic" },
+          ["@variable.parameter"] = { fmt = "italic" },
+          ["@variable.member"] = { fmt = "italic" },
+          ["@lsp.type.property"] = { fg = "$red", fmt = "italic" },
+          ["@lsp.type.parameter"] = { fmt = "italic" },
+          -- ["TSAttribute"] = { fg = "$red", fmt = "italic" }, --add reverse to make works
+          -- ["TSField"] = { fg = "$red", fmt = "italic,reverse" },
+          -- tabs BarBar
+          ["BufferCurrentIndex"] = { fg = "$fg", bg = "$bg0", fmt = "italic" },
+          ["BufferCurrentBtn"] = { fmt = "italic" },
+          ["BufferCurrentHINT"] = { fg = "$red", fmt = "italic" },
+          -- LSP
+          ["DiagnosticVirtualTextHint"] = { fmt = "bolditalic" },
+          ["DiagnosticVirtualTextEror"] = { fmt = "bolditalic" },
+        },
+        -- Plugins Config --
+        diagnostics = {
+          darker = true, -- darker colors for diagnostic
+          undercurl = true, -- use undercurl instead of underline for diagnostics
+          background = true, -- use background color for virtual text
+        },
+      })
+      require("onedark").load()
     end,
   },
+  {
+    "folke/tokyonight.nvim",
+    lazy = false,
+    priority = 1000,
+    opts = {},
+  },
+  { "rose-pine/neovim", name = "rose-pine" },
+  { "catppuccin/nvim", name = "catppuccin", priority = 1000 },
 }

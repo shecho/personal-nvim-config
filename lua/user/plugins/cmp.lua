@@ -21,6 +21,7 @@ return {
     "hrsh7th/cmp-nvim-lua",
     "hrsh7th/cmp-cmdline",
     "hrsh7th/cmp-look",
+    "luckasRanarison/tailwind-tools.nvim",
   },
   config = function()
     local cmp = require("cmp")
@@ -30,7 +31,6 @@ return {
 
     -- loads vscode style snippets from installed plugins (e.g. friendly-snippets)
     require("luasnip.loaders.from_vscode").lazy_load()
-
     vim.api.nvim_set_hl(0, "CmpItemKind", { fg = "#61afef" })
     vim.api.nvim_set_hl(0, "CmpItemKindColor", { fg = "#528bff" })
     vim.api.nvim_set_hl(0, "CmpItemKindFunction", { fg = "#c678dd" })
@@ -163,9 +163,7 @@ return {
         completion = cmp.config.window.bordered(),
       },
     })
-    vim.cmd(
-      [[ autocmd FileType lua lua require'cmp'.setup.buffer { sources = { { name = 'buffer' },{ name = 'nvim_lua'},{name = "nvim_lsp"}},} ]]
-    )
+    vim.cmd([[ autocmd FileType lua lua require'cmp'.setup.buffer { sources = { { name = 'buffer' },{ name = 'nvim_lua'},{name = "nvim_lsp"}},} ]])
     local autocmd = vim.api.nvim_create_autocmd
 
     autocmd("FileType", {
@@ -176,11 +174,30 @@ return {
     })
     cmp.setup.cmdline("/", {
       mapping = cmp.mapping.preset.cmdline(),
-      sources = { { name = "buffer" } },
+      sources = {
+        { name = "buffer" },
+      },
     })
+    -- cmp.setup.cmdline("/", {
+    --   mapping = cmp.mapping.preset.cmdline(),
+    --   sources = { { name = "buffer" } },
+    -- })
+    -- cmp.setup.cmdline(":", {
+    --   mapping = cmp.mapping.preset.cmdline(),
+    --   sources = cmp.config.sources({ { name = "path" } }, { { name = "cmdline" } }),
+    -- })
     cmp.setup.cmdline(":", {
       mapping = cmp.mapping.preset.cmdline(),
-      sources = cmp.config.sources({ { name = "path" } }, { { name = "cmdline" } }),
+      sources = cmp.config.sources({
+        { name = "path" },
+      }, {
+        {
+          name = "cmdline",
+          option = {
+            ignore_cmds = { "Man", "!" },
+          },
+        },
+      }),
     })
 
     cmp.event:on("menu_opened", function()
