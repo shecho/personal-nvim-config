@@ -1,9 +1,10 @@
 return {
   "nvim-telescope/telescope.nvim",
+  cmd = "Telescope",
   -- branch = "0.1.x",
   dependencies = {
     "nvim-lua/plenary.nvim",
-    { "ThePrimeagen/harpoon",                     event = "VeryLazy" },
+    { "ThePrimeagen/harpoon", event = "VeryLazy" },
     "nvim-tree/nvim-web-devicons",
     { "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
     { "tsakirist/telescope-lazy.nvim" },
@@ -33,7 +34,41 @@ return {
     local actions = require("telescope.actions")
     local icons = require("user.icons")
     local trouble = require("trouble.sources.telescope")
-    local open_with_trouble = require("trouble.sources.telescope").open
+    telescope.load_extension("fzf")
+    telescope.load_extension("lazy")
+    telescope.load_extension("projects")
+    telescope.load_extension("ui-select")
+    telescope.load_extension("file_browser")
+    telescope.load_extension("tailiscope")
+    telescope.load_extension("notify")
+    telescope.load_extension("harpoon")
+    telescope.load_extension("egrepify")
+    local keymap = vim.keymap
+    keymap.set("n", "<leader>p", "<cmd>Telescope find_files hidden=true no_ignore=true layout_config={width=0.99,height=0.99}<cr>", { desc = "Fuzzy find files" })
+    keymap.set(
+      "n",
+      "<leader>sf",
+      -- "<cmd>Telescope file_browser theme=ivy initial_mode=normal<cr>",
+      "<cmd>Telescope file_browser<cr>",
+      { desc = "Find files" }
+    )
+    keymap.set(
+      "n",
+      "<leader>f",
+      "<cmd>Telescope find_files theme=dropdown layout_strategy=vertical layout_config={prompt_position='top',width=0.99,height=0.99,vertical={preview_height=0.50},horizontal={preview_height=0.46}}<cr>",
+      { desc = "Fuzzy find files" }
+    )
+    keymap.set(
+      "n",
+      "<leader>sb",
+      "<cmd>Telescope buffers initial_mode=normal layout_config={width=0.70,height=0.60,prompt_position='top',vertical={preview_height=0.9}}<cr>",
+      { desc = "Buffers" }
+    )
+    keymap.set("n", "<leader>sm", "<cmd>Telescope marks initial_mode=normal<cr>", { desc = "Marks" })
+    keymap.set("n", "<leader>so", "<cmd>Telescope oldfiles initial_mode=normal<cr>", { desc = "Recent files" })
+    keymap.set("n", "<leader>sa", "<cmd>Telescope live_grep<cr>", { desc = "Find string in cwd" })
+    keymap.set("n", "<leader>sw", "<cmd>Telescope grep_string<cr>", { desc = "Find string in cwd" })
+    keymap.set("n", "<C-p>", "<cmd>Telescope projects theme=dropdown<cr>", { desc = "Projects" })
 
     return {
       defaults = {
@@ -205,10 +240,10 @@ return {
           },
         },
         fzf = {
-          fuzzy = true,                   -- false will only do exact matching
+          fuzzy = true, -- false will only do exact matching
           override_generic_sorter = true, -- override the generic sorter
-          override_file_sorter = true,    -- override the file sorter
-          case_mode = "smart_case",       -- or "ignore_case" or "respect_case"
+          override_file_sorter = true, -- override the file sorter
+          case_mode = "smart_case", -- or "ignore_case" or "respect_case"
           -- the default case_mode is "smart_case"
         },
         file_browser = {
@@ -227,44 +262,5 @@ return {
         },
       },
     }
-
-    telescope.load_extension("fzf")
-    telescope.load_extension("lazy")
-    telescope.load_extension("projects")
-    telescope.load_extension("ui-select")
-    telescope.load_extension("file_browser")
-    telescope.load_extension("tailiscope")
-    telescope.load_extension("notify")
-    telescope.load_extension("harpoon")
-    telescope.load_extension("egrepify")
-
-    local keymap = vim.keymap
-    keymap.set("n", "<leader>p",
-    "<cmd>Telescope find_files hidden=true no_ignore=true layout_config={width=0.99,height=0.99}<cr>",
-      { desc = "Fuzzy find files" })
-    keymap.set(
-      "n",
-      "<leader>sf",
-      -- "<cmd>Telescope file_browser theme=ivy initial_mode=normal<cr>",
-      "<cmd>Telescope file_browser<cr>",
-      { desc = "Find files" }
-    )
-    keymap.set(
-      "n",
-      "<leader>f",
-      "<cmd>Telescope find_files theme=dropdown layout_strategy=vertical layout_config={prompt_position='top',width=0.99,height=0.99,vertical={preview_height=0.50},horizontal={preview_height=0.46}}<cr>",
-      { desc = "Fuzzy find files" }
-    )
-    keymap.set(
-      "n",
-      "<leader>sb",
-      "<cmd>Telescope buffers initial_mode=normal layout_config={width=0.70,height=0.60,prompt_position='top',vertical={preview_height=0.9}}<cr>",
-      { desc = "Buffers" }
-    )
-    keymap.set("n", "<leader>sm", "<cmd>Telescope marks initial_mode=normal<cr>", { desc = "Marks" })
-    keymap.set("n", "<leader>so", "<cmd>Telescope oldfiles initial_mode=normal<cr>", { desc = "Recent files" })
-    keymap.set("n", "<leader>sa", "<cmd>Telescope live_grep<cr>", { desc = "Find string in cwd" })
-    keymap.set("n", "<leader>sw", "<cmd>Telescope grep_string<cr>", { desc = "Find string in cwd" })
-    keymap.set("n", "<C-p>", "<cmd>Telescope projects theme=dropdown<cr>", { desc = "Projects" })
   end,
 }
