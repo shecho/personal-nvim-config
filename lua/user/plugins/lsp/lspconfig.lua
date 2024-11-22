@@ -4,11 +4,9 @@ return {
   dependencies = {
     "hrsh7th/cmp-nvim-lsp",
     { "antosha417/nvim-lsp-file-operations", config = true },
-    "jose-elias-alvarez/typescript.nvim",
   },
   config = function()
     local lspconfig = require("lspconfig")
-    local typescript = require("typescript")
     local cmp_nvim_lsp = require("cmp_nvim_lsp")
     local keymap = vim.keymap
 
@@ -17,17 +15,18 @@ return {
       opts.buffer = bufnr
       -- set keybinds
       opts.desc = "Show LSP references"
-      keymap.set("n", "<leader>lr", "<cmd>Telescope lsp_references<CR>", opts) -- show definition, references
-
-      keymap.set("n", "<leader>ls", "<cmd>Lspsaga finder<CR>", opts) -- see available code actions
-
-      opts.desc = "Go to declaration"
-      keymap.set("n", "<leader>lD", vim.lsp.buf.declaration, opts) -- go to declaration
+      -- keymap.set("n", "<leader>lS", "<cmd>Telescope lsp_references<CR>", opts) -- show definition, references
+      keymap.set("n", "<leader>lS", "<cmd>FzfLua lsp_references<CR>", opts) -- show definition, references
+      keymap.set("n", "<leader>ls", "<cmd>Lspsaga finder<CR>", opts) -- show definition, references
+      keymap.set("n", "<leader>lr", "<cmd>Telescope lsp_references<CR>", opts) -- see available code actions
+      -- keymap.set("n", "<leader>lr", vim.lsp.buf.references, opts) -- see available code actions
 
       opts.desc = "Show LSP definitions"
-      keymap.set("n", "<leader>lD", "<cmd>Telescope lsp_definitions<CR>", opts) -- show lsp definitions
-      opts.desc = "Show LSP saga definitions"
+      -- keymap.set("n", "<leader>lD", vim.lsp.buf.definition, opts) -- go to declaration
       keymap.set("n", "<leader>ld", "<cmd>Lspsaga goto_definition<CR>", opts) -- show lsp definitions
+      keymap.set("n", "<leader>lD", "<cmd>Telescope lsp_definitions<CR>", opts) -- show lsp definitions
+      -- opts.desc = "Show LSP saga definitions"
+      -- keymap.set("n", "<leader>lD", "<cmd>Lspsaga goto_definition<CR>", opts) -- show lsp definitions
 
       opts.desc = "Show LSP implementation"
       keymap.set("n", "<leader>lI", "<cmd>lua vim.lsp.buf.implementation()<CR>", opts) -- go to implementation
@@ -48,15 +47,15 @@ return {
       keymap.set("n", "<leader>lR", "<cmd>Lspsaga rename<CR>", opts) -- see available code actions
 
       opts.desc = "Show buffer diagnostics"
-      keymap.set("n", "<leader>lD", "<cmd>Telescope diagnostics bufnr=0<CR>", opts) -- show  diagnostics for file
-      keymap.set("n", "<leader>ll", "<cmd>Lspsaga show_buf_diagnostics", opts) -- show  diagnostics for file
+      -- keymap.set("n", "<leader>lD", "<cmd>Telescope diagnostics bufnr=0<CR>", opts) -- show  diagnostics for file
+      keymap.set("n", "<leader>ll", "<cmd>Lspsaga show_buf_diagnostics<CR>", opts) -- show  diagnostics for file
 
       opts.desc = "Go to previous diagnostic"
       keymap.set("n", "[d", vim.diagnostic.goto_prev, opts) -- jump to previous diagnostic in buffer
 
       opts.desc = "Go to next diagnostic"
       keymap.set("n", "<leader>ln", vim.diagnostic.goto_next, opts) -- jump to next diagnostic in buffer
-      keymap.set("n", "<leader>lN", "<cmd>Lspsaga diagnostic_jump_next", opts) -- jump to next diagnostic in buffer
+      keymap.set("n", "<leader>lN", "<cmd>Lspsaga diagnostic_jump_next<CR>", opts) -- jump to next diagnostic in buffer
 
       opts.desc = "Show documentation under cursor"
       keymap.set("n", "K", vim.lsp.buf.hover, opts) -- show documentation for what is under cursor
@@ -130,9 +129,7 @@ return {
     -- configure emmet language server
     lspconfig["emmet_ls"].setup({
       capabilities = capabilities,
-
       on_attach = on_attach,
-
       filetypes = {
         "html",
         "typescriptreact",
@@ -164,25 +161,15 @@ return {
       capabilities = capabilities,
     })
 
-    typescript.setup({
-      server = {
-        capabilities = capabilities,
-        on_attach = on_attach,
-      },
-      filetypes = {
-        "javascript",
-        "javascriptreact",
-        "javascript.jsx",
-        "typescript",
-        "typescriptreact",
-        "typescript.tsx",
-      },
+    lspconfig.eslint.setup({
+      capabilities = capabilities,
+      on_attach = on_attach,
     })
-    lspconfig["tsserver"].setup({
+
+    lspconfig["ts_ls"].setup({
       capabilities = capabilities,
       cmd = { "typescript-language-server", "--stdio" },
       on_attach = on_attach,
-      h,
       filetypes = {
         "javascript",
         "javascriptreact",

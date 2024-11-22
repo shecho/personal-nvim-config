@@ -20,14 +20,14 @@ keymap("n", "<C-i>", "<C-i>", opts)
 -- command_mode = "c",
 
 -- Better window navigation
-keymap("n", "<C-h>", "<C-w>h", opt_nw) -- nnoremap <C-h> <C-w>h
-keymap("n", "<C-j>", "<C-w>j", opt_nw) -- nnoremap <C-j> <C-w>j
-keymap("n", "<C-k>", "<C-w>k", opt_nw) -- nnoremap <C-k> <C-w>k
-keymap("n", "<C-l>", "<C-w>l", opt_nw) -- nnoremap <C-l> <C-w>l
-keymap("n", "<C-j>", "<cmd> resize -2<CR>", opt_nw) -- nnoremap <silent> <C-j> :resize -2<CR>
-keymap("n", "<C-k>", "<cmd> resize +2<CR>", opt_nw) -- nnoremap <silent> <C-k> :resize +2<CR>
-keymap("n", "<S-h>", "<cmd> vertical resize -2<CR>", opt_nw) -- nnoremap <silent> <S-h> :vertical resize -2<CR>
-keymap("n", "<S-l>", "<cmd> vertical resize +2<CR>", opt_nw) -- nnoremap <silent> <S-l> :vertical resize +2<CR>
+keymap("n", "<C-h>", "<C-w>h", opt_nw)
+keymap("n", "<C-j>", "<C-w>j", opt_nw)
+keymap("n", "<C-k>", "<C-w>k", opt_nw)
+keymap("n", "<C-l>", "<C-w>l", opt_nw)
+keymap("n", "<C-j>", "<cmd> resize -2<CR>", opt_nw)
+keymap("n", "<C-k>", "<cmd> resize +2<CR>", opt_nw)
+keymap("n", "<S-h>", "<cmd> vertical resize -2<CR>", opt_nw)
+keymap("n", "<S-l>", "<cmd> vertical resize +2<CR>", opt_nw)
 
 -- Resize with arrows
 -- keymap("n", "<S-Up>", ":resize -2<CR>", opts)
@@ -43,10 +43,11 @@ keymap("n", "J", "mzJ`z", opts)
 keymap("c", "Q", "q", opt_nw)
 
 -- Naviagate buffers
+keymap("n", "<leader>d", ":BufferDelete<CR>", opts)
 keymap("n", "<leader>bn", ":BufferNext<CR>", opts)
 keymap("n", "<leader>bp", ":BufferPrevious<CR>", opts)
 keymap("n", "<leader>bq", ":BufferFirst<CR>", opts)
-keymap("n", "<leader>bd", ":BufferClose<CR>", opts)
+keymap("n", "<leader>bd", ":bdelete<CR>", opts)
 keymap("n", "<leader>bc", ":BufferPick<CR>", opts)
 keymap("n", "<leader>bb", ":BufferCloseAllButCurrent<CR>", opts)
 --
@@ -75,8 +76,8 @@ keymap("x", "<A-k>", ":move '<-2<CR>gv-gv", opts)
 
 -- keymap("n", "<F11>", "<cmd>lua vim.lsp.buf.references()<CR>", opts)
 -- zen mode
-keymap("n", "<C-z>", "<cmd>TZMinimalist<cr>", opts)
-keymap("n", "<leader>z", "<cmd>TZMinimalist<cr>", opts)
+keymap("n", "<C-z>", "<cmd>ZenMode<cr>", opts)
+keymap("n", "<leader>z", "<cmd>ZenMode<cr>", opts)
 -- keymap("n", "=", "<cmd>JABSOpen<cr>", { noremap = true, silent = true, nowait = true })
 
 -- Some actions
@@ -85,12 +86,13 @@ keymap("n", "<C-x>", '<cmd>lua require("ts-node-action").node_action()<cr>', opt
 -- Floaterm
 opts.desc = "Floaterm toogle"
 keymap({ "n", "t", "v" }, "<lader>2", "<cmd>FloatermToggle<cr>", opts)
-keymap({ "n", "t", "v" }, "<leader>t", "<cmd>FloatermToggle<cr>", opts)
+keymap({ "n", "v" }, "<leader>t", "<cmd>FloatermToggle<cr>", opts)
+keymap({ "n", "t" }, "<C-t>", "<cmd>FloatermToggle<cr>", opts)
 
--- remove S as a command
 opts.desc = "Enter cmd mode"
 keymap("n", "<leader>;", ":", opts)
 
+-- remove S as a command
 opts.desc = "Remove s"
 keymap({ "n", "v", "x" }, "s", "<Esc>", opts)
 opts.desc = "Remov q"
@@ -106,15 +108,27 @@ keymap("n", "<leader>1", "<c-^>", opt_nw)
 -- esc
 opt_nw.desc = "Esc"
 keymap("n", "<C-c>", "<Esc>", opt_nw)
-keymap("n", "<C-c>", "<cmd>:noh<cr>", opt_nw)
+opt_nw.desc = "Clear search"
 keymap("n", "<Esc>", "<cmd>:noh<cr>", opt_nw)
+keymap("n", "<C-c>", '<cmd>::let @/ = ""<cr>', opt_nw)
+
+-- Map Ctrl+b in insert mode to delete to the end of the word without leaving insert mode
+keymap("i", "<C-b>", "<C-o>de", opt_nw)
+
+-- Map Ctrl+c to escape from other modes
+keymap({ "i", "n", "v" }, "<C-c>", [[<C-\><C-n>]], opt_nw)
 
 -- select_all
-keymap("n", "<C-a>", "gg<S-v>Gy", opt_nw)
+keymap("n", "<C-a>", "gg<S-v>GY", opt_nw)
+
+-- change colorscheme
+opt_nw.desc = "Toggle colorscheme"
+keymap({ "n", "v" }, "<leader>aa", "<cmd>lua require('onedark').toggle()<cr>", opt_nw)
 
 -- Alternate way to save
 keymap("n", "<C-s>", "<cmd>w<cr>", opt_nw)
 keymap({ "n", "i" }, "<D-s>", "<cmd>w<cr>")
+keymap({ "n", "i" }, "<M-s>", "<cmd>w<cr>")
 -- })
 keymap("n", "<C-q>", "<cmd>:wq!<cr>", opt_nw)
 keymap("n", "<leader>q", "<cmd>:wq!<cr>", opt_nw)
@@ -140,7 +154,6 @@ opt_nw.desc = "Cursorline"
 keymap("n", "<leader>ac", "<cmd>lua require('user.core.functions').toggle_option('cursorline')<cr>", opt_nw)
 
 -- sorrund like
-
 opt_nw.desc = "{}"
 keymap("n", "<leader>4", "ciw{}<Esc>P", opt_nw)
 keymap("v", "<leader>4", "xi{}<Esc>P", opt_nw)
