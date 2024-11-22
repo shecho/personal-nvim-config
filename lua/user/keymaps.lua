@@ -93,7 +93,7 @@ opts.desc = "Enter cmd mode"
 keymap("n", "<leader>;", ":", opts)
 
 -- remove S as a command
-opts.desc = "Remove s"
+opts.desc = "Remove 'S'"
 keymap({ "n", "v", "x" }, "s", "<Esc>", opts)
 opts.desc = "Remov q"
 keymap({ "n", "v", "x" }, "q", "<Esc>", opts)
@@ -116,7 +116,7 @@ keymap("n", "<C-c>", '<cmd>::let @/ = ""<cr>', opt_nw)
 keymap("i", "<C-b>", "<C-o>de", opt_nw)
 
 -- Map Ctrl+c to escape from other modes
-keymap({ "i", "n", "v" }, "<C-c>", [[<C-\><C-n>]], opt_nw)
+-- keymap({ "i", "n", "v" }, "<C-c>", [[<C-\><C-n>]], opt_nw)
 
 -- select_all
 keymap("n", "<C-a>", "gg<S-v>GY", opt_nw)

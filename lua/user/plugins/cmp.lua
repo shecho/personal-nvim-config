@@ -23,7 +23,7 @@ return {
     "hrsh7th/cmp-look",
     "luckasRanarison/tailwind-tools.nvim",
   },
-  config = function()
+  opts = function()
     local cmp = require("cmp")
     local luasnip = require("luasnip")
     local lspkind = require("lspkind")

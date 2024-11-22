@@ -1,5 +1,5 @@
 return {
-  "jose-elias-alvarez/null-ls.nvim", -- configure formatters & linters
+  "nvimtools/none-ls.nvim", -- configure formatters & linters
   event = { "BufReadPre", "BufNewFile" },
   config = function()
     local null_ls = require("null-ls")
@@ -18,14 +18,14 @@ return {
         -- formatting.prettierd,
         formatting.stylua, -- lua formatter
         null_ls.builtins.completion.spell, -- diagnostics.eslint,
-        diagnostics.eslint_d.with({ -- js/ts linter
-          condition = function(utils)
-            return utils.root_has_file({
-              ".eslintrc.js",
-              ".eslintrc.cjs",
-            }) -- only enable if root has .eslintrc.js or .eslintrc.cjs
-          end,
-        }), -- diagnostics.eslint_d.with({ -- js/ts linter
+        -- diagnostics.eslint_d.with({ -- js/ts linter
+        --   condition = function(utils)
+        --     return utils.root_has_file({
+        --       ".eslintrc.js",
+        --       ".eslintrc.cjs",
+        --     }) -- only enable if root has .eslintrc.js or .eslintrc.cjs
+        --   end,
+        -- }), -- diagnostics.eslint_d.with({ -- js/ts linter
         -- 	-- diagnostics_format = "[eslint] #{m}\n(#{c})",
         -- 	condition = function(utils)
         -- 		return utils.root_has_file(".eslintrc.js") -- change file extension if you use something else

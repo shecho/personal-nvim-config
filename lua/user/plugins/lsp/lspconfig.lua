@@ -64,6 +64,9 @@ return {
       opts.desc = "Toggle winbar"
       keymap.set("n", "<leader>lo", "<cmd>Lspsaga winbar_toggle<CR>", opts) -- show documentation for what is under cursor
 
+      opts.desc = "Peek definition"
+      keymap.set("n", "<leader>lp", "<cmd>Lspsaga peek_definition<CR>", opts) -- show documentation for what is under cursor
+
       opts.desc = "Format"
       keymap.set("n", "<leader>lf", vim.lsp.buf.format, opts) -- nnoremap <leader>lf :lua vim.lsp.buf.format({async = true})<CR>
 
