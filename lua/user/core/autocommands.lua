@@ -105,6 +105,13 @@ vim.api.nvim_create_autocmd({ "CmdWinEnter" }, {
 -- highlight on yank
 vim.api.nvim_create_autocmd("TextYankPost", {
   callback = function()
+    vim.cmd("set formatoptions-=cro")
+  end,
+})
+
+-- highlight on yank
+vim.api.nvim_create_autocmd("TextYankPost", {
+  callback = function()
     vim.highlight.on_yank()
     -- vim.highlight.on_yank({ higroup = "Visual", timeout = 200 })
   end,

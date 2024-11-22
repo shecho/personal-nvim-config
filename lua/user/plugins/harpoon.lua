@@ -21,6 +21,11 @@ return {
     keymap.set("n", "<leader>nr", "<cmd>lua require('harpoon.mark').rm_file()<cr>", { desc = "Remove current file from harpoon" })
     keymap.set("n", "<leader>nc", "<cmd>lua require('harpoon.mark').clear_all()<cr>", { desc = "Remove current file from harpoon" })
     keymap.set("n", "<leader>m", "<cmd>lua require('harpoon.ui').toggle_quick_menu()<cr>", { desc = "Harpoon menu", silent = true, noremap = true })
-    keymap.set("n", "<leader>nm", "<cmd>Telescope harpoon marks theme=dropdown layout_config={height=0.60,width=0.80} initial_mode=normal<cr>", { desc = "Harpoon marks" })
+    keymap.set(
+      "n",
+      "<leader>nm",
+      "<cmd>Telescope harpoon marks theme=dropdown previewer=false winblend=15 layout_config={height=0.60,width=0.50}' initial_mode=normal<cr>",
+      { desc = "Harpoon marks" }
+    )
   end,
 }
