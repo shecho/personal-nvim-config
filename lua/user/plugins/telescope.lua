@@ -240,7 +240,7 @@ return {
 
     local keymap = vim.keymap
     keymap.set("n", "<leader>p",
-      "<cmd>Telescope find_files hidden=true no_ignore=true layout_config={width=0.99,height=0.99}<cr>",
+    "<cmd>Telescope find_files hidden=true no_ignore=true layout_config={width=0.99,height=0.99}<cr>",
       { desc = "Fuzzy find files" })
     keymap.set(
       "n",
