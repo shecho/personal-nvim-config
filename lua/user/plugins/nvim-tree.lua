@@ -26,24 +26,33 @@ return {
       -- custom mappings
       vim.keymap.set("n", "<C-t>", api.tree.change_root_to_parent, opts("Up"))
       vim.keymap.set("n", "?", api.tree.toggle_help, opts("Help"))
+      vim.keymap.set("n", "U", api.tree.toggle_hidden_filter, opts("Toogle hidden filter?"))
       -- vim.keymap.set("n", "l", api.tree.open.edit, opts("Open"))
     end
 
     -- configure nvim-tree
     nvimtree.setup({
+      respect_buf_cwd = true,
+      reload_on_bufenter = true,
+      sync_root_with_cwd = true,
       on_attach = my_on_attach,
       sort_by = "case_sensitive",
+      update_focused_file = {
+        update_cwd = true,
+        enable = true,
+        update_root = true,
+      },
       hijack_directories = { enable = true },
       disable_netrw = true,
       hijack_netrw = true,
-      -- open_on_tab = true,
+      open_on_tab = true,
       update_cwd = true,
       -- open_on_setup = false,
       filters = {
-        -- dotfiles = false,
+        dotfiles = false,
         -- dotfiles = true,
         -- custom = { ".git" },
-        exclude = { ".env" },
+        -- exclude = { ".env" },
       },
       git = {
         enable = true,
@@ -51,6 +60,7 @@ return {
         timeout = 500,
       },
       view = {
+        -- preserve_window_proportions = true,
         width = 40,
         -- height = 30,
         side = "right",
