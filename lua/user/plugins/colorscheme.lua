@@ -1,9 +1,12 @@
 return {
   {
     "navarasu/onedark.nvim",
-    priority = 1000, -- make sure to load this before all the other start plugins
+    -- priority = 1000, -- make sure to load this before all the other start plugins
     lazy = false,
-    config = function()
+    -- config = function()
+    --   vim.cmd([[colorscheme onedark]])
+    -- end,
+    opts = function()
       --      dark = { -- dark theme palete
       -- 	black = "#181a1f",
       -- 	bg0 = "#282c34",
@@ -56,6 +59,8 @@ return {
           -- General
           -- ["Identifier"] = { fmt = "bold" },
           -- ["Constant"] = { fg = "$red", fmt = "bold" },
+          -- ["@none"] = { fg = "$red", bg = "$black", fmt = "bold" }, coomont words
+          -- ["@spell"] = { fg = "$red", bg = "$black", fmt = "bold" },
           ["CursorLine"] = { fmt = "bolditalic" },
           ["Directory"] = { fmt = "bold" },
           ["MatchParen"] = { fg = "$red", bg = "$bg0", fmt = "bolditalic,underline" },
