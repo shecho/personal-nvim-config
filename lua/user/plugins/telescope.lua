@@ -27,6 +27,7 @@ return {
     { "nvim-telescope/telescope-file-browser.nvim" },
     { "danielvolchek/tailiscope.nvim" },
     { "rcarriga/nvim-notify" },
+    { "nvim-telescope/telescope-media-files.nvim" },
   },
   opts = function()
     local telescope = require("telescope")
@@ -43,13 +44,14 @@ return {
     telescope.load_extension("notify")
     telescope.load_extension("harpoon")
     telescope.load_extension("egrepify")
+    telescope.load_extension("media_files")
     local keymap = vim.keymap
     keymap.set("n", "<leader>p", "<cmd>Telescope find_files hidden=true no_ignore=true layout_config={width=0.99,height=0.99}<cr>", { desc = "Fuzzy find files" })
     keymap.set(
       "n",
       "<leader>sf",
       -- "<cmd>Telescope file_browser theme=ivy initial_mode=normal<cr>",
-      "<cmd>Telescope file_browser<cr>",
+      "<cmd>Telescope file_browser initial_mode=normal theme=ivy<cr>",
       { desc = "Find files" }
     )
     keymap.set(
@@ -249,16 +251,9 @@ return {
         file_browser = {
           theme = "ivy",
           -- disables netrw and use telescope-file-browser in its place
+          -- hijack_netrw = true,
           hijack_netrw = true,
           initial_mode = "normal",
-          mappings = {
-            ["i"] = {
-              -- your custom insert mode mappings
-            },
-            ["n"] = {
-              -- your custom normal mode mappings
-            },
-          },
         },
       },
     }
