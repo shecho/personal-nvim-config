@@ -21,8 +21,8 @@ return {
 
       return {
         winopts = {
-          win_height = 0.95,
-          win_width = 0.90,
+          height = 0.95,
+          width = 0.90,
         },
       }
     end,
