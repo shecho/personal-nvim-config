@@ -10,9 +10,9 @@ require("user.core")
 require("user.keymaps")
 require("user.lazy")
 
--- vim.cmd([[
+vim.cmd([[ set rtp+=/opt/homebrew/opt/fzf ]])
+
 --   highlight Normal guibg=none
 --   highlight NonText guibg=none
 --   highlight Normal ctermbg=none
 --   highlight NonText ctermbg=none
--- ]])
