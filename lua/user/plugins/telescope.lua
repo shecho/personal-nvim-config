@@ -20,8 +20,8 @@ return {
       "nvim-telescope/telescope-ui-select.nvim",
       event = "VeryLazy",
       -- config = function(_, opts)
-      --   require("ui-select").setup(opts)
-      --   require("telescope").load_extension("ui-select")
+      -- require("ui-select").setup(opts)
+      -- require("telescope").load_extension("ui-select")
       -- end,
     },
     { "nvim-telescope/telescope-file-browser.nvim" },
@@ -75,12 +75,12 @@ return {
     return {
       defaults = {
         layout_config = {
-          width = 0.99,
-          height = 0.99,
+          width = 0.39,
+          height = 0.39,
           -- prompt_position = "top",
           -- preview_cutoff = 120,
-          horizontal = { preview_width = 0.45 },
-          vertical = { preview_height = 0.45 },
+          -- horizontal = { preview_width = 0.45 },
+          -- vertical = { preview_height = 0.45 },
         },
         path_display = { "truncate " },
         prompt_prefix = icons.ui.Telescope .. " ",
@@ -220,6 +220,16 @@ return {
             width = 0.99,
             height = 0.99,
             prompt_position = "top",
+            -- preview_cutoff = 120,
+            horizontal = { preview_width = 0.40 },
+            vertical = { preview_height = 0.40 },
+          },
+        },
+        oldfiles = {
+          -- theme = "dropdown",
+          layout_config = {
+            width = 0.99,
+            height = 0.99,
             -- preview_cutoff = 120,
             horizontal = { preview_width = 0.40 },
             vertical = { preview_height = 0.40 },
