@@ -81,34 +81,52 @@ return {
     -- configure html server
     lspconfig["html"].setup({
       capabilities = capabilities,
-      on_attach = on_attach,
+      -- on_attach = on_attach,
+      on_attach = function(_, bufnr)
+        on_attach(_, bufnr)
+      end,
     })
 
     -- configure css server
     lspconfig["cssls"].setup({
       capabilities = capabilities,
-      on_attach = on_attach,
+      -- on_attach = on_attach,
+      on_attach = function(_, bufnr)
+        on_attach(_, bufnr)
+      end,
     })
 
     -- configure tailwindcss server
     lspconfig["tailwindcss"].setup({
       capabilities = capabilities,
-      on_attach = on_attach,
+      -- on_attach = on_attach,
+      on_attach = function(_, bufnr)
+        on_attach(_, bufnr)
+      end,
     })
 
     lspconfig["svelte"].setup({
       capabilities = capabilities,
-      on_attach = on_attach,
+      -- on_attach = on_attach,
+      on_attach = function(_, bufnr)
+        on_attach(_, bufnr)
+      end,
     })
 
     lspconfig["prismals"].setup({
       capabilities = capabilities,
-      on_attach = on_attach,
+      -- on_attach = on_attach,
+      on_attach = function(_, bufnr)
+        on_attach(_, bufnr)
+      end,
     })
 
     lspconfig["graphql"].setup({
       capabilities = capabilities,
-      on_attach = on_attach,
+      -- on_attach = on_attach,
+      on_attach = function(_, bufnr)
+        on_attach(_, bufnr)
+      end,
 
       filetypes = {
         "graphql",
@@ -122,7 +140,10 @@ return {
     -- configure emmet language server
     lspconfig["emmet_ls"].setup({
       capabilities = capabilities,
-      on_attach = on_attach,
+      -- on_attach = on_attach,
+      on_attach = function(_, bufnr)
+        on_attach(_, bufnr)
+      end,
       filetypes = {
         "html",
         "typescriptreact",
@@ -138,7 +159,10 @@ return {
     -- configure python server
     lspconfig["pyright"].setup({
       capabilities = capabilities,
-      on_attach = on_attach,
+      -- on_attach = on_attach,
+      on_attach = function(_, bufnr)
+        on_attach(_, bufnr)
+      end,
     })
     lspconfig.clangd.setup({
       capabilities = capabilities,
@@ -146,23 +170,35 @@ return {
         "clangd",
         "--offset-encoding=utf-16",
       },
-      on_attach = on_attach,
+      -- on_attach = on_attach,
+      on_attach = function(_, bufnr)
+        on_attach(_, bufnr)
+      end,
     })
 
     lspconfig.flow.setup({
-      on_attach = on_attach,
+      -- on_attach = on_attach,
+      on_attach = function(_, bufnr)
+        on_attach(_, bufnr)
+      end,
       capabilities = capabilities,
     })
 
     lspconfig.eslint.setup({
       capabilities = capabilities,
-      on_attach = on_attach,
+      -- on_attach = on_attach,
+      on_attach = function(_, bufnr)
+        on_attach(_, bufnr)
+      end,
     })
 
     lspconfig["ts_ls"].setup({
       capabilities = capabilities,
       cmd = { "typescript-language-server", "--stdio" },
-      on_attach = on_attach,
+      -- on_attach = on_attach,
+      on_attach = function(_, bufnr)
+        on_attach(_, bufnr)
+      end,
       filetypes = {
         "javascript",
         "javascriptreact",
@@ -176,7 +212,11 @@ return {
     -- configure lua server (with special settings)
     lspconfig["lua_ls"].setup({
       capabilities = capabilities,
-      on_attach = on_attach,
+      -- on_attach = on_attach,
+      on_attach = function(_, bufnr)
+        on_attach(_, bufnr)
+      end,
+
       settings = { -- custom settings for lua
         Lua = {
           -- make the language server recognize "vim" global

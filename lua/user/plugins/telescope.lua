@@ -35,6 +35,8 @@ return {
     local actions = require("telescope.actions")
     local icons = require("user.icons")
     local trouble = require("trouble.sources.telescope")
+    local add_to_trouble = require("trouble.sources.telescope").add
+
     telescope.load_extension("fzf")
     telescope.load_extension("lazy")
     telescope.load_extension("projects")
