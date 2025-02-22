@@ -2,7 +2,6 @@ return {
   "williamboman/mason.nvim",
   dependencies = {
     "williamboman/mason-lspconfig.nvim",
-    "jayp0521/mason-null-ls.nvim",
   },
   opts = {
     ensure_installed = {
