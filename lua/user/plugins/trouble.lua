@@ -1,17 +1,41 @@
 return {
   "folke/trouble.nvim",
   cmd = { "TroubleToggle", "Trouble" },
-  opts = { use_diagnostic_signs = true },
+  opts = {
+    use_diagnostic_signs = true,
+    focus = true,
+    modes = {
+      float = {
+        mode = "diagnostics",
+        preview = {
+          type = "float",
+          relative = "editor",
+          border = "rounded",
+          title = "Preview",
+          title_pos = "center",
+          position = { 0, -2 },
+          size = { width = 0.3, height = 0.3 },
+          zindex = 200,
+        },
+      },
+    },
+  },
   keys = {
     {
-      "<leader>xx",
+      "<leader>xX",
       "<cmd>Trouble diagnostics toggle<cr>",
       desc = "Diagnostics (Trouble)",
     },
     {
-      "<leader>xX",
+      "<leader><space>",
+      "<cmd>Trouble diagnostics toggle win.position=right<cr>",
+      desc = "Diagnostics (Trouble)",
+    },
+
+    {
+      "<leader>xx",
       "<cmd>Trouble diagnostics toggle filter.buf=0<cr>",
-      desc = "Buffer Diagnostics (Trouble)",
+      desc = "Buffer Diagnostics(Trouble)",
     },
     {
       "<leader>cs",

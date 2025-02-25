@@ -27,7 +27,7 @@ opt.grepformat = "%f:%l:%c:%m"
 opt.grepprg = "rg --vimgrep"
 opt.ignorecase = true -- Ignore case
 opt.inccommand = "nosplit" -- preview incremental substitute
-opt.laststatus = 0
+opt.laststatus = 3
 opt.list = false -- Show some invisible characters (tabs...
 opt.mouse = "a" -- Enable mouse mode
 -- opt.guicursor = "a:block"
@@ -74,5 +74,5 @@ if vim.fn.has("nvim-0.9.0") == 1 then
   opt.splitkeep = "screen"
   opt.shortmess:append({ C = true })
 end
-
+vim.g.snacks_animate = false
 -- Fix markdown indentation settings

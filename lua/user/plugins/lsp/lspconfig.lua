@@ -16,17 +16,13 @@ return {
       -- set keybinds
       opts.desc = "Show LSP references"
       -- keymap.set("n", "<leader>lS", "<cmd>Telescope lsp_references<CR>", opts) -- show definition, references
-      keymap.set("n", "<leader>lS", "<cmd>FzfLua lsp_references<CR>", opts) -- show definition, references
-      keymap.set("n", "<leader>ls", "<cmd>Lspsaga finder<CR>", opts) -- show definition, references
+      keymap.set("n", "<leader>ls", "<cmd>FzfLua lsp_references<CR>", opts) -- show definition, references
       keymap.set("n", "<leader>lr", "<cmd>Telescope lsp_references<CR>", opts) -- see available code actions
       -- keymap.set("n", "<leader>lr", vim.lsp.buf.references, opts) -- see available code actions
 
       opts.desc = "Show LSP definitions"
-      -- keymap.set("n", "<leader>lD", vim.lsp.buf.definition, opts) -- go to declaration
-      keymap.set("n", "<leader>ld", "<cmd>Lspsaga goto_definition<CR>", opts) -- show lsp definitions
-      keymap.set("n", "<leader>lD", "<cmd>Telescope lsp_definitions<CR>", opts) -- show lsp definitions
-      -- opts.desc = "Show LSP saga definitions"
-      -- keymap.set("n", "<leader>lD", "<cmd>Lspsaga goto_definition<CR>", opts) -- show lsp definitions
+      keymap.set("n", "<leader>lD", vim.lsp.buf.definition, opts) -- go to declaration
+      keymap.set("n", "<leader>ld", "<cmd>Telescope lsp_definitions<CR>", opts) -- show lsp definitions
 
       opts.desc = "Show LSP implementation"
       keymap.set("n", "<leader>lI", "<cmd>lua vim.lsp.buf.implementation()<CR>", opts) -- go to implementation
@@ -38,37 +34,31 @@ return {
       keymap.set("n", "<leader>lT", "<cmd>Telescope lsp_type_definitions<CR>", opts) -- show lsp type definitions
 
       opts.desc = "See available code actions"
-      keymap.set({ "n", "v" }, "<leader>lq", "<cmd>Lspsaga code_action<CR>", opts) -- see available code actions
+      keymap.set({ "n", "v" }, "<leader>lq", vim.lsp.buf.code_action, opts) -- see available code actions
       keymap.set({ "n", "v" }, "<leader>la", vim.lsp.buf.code_action, opts) -- see available code actions, in visual mode will apply to selection
 
       opts.desc = "rename"
       keymap.set("n", "<leader>le", vim.lsp.buf.rename, opts) -- smart rename
-      opts.desc = "Saga rename"
-      keymap.set("n", "<leader>lR", "<cmd>Lspsaga rename<CR>", opts) -- see available code actions
+      keymap.set("n", "<leader>lR", vim.lsp.buf.rename, opts) -- see available code actions
 
       opts.desc = "Show buffer diagnostics"
-      -- keymap.set("n", "<leader>lD", "<cmd>Telescope diagnostics bufnr=0<CR>", opts) -- show  diagnostics for file
-      keymap.set("n", "<leader>ll", "<cmd>Lspsaga show_buf_diagnostics<CR>", opts) -- show  diagnostics for file
+      keymap.set("n", "<leader>lD", "<cmd>Telescope diagnostics bufnr=0<CR>", opts) -- show  diagnostics for file
+      -- keymap.set("n", "<leader>ll", vim.diagnostic.open_float, opts) -- show diagnostics for line
 
       opts.desc = "Go to previous diagnostic"
       keymap.set("n", "[d", vim.diagnostic.goto_prev, opts) -- jump to previous diagnostic in buffer
 
       opts.desc = "Go to next diagnostic"
       keymap.set("n", "<leader>ln", vim.diagnostic.goto_next, opts) -- jump to next diagnostic in buffer
-      keymap.set("n", "<leader>lN", "<cmd>Lspsaga diagnostic_jump_next<CR>", opts) -- jump to next diagnostic in buffer
+      keymap.set("n", "<leader>ll", vim.diagnostic.goto_next, opts) -- jump to next diagnostic in buffer
 
       opts.desc = "Show documentation under cursor"
       keymap.set("n", "K", vim.lsp.buf.hover, opts) -- show documentation for what is under cursor
-      opts.desc = "Show saga hover"
-      keymap.set("n", "<leader>k", "<cmd>Lspsaga hover_doc<CR>", opts) -- show documentation for what is under cursor
-      opts.desc = "Toggle winbar"
-      keymap.set("n", "<leader>lo", "<cmd>Lspsaga winbar_toggle<CR>", opts) -- show documentation for what is under cursor
-
-      opts.desc = "Peek definition"
-      keymap.set("n", "<leader>lp", "<cmd>Lspsaga peek_definition<CR>", opts) -- show documentation for what is under cursor
 
       opts.desc = "Format"
       keymap.set("n", "<leader>lf", vim.lsp.buf.format, opts) -- nnoremap <leader>lf :lua vim.lsp.buf.format({async = true})<CR>
+
+      opts.desc = "Show line diagnostics"
 
       -- opts.desc = "Restart LSP"
       -- keymap.set("n", "<leader>lr", ":LspRestart<CR>", opts) -- mapping to restart lsp if necessary
@@ -91,34 +81,52 @@ return {
     -- configure html server
     lspconfig["html"].setup({
       capabilities = capabilities,
-      on_attach = on_attach,
+      -- on_attach = on_attach,
+      on_attach = function(_, bufnr)
+        on_attach(_, bufnr)
+      end,
     })
 
     -- configure css server
     lspconfig["cssls"].setup({
       capabilities = capabilities,
-      on_attach = on_attach,
+      -- on_attach = on_attach,
+      on_attach = function(_, bufnr)
+        on_attach(_, bufnr)
+      end,
     })
 
     -- configure tailwindcss server
     lspconfig["tailwindcss"].setup({
       capabilities = capabilities,
-      on_attach = on_attach,
+      -- on_attach = on_attach,
+      on_attach = function(_, bufnr)
+        on_attach(_, bufnr)
+      end,
     })
 
     lspconfig["svelte"].setup({
       capabilities = capabilities,
-      on_attach = on_attach,
+      -- on_attach = on_attach,
+      on_attach = function(_, bufnr)
+        on_attach(_, bufnr)
+      end,
     })
 
     lspconfig["prismals"].setup({
       capabilities = capabilities,
-      on_attach = on_attach,
+      -- on_attach = on_attach,
+      on_attach = function(_, bufnr)
+        on_attach(_, bufnr)
+      end,
     })
 
     lspconfig["graphql"].setup({
       capabilities = capabilities,
-      on_attach = on_attach,
+      -- on_attach = on_attach,
+      on_attach = function(_, bufnr)
+        on_attach(_, bufnr)
+      end,
 
       filetypes = {
         "graphql",
@@ -132,7 +140,10 @@ return {
     -- configure emmet language server
     lspconfig["emmet_ls"].setup({
       capabilities = capabilities,
-      on_attach = on_attach,
+      -- on_attach = on_attach,
+      on_attach = function(_, bufnr)
+        on_attach(_, bufnr)
+      end,
       filetypes = {
         "html",
         "typescriptreact",
@@ -148,7 +159,10 @@ return {
     -- configure python server
     lspconfig["pyright"].setup({
       capabilities = capabilities,
-      on_attach = on_attach,
+      -- on_attach = on_attach,
+      on_attach = function(_, bufnr)
+        on_attach(_, bufnr)
+      end,
     })
     lspconfig.clangd.setup({
       capabilities = capabilities,
@@ -156,23 +170,35 @@ return {
         "clangd",
         "--offset-encoding=utf-16",
       },
-      on_attach = on_attach,
+      -- on_attach = on_attach,
+      on_attach = function(_, bufnr)
+        on_attach(_, bufnr)
+      end,
     })
 
     lspconfig.flow.setup({
-      on_attach = on_attach,
+      -- on_attach = on_attach,
+      on_attach = function(_, bufnr)
+        on_attach(_, bufnr)
+      end,
       capabilities = capabilities,
     })
 
     lspconfig.eslint.setup({
       capabilities = capabilities,
-      on_attach = on_attach,
+      -- on_attach = on_attach,
+      on_attach = function(_, bufnr)
+        on_attach(_, bufnr)
+      end,
     })
 
     lspconfig["ts_ls"].setup({
       capabilities = capabilities,
       cmd = { "typescript-language-server", "--stdio" },
-      on_attach = on_attach,
+      -- on_attach = on_attach,
+      on_attach = function(_, bufnr)
+        on_attach(_, bufnr)
+      end,
       filetypes = {
         "javascript",
         "javascriptreact",
@@ -186,7 +212,11 @@ return {
     -- configure lua server (with special settings)
     lspconfig["lua_ls"].setup({
       capabilities = capabilities,
-      on_attach = on_attach,
+      -- on_attach = on_attach,
+      on_attach = function(_, bufnr)
+        on_attach(_, bufnr)
+      end,
+
       settings = { -- custom settings for lua
         Lua = {
           -- make the language server recognize "vim" global

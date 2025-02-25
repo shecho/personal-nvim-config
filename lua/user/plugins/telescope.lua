@@ -20,13 +20,14 @@ return {
       "nvim-telescope/telescope-ui-select.nvim",
       event = "VeryLazy",
       -- config = function(_, opts)
-      --   require("ui-select").setup(opts)
-      --   require("telescope").load_extension("ui-select")
+      -- require("ui-select").setup(opts)
+      -- require("telescope").load_extension("ui-select")
       -- end,
     },
     { "nvim-telescope/telescope-file-browser.nvim" },
     { "danielvolchek/tailiscope.nvim" },
-    { "rcarriga/nvim-notify" },
+    -- { "rcarriga/nvim-notify" },
+    { "nvim-telescope/telescope-media-files.nvim" },
   },
   opts = function()
     local telescope = require("telescope")
@@ -34,22 +35,25 @@ return {
     local actions = require("telescope.actions")
     local icons = require("user.icons")
     local trouble = require("trouble.sources.telescope")
+    local add_to_trouble = require("trouble.sources.telescope").add
+
     telescope.load_extension("fzf")
     telescope.load_extension("lazy")
     telescope.load_extension("projects")
     telescope.load_extension("ui-select")
     telescope.load_extension("file_browser")
     telescope.load_extension("tailiscope")
-    telescope.load_extension("notify")
+    -- telescope.load_extension("notify")
     telescope.load_extension("harpoon")
     telescope.load_extension("egrepify")
+    telescope.load_extension("media_files")
     local keymap = vim.keymap
     keymap.set("n", "<leader>p", "<cmd>Telescope find_files hidden=true no_ignore=true layout_config={width=0.99,height=0.99}<cr>", { desc = "Fuzzy find files" })
     keymap.set(
       "n",
       "<leader>sf",
       -- "<cmd>Telescope file_browser theme=ivy initial_mode=normal<cr>",
-      "<cmd>Telescope file_browser<cr>",
+      "<cmd>Telescope file_browser initial_mode=normal theme=ivy<cr>",
       { desc = "Find files" }
     )
     keymap.set(
@@ -73,12 +77,12 @@ return {
     return {
       defaults = {
         layout_config = {
-          width = 0.99,
-          height = 0.99,
+          width = 0.39,
+          height = 0.39,
           -- prompt_position = "top",
           -- preview_cutoff = 120,
-          horizontal = { preview_width = 0.45 },
-          vertical = { preview_height = 0.45 },
+          -- horizontal = { preview_width = 0.45 },
+          -- vertical = { preview_height = 0.45 },
         },
         path_display = { "truncate " },
         prompt_prefix = icons.ui.Telescope .. " ",
@@ -223,6 +227,16 @@ return {
             vertical = { preview_height = 0.40 },
           },
         },
+        oldfiles = {
+          -- theme = "dropdown",
+          layout_config = {
+            width = 0.99,
+            height = 0.99,
+            -- preview_cutoff = 120,
+            horizontal = { preview_width = 0.40 },
+            vertical = { preview_height = 0.40 },
+          },
+        },
       },
       extensions = {
         media_files = {
@@ -249,16 +263,9 @@ return {
         file_browser = {
           theme = "ivy",
           -- disables netrw and use telescope-file-browser in its place
+          -- hijack_netrw = true,
           hijack_netrw = true,
           initial_mode = "normal",
-          mappings = {
-            ["i"] = {
-              -- your custom insert mode mappings
-            },
-            ["n"] = {
-              -- your custom normal mode mappings
-            },
-          },
         },
       },
     }
