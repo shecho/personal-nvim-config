@@ -26,7 +26,7 @@ return {
     },
     { "nvim-telescope/telescope-file-browser.nvim" },
     { "danielvolchek/tailiscope.nvim" },
-    { "rcarriga/nvim-notify" },
+    -- { "rcarriga/nvim-notify" },
     { "nvim-telescope/telescope-media-files.nvim" },
   },
   opts = function()
@@ -43,7 +43,7 @@ return {
     telescope.load_extension("ui-select")
     telescope.load_extension("file_browser")
     telescope.load_extension("tailiscope")
-    telescope.load_extension("notify")
+    -- telescope.load_extension("notify")
     telescope.load_extension("harpoon")
     telescope.load_extension("egrepify")
     telescope.load_extension("media_files")

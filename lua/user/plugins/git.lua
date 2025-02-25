@@ -31,21 +31,21 @@ return {
     },
     config = function() end,
   },
-  {
-    "f-person/git-blame.nvim",
-    -- event = { "BufReadPre", "BufNewFile" },
-    cmd = { "GitBlameToggle" },
-    keys = { { "<leader>gb", "<cmd>GitBlameToggle<cr>", nowait = true, desc = "Git Blame" } },
-    config = function()
-      local blame = require("gitblame")
-      blame.setup({
-        enabled = false,
-      })
-      vim.cmd([[
-        let g:gitblame_enabled = 0
-      ]])
-    end,
-  },
+  -- {
+  --   "f-person/git-blame.nvim",
+  --   -- event = { "BufReadPre", "BufNewFile" },
+  --   cmd = { "GitBlameToggle" },
+  --   keys = { { "<leader>gb", "<cmd>GitBlameToggle<cr>", nowait = true, desc = "Git Blame" } },
+  --   config = function()
+  --     local blame = require("gitblame")
+  --     blame.setup({
+  --       enabled = false,
+  --     })
+  --     vim.cmd([[
+  --       let g:gitblame_enabled = 0
+  --     ]])
+  --   end,
+  -- },
   {
     "mbbill/undotree",
     keys = {
