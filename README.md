@@ -1,1 +1,1 @@
-# Shecho's users config
+# Shecho's config

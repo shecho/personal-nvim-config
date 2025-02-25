@@ -1,16 +1,8 @@
 return {
   {
     "ibhagwan/fzf-lua",
-    -- optional for icon support
     dependencies = { "nvim-tree/nvim-web-devicons" },
-    config = function()
-      -- calling `setup` is optional for customization
-      require("fzf-lua").setup({
-        winopts = {
-          win_height = 0.95,
-          win_width = 0.90,
-        },
-      })
+    opts = function()
       local keymap = vim.keymap -- for conciseness
       keymap.set("n", "<leader>ss", "<cmd>FzfLua live_grep<cr>", { desc = "Fuzzy find files" })
       keymap.set("n", "<leader>sM", "<cmd>FzfLua marks<cr>", { desc = "Marks" })
@@ -26,14 +18,20 @@ return {
         -- :FzfLua files winopts.split=belowright\ new
         { desc = "Files system" }
       )
+
+      return {
+        winopts = {
+          height = 0.95,
+          width = 0.90,
+        },
+      }
     end,
   },
   {
     "junegunn/fzf",
     build = "./install --bin",
-    config = function()
-      local keymap = vim.keymap -- for conciseness
-      keymap.set("n", "<leader>sS", "<cmd>Fzf files<cr>", { desc = "Fuzzy find files" })
-    end,
+    keys = {
+      { "<leader>sS", "<leader>sS", "<cmd>Fzf files<cr>", nowait = true, desc = "Fuzzy find files" },
+    },
   },
 }

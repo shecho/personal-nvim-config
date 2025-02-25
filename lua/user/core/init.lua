@@ -1,2 +1,2 @@
 require("user.core.autocommands")
--- require("user.core.funtions")
+require("user.core.functions")
