@@ -4,11 +4,18 @@ return {
   lazy = false,
   ---@type snacks.Config
   opts = {
+    explorer = {
+      enabled = true,
+      replace_netrw = true,
+      layout = { position = "right" },
+    },
+    picker = {
+      enabled = true,
+      sources = { explorer = { layout = { layout = { position = "right" } } } },
+    },
     input = { enabled = true },
     scope = { enabled = true },
-    scroll = { enabled = true },
-    animate = { enabled = false },
-    bigfile = { enabled = true },
+    bigfile = { enabled = true, size = 1.5 * 1024 * 1024 },
     quickfile = { enabled = true },
     dashboard = { enabled = false },
     indent = { enabled = false },
@@ -27,12 +34,26 @@ return {
   },
   keys = {
     {
-      "<leader>Z",
+      "<leader>E",
       function()
-        Snacks.zen()
+        Snacks.explorer()
       end,
-      desc = "Toggle Zen Mode",
+      desc = "File Explorer",
     },
+    {
+      "<leader>sd",
+      function()
+        Snacks.picker.smart()
+      end,
+      desc = "Smart Find Files",
+    },
+    -- {
+    --   "<leader>Z",
+    --   function()
+    --     Snacks.zen()
+    --   end,
+    --   desc = "Toggle Zen Mode",
+    -- },
     -- { "<leader>Z",  function() Snacks.zen.zoom() end,                desc = "Toggle Zoom", },
     -- { "<leader>.",  function() Snacks.scratch() end,                 desc = "Toggle Scratch Buffer", },
     -- { "<leader>S",  function() Snacks.scratch.select() end,          desc = "Select Scratch Buffer", },
@@ -142,7 +163,6 @@ return {
     vim.api.nvim_create_autocmd("User", {
       pattern = "VeryLazy",
       callback = function()
-        -- Setup some globals for debugging (lazy-loaded)
         _G.dd = function(...)
           Snacks.debug.inspect(...)
         end
@@ -154,12 +174,14 @@ return {
         -- Create some toggle mappings
         Snacks.toggle.option("spell", { name = "Spelling" }):map("<leader>Us")
         Snacks.toggle.option("wrap", { name = "Wrap" }):map("<leader>Uw")
-        Snacks.toggle.option("relativenumber", { name = "Relative Number" }):map("<leader>uL")
-        Snacks.toggle.diagnostics():map("<leader>ud")
-        Snacks.toggle.line_number():map("<leader>ul")
-        Snacks.toggle.option("conceallevel", { off = 0, on = vim.o.conceallevel > 0 and vim.o.conceallevel or 2 }):map("<leader>Uc")
+        Snacks.toggle.option("relativenumber", { name = "Relative Number" }):map("<leader>UL")
+        Snacks.toggle.diagnostics():map("<leader>Ud")
+        Snacks.toggle.line_number():map("<leader>Ul")
+        Snacks.toggle
+          .option("conceallevel", { off = 0, on = vim.o.conceallevel > 0 and vim.o.conceallevel or 2 })
+          :map("<leader>Uc")
         Snacks.toggle.treesitter():map("<leader>UT")
-        Snacks.toggle.option("background", { off = "light", on = "dark", name = "Dark Background" }):map("<leader>ub")
+        Snacks.toggle.option("background", { off = "light", on = "dark", name = "Dark Background" }):map("<leader>Ub")
         Snacks.toggle.inlay_hints():map("<leader>Uh")
         Snacks.toggle.indent():map("<leader>Ug")
         Snacks.toggle.dim():map("<leader>UD")

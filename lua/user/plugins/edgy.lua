@@ -31,7 +31,7 @@ return {
             end,
           },
           "Trouble",
-          { ft = "qf",                title = "QuickFix" },
+          { ft = "qf", title = "QuickFix" },
           {
             ft = "help",
             size = { height = 20 },
@@ -40,7 +40,7 @@ return {
               return vim.bo[buf].buftype == "help"
             end,
           },
-          { title = "Spectre",        ft = "spectre_panel",        size = { height = 0.4 } },
+          { title = "Spectre", ft = "spectre_panel", size = { height = 0.4 } },
           { title = "Neotest Output", ft = "neotest-output-panel", size = { height = 15 } },
         },
         left = {
@@ -77,10 +77,10 @@ return {
           ft = "trouble",
           filter = function(_buf, win)
             return vim.w[win].trouble
-                and vim.w[win].trouble.position == pos
-                and vim.w[win].trouble.type == "split"
-                and vim.w[win].trouble.relative == "editor"
-                and not vim.w[win].trouble_preview
+              and vim.w[win].trouble.position == pos
+              and vim.w[win].trouble.type == "split"
+              and vim.w[win].trouble.relative == "editor"
+              and not vim.w[win].trouble_preview
           end,
         })
       end
@@ -94,13 +94,13 @@ return {
           title = "%{b:snacks_terminal.id}: %{b:term_title}",
           filter = function(_buf, win)
             return vim.w[win].snacks_win
-                and vim.w[win].snacks_win.position == pos
-                and vim.w[win].snacks_win.relative == "editor"
-                and not vim.w[win].trouble_preview
+              and vim.w[win].snacks_win.position == pos
+              and vim.w[win].snacks_win.relative == "editor"
+              and not vim.w[win].trouble_preview
           end,
         })
       end
       return opts
-    end
-  }
+    end,
+  },
 }

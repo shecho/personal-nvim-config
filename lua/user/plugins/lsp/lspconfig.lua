@@ -4,6 +4,19 @@ return {
   dependencies = {
     "hrsh7th/cmp-nvim-lsp",
     { "antosha417/nvim-lsp-file-operations", config = true },
+    {
+      "folke/lazydev.nvim",
+      ft = "lua",
+      cmd = "LazyDev",
+      opts = {
+        library = {
+          { path = "${3rd}/luv/library", words = { "vim%.uv" } },
+          { path = "LazyVim", words = { "LazyVim" } },
+          { path = "snacks.nvim", words = { "Snacks" } },
+          { path = "lazy.nvim", words = { "LazyVim" } },
+        },
+      },
+    },
   },
   config = function()
     local lspconfig = require("lspconfig")
