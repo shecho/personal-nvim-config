@@ -35,7 +35,7 @@ return {
     local actions = require("telescope.actions")
     local icons = require("user.icons")
     local trouble = require("trouble.sources.telescope")
-    local add_to_trouble = require("trouble.sources.telescope").add
+    -- local add_to_trouble = require("trouble.sources.telescope").add
 
     telescope.load_extension("fzf")
     telescope.load_extension("lazy")
@@ -43,12 +43,16 @@ return {
     telescope.load_extension("ui-select")
     telescope.load_extension("file_browser")
     telescope.load_extension("tailiscope")
-    -- telescope.load_extension("notify")
     telescope.load_extension("harpoon")
     telescope.load_extension("egrepify")
     telescope.load_extension("media_files")
     local keymap = vim.keymap
-    keymap.set("n", "<leader>p", "<cmd>Telescope find_files hidden=true no_ignore=true layout_config={width=0.99,height=0.99}<cr>", { desc = "Fuzzy find files" })
+    keymap.set(
+      "n",
+      "<leader>p",
+      "<cmd>Telescope find_files hidden=true no_ignore=true layout_config={width=0.99,height=0.99}<cr>",
+      { desc = "Fuzzy find files" }
+    )
     keymap.set(
       "n",
       "<leader>sf",
