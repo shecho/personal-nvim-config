@@ -21,8 +21,8 @@ keymap("n", "<C-i>", "<C-i>", opts)
 -- Better window navigation
 keymap("n", "<C-h>", "<C-w>h", opt_nw)
 keymap("n", "<C-j>", "<C-w>j", opt_nw)
-keymap("n", "<C-k>", "<C-w>k", opt_nw)
-keymap("n", "<C-l>", "<C-w>l", opt_nw)
+keymap("n", "<M-k>", "<C-w>k", opt_nw)
+keymap("n", "<M-l>", "<C-w>l", opt_nw)
 keymap("n", "<C-j>", "<cmd> resize -2<CR>", opt_nw)
 keymap("n", "<C-k>", "<cmd> resize +2<CR>", opt_nw)
 keymap("n", "<S-h>", "<cmd> vertical resize -2<CR>", opt_nw)
@@ -73,18 +73,13 @@ keymap("x", "K", ":move '<-2<CR>gv-gv", opts)
 keymap("x", "<A-j>", ":move '>+1<CR>gv-gv", opts)
 keymap("x", "<A-k>", ":move '<-2<CR>gv-gv", opts)
 
--- keymap("n", "<F11>", "<cmd>lua vim.lsp.buf.references()<CR>", opts)
 -- zen mode
 keymap("n", "<C-z>", "<cmd>ZenMode<cr>", opts)
 keymap("n", "<leader>z", "<cmd>ZenMode<cr>", opts)
--- keymap("n", "=", "<cmd>JABSOpen<cr>", { noremap = true, silent = true, nowait = true })
-
--- Some actions
 keymap("n", "<C-x>", '<cmd>lua require("ts-node-action").node_action()<cr>', opts)
 
 -- Floaterm
 opts.desc = "Floaterm toogle"
-keymap({ "n", "t", "v" }, "<lader>2", "<cmd>FloatermToggle<cr>", opts)
 keymap({ "n", "v" }, "<leader>t", "<cmd>FloatermToggle<cr>", opts)
 keymap({ "n", "t" }, "<C-t>", "<cmd>FloatermToggle<cr>", opts)
 
@@ -92,7 +87,7 @@ opts.desc = "Enter cmd mode"
 keymap("n", "<leader>;", ":", opts)
 
 -- remove S as a command
-opts.desc = "Remove 'S'"
+opts.desc = "Remove 's'"
 keymap({ "n", "v", "x" }, "s", "<Esc>", opts)
 opts.desc = "Remov q"
 keymap({ "n", "v", "x" }, "q", "<Esc>", opts)
@@ -120,9 +115,9 @@ keymap("i", "<C-b>", "<C-o>de", opt_nw)
 -- select_all
 keymap("n", "<C-a>", "gg<S-v>GY", opt_nw)
 
--- change colorscheme
-opt_nw.desc = "Toggle colorscheme"
-keymap({ "n", "v" }, "<leader>aa", "<cmd>lua require('onedark').toggle()<cr>", opt_nw)
+-- change colorscheme: to to colorscheme
+-- opt_nw.desc = "Toggle colorscheme"
+-- keymap({ "n", "v" }, "<leader>aA", "<cmd>lua require('onedark').toggle()<cr>", opt_nw)
 
 -- Alternate way to save
 keymap("n", "<C-s>", "<cmd>w<cr>", opt_nw)
@@ -140,7 +135,7 @@ opt_nw.desc = "Vertical Split"
 -- keymap("n", "<leader>v", "<C-W>v", opt_nw)
 keymap("n", "<leader>v", "<cmd>vsplit<cr>", opt_nw)
 opt_nw.desc = "Horizontal Split"
-keymap("n", "<leader>ah", "<cmd>split<cr>", opt_nw)
+keymap("n", "<leader>ao", "<cmd>split<cr>", opt_nw)
 opt_nw.desc = "Balance Window"
 keymap("n", "<leader>a=", "<C-W>=", opt_nw)
 opt_nw.desc = "Win up"
@@ -152,31 +147,7 @@ keymap("n", "<leader>al", "<C-W>l", opt_nw)
 opt_nw.desc = "Cursorline"
 keymap("n", "<leader>ac", "<cmd>lua require('user.core.functions').toggle_option('cursorline')<cr>", opt_nw)
 
--- sorrund like
-opt_nw.desc = "{}"
-keymap("n", "<leader>4", "ciw{}<Esc>P", opt_nw)
-keymap("v", "<leader>4", "xi{}<Esc>P", opt_nw)
-
-opt_nw.desc = "[]"
-keymap("n", "<leader>5", "ciw[]<Esc>P", opt_nw)
-keymap("v", "<leader>5", "xi[]<Esc>P", opt_nw)
-
-opt_nw.desc = "''"
-keymap("n", "<leader>7", "ciw''<Esc>P", opt_nw)
-keymap("v", "<leader>7", "xi''<Esc>P", opt_nw)
-
-opt_nw.desc = '""'
-keymap("n", "<leader>8", 'ciw""<Esc>P', opt_nw)
-keymap("v", "<leader>8", 'xi""<Esc>P', opt_nw)
-
-opt_nw.desc = "()"
-keymap("n", "<leader>9", "ciw()<Esc>P", opt_nw)
-keymap("v", "<leader>9", "xi()<Esc>P", opt_nw)
-
-keymap("n", "K", ":lua require('user.core.functions').show_documentation()<CR>", opts)
+-- keymap("n", "K", ":lua require('user.core.functions').show_documentation()<CR>", opts)
 keymap("n", "Q", ":lua require('user.core.functions').smart_quit()<CR>", opts)
-
--- ease caps
--- " inoremap <c-u> <ESC>viwUi
 
 return M
