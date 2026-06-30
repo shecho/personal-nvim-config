@@ -91,7 +91,7 @@ return {
         trigger = { prefetch_on_insert = false, show_on_insert = true },
         -- list = { selection = { preselect = true, auto_insert = true } },
         accept = { auto_brackets = { enabled = false } },
-        documentation = { auto_show = false, auto_show_delay_ms = 100 },
+        documentation = { auto_show = false, auto_show_delay_ms = 200 },
 
         menu = {
           winblend = 15,
@@ -102,7 +102,7 @@ return {
               kind_icon = {
                 text = function(ctx)
                   if vim.tbl_contains({ "Path" }, ctx.source_name) then
-                    local mini_icon, _ = require("mini.icons").get_icon(ctx.item.data.type, ctx.label)
+                    local mini_icon, _ = require("mini.icons").get(ctx.item.data.type, ctx.label)
                     if mini_icon then
                       return mini_icon .. ctx.icon_gap
                     end
@@ -114,7 +114,7 @@ return {
 
                 highlight = function(ctx)
                   if vim.tbl_contains({ "Path" }, ctx.source_name) then
-                    local mini_icon, mini_hl = require("mini.icons").get_icon(ctx.item.data.type, ctx.label)
+                    local mini_icon, mini_hl = require("mini.icons").get(ctx.item.data.type, ctx.label)
                     if mini_icon then
                       return mini_hl
                     end
@@ -126,7 +126,7 @@ return {
                 -- Optional, use highlights from mini.icons
                 highlight = function(ctx)
                   if vim.tbl_contains({ "Path" }, ctx.source_name) then
-                    local mini_icon, mini_hl = require("mini.icons").get_icon(ctx.item.data.type, ctx.label)
+                    local mini_icon, mini_hl = require("mini.icons").get(ctx.item.data.type, ctx.label)
                     if mini_icon then
                       return mini_hl
                     end
