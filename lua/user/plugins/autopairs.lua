@@ -1,12 +1,16 @@
 return {
   {
     "saghen/blink.pairs",
-    version = "*", -- required for prebuilt binaries via blink.download
+    version = "*", -- required for prebuilt binaries
     event = "InsertEnter",
 
-    -- download prebuilt binaries from github releases
-    dependencies = "saghen/blink.download",
-    -- Versioned releases use prebuilt binaries; avoid requiring Rust on fresh macOS/WSL installs.
+    -- blink.pairs v0.6+ requires blink.lib (renamed from blink.download)
+    dependencies = "saghen/blink.lib",
+    -- download prebuilt binaries from github releases; without this, blink.pairs
+    -- can't find its native parser lib and setup() silently no-ops (no auto-pairing)
+    build = function()
+      require("blink.pairs").download():pwait(60000)
+    end,
     -- OR build from source with nix
     -- build = "nix build .#build-plugin",
 

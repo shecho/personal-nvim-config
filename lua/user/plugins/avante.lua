@@ -26,10 +26,9 @@ return {
     provider = "copilot",
     providers = {
       copilot = {
-        -- model = "claude-sonnet-4.5", -- o1-preview | o1-mini | claude-3.5-sonnet
-        -- model = "claude-3.7-sonnet", -- o1-preview | o1-mini | claude-3.5-sonnet
         -- model = "gpt-4.1",
         model = "gpt-5-mini",
+        -- model = "raptor-mini",
       },
     },
     -- auto_suggestions_provider = "copilot",

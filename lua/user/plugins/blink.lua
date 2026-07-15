@@ -1,3 +1,16 @@
+-- Map fs_stat types to mini.icons categories; unsupported types return nil safely.
+local function mini_icon_get(fs_type, label)
+  local category = ({ file = "file", directory = "directory", link = "file", dir = "directory" })[fs_type]
+  if not category then
+    return nil, nil
+  end
+  local ok, icon, hl = pcall(require("mini.icons").get, category, label)
+  if ok then
+    return icon, hl
+  end
+  return nil, nil
+end
+
 return {
   {
     "saghen/blink.compat",
@@ -102,7 +115,7 @@ return {
               kind_icon = {
                 text = function(ctx)
                   if vim.tbl_contains({ "Path" }, ctx.source_name) then
-                    local mini_icon, _ = require("mini.icons").get(ctx.item.data.type, ctx.label)
+                    local mini_icon, _ = mini_icon_get(ctx.item.data.type, ctx.label)
                     if mini_icon then
                       return mini_icon .. ctx.icon_gap
                     end
@@ -114,9 +127,9 @@ return {
 
                 highlight = function(ctx)
                   if vim.tbl_contains({ "Path" }, ctx.source_name) then
-                    local mini_icon, mini_hl = require("mini.icons").get(ctx.item.data.type, ctx.label)
+                    local mini_icon, mini_hl = mini_icon_get(ctx.item.data.type, ctx.label)
                     if mini_icon then
-                      return mini_hl
+                      return mini_hl or ctx.kind_hl
                     end
                   end
                   return ctx.kind_hl
@@ -126,9 +139,9 @@ return {
                 -- Optional, use highlights from mini.icons
                 highlight = function(ctx)
                   if vim.tbl_contains({ "Path" }, ctx.source_name) then
-                    local mini_icon, mini_hl = require("mini.icons").get(ctx.item.data.type, ctx.label)
+                    local mini_icon, mini_hl = mini_icon_get(ctx.item.data.type, ctx.label)
                     if mini_icon then
-                      return mini_hl
+                      return mini_hl or ctx.kind_hl
                     end
                   end
                   return ctx.kind_hl

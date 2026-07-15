@@ -14,6 +14,7 @@ require("user.lazy")
 if not pcall(vim.cmd.colorscheme, "onedark") then
   vim.notify("Failed to load colorscheme: onedark", vim.log.levels.WARN)
 end
+
 -- VM theme
 vim.g.VM_theme = "purplegray"
 
